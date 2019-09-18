@@ -1,0 +1,183 @@
+@include mq($pc) {
+  #app {
+    width: $mainPcWidth;
+    height: $mainPcHeight;
+    min-width: $minPcWidth;
+    min-height: $minPcHeight;
+    $background-image:url("../../assets/images/#{$path}/pc/bg.jpg");
+    $background-size: 19.2rem 66rem;
+    $background-repeat: no-repeat;
+    $background-position: top center;
+    background: #{$background-image} #{$background-position}/#{$background-size} #{$background-repeat};
+  }
+
+  .app_container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  #header {
+    width: 100%;
+    height: 11rem;
+    position: relative;
+    border: 1px solid red;
+  }
+
+  .header_actTime {
+    width: 5.09rem;
+    height: .72rem;
+    margin-left: 3.96rem;
+    margin-top: 4.41rem;
+    line-height: .72rem;
+    $background-image:url("../../assets/images/#{$path}/pc/time.png");
+    $background-size: 5.09rem .72rem;
+    $background-repeat: no-repeat;
+    $background-position: center;
+    background: #{$background-image} #{$background-position}/#{$background-size} #{$background-repeat};
+  }
+
+  .header_btnBox {
+    width: 100%;
+    margin-top: .41rem;
+  }
+
+  .header_btnBox_loginBtn {
+    width: 2.87rem;
+    height: 1.03rem;
+    margin-left: 5rem;
+    $background-image:url("../../assets/images/#{$path}/pc/icon.png");
+    $background-size: 2.87rem 1.03rem;
+    $background-repeat: no-repeat;
+    $background-position: top center;
+    background: #{$background-image} #{$background-position}/#{$background-size} #{$background-repeat};
+
+  }
+
+  .userInfo {
+    width: 100%;
+    height: .7rem;
+    position: relative;
+    margin-top: -.7rem;
+  }
+
+  .userInfo_dropBtn {
+    color: #fb5c6d;
+    font-size: 25px;
+  }
+
+  .userInfo_span {
+    text-align: center;
+    color: #fb5c6d;
+    font-size: 25px;
+    line-height: 35px;
+    min-width: 300px;
+    display: inline-block;
+  }
+
+  .userInfo_span:nth-child(1) {
+    min-width: 150px;
+  }
+
+  .navBox {
+    width: 2.6rem;
+    height: 3rem;
+    position: fixed;
+    top: 1rem;
+    right: 0;
+    z-index: $z-index2
+  }
+
+  .navBox_controlBtn {
+    width: .37rem;
+    height: 100%;
+    text-align: center;
+    line-height: 3rem;
+    color: #ffffff;
+    font-size: 32px;
+    font-family: "AdobeFangsongStd-Regular";
+    background-color: rgba(42, 159, 249, 0.58);
+    border-radius: 10px;
+    float: left;
+    cursor: pointer;
+  }
+
+  .navBox_content {
+    width: 2.2rem;
+    height: 3rem;
+    box-sizing: border-box;
+    padding: .4rem .1rem;
+    background-color: rgba(42, 159, 249, 0.58);
+    border-radius: 15px;
+    float: right;
+    font-size: 0;
+  }
+
+  .navBox_content .iosDownBtn,
+  .googleDownBtn,
+  .facebookDownBtn {
+    display: inline-block;
+    width: 1.82rem;
+    height: .6rem;
+    background-size: 1.82rem .6rem;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-bottom: .2rem;
+  }
+
+  .iosDownBtn {
+    background-image: url("../../assets/images/#{$path}/pc/ios.png");
+  }
+
+  .googleDownBtn {
+    background-image:url("../../assets/images/#{$path}/pc/google.png");
+  }
+
+  .facebookDownBtn {
+    background-image: url("../../assets/images/#{$path}/pc/fan.png");
+    margin-bottom: 0;
+  }
+
+  .bottomLogo {
+    $width: 3.67rem;
+    $height: .49rem;
+    width: $width;
+    height: $height;
+    $background-image:url("../../assets/images/#{$path}/pc/bottomLogo.png");
+    $background-size: $width $height;
+    $background-repeat: no-repeat;
+    $background-position: center;
+    background: #{$background-image} #{$background-position}/#{$background-size} #{$background-repeat};
+  }
+
+  // 改变滚动条样式
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 12px;
+  }
+
+  ::-webkit-scrollbar-track-piece {
+    background-color: rgba(125, 125, 125, 1);
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+  }
+
+  /* 水平 */
+  ::-webkit-scrollbar-thumb:vertical {
+    height: 6px;
+    background-color: rgb(11, 205, 240);
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+
+  }
+
+  /* 垂直 */
+  ::-webkit-scrollbar-thumb:horizontal {
+    width: 8px;
+    background-color: rgba(0, 0, 0, 0.6);
+    -webkit-border-radius: 6px;
+    border-radius: 6px;
+
+  }
+
+}

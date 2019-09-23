@@ -1,12 +1,23 @@
 <template>
-	<RgButton :disabled="isDisabled" :class="isDisabled?'joinBtned':'joinBtn'" @click="JoinBtn"></RgButton>
+	<RgButton
+		:disabled="isDisabled"
+		:class="isDisabled?isEndClassName:isStartClassName"
+		@click="JoinBtn"
+	></RgButton>
 </template>
 <script lang="ts">
 	import Vue from "vue";
 	import { isLogin } from "../../common/common";
 	import { joinActivity } from "../../common/api";
 	import RgButton from "../base/RgButton.vue";
-	declare var CONFIG: any;
+	declare module "vue/types/vue" {
+		interface Vue {
+			$dialog: {
+				show: Function;
+				hide: Function;
+			};
+		}
+	}
 	export default Vue.extend({
 		name: "JoinButton",
 
@@ -25,6 +36,14 @@
 			giftIndex: {
 				type: Number,
 				required: true
+			},
+			isEndClassName: {
+				required: true,
+				type: String
+			},
+			isStartClassName: {
+				required: true,
+				type: String
 			}
 		},
 		data() {
@@ -33,16 +52,24 @@
 			};
 		},
 		methods: {
-			async JoinBtn() {
+			JoinBtn: async function() {
 				if (isLogin()) {
-					let data: any = await joinActivity("oldPlayer", 0);
+					let data: any = await joinActivity(
+						this.$props.actName,
+						this.$props.giftIndex
+					).catch(err => console.log(err));
 					if (data) {
 						this.isDisabled = true;
-						Vue.prototype.$dialog.show("tip", CONFIG["tip"].code_200);
+						this.$dialog.show("tip", window._RG.config.tip.code_200);
 					}
 				} else {
-					this.$emit("hide", true);
+					this.$emit("showLogin", true);
 				}
+			}
+		},
+		watch: {
+			initIsDisabled() {
+				this.isDisabled = this.initIsDisabled;
 			}
 		}
 	});

@@ -39,7 +39,7 @@
 				Velocity(
 					el,
 					{ opacity: this.$props.maxOpacity },
-					{ duration: this.$props.duration }
+					{ duration: this.$props.duration, complete: done }
 				);
 			},
 			leave: function(el, done) {
@@ -48,7 +48,8 @@
 					{ opacity: this.$props.minOpacity },
 					{
 						duration: this.$props.duration, // 动画执行时间
-						easing: "swing"
+						easing: "swing",
+						complete: done
 					}
 				);
 			}

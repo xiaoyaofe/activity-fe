@@ -45,9 +45,9 @@
 						<p
 							v-for="(item,index) in this.zones"
 							:key="index"
-							@click="selectZone($event)"
+							@click="selectZone($event,index)"
 							class="zoneli"
-						>Serveur-{{item.thirdGameZoneId}}</p>
+						>{{item[zoneName]}}</p>
 					</section>
 					<button class="server_btn" @click="serverBtn"></button>
 				</div>
@@ -74,7 +74,7 @@
 	export default Vue.extend({
 		data() {
 			return {
-				CONFIG: CONFIG,
+				CONFIG: window._RG.config,
 				userName: "",
 				userPassword: "",
 				userZone: "",
@@ -83,7 +83,8 @@
 				myTimer: "",
 				focusStatus: true,
 				isType: true, //判断登录/区服窗显示
-				isTip: false //判断是否登录提示
+				isTip: false, //判断是否登录提示
+				zoneName: "localName"
 			};
 		},
 		directives: {
@@ -188,13 +189,13 @@
 			// 选择区服确认登录
 			async serverBtn() {
 				zoneAnimate("selectZone", 0);
-				if (this.userZone) {
+				if (this.userZone && this.userZone !== "0" && +this.userZone > 0) {
 					var zone: any = this.userZone.replace(/[^0-9]/gi, "");
 					var gameZone: any = this.zones[zone - 1];
 					let id = gameZone.gameZoneId;
 					let data: any = await findRole(id);
 					if (!data.length || data.code == "102") {
-						Vue.prototype.$dialog.show("tip", CONFIG["tip"].player_null);
+						Vue.prototype.$dialog.show("tip", window._RG.config.tip.player_null);
 					} else {
 						// 区服成功
 						localStorage.setItem("playerName", data[0].playerName);
@@ -206,7 +207,7 @@
 						// pixel
 					}
 				} else {
-					Vue.prototype.$dialog.show("tip", CONFIG["tip"].zone_null);
+					Vue.prototype.$dialog.show("tip", window._RG.config.tip.zone_null);
 				}
 			},
 			/******************************************************************************/
@@ -261,30 +262,35 @@
 		z-index: $z-index2;
 	}
 	.centerBox {
-		width: 600px;
+		width: 659px;
 		height: 500px;
 		position: relative;
 		top: 50%;
 		left: 50%;
-		margin-left: -300px;
-		margin-top: -250px;
-		border-radius: 20px;
-		background: #8ed7e5;
-		background-size: contain;
-		box-shadow: 0px 14px 0 0px #59a8bf;
-		// border: 1px solid;
+		transform: translate(-50%, -50%);
+		// border-radius: 20px;
+		background: #fff;
+		// background-size: contain;
+		// box-shadow: 0px 14px 0 0px #59a8bf;
+		border: 10px solid #2094c5;
 	}
 
 	.close {
-		width: 30px;
-		height: 30px;
+		$width: 61px;
+		$height: 61px;
+		width: $width;
+		height: $height;
+		// margin-top: 0.16rem;
+		$background-image: url("../../assets/images/#{$path}/pc/close.png");
+		$background-size: $width $height;
+		$background-repeat: no-repeat;
+		$background-position: center;
+		background: #{$background-image} #{$background-position}/#{$background-size} #{$background-repeat};
+		position: relative;
 		// border-radius: 50%;
-		background: url("./img/close.png") no-repeat center;
-		background-size: contain;
-		color: white;
 		position: absolute;
-		top: 25px;
-		right: 25px;
+		top: 4px;
+		right: 9px;
 	}
 	.close:hover,
 	.login_btn:hover,
@@ -328,21 +334,24 @@
 	.title {
 		font-size: 25px;
 		color: #0976d9;
-		text-align: center;
-		padding-top: 95px;
+		text-align: left;
+		padding-top: 77px;
+		margin-left: 64px;
 		line-height: 3;
 	}
 	.username,
 	.userpass,
 	.userzone {
-		width: 472px;
-		height: 72px;
+		width: 526px;
+		height: 61px;
 		border-radius: 5px;
-		margin-left: 64px;
+		margin-left: 63px;
 		margin-top: 70px;
 		text-indent: 25px;
 		font-size: 23px;
 		// background: url("./img/inputBg.png")no-repeat center;
+		background-color: #fafdff;
+		border: solid 2px #3b89dc;
 		color: #0976d9;
 	}
 
@@ -353,17 +362,12 @@
 		margin-left: 64px;
 		text-indent: 30px;
 		margin-top: 0px;
-		background: url("./img/drop.png") no-repeat 400px 27px, #ffffff;
+		background: url("../../assets/images/#{$path}/pc/drop.png") no-repeat 475px
+				27px,
+			#ffffff;
 		// background: url("./img/input_server.png") no-repeat center;
 	}
-	.fb_btn {
-		width: 472px;
-		height: 72px;
-		margin-top: 20px;
-		margin-left: 64px;
-		border-radius: 20px;
-		background: url("./img/facebook.png");
-	}
+
 	// .kakaoBtn{
 	//   width: 207px;
 	//   height: 72px;
@@ -371,29 +375,40 @@
 	//   margin-left: 49px;
 	//   background: url("./img/fbBtn.png");
 	// }
+	$btnWidth: 526px;
+	$btnHeight: 85px;
 	.login_btn1 {
-		width: 472px;
-		height: 72px;
+		width: $btnWidth;
+		height: $btnHeight;
 		margin-top: 20px;
 		margin-left: 64px;
-		background: url("./img/loginBtn1.png") no-repeat center;
+		background: url("../../assets/images/#{$path}/pc/loginBtn1.png") no-repeat
+			center;
+	}
+	.fb_btn {
+		width: $btnWidth;
+		height: $btnHeight;
+		margin-top: 20px;
+		margin-left: 64px;
+		border-radius: 20px;
+		background: url("../../assets/images/#{$path}/pc/fb-login.png");
 	}
 	.server_btn {
-		width: 472px;
-		height: 72px;
+		width: $btnWidth;
+		height: $btnHeight;
 		margin-left: 64px;
-		margin-top: 30px;
-		background: url("./img/loginBtn2.png") no-repeat center;
+		margin-top: 111px;
+		background: url("../../assets/images/#{$path}/pc/ok.png") no-repeat center;
 	}
 	.selectZone {
-		width: 435px;
+		width: 526px;
 		height: 0px;
-		margin-left: 80px;
-		margin-top: -4px;
+		margin-left: 67px;
+		margin-top: -2px;
 		overflow-y: auto;
 		position: absolute;
-		background: #6ac4ee;
-		z-index: 999;
+		background: #fafafa;
+		z-index: $z-index3;
 		border-bottom-left-radius: 10px;
 		border-bottom-right-radius: 10px;
 	}
@@ -403,6 +418,7 @@
 		line-height: 45px;
 		font-size: 23px;
 		text-indent: 30px;
+		color: #0976d9;
 	}
 	.userInfo {
 		font-size: 24px;

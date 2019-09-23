@@ -47,7 +47,7 @@
 				Velocity(
 					el,
 					{ [this.$props.direction]: this.$props.minValue },
-					{ duration: this.$props.duration }
+					{ duration: this.$props.duration, complete: done }
 				);
 			},
 			leave: function(el, done) {
@@ -56,7 +56,8 @@
 					{ [this.$props.direction]: this.$props.maxValue },
 					{
 						duration: this.$props.duration, // 动画执行时间
-						easing: "swing"
+						easing: "swing",
+						complete: done
 					}
 				);
 			}

@@ -13,7 +13,7 @@
 			},
 			mode: {
 				type: String,
-				default: "'out-in'"
+				default: "out-in"
 			}
 		}
 	};

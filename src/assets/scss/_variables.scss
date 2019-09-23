@@ -4,18 +4,18 @@ $mobile: "screen and (max-width: 750px) and (min-width: 0px)";
 $path: "vs_20191001";
 
 $mainPcWidth:19.2rem;
-$mainPcHeight:66rem;
+$mainPcHeight:51.79rem;
 $mainMbWidth:7.5rem;
 $mainMbHeight:66rem;
 
 //不要随意更改PC端的minPcWidth这个值,需要修改 src/utils/fns 下的setHtmlFontSize函数中的值
 $minPcWidth:1200px;
 //高度值计算公式: 设计稿高度 * $minPcWidth/设计稿宽度
-$minPcHeight:4125px;
+$minPcHeight:3237px;
 
 /* 为了 footer 的吸底的效果 */
-$footerPcHeight:3.18rem;
-$footermbHeight:2rem;
+$footerPcHeight:1.07rem;
+$footermbHeight:1.07rem;
 
 $z-index2:2;
 $z-index3:3;

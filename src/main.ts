@@ -2,13 +2,14 @@ import "normalize.css";
 import 'babel-polyfill';
 import Vue from 'vue';
 import Pixel from '@/plugins/pixel';
-import VueTap from "./utils/rg-tap";
+import vueTap from 'v-tap';
+
 // import * as VueScrollTo from "vue-scrollto";
 import App from "./pages/vs_20191001/App.vue";
 import Dialog from './common/dialog';
 import { setRem, isShowPc } from "@/common/common"
 import { noJitterFn } from "@/utils/fns"
-// const App = require("./pages/" + process.env.VUE_APP_PATH + "/App.vue"); //运行时编译缺少模板编译器,将来写个程序自己挪动
+
 // 初始化rem
 setRem(1920, 750);
 // 窗口变化,防抖
@@ -16,22 +17,21 @@ const throttleSetRem = noJitterFn<(pc: number, mb: number) => void>(100, setRem)
 window.addEventListener("resize", function () {
   throttleSetRem(1920, 750);
 })
-// 注册全局弹窗
-Vue.use(Dialog);
+
 // 兼容IE9页面滚动属性
 window.requestAnimationFrame = window.requestAnimationFrame ||
   function (fn: () => void) { return setTimeout(fn, 1000 / 60); };
 window.cancelAnimationFrame = window.cancelAnimationFrame || clearTimeout;
-
 window._RG = {
   config: CONFIG
 }
 
+// 注册全局弹窗
+Vue.use(Dialog);
 // Vue.use(VueScrollTo);
-Vue.use(VueTap);
+Vue.use(vueTap);
 // 设置 Pc 模式还是 Mb 模式
 Vue.prototype.$isPc = isShowPc();
-Vue.prototype.$isLogin = false;
 
 // 设置全局打点方法
 Vue.prototype.$pixel = Pixel;

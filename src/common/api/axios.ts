@@ -30,48 +30,55 @@ function responseSuccessFunc(responseObj) {
   let { code } = resData
   switch (code) {
     case 102:
-      Vue.prototype.$dialog.show("tip", CONFIG.tip.code_102);
+      Vue.prototype.$dialog.show("tip", window._RG.config.tip.code_102);
       return
     //业务成功
     case 200:
       return resData.state;
     case 300:
       localStorage.clear();
-      Vue.prototype.$dialog.show("tip", CONFIG.tip.code_300);
+      Vue.prototype.$dialog.show("tip", window._RG.config.tip.code_300);
       setTimeout(() => {
         location.reload();
       }, 5000)
       return
+    case 400:
+      // localStorage.clear();
+      Vue.prototype.$dialog.show("tip", window._RG.config.tip.code_300);
+      // setTimeout(() => {
+      //   location.reload();
+      // }, 5000)
+      return
     case 401:
-      Vue.prototype.$dialog.show("tip", CONFIG.tip.code_401);
+      Vue.prototype.$dialog.show("tip", window._RG.config.tip.code_401);
       return
     case 402:
-      Vue.prototype.$dialog.show("tip", CONFIG.tip.code_402);
+      Vue.prototype.$dialog.show("tip", window._RG.config.tip.code_402);
       return
     case 444:
-      Vue.prototype.$dialog.show("tip", CONFIG.tip.code_444);
+      Vue.prototype.$dialog.show("tip", window._RG.config.tip.code_444);
       return
     case 405:
-      Vue.prototype.$dialog.show("tip", CONFIG.tip.code_405);
+      Vue.prototype.$dialog.show("tip", window._RG.config.tip.code_405);
       return
     case 1000:
-      Vue.prototype.$dialog.show("tip", CONFIG.tip.code_1000);
+      Vue.prototype.$dialog.show("tip", window._RG.config.tip.code_1000);
       return
     case 1001:
-      Vue.prototype.$dialog.show("tip", CONFIG.tip.code_1001);
+      Vue.prototype.$dialog.show("tip", window._RG.config.tip.code_1001);
       return
     case 1002:
-      Vue.prototype.$dialog.show("tip", CONFIG.tip.code_1002);
+      Vue.prototype.$dialog.show("tip", window._RG.config.tip.code_1002);
       return
     case 1005:
-      Vue.prototype.$dialog.show("tip", CONFIG.tip.code_1005);
+      Vue.prototype.$dialog.show("tip", window._RG.config.tip.code_1005);
       return
     case 1006:
-      Vue.prototype.$dialog.show("tip", CONFIG.tip.code_1006);
+      Vue.prototype.$dialog.show("tip", window._RG.config.tip.code_1006);
       return
-    // case 1101:
-    //   Vue.prototype.$dialog.show("tip", CONFIG.tip.code_1101);
-    //   return
+    case 1101:
+      Vue.prototype.$dialog.show("tip", window._RG.config.tip.code_1101);
+      return
     default:
       return Promise.reject(resData)
   }
@@ -102,6 +109,8 @@ export const get = function (url: string, params: any) {
       return response
     })
     .catch(function (error) {
+      Vue.prototype.$dialog.hide();
+      // Vue.prototype.$dialog.show("tip", window._RG.config.tip.code_400);
       console.log(error)
     })
 }

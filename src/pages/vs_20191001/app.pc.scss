@@ -1,131 +1,171 @@
 @include mq($pc) {
+
+  /* 最高层的锚定元素 */
   #app {
     width: $mainPcWidth;
     height: $mainPcHeight;
     min-width: $minPcWidth;
     min-height: $minPcHeight;
     $background-image:url("../../assets/images/#{$path}/pc/bg.jpg");
-    $background-size: 19.2rem 66rem;
+    $background-size: $mainPcWidth $mainPcHeight;
     $background-repeat: no-repeat;
     $background-position: top center;
     background: #{$background-image} #{$background-position}/#{$background-size} #{$background-repeat};
+    overflow: hidden;
   }
 
+  /* 内容的容器包裹除footer之外的一切元素 */
   .app_container {
     position: relative;
     width: 100%;
     height: 100%;
   }
 
+  /* 头部 */
   #header {
     width: 100%;
-    height: 11rem;
+    height: 7.9rem;
     position: relative;
-    border: 1px solid red;
   }
 
+  /* 活动时间 */
   .header_actTime {
-    width: 5.09rem;
-    height: .72rem;
-    margin-left: 3.96rem;
-    margin-top: 4.41rem;
-    line-height: .72rem;
-    $background-image:url("../../assets/images/#{$path}/pc/time.png");
-    $background-size: 5.09rem .72rem;
+    margin-left: 6.1rem;
+    margin-top: .15rem;
+    $width: 12.71rem;
+    $height: 5.21rem;
+    width: $width;
+    height: $height;
+    $background-image:url("../../assets/images/#{$path}/pc/title.png");
+    $background-size: $width $height;
     $background-repeat: no-repeat;
     $background-position: center;
     background: #{$background-image} #{$background-position}/#{$background-size} #{$background-repeat};
   }
 
+  /* 登录按钮的盒子 */
   .header_btnBox {
     width: 100%;
-    margin-top: .41rem;
+    margin-top: -.74rem;
   }
 
+  /* 登录按钮 */
   .header_btnBox_loginBtn {
-    width: 2.87rem;
-    height: 1.03rem;
-    margin-left: 5rem;
-    $background-image:url("../../assets/images/#{$path}/pc/icon.png");
-    $background-size: 2.87rem 1.03rem;
+    $width: 3.18rem;
+    $height: 1.37rem;
+    width: $width;
+    height: $height;
+    margin-left: 10.7rem;
+    $background-image:url("../../assets/images/#{$path}/pc/login-control.png");
+    $background-size: $width $height;
     $background-repeat: no-repeat;
-    $background-position: top center;
+    $background-position: center;
     background: #{$background-image} #{$background-position}/#{$background-size} #{$background-repeat};
 
   }
 
+  /* 用户信息 */
   .userInfo {
+    position: relative;
+    margin-top: .6rem;
+    margin-left: 10.5rem;
     width: 100%;
     height: .7rem;
-    position: relative;
-    margin-top: -.7rem;
+    font-family: "FZPHFW--GB1-0";
+    font-size: .24rem;
+    line-height: .7rem;
+    color: #5d3a9b;
+    text-align: left;
   }
 
+  /* 注销按钮 */
+  .userInfo_span,
   .userInfo_dropBtn {
-    color: #fb5c6d;
-    font-size: 25px;
+    margin-left: .1rem;
+    color: #5d3a9b;
   }
 
-  .userInfo_span {
-    text-align: center;
+  /* 用户区服等信息 */
+  /*   .userInfo_span {
+
     color: #fb5c6d;
     font-size: 25px;
     line-height: 35px;
     min-width: 300px;
     display: inline-block;
-  }
+  } */
 
-  .userInfo_span:nth-child(1) {
+  /*  .userInfo_span:nth-child(1) {
     min-width: 150px;
-  }
+  } */
 
+
+  /* 下载的右侧悬浮窗 */
   .navBox {
-    width: 2.6rem;
-    height: 3rem;
+    width: 2.42rem;
+    height: 2.66rem;
     position: fixed;
-    top: 1rem;
+    top: 1.5rem;
     right: 0;
     z-index: $z-index2
   }
 
+  /* 下载的右侧悬浮窗控制按钮 */
   .navBox_controlBtn {
-    width: .37rem;
-    height: 100%;
-    text-align: center;
-    line-height: 3rem;
-    color: #ffffff;
-    font-size: 32px;
-    font-family: "AdobeFangsongStd-Regular";
-    background-color: rgba(42, 159, 249, 0.58);
-    border-radius: 10px;
-    float: left;
+    $width: .4rem;
+    $height: .64rem;
+    width: $width;
+    height: $height;
+    $background-image:url("../../assets/images/#{$path}/pc/nav-btn.png");
+    $background-size: $width $height;
+    $background-repeat: no-repeat;
+    $background-position: center;
+    background: #{$background-image} #{$background-position}/#{$background-size} #{$background-repeat};
+    position: absolute;
+    top: 0.89rem;
+    left: -0.52rem;
     cursor: pointer;
   }
 
-  .navBox_content {
-    width: 2.2rem;
-    height: 3rem;
-    box-sizing: border-box;
-    padding: .4rem .1rem;
-    background-color: rgba(42, 159, 249, 0.58);
-    border-radius: 15px;
-    float: right;
-    font-size: 0;
+  .navBox_controlBtn1 {
+    transform: rotateZ(0)
   }
 
-  .navBox_content .iosDownBtn,
+  .navBox_controlBtn1 {
+    transform: rotateZ(180deg)
+  }
+
+  /* 下载的右侧悬浮窗内容盒子 */
+  .navBox_content {
+    $width: 2.42rem;
+    $height: 2.66rem;
+    width: $width;
+    height: $height;
+    $background-image:url("../../assets/images/#{$path}/pc/nav-bg.png");
+    $background-size: $width $height;
+    $background-repeat: no-repeat;
+    $background-position: center;
+    background: #{$background-image} #{$background-position}/#{$background-size} #{$background-repeat};
+  }
+
+  /* 下载按钮 */
+  .iosDownBtn,
   .googleDownBtn,
   .facebookDownBtn {
     display: inline-block;
-    width: 1.82rem;
-    height: .6rem;
-    background-size: 1.82rem .6rem;
+    $width: 1.98rem;
+    $height: .57rem;
+    width: $width;
+    height: $height;
+    margin-left: .22rem;
+    margin-top: .13rem;
+    background-size: $width $height;
     background-repeat: no-repeat;
     background-position: center;
-    margin-bottom: .2rem;
   }
 
   .iosDownBtn {
+    margin-top: .33rem;
     background-image: url("../../assets/images/#{$path}/pc/ios.png");
   }
 
@@ -134,13 +174,18 @@
   }
 
   .facebookDownBtn {
-    background-image: url("../../assets/images/#{$path}/pc/fan.png");
+    background-image: url("../../assets/images/#{$path}/pc/fans.png");
     margin-bottom: 0;
   }
 
+  /* footer中的logo */
+  .app_footer {
+    background: rgba(255, 255, 255, .9);
+  }
+
   .bottomLogo {
-    $width: 3.67rem;
-    $height: .49rem;
+    $width: 2.46rem;
+    $height: .77rem;
     width: $width;
     height: $height;
     $background-image:url("../../assets/images/#{$path}/pc/bottomLogo.png");
@@ -180,4 +225,40 @@
 
   }
 
+  #act3 {
+    $width: 100%;
+    $height: 7.43rem;
+    width: $width;
+    height: $height;
+    $background-image:url("../../assets/images/#{$path}/pc/act3-bg.png");
+    $background-size: 14.73rem $height;
+    $background-repeat: no-repeat;
+    $background-position: 2.34rem 0;
+    background: #{$background-image} #{$background-position}/#{$background-size} #{$background-repeat};
+  }
+
+  #act4 {
+    $width: 100%;
+    $height: 3.47rem;
+    width: $width;
+    height: $height;
+    margin-top: .2rem;
+    $background-image:url("../../assets/images/#{$path}/pc/act4-bg.png");
+    $background-size: 11.33rem $height;
+    $background-repeat: no-repeat;
+    $background-position: 4.11rem center;
+    background: #{$background-image} #{$background-position}/#{$background-size} #{$background-repeat};
+  }
+
+  #act6 {
+    $width: 100%;
+    $height: 7.11rem;
+    width: $width;
+    height: $height;
+    $background-image:url("../../assets/images/#{$path}/pc/act6-bg.png");
+    $background-size: 12rem $height;
+    $background-repeat: no-repeat;
+    $background-position: 3.6rem center;
+    background: #{$background-image} #{$background-position}/#{$background-size} #{$background-repeat};
+  }
 }

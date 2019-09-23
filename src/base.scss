@@ -20,3 +20,117 @@ ol,
 ul {
   list-style: none
 }
+
+.clearfix:after {
+  content: "";
+  clear: both;
+  display: block;
+}
+
+.hide {
+  display: none;
+}
+
+input,
+textarea,
+select {
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit
+}
+
+input,
+textarea,
+select {
+  *font-size: 100%
+}
+
+// input提示字体颜色
+::-webkit-input-placeholder {
+  /* WebKit browsers */
+  color: #8e8e8e;
+}
+
+:-moz-placeholder {
+  /* Mozilla Firefox 4 to 18 */
+  color: #8e8e8e;
+}
+
+::-moz-placeholder {
+  /* Mozilla Firefox 19+ */
+  color: #8e8e8e;
+}
+
+:-ms-input-placeholder {
+  /* Internet Explorer 10+ */
+  color: #8e8e8e;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* input占位符颜色*/
+::-moz-placeholder {
+  color: #369;
+}
+
+::-webkit-input-placeholder {
+  color: #369;
+}
+
+:-ms-input-placeholder {
+  color: #369;
+}
+
+input {
+  background-color: #fafdff !important;
+  background-image: none;
+  border: none;
+  outline: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0)
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0
+}
+
+img {
+  border: 0
+}
+
+p {
+  margin: 0;
+  padding: 0
+}
+
+button {
+  background: none;
+  border: none;
+  outline: none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+button:hover {
+  cursor: pointer;
+}
+
+button:active {
+  position: relative;
+  top: 2px;
+}
+
+@media screen and (min-width: 1200px) {
+
+  html,
+  body {
+    overflow-x: hidden;
+  }
+}

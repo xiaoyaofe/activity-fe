@@ -29,7 +29,12 @@ const api = {
   roteCdkeys: "/activity/facebook/cdKeys",
   updateReward: "/activity/updateReward", //更新包礼包
   // 20190706
-  roteRecharge: "/activity/vipReturn"
+  roteRecharge: "/activity/vipReturn",
+  carCount: '/activity/cardCount', //获取宝箱数量
+  cardReward: "/activity/cardReward", //参与宝箱活动
+  cardBoxFB: "/activity/cardBoxFB", //分享调用
+  // 飞行棋,港台vs使用
+  flightChess:"/activity/flightChess"
 }
 // sdk登录
 export const loginWithAccount = (username, password) => {
@@ -150,7 +155,7 @@ export const wishHistory = (length) => {
 export const joinFilp = (typeId, index) => {
   let params = {
     groupId: window._RG.config.data.groupId,
-    actId: window._RG.config[typeId].id,
+    actId: window._RG.config.data.actId[typeId].id,
     token: localStorage.token,
     index: index
   }
@@ -160,7 +165,7 @@ export const joinFilp = (typeId, index) => {
 export const infoFlip = (typeId) => {
   let params = {
     groupId: window._RG.config.data.groupId,
-    actId: window._RG.config[typeId].id,
+    actId: window._RG.config.data.actId[typeId].id,
     token: localStorage.token,
   }
   return get(BASE_URL + api.fflInfo, params)
@@ -235,3 +240,45 @@ export const getRecharge = (typeId, index) => {
   return get(BASE_URL + api.roteRecharge, params)
 }
 
+// 宝箱的三个接口
+
+export const joinBoxFb = (fbShare: boolean) => {
+  let params = {
+    groupId: window._RG.config.data.groupId,
+    actId: window._RG.config.data.actId.box,
+    token: localStorage.token,
+    fbShare
+  }
+  return get(BASE_URL + api.cardBoxFB, params)
+}
+export const getCardCount = (wishId: string = "") => {
+  let params = {
+    groupId: window._RG.config.data.groupId,
+    actId: window._RG.config.data.actId.box,
+    token: localStorage.token,
+    fbShare: "false",
+    // wishId
+  }
+  return get(BASE_URL + api.carCount, params)
+}
+export const joinCardReward = (index: number) => {
+  let params = {
+    groupId: window._RG.config.data.groupId,
+    actId: window._RG.config.data.actId.box,
+    token: localStorage.token,
+    rewardId: window._RG.config.data.rewardId.box[0],
+    index: index
+  }
+  return get(BASE_URL + api.cardReward, params)
+}
+// 飞行棋
+// 0-查询刷新次数/1-投骰子领奖/ 2-砸彩蛋
+export const joinFlightChess = (type: 0|1|2) => {
+  let params = {
+    groupId: window._RG.config.data.groupId,
+    actId: window._RG.config.data.actId.flightChess,
+    token: localStorage.token,
+    type
+  };
+  return get(BASE_URL + api.flightChess, params);
+}

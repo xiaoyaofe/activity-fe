@@ -1,7 +1,7 @@
 const path = require("path");
 const webpack = require('webpack');
 const configs = require('./src/configs');
-const languages = require('./src/common/i18n');
+const languages = require('./src/configs/i18n');
 
 const activityParamDevAndBuild = configs[process.env.VUE_APP_PATH];
 
@@ -35,12 +35,12 @@ module.exports = {
         CONFIG: JSON.stringify(activityParam),
         ...getEnvObj()
       })
-      /* ,
-            new webpack.ProvidePlugin({
-              $: 'jquery',
-              jQuery: 'jquery',
-              'window.jQuery': 'jquery',
-            }) */
+      // ,
+      // new webpack.ProvidePlugin({
+      //   $: 'jquery',
+      //   jQuery: 'jquery',
+      //   'window.jQuery': 'jquery',
+      // })
     )
   },
   pluginOptions: {

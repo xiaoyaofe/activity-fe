@@ -36,8 +36,11 @@ interface ActiveParams {
   ga: string;
   // 活动ID
   actId: {
-    // 登录
+    flightChess:string
     login: string;
+    // 登录
+    login1: string;
+    login2: string;
     // 预约
     reserve: string;
     //  许愿
@@ -67,8 +70,11 @@ interface ActiveParams {
   }
   // 礼包ID
   rewardId: {
+    flightChess:string[];
+    login: string[]
     // 登录
-    login: string[];
+    login1: string[];
+    login2: string[];
     //  许愿（wish[0]：goosId；wish[1]：wishReward；wish[2]：luckyReward）
     wish: string[];
     // 有奖竞猜

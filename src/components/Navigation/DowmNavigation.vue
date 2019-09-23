@@ -1,8 +1,8 @@
 <template>
 	<div>
 		<div v-if="isPc" class="navBox" ref="navBox">
-			<div class="navBox_controlBtn" v-tap="{methods:toggleContent}">
-				<slot name="controlContent">{{isShowContent?"<":">"}}</slot>
+			<div :class="isShowContent ?'navBox_controlBtn navBox_controlBtn1' : 'navBox_controlBtn navBox_controlBtn2'" v-tap="{methods:toggleContent}">
+				<slot name="controlContent"></slot>
 			</div>
 			<div class="navBox_content">
 				<a v-for="(value,key) in buttons" :class="key" :href="value" :key="key" v-tap></a>

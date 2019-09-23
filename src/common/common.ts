@@ -2,6 +2,7 @@ import { setHtmlFontSize, isPc } from "@/utils/fns"
 
 //判断玩家是否登录
 export const isLogin = function () {
+
     if (localStorage.userId && localStorage.token && localStorage.playerId) {
         // var active = new Date().getTime();
         // active -= 1800000;

@@ -5,7 +5,7 @@ import Pixel from '@/plugins/pixel';
 import vueTap from 'v-tap';
 
 // import * as VueScrollTo from "vue-scrollto";
-import App from "./pages/vs_20191001/App.vue";
+import App from "./pages/vs_20191001/App.vue"; //运行时编译,的原因不能使用变量替换路径
 import Dialog from './common/dialog';
 import { setRem, isShowPc } from "@/common/common"
 import { noJitterFn } from "@/utils/fns"

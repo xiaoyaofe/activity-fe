@@ -5,7 +5,7 @@
 			<p class="act5_moreBtn" v-tap="{methods:toggleMore}">查看更多</p>
 			<div v-if="isShowMore" class="act5_more">
 				<div class="act5_more_close" v-tap="{methods:toggleMore}"></div>
-				<p class="act5_more_txt act5_more_txt1">1. 每日登陆游戏即可获得一次投骰子机会</p>
+				<p class="act5_more_txt act5_more_txt1">1. 每日登陆本活动页面即可获得一次投骰子机会。</p>
 				<p class="act5_more_txt">2. 每储值达到100钻石可获得一次投色子机会，每日最多获得5个。</p>
 				<p class="act5_more_txt">3. 神秘彩蛋可开出超萌宠物以及超强神兽哦！</p>
 				<p class="act5_more_txt">4. 抽中奖品后，物品将会在1小时内以邮件形式自动发送至游戏内。</p>
@@ -68,8 +68,8 @@
 			}
 		},
 		data() {
-			const activeArr: boolean[] = [];
-			for (let i = 0; i < 30; i++) {
+			const activeArr: boolean[] = [true];
+			for (let i = 1; i < 30; i++) {
 				activeArr.push(false);
 			}
 			return {
@@ -84,12 +84,12 @@
 				// 彩蛋数量
 				specialCount: 0,
 				// 当前步数
-				currentStep: 0,
+				currentStep: 1,
 				// 剩余次数
 				restCount: 0,
 				activeArr: activeArr,
 				timer: setTimeout(() => {}, 200),
-				lastStep: 0
+				lastStep: 1
 			};
 		},
 		computed: {},
@@ -320,5 +320,5 @@
 </script>
 <style lang="scss">
 	@import "./act5.pc.scss";
-	// @import "./act5.mb.scss";
+	@import "./act5.mb.scss";
 </style>

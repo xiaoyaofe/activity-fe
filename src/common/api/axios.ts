@@ -40,7 +40,7 @@ function responseSuccessFunc(responseObj) {
       Vue.prototype.$dialog.show("tip", window._RG.config.tip.code_300);
       setTimeout(() => {
         location.reload();
-      }, 5000)
+      }, 3000)
       return
     case 400:
       // localStorage.clear();

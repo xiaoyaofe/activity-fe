@@ -127,6 +127,10 @@ button:active {
   top: 2px;
 }
 
+ul {
+  padding-left: 0;
+}
+
 @media screen and (min-width: 1200px) {
 
   html,
@@ -134,3 +138,7 @@ button:active {
     overflow-x: hidden;
   }
 }
+
+// body * {
+//   outline: 1px solid red
+// }

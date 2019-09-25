@@ -6,7 +6,7 @@ $path: "vs_20191001";
 $mainPcWidth:19.2rem;
 $mainPcHeight:51.79rem;
 $mainMbWidth:7.5rem;
-$mainMbHeight:66rem;
+$mainMbHeight:70.64rem;
 
 //不要随意更改PC端的minPcWidth这个值,需要修改 src/utils/fns 下的setHtmlFontSize函数中的值
 $minPcWidth:1200px;
@@ -15,7 +15,7 @@ $minPcHeight:3237px;
 
 /* 为了 footer 的吸底的效果 */
 $footerPcHeight:1.07rem;
-$footermbHeight:1.07rem;
+$footermbHeight:1.06rem;
 
 $z-index2:2;
 $z-index3:3;

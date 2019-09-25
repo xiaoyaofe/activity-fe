@@ -50,7 +50,7 @@ export function getConfigItemAndDeleteItem(obj: Object, name: string | string[])
 
 export function setHtmlFontSize(viewBaseWidth: number) {
   let clientWidth = document.documentElement.clientWidth;
-  if (clientWidth <= 1200) clientWidth = 1200;
+  if (clientWidth <= 1200 && viewBaseWidth > 750) clientWidth = 1200;
   let _fontSize = clientWidth / (viewBaseWidth / 100);
   document.documentElement.style.fontSize = _fontSize + "px";
 }

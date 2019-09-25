@@ -1,320 +1,320 @@
-#act5 {
-  width: 12rem;
-  height: 8.34rem;
-  margin-left: 3.65rem;
-}
-
-.act5-title {
-  position: relative;
-  $width: 9.22rem;
-  $height: .81rem;
-  width: $width;
-  height: $height;
-  margin-left: 1.33rem;
-  margin-top: 1.29rem;
-  $background-image:url("../../../assets/images/#{$path}/pc/act5-title.png");
-  $background-size: $width $height;
-  $background-repeat: no-repeat;
-  $background-position: center;
-  background: #{$background-image} #{$background-position}/#{$background-size} #{$background-repeat};
-}
-
-.act5_moreBtn {
-  width: 4em;
-  position: relative;
-  left: 46%;
-  top: 120%;
-  font-family: HeitiCSEG-Medium-T-GB;
-  text-decoration: underline;
-  font-size: .2rem;
-  font-weight: normal;
-  font-stretch: normal;
-  letter-spacing: 0px;
-  color: #0d3da9;
-  cursor: pointer;
-}
-
-.act5_more {
-  width: 6.59rem;
-  height: 2.5rem;
-  background-color: #ffffff;
-  border: solid 10px #2094c5;
-  position: absolute;
-  top: 160%;
-  left: 13%;
-  z-index: $z-index3;
-}
-
-.act5_more_close {
-  $width: 61px;
-  $height: 61px;
-  width: $width;
-  height: $height;
-  // margin-top: 0.16rem;
-  $background-image: url("../../../assets/images/#{$path}/pc/close.png");
-  $background-size: $width $height;
-  $background-repeat: no-repeat;
-  $background-position: center;
-  background: #{$background-image} #{$background-position}/#{$background-size} #{$background-repeat};
-  position: relative;
-  // border-radius: 50%;
-  position: absolute;
-  top: 4px;
-  right: 9px;
-  cursor: pointer;
-}
-
-.act5_more_txt {
-  font-family: "FZXH1FW--GB1-0";
-  font-size: .2rem;
-  line-height: .24rem;
-  color: #2fa3d0;
-  margin-left: .59rem;
-}
-
-.act5_more_txt1 {
-  margin-top: .65rem;
-}
-
-.act5-content {
-  position: relative;
-  margin-top: .48rem;
-  height: 5.05rem;
-  overflow: hidden;
-}
-
-.act5-gifts {
-  box-sizing: border-box;
-  $width: 1rem;
-  $height: 1rem;
-  width: $width;
-  height: $height;
-  padding: 0.02rem;
-  float: left;
-  $background-image:url("../../../assets/images/#{$path}/pc/act5-gift-bg.png");
-  $background-size: .86rem .86rem;
-  $background-repeat: no-repeat;
-  $background-position: center;
-  background: #{$background-image} #{$background-position}/#{$background-size} #{$background-repeat};
-  overflow: hidden;
-  position: absolute;
-}
-
-// 1
-.act5-gifts1 {
-  top: 2rem;
-  left: 0;
-  background: none;
-}
-
-// 2
-.act5-gifts2 {
-  top: 1rem;
-  left: 0;
-}
-
-// 3-14
-@for $i from 1 through 13 {
-  .act5-gifts#{$i+2} {
-    top: 0;
-    left: #{($i - 1)*1rem};
+@include mq($pc) {
+  #act5 {
+    width: 12rem;
+    height: 8.34rem;
+    margin-left: 3.65rem;
   }
-}
 
-// 15-18
-@for $i from 1 through 5 {
-  .act5-gifts#{$i+14} {
-    top: #{$i * 1rem};
-    left: #{(12 - 1)*1rem};
+  .act5-title {
+    position: relative;
+    $width: 9.22rem;
+    $height: .81rem;
+    width: $width;
+    height: $height;
+    margin-left: 1.33rem;
+    margin-top: 1.29rem;
+    $background-image:url("../../../assets/images/#{$path}/pc/act5-title.png");
+    $background-size: $width $height;
+    $background-repeat: no-repeat;
+    $background-position: center;
+    background: #{$background-image} #{$background-position}/#{$background-size} #{$background-repeat};
   }
-}
 
-// 19-29
-@for $i from 1 through 11 {
-  .act5-gifts#{$i+18} {
-    top: 4rem;
-    left: #{(11 - $i)*1rem};
+  .act5_moreBtn {
+    width: 4em;
+    position: relative;
+    left: 46%;
+    top: 120%;
+    font-family: HeitiCSEG-Medium-T-GB;
+    text-decoration: underline;
+    font-size: .2rem;
+    font-weight: normal;
+    font-stretch: normal;
+    letter-spacing: 0px;
+    color: #0d3da9;
+    cursor: pointer;
   }
-}
 
-// 30
-.act5-gifts30 {
-  top: 3rem;
-  left: 0;
-}
+  .act5_more {
+    width: 6.59rem;
+    height: 2.5rem;
+    background-color: #ffffff;
+    border: solid .1rem #2094c5;
+    position: absolute;
+    top: 160%;
+    left: 13%;
+    z-index: $z-index3;
+  }
 
-.act5-gift {
-  text-align: center;
-  box-sizing: border-box;
-  width: 100%;
-  height: 100%;
-}
+  .act5_more_close {
+    $width: .5rem;
+    $height: .5rem;
+    width: $width;
+    height: $height;
+    // margin-top: 0.16rem;
+    $background-image: url("../../../assets/images/#{$path}/pc/close.png");
+    $background-size: $width $height;
+    $background-repeat: no-repeat;
+    $background-position: center;
+    background: #{$background-image} #{$background-position}/#{$background-size} #{$background-repeat};
+    // border-radius: 50%;
+    position: absolute;
+    top: 4px;
+    right: 9px;
+    cursor: pointer;
+  }
 
-.act5-gift1 {
-  $background-image:url("../../../assets/images/#{$path}/pc/act5-start.png");
-  $background-size: .86rem .86rem;
-  $background-repeat: no-repeat;
-  $background-position: center;
-  background: #{$background-image} #{$background-position}/#{$background-size} #{$background-repeat};
-}
+  .act5_more_txt {
+    font-family: "FZXH1FW--GB1-0";
+    font-size: .2rem;
+    line-height: .24rem;
+    color: #2fa3d0;
+    margin-left: .59rem;
+  }
 
-@for $i from 2 through 30 {
-  .act5-gift#{$i} {
-    $background-image:url("../../../assets/images/#{$path}/pc/act5-gift1.png");
+  .act5_more_txt1 {
+    margin-top: .65rem;
+  }
+
+  .act5-content {
+    position: relative;
+    margin-top: .48rem;
+    height: 5.05rem;
+    overflow: hidden;
+  }
+
+  .act5-gifts {
+    box-sizing: border-box;
+    $width: 1rem;
+    $height: 1rem;
+    width: $width;
+    height: $height;
+    padding: 0.02rem;
+    $background-image:url("../../../assets/images/#{$path}/pc/act5-gift-bg.png");
+    $background-size: .86rem .86rem;
+    $background-repeat: no-repeat;
+    $background-position: center;
+    background: #{$background-image} #{$background-position}/#{$background-size} #{$background-repeat};
+    overflow: hidden;
+    position: absolute;
+  }
+
+  // 1
+  .act5-gifts1 {
+    top: 2rem;
+    left: 0;
+    background: none;
+  }
+
+  // 2
+  .act5-gifts2 {
+    top: 1rem;
+    left: 0;
+  }
+
+  // 3-14
+  @for $i from 1 through 13 {
+    .act5-gifts#{$i+2} {
+      top: 0;
+      left: #{($i - 1)*1rem};
+    }
+  }
+
+  // 15-18
+  @for $i from 1 through 5 {
+    .act5-gifts#{$i+14} {
+      top: #{$i * 1rem};
+      left: #{(12 - 1)*1rem};
+    }
+  }
+
+  // 19-29
+  @for $i from 1 through 11 {
+    .act5-gifts#{$i+18} {
+      top: 4rem;
+      left: #{(11 - $i)*1rem};
+    }
+  }
+
+  // 30
+  .act5-gifts30 {
+    top: 3rem;
+    left: 0;
+  }
+
+  .act5-gift {
+    text-align: center;
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+  }
+
+  .act5-gift1 {
+    $background-image:url("../../../assets/images/#{$path}/pc/act5-start.png");
     $background-size: .86rem .86rem;
     $background-repeat: no-repeat;
     $background-position: center;
     background: #{$background-image} #{$background-position}/#{$background-size} #{$background-repeat};
   }
-}
 
-.act5GiftActive .act5-gift {
-  border: solid 0.02rem #fff223;
-}
+  @for $i from 2 through 30 {
+    .act5-gift#{$i} {
+      $background-image:url("../../../assets/images/#{$path}/pc/act5-gift1.png");
+      $background-size: .86rem .86rem;
+      $background-repeat: no-repeat;
+      $background-position: center;
+      background: #{$background-image} #{$background-position}/#{$background-size} #{$background-repeat};
+    }
+  }
 
-// .act5GiftActive .act5-gift1 {
-//   border: none;
-// }
+  .act5GiftActive .act5-gift {
+    border: solid 0.02rem #fff223;
+  }
 
-$diceWidth:.9rem;
-$diceHeight:.9rem;
+  // .act5GiftActive .act5-gift1 {
+  //   border: none;
+  // }
 
-.act5_dice_wrap {
-  $width: 1.64rem;
-  $height: 1.64rem;
-  width: $width;
-  height: $height;
-  position: absolute;
-  top: 1.5rem;
-  left: 3rem;
-  $background-image:url("../../../assets/images/#{$path}/pc/dice-bg.png");
-  $background-size: $width $height;
-  $background-repeat: no-repeat;
-  $background-position: center;
-  background: #{$background-image} #{$background-position}/#{$background-size} #{$background-repeat};
-  overflow: hidden;
-}
+  $diceWidth:.9rem;
+  $diceHeight:.9rem;
 
-.act5_dice {
-  width: $diceWidth;
-  height: $diceHeight;
-  margin: .37rem auto;
-  background-image:url("../../../assets/images/#{$path}/pc/dice.png");
-  background-size: 1rem 10rem;
-  background-repeat: no-repeat;
-  overflow: hidden;
-}
+  .act5_dice_wrap {
+    $width: 1.64rem;
+    $height: 1.64rem;
+    width: $width;
+    height: $height;
+    position: absolute;
+    top: 1.5rem;
+    left: 3rem;
+    $background-image:url("../../../assets/images/#{$path}/pc/dice-bg.png");
+    $background-size: $width $height;
+    $background-repeat: no-repeat;
+    $background-position: center;
+    background: #{$background-image} #{$background-position}/#{$background-size} #{$background-repeat};
+    overflow: hidden;
+  }
 
-.act5_dice_1 {
-  background-position: -0.05rem -0.04rem;
-}
+  .act5_dice {
+    width: $diceWidth;
+    height: $diceHeight;
+    margin: .37rem auto;
+    background-image:url("../../../assets/images/#{$path}/pc/dice.png");
+    background-size: 1rem 10rem;
+    background-repeat: no-repeat;
+    overflow: hidden;
+  }
 
-.act5_dice_2 {
-  background-position: -0.05rem -1.07rem;
-}
+  .act5_dice_1 {
+    background-position: -0.05rem -0.04rem;
+  }
 
-.act5_dice_3 {
-  background-position: -0.05rem -2.12rem;
-}
+  .act5_dice_2 {
+    background-position: -0.05rem -1.07rem;
+  }
 
-.act5_dice_4 {
-  background-position: -0.05rem -3.17rem;
-}
+  .act5_dice_3 {
+    background-position: -0.05rem -2.12rem;
+  }
 
-.act5_dice_5 {
-  background-position: -0.05rem -4.27rem;
-}
+  .act5_dice_4 {
+    background-position: -0.05rem -3.17rem;
+  }
 
-.act5_dice_6 {
-  background-position: -0.05rem -5.35rem;
-}
+  .act5_dice_5 {
+    background-position: -0.05rem -4.27rem;
+  }
 
-.act5_dice_t {
-  background-position: -0.05rem -6.51rem;
-}
+  .act5_dice_6 {
+    background-position: -0.05rem -5.35rem;
+  }
 
-.act5_dice_s {
-  background-position: -0.05rem -7.63rem;
-}
+  .act5_dice_t {
+    background-position: -0.05rem -6.51rem;
+  }
 
-.act5_dice_e {
-  background-position: -0.05rem -8.76rem;
-}
+  .act5_dice_s {
+    background-position: -0.05rem -7.63rem;
+  }
 
-.act5_dice_mask {
-  width: $diceWidth;
-  height: $diceHeight;
-  background: transparent;
-  background: #fff;
-  opacity: 0;
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: $z-index4;
-}
+  .act5_dice_e {
+    background-position: -0.05rem -8.76rem;
+  }
 
-.egg_wrap {
-  $width: 2.35rem;
-  $height: 2.22rem;
-  width: $width;
-  height: $height;
-  position: absolute;
-  top: 1.06rem;
-  right: 2.02rem;
-}
+  .act5_dice_mask {
+    width: $diceWidth;
+    height: $diceHeight;
+    background: transparent;
+    background: #fff;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: $z-index4;
+  }
 
-.act5_eggs {
-  $width: 2.35rem;
-  $height: 2.22rem;
-  width: $width;
-  height: $height;
-  transform-origin: 60% 100%;
-  transform: rotateZ(0deg);
-  $background-image:url("../../../assets/images/#{$path}/pc/egg-start.png");
-  $background-size: $width $height;
-  $background-repeat: no-repeat;
-  $background-position: center;
-  background: #{$background-image} #{$background-position}/#{$background-size} #{$background-repeat};
-}
+  .egg_wrap {
+    $width: 2.35rem;
+    $height: 2.22rem;
+    width: $width;
+    height: $height;
+    position: absolute;
+    top: 1.06rem;
+    right: 2.02rem;
+  }
 
-.act5_egg_gift {
-  opacity: 0;
-  display: none;
-  z-index: 2;
-  $width: .81rem;
-  $height: .86rem;
-  width: $width;
-  height: $height;
-  position: absolute;
-  top: 1.175rem - 0.405rem;
-  left: 1.11rem - 0.43rem;
-  $background-image:url("../../../assets/images/#{$path}/pc/act5-gift1.png");
-  $background-size: $width $height;
-  $background-repeat: no-repeat;
-  $background-position: center;
-  background: #{$background-image} #{$background-position}/#{$background-size} #{$background-repeat};
-}
+  .act5_eggs {
+    $width: 2.35rem;
+    $height: 2.22rem;
+    width: $width;
+    height: $height;
+    transform-origin: 60% 100%;
+    transform: rotateZ(0deg);
+    $background-image:url("../../../assets/images/#{$path}/pc/egg-start.png");
+    $background-size: $width $height;
+    $background-repeat: no-repeat;
+    $background-position: center;
+    background: #{$background-image} #{$background-position}/#{$background-size} #{$background-repeat};
+  }
 
-.act5_desc {
-  width: 4rem;
-  height: .3rem;
-  line-height: .3rem;
-  color: #0d3da9;
-  font-family: "ç»å";
-  font-size: .26rem;
-  font-weight: 700;
-  position: absolute;
-  top: 3.4rem;
-  left: 2.2rem;
-  text-align: center;
-}
+  .act5_egg_gift {
+    opacity: 0;
+    display: none;
+    z-index: 2;
+    $width: .81rem;
+    $height: .86rem;
+    width: $width;
+    height: $height;
+    position: absolute;
+    top: 1.175rem - 0.405rem;
+    left: 1.11rem - 0.43rem;
+    $background-image:url("../../../assets/images/#{$path}/pc/act5-gift1.png");
+    $background-size: $width $height;
+    $background-repeat: no-repeat;
+    $background-position: center;
+    background: #{$background-image} #{$background-position}/#{$background-size} #{$background-repeat};
+  }
 
-.act5_desc1 {
-  left: 7rem;
-}
+  .act5_desc {
+    width: 4rem;
+    height: .3rem;
+    line-height: .3rem;
+    color: #0d3da9;
+    font-family: "ç»å";
+    font-size: .26rem;
+    font-weight: 700;
+    position: absolute;
+    top: 3.4rem;
+    left: 2.2rem;
+    text-align: center;
+  }
 
-.act5_desc_span {
-  display: inline-block;
-  width: 1.2rem;
-  color: #fbff06;
+  .act5_desc1 {
+    left: 7rem;
+  }
+
+  .act5_desc_span {
+    display: inline-block;
+    width: 1.2rem;
+    color: #fbff06;
+  }
 }

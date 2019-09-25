@@ -259,11 +259,11 @@
 		top: 0;
 		left: 0;
 		background: rgba(17, 31, 50, 0.5);
-		z-index: $z-index2;
+		z-index: $z-index5;
 	}
 	.centerBox {
-		width: 659px;
-		height: 500px;
+		width: 6.59rem;
+		height: 5rem;
 		position: relative;
 		top: 50%;
 		left: 50%;
@@ -272,12 +272,12 @@
 		background: #fff;
 		// background-size: contain;
 		// box-shadow: 0px 14px 0 0px #59a8bf;
-		border: 10px solid #2094c5;
+		border: 0.1rem solid #2094c5;
 	}
 
 	.close {
-		$width: 61px;
-		$height: 61px;
+		$width: 0.5rem;
+		$height: 0.5rem;
 		width: $width;
 		height: $height;
 		// margin-top: 0.16rem;
@@ -289,8 +289,8 @@
 		position: relative;
 		// border-radius: 50%;
 		position: absolute;
-		top: 4px;
-		right: 9px;
+		top: 0.04rem;
+		right: 0.09rem;
 	}
 	.close:hover,
 	.login_btn:hover,
@@ -304,7 +304,7 @@
 		width: 100%;
 		text-align: center;
 		position: absolute;
-		top: 230px;
+		top: 2.3rem;
 		left: 0;
 		color: red;
 		z-index: 99;
@@ -313,57 +313,57 @@
 		width: 100%;
 		text-align: center;
 		position: absolute;
-		top: 260px;
+		top: 2.6rem;
 		left: 0;
 		color: red;
 		z-index: 99;
 	}
 	.zoneli {
-		height: 35px;
+		height: 0.36rem;
 		// border: 1px solid red;
-		line-height: 35px;
+		line-height: 0.36rem;
 		text-align: left;
 		text-indent: 10px;
 		color: white;
 	}
 	.zoneli:hover {
 		cursor: pointer;
-		font-size: 25px;
+		font-size: 0.26rem;
 		color: #0976d9;
 	}
 	.title {
-		font-size: 25px;
+		font-size: 0.24rem;
 		color: #0976d9;
 		text-align: left;
-		padding-top: 77px;
-		margin-left: 64px;
+		padding-top: 0.77rem;
+		margin-left: 0.64rem;
 		line-height: 3;
 	}
 	.username,
 	.userpass,
 	.userzone {
-		width: 526px;
-		height: 61px;
+		width: 5.26rem;
+		height: 0.61rem;
 		border-radius: 5px;
-		margin-left: 63px;
-		margin-top: 70px;
-		text-indent: 25px;
-		font-size: 23px;
+		margin-left: 0.63rem;
+		margin-top: 0.7rem;
+		text-indent: 0.24rem;
+		font-size: 0.24rem;
 		// background: url("./img/inputBg.png")no-repeat center;
 		background-color: #fafdff;
-		border: solid 2px #3b89dc;
+		border: solid 0.02rem #3b89dc;
 		color: #0976d9;
 	}
 
 	.userpass {
-		margin-top: 20px;
+		margin-top: 0.2rem;
 	}
 	.userzone {
-		margin-left: 64px;
-		text-indent: 30px;
-		margin-top: 0px;
-		background: url("../../assets/images/#{$path}/pc/drop.png") no-repeat 475px
-				27px,
+		margin-left: 0.64rem;
+		text-indent: 0.3rem;
+		margin-top: 0;
+		background: url("../../assets/images/#{$path}/pc/drop.png") no-repeat 4.75rem
+				0.27rem,
 			#ffffff;
 		// background: url("./img/input_server.png") no-repeat center;
 	}
@@ -375,55 +375,57 @@
 	//   margin-left: 49px;
 	//   background: url("./img/fbBtn.png");
 	// }
-	$btnWidth: 526px;
-	$btnHeight: 85px;
+	$btnWidth: 5.26rem;
+	$btnHeight: 0.85rem;
 	.login_btn1 {
 		width: $btnWidth;
 		height: $btnHeight;
-		margin-top: 20px;
-		margin-left: 64px;
+		margin-top: 0.2rem;
+		margin-left: 0.64rem;
 		background: url("../../assets/images/#{$path}/pc/loginBtn1.png") no-repeat
-			center;
+			center center/$btnWidth $btnHeight;
 	}
 	.fb_btn {
 		width: $btnWidth;
 		height: $btnHeight;
-		margin-top: 20px;
-		margin-left: 64px;
-		border-radius: 20px;
-		background: url("../../assets/images/#{$path}/pc/fb-login.png");
+		margin-top: 0.2rem;
+		margin-left: 0.64rem;
+		border-radius: 0.2rem;
+		background: url("../../assets/images/#{$path}/pc/fb-login.png") no-repeat
+			center center/$btnWidth $btnHeight;
 	}
 	.server_btn {
 		width: $btnWidth;
 		height: $btnHeight;
 		margin-left: 64px;
 		margin-top: 111px;
-		background: url("../../assets/images/#{$path}/pc/ok.png") no-repeat center;
+		background: url("../../assets/images/#{$path}/pc/ok.png") no-repeat center
+			center/$btnWidth $btnHeight;
 	}
 	.selectZone {
-		width: 526px;
-		height: 0px;
-		margin-left: 67px;
-		margin-top: -2px;
+		width: 5.26rem;
+		height: 0;
+		margin-left: 0.67rem;
+		margin-top: -0.02rem;
 		overflow-y: auto;
 		position: absolute;
 		background: #fafafa;
 		z-index: $z-index3;
-		border-bottom-left-radius: 10px;
-		border-bottom-right-radius: 10px;
+		border-bottom-left-radius: 0.1rem;
+		border-bottom-right-radius: 0.1rem;
 	}
 	.selectZone > p {
 		width: 100%;
-		height: 45px;
-		line-height: 45px;
-		font-size: 23px;
-		text-indent: 30px;
+		height: 0.45rem;
+		line-height: 0.45rem;
+		font-size: 0.24rem;
+		text-indent: 0.3rem;
 		color: #0976d9;
 	}
 	.userInfo {
-		font-size: 24px;
+		font-size: 0.24rem;
 		color: #2c2c2c;
-		margin-left: 150px;
+		margin-left: 1.5rem;
 	}
 </style>
 

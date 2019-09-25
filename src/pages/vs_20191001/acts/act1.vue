@@ -90,5 +90,5 @@
 </script>
 <style lang="scss">
 	@import "./act1.pc.scss";
-	// @import "./act1.mb.scss";
+	@import "./act1.mb.scss";
 </style>

@@ -2,7 +2,7 @@
 <template>
 	<section id="act2">
 		<div class="act2_title"></div>
-		<div class="act_person1"></div>
+		<!-- <div class="act_person1"></div> -->
 		<div class="act2_content">
 			<div class="act2_content_cardInfo">
 				<RgButton class="act2_content_giftsBtn" @click="toggleAllCards(true)"></RgButton>
@@ -13,11 +13,11 @@
 				<RgButton class="act2_content_shareBtn" @click="Share"></RgButton>
 				<div class="act2_content_gifts" v-if="isALLCards">
 					<RgButton class="gifts_closBtn" @click="toggleAllCards(false)"></RgButton>
-					<h2 class="gifts_title">
+					<p class="gifts_title">
 						全部圖鑒包含以下物品:
 						<span class="gifts_title_span">（点击图片查看奖励详情）</span>
-					</h2>
-					<ul class="gifts_content">
+					</p>
+					<ul class="gifts_content clearfix">
 						<li
 							class="gifts_item"
 							v-for="index in 16"
@@ -199,5 +199,5 @@
 </script>
 <style lang="scss">
 	@import "./act2.pc.scss";
-	// @import "./act2.mb.scss";
+	@import "./act2.mb.scss";
 </style>

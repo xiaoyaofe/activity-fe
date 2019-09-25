@@ -1,9 +1,7 @@
 <template>
 	<div id="app">
 		<!-- 导航栏 -->
-		<DowmNavigation :isPc="isPc" v-bind="navAnimateOption" :buttons="navButtons">
-			<div></div>
-		</DowmNavigation>
+		<DowmNavigation :isPc="isPc" v-bind="navAnimateOption" :buttons="navButtons"></DowmNavigation>
 		<!-- 登录 -->
 		<login v-show="loginIsVisible" @visibleLogin="visibleLogin(false)" @init="initUserInfo($event)"></login>
 		<!-- 容器 -->
@@ -158,5 +156,5 @@
 <style lang="scss">
 	@import "../../base.scss";
 	@import "./app.pc.scss";
-	// @import "./app.mb.scss";
+	@import "./app.mb.scss";
 </style>

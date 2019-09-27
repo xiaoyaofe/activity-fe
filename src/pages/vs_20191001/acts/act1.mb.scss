@@ -61,7 +61,7 @@
 
   @for $i from 1 through 5 {
     .act1_gift#{$i} {
-      $background-image:url("../../../assets/images/#{$path}/pc/act1-gift.png");
+      $background-image:url("../../../assets/images/#{$path}/pc/act1-gift#{$i}.png");
       $background-size: 2.8rem 2.5rem;
       $background-repeat: no-repeat;
       $background-position: center;

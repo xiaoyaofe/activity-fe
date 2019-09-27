@@ -197,6 +197,16 @@
     margin-bottom: 0;
   }
 
+  @for $i from 1 through 16 {
+    .gifts_item#{$i} {
+      $background-image: url("../../../assets/images/#{$path}/pc/act2/gifts/#{$i}.png");
+      $background-size: .6rem .6rem;
+      $background-repeat: no-repeat;
+      $background-position: center;
+      background: #{$background-image} #{$background-position}/#{$background-size} #{$background-repeat};
+    }
+  }
+
   .gifts_item_gift_PS {
     font-size: .18rem;
     margin-left: .33rem;
@@ -279,7 +289,7 @@
     .act2_gift#{$i} {
       $width: $act2_li_width;
       $height: $act2_li_wheight;
-      $background-image: url("../../../assets/images/#{$path}/pc/act2-gift.png");
+      $background-image: url("../../../assets/images/#{$path}/pc/act2/#{$i}.png");
       $background-size: $width $height;
       $background-repeat: no-repeat;
       $background-position: center;

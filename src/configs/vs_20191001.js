@@ -41,7 +41,7 @@ const activityParam = {
     oldPlayer: "",
     // 骰子
     dice: "",
-    flightChess:"5d849adab5cb673424c63da9"
+    flightChess: "5d849adab5cb673424c63da9"
   },
   // 礼包ID
   rewardId: {
@@ -89,7 +89,7 @@ const activityParam = {
     oldPlayer: [],
     // 骰子
     dice: [],
-    flightChess:[
+    flightChess: [
       "5d849be7b5cb673424c63daa", //1
       "5d849c11b5cb673424c63dab", //2
       "5d849c51b5cb673424c63dac", //3
@@ -125,6 +125,13 @@ const activityParam = {
       "5d849e6ab5cb673424c63dca", //33
       "5d849e7bb5cb673424c63dcb", //34
       "5d849e92b5cb673424c63dcc", //35
+      "5d8c7a0fb5cb673a74accfba", //36
+      "5d8c7a68b5cb673a74accfbb", //37
+      "5d8c7aa2b5cb673a74accfbc", //38
+      "5d8c7acdb5cb673a74accfbd", //39
+      "5d8c7afab5cb673a74accfbe", //40
+      "5d8c7b31b5cb673a74accfbf", //41
+      "5d8c7b60b5cb673a74accfc0" //42
     ]
   }
 };

@@ -59,16 +59,6 @@
 			Act5
 		},
 		data() {
-			const date = new Date();
-			const year = date.getFullYear();
-			const month = date.getMonth() + 1;
-			const day = date.getDate();
-			let act1GiftIndex = 0;
-			let act1Name = "login1";
-			if (year === 2019 && month === 9 && day >= 20) {
-				act1GiftIndex = 0;
-				act1Name = "login2";
-			}
 			return {
 				isPc: this.$isPc,
 				loginIsVisible: false,

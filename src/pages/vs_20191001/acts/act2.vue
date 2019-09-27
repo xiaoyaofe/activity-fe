@@ -19,13 +19,13 @@
 					</p>
 					<ul class="gifts_content clearfix">
 						<li
-							class="gifts_item"
+							:class="['gifts_item','gifts_item'+index]"
 							v-for="index in 16"
 							:key="'item-'+index"
 							:title="allCardsMessage[index-1]"
 						>
-							<div :class="['gifts_item_gift','act2_gift'+index]"></div>
-							<div class="gifts_item_gift_selected" v-if="isSelected[index-1]"></div>
+							<!-- <div :class="['gifts_item_gift','act2_gift'+index]"></div> -->
+							<!-- <div class="gifts_item_gift_selected" v-if="isSelected[index-1]"></div> -->
 						</li>
 					</ul>
 					<p class="gifts_item_gift_PS">PS：開啟所有圖鑒，即可獲得以上所有獎勵哦!</p>
@@ -156,10 +156,16 @@
 								this.cardClass.splice(
 									params.index,
 									1,
-									this.getRewardClassIndex(res.rewardId)
+									this.getRewardClassIndex(res.rewardId) + 1
 								);
 								this.needCardNum = res.Nextcount;
 								this.currentCardNum = res.restCount;
+								setTimeout(() => {
+									this.$dialog.show(
+										"tip",
+										window._RG.config.tip.code_200.replace("禮包", res.rewardName)
+									);
+								}, 500);
 							}
 						});
 					}

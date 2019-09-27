@@ -60,7 +60,13 @@
 					).catch(err => console.log(err));
 					if (data) {
 						this.isDisabled = true;
-						this.$dialog.show("tip", window._RG.config.tip.code_200);
+						this.$dialog.show(
+							"tip",
+							window._RG.config.tip.code_200.replace(
+								"禮包",
+								data.rewardName
+							)
+						);
 					}
 				} else {
 					this.$emit("showLogin", true);

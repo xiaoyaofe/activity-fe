@@ -20,7 +20,7 @@
 			$isPc: boolean;
 		}
 	}
-	function isShowBtn2(actTime: string) {
+	function isShowBtn(actTime: string) {
 		const date = new Date();
 		const year = date.getFullYear();
 		const month = date.getMonth() + 1;
@@ -29,6 +29,7 @@
 		if (year === +arr[0] && month === +arr[1] && day >= +arr[2]) return true;
 		return false;
 	}
+	const isShowBtn2 = () => isShowBtn("2019-9-29");
 	// 尽量抽象mixin
 	export default Vue.extend({
 		name: "Act1",
@@ -48,7 +49,7 @@
 		data() {
 			let act1Name = "login1";
 			let initIsDisabled = this.initIsDisabled1;
-			const isBtn2 = isShowBtn2("2019-9-20");
+			const isBtn2 = isShowBtn2();
 			if (isBtn2) {
 				act1Name = "login2";
 				initIsDisabled = this.initIsDisabled2;
@@ -72,14 +73,14 @@
 		},
 		watch: {
 			initIsDisabled1() {
-				const isBtn2 = isShowBtn2("2019-9-20");
+				const isBtn2 = isShowBtn2();
 				if (!isBtn2) {
 					// console.log("initIsDisabled1", isBtn2);
 					this.act1JoinButtonProps.initIsDisabled = this.initIsDisabled1;
 				}
 			},
 			initIsDisabled2() {
-				const isBtn2 = isShowBtn2("2019-9-20");
+				const isBtn2 = isShowBtn2();
 				if (isBtn2) {
 					// console.log("initIsDisabled2", isBtn2);
 					this.act1JoinButtonProps.initIsDisabled = this.initIsDisabled2;

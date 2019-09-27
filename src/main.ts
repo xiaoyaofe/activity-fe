@@ -1,5 +1,5 @@
 import "normalize.css";
-import 'babel-polyfill';
+// import 'babel-polyfill';
 import Vue from 'vue';
 import Pixel from '@/plugins/pixel';
 import vueTap from 'v-tap';
@@ -14,8 +14,10 @@ import { noJitterFn } from "@/utils/fns"
 setRem(1920, 750);
 // 窗口变化,防抖
 const throttleSetRem = noJitterFn<(pc: number, mb: number) => void>(100, setRem);
+const throttleSetIsPc = noJitterFn<() => void>(100, () => Vue.prototype.$isPc = isShowPc())
 window.addEventListener("resize", function () {
   throttleSetRem(1920, 750);
+  throttleSetIsPc();
 })
 
 // 兼容IE9页面滚动属性

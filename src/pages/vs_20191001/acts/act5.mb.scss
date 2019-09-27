@@ -36,9 +36,14 @@
 
   .act5_more {
     width: 6.59rem;
-    height: 2.81rem;
-    background-color: #ffffff;
+    height: 8.49rem;
     border: solid .1rem #2094c5;
+    $background-image: url("../../../assets/images/#{$path}/mb/act5-more-gifts.png");
+    $background-size: 6.31rem 7.25rem;
+    $background-repeat: no-repeat;
+    $background-position: .14rem .74rem;
+    background: #{$background-image} #{$background-position}/#{$background-size} #{$background-repeat};
+    background-color: #fff;
     position: absolute;
     top: 2rem;
     left: .2rem;
@@ -62,19 +67,6 @@
     cursor: pointer;
   }
 
-  .act5_more_txt {
-    font-family: "FZXH1FW--GB1-0";
-    font-size: .24rem;
-    line-height: .3rem;
-    color: #2fa3d0;
-    margin-left: .3rem;
-    width: 5.6rem;
-  }
-
-  .act5_more_txt1 {
-    margin-top: .44rem;
-  }
-
   .act5-content {
     position: relative;
     margin-top: .3rem;
@@ -89,11 +81,11 @@
     $height: 1.1rem;
     width: $width;
     height: $height;
-    $background-image:url("../../../assets/images/#{$path}/mb/act5-gift-bg.png");
-    $background-size: 1rem 1rem;
-    $background-repeat: no-repeat;
-    $background-position: center;
-    background: #{$background-image} #{$background-position}/#{$background-size} #{$background-repeat};
+    // $background-image:url("../../../assets/images/#{$path}/mb/act5-gift-bg.png");
+    // $background-size: 1rem 1rem;
+    // $background-repeat: no-repeat;
+    // $background-position: center;
+    // background: #{$background-image} #{$background-position}/#{$background-size} #{$background-repeat};
   }
 
   // 1
@@ -156,9 +148,72 @@
     background: #{$background-image} #{$background-position}/#{$background-size} #{$background-repeat};
   }
 
-  @for $i from 2 through 30 {
+  .act5-gift2 {
+    $background-image:url("../../../assets/images/#{$path}/mb/act5/act5-gift5.png");
+    $background-size: .86rem .86rem;
+    $background-repeat: no-repeat;
+    $background-position: center;
+    background: #{$background-image} #{$background-position}/#{$background-size} #{$background-repeat};
+  }
+
+  // 3-10
+  @for $i from 3 through 11 {
     .act5-gift#{$i} {
-      $background-image:url("../../../assets/images/#{$path}/mb/act5-gift1.png");
+      $background-image:url("../../../assets/images/#{$path}/mb/act5/act5-gift#{$i}.png");
+      $background-size: .86rem .86rem;
+      $background-repeat: no-repeat;
+      $background-position: center;
+      background: #{$background-image} #{$background-position}/#{$background-size} #{$background-repeat};
+    }
+  }
+
+  .act5-gift11 {
+    $background-image:url("../../../assets/images/#{$path}/mb/act5/act5-gift8.png");
+    $background-size: .86rem .86rem;
+    $background-repeat: no-repeat;
+    $background-position: center;
+    background: #{$background-image} #{$background-position}/#{$background-size} #{$background-repeat};
+  }
+
+  @for $i from 12 through 16 {
+    .act5-gift#{$i} {
+      $background-image:url("../../../assets/images/#{$path}/mb/act5/act5-gift#{$i}.png");
+      $background-size: .86rem .86rem;
+      $background-repeat: no-repeat;
+      $background-position: center;
+      background: #{$background-image} #{$background-position}/#{$background-size} #{$background-repeat};
+    }
+  }
+
+  .act5-gift17 {
+    $background-image:url("../../../assets/images/#{$path}/mb/act5/act5-gift14.png");
+    $background-size: .86rem .86rem;
+    $background-repeat: no-repeat;
+    $background-position: center;
+    background: #{$background-image} #{$background-position}/#{$background-size} #{$background-repeat};
+  }
+
+  @for $i from 18 through 22 {
+    .act5-gift#{$i} {
+      $background-image:url("../../../assets/images/#{$path}/mb/act5/act5-gift#{$i}.png");
+      $background-size: .86rem .86rem;
+      $background-repeat: no-repeat;
+      $background-position: center;
+      background: #{$background-image} #{$background-position}/#{$background-size} #{$background-repeat};
+    }
+  }
+
+  .act5-gift23 {
+    $background-image:url("../../../assets/images/#{$path}/mb/act5/act5-gift20.png");
+    $background-size: .86rem .86rem;
+    $background-repeat: no-repeat;
+    $background-position: center;
+    background: #{$background-image} #{$background-position}/#{$background-size} #{$background-repeat};
+  }
+
+  @for $i from 24 through 30 {
+    .act5-gift#{$i} {
+      $background-image:url("../../../assets/images/#{$path}/mb/act5/act5-gift#{$i}.png");
       $background-size: .86rem .86rem;
       $background-repeat: no-repeat;
       $background-position: center;
@@ -276,23 +331,29 @@
     background: #{$background-image} #{$background-position}/#{$background-size} #{$background-repeat};
   }
 
-  .act5_egg_gift {
-    opacity: 0;
-    display: none;
-    z-index: 2;
-    $width: .81rem;
-    $height: .86rem;
-    width: $width;
-    height: $height;
-    position: absolute;
-    top: 1.63rem - 0.405rem;
-    left: 1.53rem - 0.43rem;
-    $background-image:url("../../../assets/images/#{$path}/pc/act5-gift1.png");
-    $background-size: $width $height;
-    $background-repeat: no-repeat;
-    $background-position: center;
-    background: #{$background-image} #{$background-position}/#{$background-size} #{$background-repeat};
-  }
+  // .act5_egg_gift {
+  //   opacity: 0;
+  //   display: none;
+  //   z-index: $z-index2;
+  //   $width: .8rem;
+  //   $height: .8rem;
+  //   width: $width;
+  //   height: $height;
+  //   position: absolute;
+  //   top: 1.63rem - 0.4rem;
+  //   left: 1.53rem - 0.4rem;
+  // }
+
+  // @for $i from 1 through 12 {
+  //   .act5_egg_gift#{$i} {
+  //     $background-image:url("../../../assets/images/#{$path}/pc/act5/act5-egg#{$i}.png");
+  //     $background-size: .8rem .8rem;
+  //     $background-repeat: no-repeat;
+  //     $background-position: center;
+  //     background: #{$background-image} #{$background-position}/#{$background-size} #{$background-repeat};
+  //   }
+  // }
+
 
   .act5_desc {
     width: 3.46rem;

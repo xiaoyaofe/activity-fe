@@ -256,6 +256,190 @@
 				margin-top: -40px;
 			}
 			/* 	.rewardBox {
+							width: 692px;
+							height: 489px;
+							overflow: hidden;
+							position: relative;
+							top: 50%;
+							left: 50%;
+							margin-left: -346px;
+							margin-top: -244.5px;
+							background: url("./img/giftList.png") no-repeat;
+
+							.close {
+								width: 50px;
+								height: 50px;
+								position: absolute;
+								top: 45px;
+								right: 5px;
+							}
+							.myReward {
+								width: 420px;
+								height: 320px;
+								margin-left: 170px;
+								margin-top: 60px;
+								color: #804827;
+								// border: 1px solid red;
+								h1 {
+									text-align: center;
+									font-size: 30px;
+									font-weight: bold;
+									text-transform: uppercase;
+								}
+								h1:nth-child(3) {
+									font-size: 24px;
+									margin-top: 15px;
+									margin-bottom: 10px;
+								}
+								section {
+									span {
+										width: 79px;
+										height: 113px;
+										margin: 0 14px;
+										display: inline-block;
+									}
+									span:nth-child(1) {
+										background: url("./img/flag1.png") no-repeat;
+										background-position: 0 -15px;
+									}
+									span:nth-child(2) {
+										background: url("./img/flag2.png") no-repeat;
+										background-position: 0 -15px;
+									}
+									span:nth-child(3) {
+										background: url("./img/flag3.png") no-repeat;
+										background-position: 0 -15px;
+									}
+									span:nth-child(4) {
+										background: url("./img/flag4.png") no-repeat;
+										background-position: 0 -15px;
+										margin-right: 0;
+									}
+								}
+								div {
+									width: 255px;
+									height: 78px;
+									margin: auto;
+									text-align: center;
+									font-size: 24px;
+									strong {
+										float: left;
+										font-weight: bold;
+										padding-top: 32px;
+									}
+									.rewardIcon0,
+									.rewardIcon2,
+									.rewardIcon4,
+									.rewardIcon5,
+									.rewardIcon6,
+									.rewardIcon7,
+									.rewardIcon8 {
+										width: 65px;
+										height: 65px;
+										float: right;
+									}
+									.rewardIcon0 {
+										background: url("./img/roteIcon0.png") no-repeat center;
+										background-size: contain;
+									}
+									.rewardIcon2 {
+										background: url("./img/roteIcon2.png") no-repeat center;
+										background-size: contain;
+									}
+									.rewardIcon4 {
+										background: url("./img/roteIcon4.png") no-repeat center;
+										background-size: contain;
+									}
+									.rewardIcon5 {
+										background: url("./img/roteIcon5.png") no-repeat center;
+										background-size: contain;
+									}
+									.rewardIcon6 {
+										background: url("./img/roteIcon6.png") no-repeat center;
+										background-size: contain;
+									}
+									.rewardIcon7 {
+										background: url("./img/roteIcon7.png") no-repeat center;
+										background-size: contain;
+									}
+									.rewardIcon8 {
+										background: url("./img/roteIcon8.png") no-repeat center;
+										background-size: contain;
+									}
+								}
+								p {
+									text-align: center;
+									font-size: 24px;
+									font-weight: bold;
+								}
+							}
+						} */
+		}
+	}
+	@include mq($mobile) {
+		.DialogTip {
+			width: 100%;
+			height: 100%;
+			position: fixed;
+			top: 0;
+			left: 0;
+			z-index: 99;
+			background: rgba(17, 31, 50, 0.5);
+			.tipBox,
+			.cdkBox {
+				width: 670px;
+				height: 363px;
+				background-size: 100%;
+				position: fixed;
+				top: 50%;
+				left: 50%;
+				margin-left: -335px;
+				margin-top: -181.5px;
+				border-radius: 20px;
+				background: #8ed7e5;
+				background-size: contain;
+				box-shadow: 0px 14px 0 0px #59a8bf;
+				.tipTxt {
+					width: 75%;
+					position: absolute;
+					top: 50%;
+					left: 50%;
+					transform: translate(-50%, -50%);
+					-webkit-transform: translate(-50%, -50%);
+					-moz-transform: translate(-50%, -50%);
+					-o-transform: translate(-50%, -50%);
+					-ms-transform: translate(-50%, -50%);
+					text-align: center;
+					padding: 0 30px;
+					line-height: 30px;
+					font-size: 24px;
+					color: #0976d9;
+				}
+				.close {
+					width: 30px;
+					height: 30px;
+					border: none;
+					border-radius: 50%;
+					background: url("../../components/login/img/close.png");
+					background-size: contain;
+					outline: none;
+					position: absolute;
+					top: 25px;
+					right: 25px;
+					cursor: pointer;
+				}
+			}
+			.loadingBox {
+				width: 80px;
+				height: 80px;
+				position: fixed;
+				top: 50%;
+				left: 50%;
+				background: url("./img/loading.gif");
+				margin-left: -40px;
+				margin-top: -40px;
+			}
+			/* 	.rewardBox {
 						width: 692px;
 						height: 489px;
 						overflow: hidden;
@@ -374,190 +558,6 @@
 							}
 						}
 					} */
-		}
-	}
-	@include mq($mobile) {
-		.DialogTip {
-			width: 100%;
-			height: 100%;
-			position: fixed;
-			top: 0;
-			left: 0;
-			z-index: 99;
-			background: rgba(17, 31, 50, 0.5);
-			.tipBox,
-			.cdkBox {
-				width: 670px;
-				height: 363px;
-				background-size: 100%;
-				position: fixed;
-				top: 50%;
-				left: 50%;
-				margin-left: -335px;
-				margin-top: -181.5px;
-				border-radius: 20px;
-				background: #8ed7e5;
-				background-size: contain;
-				box-shadow: 0px 14px 0 0px #59a8bf;
-				.tipTxt {
-					width: 75%;
-					position: absolute;
-					top: 50%;
-					left: 50%;
-					transform: translate(-50%, -50%);
-					-webkit-transform: translate(-50%, -50%);
-					-moz-transform: translate(-50%, -50%);
-					-o-transform: translate(-50%, -50%);
-					-ms-transform: translate(-50%, -50%);
-					text-align: center;
-					padding: 0 30px;
-					line-height: 30px;
-					font-size: 24px;
-					color: #0976d9;
-				}
-				.close {
-					width: 30px;
-					height: 30px;
-					border: none;
-					border-radius: 50%;
-					background: url("../../components/login/img/close.png");
-					background-size: contain;
-					outline: none;
-					position: absolute;
-					top: 25px;
-					right: 25px;
-					cursor: pointer;
-				}
-			}
-			.loadingBox {
-				width: 80px;
-				height: 80px;
-				position: fixed;
-				top: 50%;
-				left: 50%;
-				background: url("./img/loading.gif");
-				margin-left: -40px;
-				margin-top: -40px;
-			}
-			/* 	.rewardBox {
-					width: 692px;
-					height: 489px;
-					overflow: hidden;
-					position: relative;
-					top: 50%;
-					left: 50%;
-					margin-left: -346px;
-					margin-top: -244.5px;
-					background: url("./img/giftList.png") no-repeat;
-
-					.close {
-						width: 50px;
-						height: 50px;
-						position: absolute;
-						top: 45px;
-						right: 5px;
-					}
-					.myReward {
-						width: 420px;
-						height: 320px;
-						margin-left: 170px;
-						margin-top: 60px;
-						color: #804827;
-						// border: 1px solid red;
-						h1 {
-							text-align: center;
-							font-size: 30px;
-							font-weight: bold;
-							text-transform: uppercase;
-						}
-						h1:nth-child(3) {
-							font-size: 24px;
-							margin-top: 15px;
-							margin-bottom: 10px;
-						}
-						section {
-							span {
-								width: 79px;
-								height: 113px;
-								margin: 0 14px;
-								display: inline-block;
-							}
-							span:nth-child(1) {
-								background: url("./img/flag1.png") no-repeat;
-								background-position: 0 -15px;
-							}
-							span:nth-child(2) {
-								background: url("./img/flag2.png") no-repeat;
-								background-position: 0 -15px;
-							}
-							span:nth-child(3) {
-								background: url("./img/flag3.png") no-repeat;
-								background-position: 0 -15px;
-							}
-							span:nth-child(4) {
-								background: url("./img/flag4.png") no-repeat;
-								background-position: 0 -15px;
-								margin-right: 0;
-							}
-						}
-						div {
-							width: 255px;
-							height: 78px;
-							margin: auto;
-							text-align: center;
-							font-size: 24px;
-							strong {
-								float: left;
-								font-weight: bold;
-								padding-top: 32px;
-							}
-							.rewardIcon0,
-							.rewardIcon2,
-							.rewardIcon4,
-							.rewardIcon5,
-							.rewardIcon6,
-							.rewardIcon7,
-							.rewardIcon8 {
-								width: 65px;
-								height: 65px;
-								float: right;
-							}
-							.rewardIcon0 {
-								background: url("./img/roteIcon0.png") no-repeat center;
-								background-size: contain;
-							}
-							.rewardIcon2 {
-								background: url("./img/roteIcon2.png") no-repeat center;
-								background-size: contain;
-							}
-							.rewardIcon4 {
-								background: url("./img/roteIcon4.png") no-repeat center;
-								background-size: contain;
-							}
-							.rewardIcon5 {
-								background: url("./img/roteIcon5.png") no-repeat center;
-								background-size: contain;
-							}
-							.rewardIcon6 {
-								background: url("./img/roteIcon6.png") no-repeat center;
-								background-size: contain;
-							}
-							.rewardIcon7 {
-								background: url("./img/roteIcon7.png") no-repeat center;
-								background-size: contain;
-							}
-							.rewardIcon8 {
-								background: url("./img/roteIcon8.png") no-repeat center;
-								background-size: contain;
-							}
-						}
-						p {
-							text-align: center;
-							font-size: 24px;
-							font-weight: bold;
-						}
-					}
-				} */
 		}
 	}
 </style>

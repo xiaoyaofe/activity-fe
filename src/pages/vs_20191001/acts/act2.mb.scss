@@ -8,7 +8,7 @@
 
   .act2_title {
     $width: 7.23rem;
-    $height: 2.72rem;
+    $height: 2.99rem;
     width: $width;
     height: $height;
     margin-left: .1rem;
@@ -40,13 +40,13 @@
     z-index: 1;
     width: 7.5rem;
     height: 9.04rem;
+    margin-top: 0.16rem;
   }
 
   .act2_content_cardInfo {
     position: relative;
     width: 7.28rem;
     height: .93rem;
-    margin-top: .28rem;
     margin-left: .11rem;
   }
 
@@ -96,18 +96,19 @@
   }
 
   .act2_content_shareBtn {
-    $width: .54rem;
-    $height: .54rem;
+    $width: 1.46rem;
+    $height: .81rem;
     width: $width;
     height: $height;
-    $background-image:url("../../../assets/images/#{$path}/pc/fb-share-btn.png");
+    $background-image:url("../../../assets/images/#{$path}/mb/fb-share-btn.png");
     $background-size: $width $height;
     $background-repeat: no-repeat;
     $background-position: center;
     background: #{$background-image} #{$background-position}/#{$background-size} #{$background-repeat};
     position: absolute;
-    top: .2rem;
-    left: 4.5rem;
+    top: 0;
+    left: 4.1rem;
+    padding: 0;
   }
 
   .act2_content_gifts {

@@ -21,6 +21,7 @@ module.exports = {
 
   //打包后资源路径配置
   publicPath: './',
+  productionSourceMap: false,
   /* 全局变量 */
   configureWebpack: config => {
     if (process.env.NODE_ENV === 'production') {

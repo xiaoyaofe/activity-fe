@@ -30,11 +30,11 @@
 			</div>
 			<div class="egg_wrap">
 				<div ref="egg" class="act5_eggs" v-tap="{methods:playEgg}"></div>
-				<div
+				<!-- <div
 					ref="eggGift"
 					:class="['act5_egg_gift','act5_egg_gift'+eggGiftIndex]"
 					v-tap="{methods:initEgg}"
-				></div>
+				></div>-->
 			</div>
 			<div class="act5_desc act5_desc1">
 				当前彩蛋数量：
@@ -110,7 +110,7 @@
 								window._RG.config.data.rewardId.flightChess.indexOf(
 									res.rewardId
 								) - 29;
-							this.eggAnimate();
+							this.eggAnimate(res.rewardName);
 						}
 					});
 				} else {
@@ -119,6 +119,8 @@
 			},
 			playDice() {
 				if (isLogin()) {
+					if (this.isShowDiceMark) return;
+					this.isShowDiceMark = true;
 					joinFlightChess(1).then(async (res: any) => {
 						if (res) {
 							console.log(res);
@@ -173,7 +175,6 @@
 				}
 			},
 			async diceAnimate(index: number) {
-				this.isShowDiceMark = true;
 				this.diceIndex = 1;
 				this.cursor = "default";
 				Velocity(
@@ -275,42 +276,67 @@
 					}, time);
 				});
 			},
-			eggAnimate() {
+			eggAnimate(rewardName: string) {
 				const egg = this.$refs.egg as HTMLElement;
-				const gift = this.$refs.eggGift as HTMLElement;
 				egg.style.transform = "rorateZ(0deg)";
-				gift.style.display = "none";
 				Velocity(
 					egg,
-					{ rotateZ: ["15deg", "-15deg"] },
+					{ rotateZ: "-15deg" },
 					{
 						duration: 180,
-						loop: 3,
-						easing: "linear",
+						easing: "easeInSine",
 						complete: () => {
-							egg.style.transform = "rotateZ(0deg)";
-							egg.style.transformOrigin = "center";
-							// Velocity(
-							// 	egg,
-							// 	{ opacity: [0, 1] },
-							// 	{
-							// 		duration: 300,
-							// 		complete: eles => {
-							// 			egg.style.display = "none";
-							// 		}
-							// 	}
-							// );
-							// Velocity(
-							// 	gift,
-							// 	{ opacity: [1, 0], scale: [1, 0] },
-							// 	{
-							// 		duration: 800,
-							// 		begin: eles => {
-							// 			gift.style.display = "block";
-							// 			gift.style.transformOrigin = "center";
-							// 		}
-							// 	}
-							// );
+							Velocity(
+								egg,
+								{ rotateZ: ["15deg", "-15deg"] },
+								{
+									duration: 180,
+									loop: 3,
+									easing: "easeInSine",
+									complete: () => {
+										// egg.style.transform = "rotateZ(0deg)";
+										// egg.style.transformOrigin = "60% 100%;";
+										Velocity(
+											egg,
+											{ rotateZ: "0deg" },
+											{
+												duration: 180,
+												easing: "swing",
+												complete: () => {
+													this.$dialog.show(
+														"tip",
+														window._RG.config.tip.code_200.replace(
+															"禮包",
+															rewardName
+														)
+													);
+												}
+											}
+										);
+										// Velocity(
+										// 	egg,
+										// 	{ opacity: [0, 1] },
+										// 	{
+										// 		duration: 300,
+										// 		complete: eles => {
+										// 			egg.style.display = "none";
+										// 		}
+										// 	}
+										// );
+										// Velocity(
+										// 	gift,
+										// 	{ opacity: [1, 0], scale: [1, 0] },
+										// 	{
+										// 		duration: 800,
+										// 		begin: eles => {
+										// 			gift.style.display = "block";
+										// 			gift.style.transformOrigin = "center";
+										// 		}
+										// 	}
+										// );
+									}
+								}
+							);
 						}
 					}
 				);
@@ -318,8 +344,7 @@
 			toggleMore() {
 				const isShowMore = this.isShowMore;
 				this.isShowMore = !isShowMore;
-			},
-			initEgg() {}
+			}
 		},
 		watch: {
 			isGetHistory: function(newQuestion, oldQuestion) {

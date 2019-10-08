@@ -236,33 +236,33 @@
   }
 
   // 改变滚动条样式
-  ::-webkit-scrollbar {
-    width: 6px;
-    height: 12px;
-  }
+  // ::-webkit-scrollbar {
+  //   width: 6px;
+  //   height: 12px;
+  // }
 
-  ::-webkit-scrollbar-track-piece {
-    background-color: rgba(125, 125, 125, 1);
-    -webkit-border-radius: 6px;
-    border-radius: 6px;
-  }
+  // ::-webkit-scrollbar-track-piece {
+  //   background-color: rgba(125, 125, 125, 1);
+  //   -webkit-border-radius: 6px;
+  //   border-radius: 6px;
+  // }
 
-  /* 水平 */
-  ::-webkit-scrollbar-thumb:vertical {
-    height: 6px;
-    background-color: rgb(11, 205, 240);
-    -webkit-border-radius: 6px;
-    border-radius: 6px;
+  // /* 水平 */
+  // ::-webkit-scrollbar-thumb:vertical {
+  //   height: 6px;
+  //   background-color: rgb(11, 205, 240);
+  //   -webkit-border-radius: 6px;
+  //   border-radius: 6px;
 
-  }
+  // }
 
-  /* 垂直 */
-  ::-webkit-scrollbar-thumb:horizontal {
-    width: 8px;
-    background-color: rgba(0, 0, 0, 0.6);
-    -webkit-border-radius: 6px;
-    border-radius: 6px;
+  // /* 垂直 */
+  // ::-webkit-scrollbar-thumb:horizontal {
+  //   width: 8px;
+  //   background-color: rgba(0, 0, 0, 0.6);
+  //   -webkit-border-radius: 6px;
+  //   border-radius: 6px;
 
-  }
+  // }
 
 }

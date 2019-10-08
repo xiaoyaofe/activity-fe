@@ -35,14 +35,14 @@ Vue.use(vueTap);
 // 设置 Pc 模式还是 Mb 模式
 Vue.prototype.$isPc = isShowPc();
 
-// 设置全局打点方法
-Vue.prototype.$pixel = Pixel;
-Pixel.instance.init({
-  id: {
-    fb: window._RG.config.data.fb,
-    ga: window._RG.config.data.ga,
-  }
-});
+// 设置全局打点方法, 20191001无打点需求
+// Vue.prototype.$pixel = Pixel;
+// Pixel.instance.init({
+//   id: {
+//     fb: window._RG.config.data.fb,
+//     ga: window._RG.config.data.ga,
+//   }
+// });
 
 // fb登录脚本
 window.fbAsyncInit = function () {

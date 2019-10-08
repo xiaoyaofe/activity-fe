@@ -22,7 +22,7 @@
 							:class="['gifts_item','gifts_item'+index]"
 							v-for="index in 16"
 							:key="'item-'+index"
-							:title="allCardsMessage[index-1]"
+							v-tap="{methods:showTitle,index:index}"
 						>
 							<!-- <div :class="['gifts_item_gift','act2_gift'+index]"></div> -->
 							<!-- <div class="gifts_item_gift_selected" v-if="isSelected[index-1]"></div> -->
@@ -40,7 +40,7 @@
 									v-if="isSelected[index]"
 									:class="['act2_allCards_li_card','act2_gift'+item]"
 									:key="'card'+index"
-								>{{item}}</div>
+								></div>
 								<div v-else class="act2_allCards_li_card act2_allCards_li_card_bg" key="bg"></div>
 							</RgFlip>
 						</div>
@@ -94,19 +94,19 @@
 					"創世能量*3000",
 					"鑽石*688",
 					"技能精華大禮包*5",
-					"嗡蝠*1（個體保底90、性格隨機）",
-					"月寵精靈寵物蛋C*3",
-					"綠茵鬥士*1（個體保底90、性格隨機）",
-					"中階石板組*2",
-					"洛托姆強化石*30",
+					"小霞可達鴨（個體保底90、性格隨機）",
+					"符文召喚石*15",
+					"月華-長耳兔*1 （准神）（個體保底90、性格隨機）",
 					"高階石板組*1",
-					"3V百變怪禮包 （6種性格：保守、固執、開朗、膽小、天真、急躁，自選）",
-					"紅黑超夢mega石碎片*18",
-					"天空謝米*1 （個體保底90、性格隨機）",
-					"神話超級石碎片*200",
-					"騎拉帝納mega石碎片*25",
-					"4V百變怪禮包（6種性格：保守、固執、開朗、膽小、天真、急躁，自選）",
-					"紅黑超夢mega碎片*32"
+					"超級合成石*100",
+					"神話超級石碎片*160",
+					"3V百變怪禮包（6種性格：保守、固執、開朗、膽小、天真、急躁，自選）",
+					"沙奈朵轉換石（真愛）*50",
+					"2級進化核心*200",
+					"橙色符文自選禮包，打開自主選擇任意金色符文一個",
+					"虹彩閃耀（哲爾尼亞斯專屬新技能）",
+					"4V百變怪禮包（6種性格：保守、固執、開朗、膽小、天真、急躁自選一種）",
+					"哲爾尼亞斯轉換石 x 50"
 				],
 				VUE_APP_PATH: VUE_APP_PATH,
 				cardClass: indexs
@@ -129,7 +129,8 @@
 					FB.ui(
 						{
 							method: "share",
-							href: " http://kor.pocketgamesol.com/activity/20190101/index.html",
+							href:
+								" https://pokeko.pocketgamesol.com/activity/20191001/index.html",
 							display: "popup"
 							// "display" must be one of "popup", "dialog", "iframe", "touch", "async", "hidden", or "none"
 						},
@@ -180,6 +181,9 @@
 			},
 			showLogin(val) {
 				this.$emit("showLogin", val);
+			},
+			showTitle(params: any) {
+				this.$dialog.show("tip", this.allCardsMessage[params.index - 1]);
 			}
 		},
 		watch: {
@@ -191,7 +195,7 @@
 							this.cardClass.splice(
 								item.index,
 								1,
-								this.getRewardClassIndex(item.rewardId)
+								this.getRewardClassIndex(item.rewardId) + 1
 							);
 							this.isSelected.splice(item.index, 1, true);
 						});

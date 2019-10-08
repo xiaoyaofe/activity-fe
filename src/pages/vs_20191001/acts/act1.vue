@@ -29,7 +29,7 @@
 		if (year === +arr[0] && month === +arr[1] && day >= +arr[2]) return true;
 		return false;
 	}
-	const isShowBtn2 = () => isShowBtn("2019-9-29");
+	const isShowBtn2 = () => isShowBtn("2019-10-10");
 	// 尽量抽象mixin
 	export default Vue.extend({
 		name: "Act1",

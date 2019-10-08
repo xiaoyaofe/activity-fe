@@ -1,9 +1,7 @@
 /** 
- * 针对 vue 2.0 开发的点击的指令,移动端优先.
- * Created by zongjiang.ge on 2019/09/16.
- * 参考地址:
  * https://cn.vuejs.org/v2/guide/custom-directive.html
- * 思路来源: https://github.com/MeCKodo/vue-tap
+ * 来源: https://github.com/MeCKodo/vue-tap
+ * 不能使用,闭包导致的共享状态,需要修改
  */
 // 引入类型
 import { DirectiveOptions, DirectiveBinding } from "vue/types/options"
@@ -13,82 +11,72 @@ const isSupportTouch = "ontouchend" in document ? true : false;
 /* 
   判断是否触发 tap 事件,排除滑动, 长按等可能,和 disabled
 */
-interface TapInfo {
-  time: number;
-  tapObj: {
-    pageX: number;
-    pageY: number;
-    clientX: number;
-    clientY: number;
-    distanceX: number;
-    distanceY: number;
-  }
+interface tapObj {
+  pageX: number;
+  pageY: number;
+  clientX: number;
+  clientY: number;
+  distanceX: number;
+  distanceY: number;
 }
 /* 类型做的兼容 */
-interface Ele {
-  disabled: boolean;
-  tapInfo: TapInfo;
-  href?: string;
-  addEventListener: HTMLElement["addEventListener"]
-}
-function isTap(el: HTMLElement, tapInfo: TapInfo) {
+
+function isTap(el: HTMLElement) {
   // dom 元素带有 disabled 属性时，tap 失效
-  if ((el as unknown as Ele).disabled) return false;
-  const { time, tapObj } = tapInfo;
+  if (el.disabled) return false;
+  const { time, tapObj } = el;
   // tap的灵敏度调节,点击时间 300ms 之内, x,y方向位移不超过 10 px
   return time < 300 && Math.abs(tapObj.distanceX) < 10 && Math.abs(tapObj.distanceY) < 10;
 }
-
-let handler = function (e: Event, el: HTMLElement, binding: DirectiveBinding, tapObj: any, isUpdate: boolean = false) {
+/* 执行事件,对不符合预期的行为做处理 */
+let handler = function (e: Event, el: HTMLElement, binding: DirectiveBinding, isUpdate: boolean = false) {
   const value = binding.value;
-  const ele: Ele = el as unknown as Ele;
   /* a标签快速跳转,主要是处理移动端 */
-  if (!value && ele.href && !binding.modifiers.prevent) return window.location.href = ele.href;
+  if (!value && el.href && !binding.modifiers.prevent) return window.location.href = el.href;
 
   value.event = e;
-
-  const tagName = value.event.target.tagName.toLocaleLowerCase();
-
-  value.tapObj = isSupportTouch ? tapObj : null;
+  value.tapObj = isSupportTouch ? el.tapObj : null;
   /* 处理 input 和 textearea */
+  const tagName = value.event.target.tagName.toLocaleLowerCase();
   if ((tagName === 'input' || tagName === 'textarea') && !isUpdate) {
     return value.event.target.focus();
   }
-  value.methods.call(ele, value);
+  value.methods.call(el, value);
 }
 // 触摸开始时间
-function touchstart(e: TouchEvent, tapInfo: TapInfo) {
+function touchstart(e: TouchEvent, el: HTMLElement) {
   const touch1 = e.touches[0];
-  tapInfo.tapObj.pageX = touch1.pageX;
-  tapInfo.tapObj.pageY = touch1.pageY;
-  tapInfo.tapObj.clientX = touch1.clientX;
-  tapInfo.tapObj.clientY = touch1.clientY;
+  const tapObj = el.tapObj;
+  tapObj.pageX = touch1.pageX;
+  tapObj.pageY = touch1.pageY;
+  tapObj.clientX = touch1.clientX;
+  tapObj.clientY = touch1.clientY;
   // 灵敏度判断时间开始时间
-  tapInfo.time = +new Date();
+  el.time = +new Date();
 }
 // 触摸结束事件
-function touchend(e: TouchEvent, el: HTMLElement, binding: DirectiveBinding, tapInfo: TapInfo) {
+function touchend(e: TouchEvent, el: HTMLElement) {
   const touche1 = e.changedTouches[0];
-  tapInfo.time = +new Date() - tapInfo.time;
-  tapInfo.tapObj.distanceX = tapInfo.tapObj.pageX - touche1.pageX;
-  tapInfo.tapObj.distanceY = tapInfo.tapObj.pageY - touche1.pageY;
-  if (!isTap((el), tapInfo)) return;
-  handler(e, el, binding, tapInfo.tapObj);
+  el.time = +new Date() - el.time;
+  const tapObj = el.tapObj;
+  tapObj.distanceX = tapObj.pageX - touche1.pageX;
+  tapObj.distanceY = tapObj.pageY - touche1.pageY;
+  if (!isTap(el)) return;
+  el.handler(e);
 }
-let tapInfo = {} as TapInfo;
-tapInfo.tapObj = {} as any;
 const bind = function (el: HTMLElement, binding: DirectiveBinding) {
+
+  el.tapObj = {} as tapObj;
+  el.handler = function (e: Event) {
+    handler(e, el, binding);
+  }
   /* 支持touch事件,移动端 */
   if (isSupportTouch) {
     el.addEventListener('touchstart', function (e) {
 
-      if (binding.modifiers.stop) {
-        e.stopPropagation();
-      }
-      if (binding.modifiers.prevent) {
-        e.preventDefault();
-      }
-      touchstart(e, tapInfo);
+      if (binding.modifiers.stop) e.stopPropagation();
+      if (binding.modifiers.prevent) e.preventDefault();
+      touchstart(e, el);
     }, false);
     el.addEventListener('touchend', function (e) {
       try {
@@ -107,34 +95,28 @@ const bind = function (el: HTMLElement, binding: DirectiveBinding) {
       }
       e.preventDefault();
 
-      return touchend(e, el, binding, tapInfo);
+      return touchend(e, el);
     }, false);
   } else {
     /* 不支持touch事件,非移动端 */
     el.addEventListener('click', function (e) {
-      if (binding.modifiers.stop) {
-        e.stopPropagation();
-      }
-      if (binding.modifiers.prevent) {
-        e.preventDefault();
-      }
-      handler(e, el, binding, tapInfo);
+      if (binding.modifiers.stop) e.stopPropagation();
+      if (binding.modifiers.prevent) e.preventDefault();
+      el.handler(e);
     }, false);
   }
 }
 const componentUpdated = function (el: HTMLElement, binding: DirectiveBinding) {
-  tapInfo = {} as TapInfo;
-  tapInfo.tapObj = {} as any;
-  handler = (function (fn) {
-    return function (e: Event, el: HTMLElement, binding: DirectiveBinding, tapInfo: TapInfo) {
-      fn(e, el, binding, tapInfo, true);
-    }
-  })(handler)
+  el.tapObj = {} as tapObj;
+  el.handler = function (e: Event) {
+    handler(e, el, binding, true)
+  }
 }
 const unbind = function (el: HTMLElement) {
   // 卸载
-  tapInfo = null as any;
-  handler = function () { };
+  el.tapObj = null as any;
+  delete el.time;
+  el.handler = function () { };
 }
 const rgTapOption: DirectiveOptions = {
   bind,

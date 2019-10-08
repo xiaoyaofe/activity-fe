@@ -36,7 +36,7 @@ interface ActiveParams {
   ga: string;
   // 活动ID
   actId: {
-    flightChess:string
+    flightChess: string
     login: string;
     // 登录
     login1: string;
@@ -70,7 +70,7 @@ interface ActiveParams {
   }
   // 礼包ID
   rewardId: {
-    flightChess:string[];
+    flightChess: string[];
     login: string[]
     // 登录
     login1: string[];
@@ -219,4 +219,19 @@ interface Tip {
   active: string;
   // 老玩家回归
   oldPlayer: string;
+}
+
+interface HTMLElement {
+  href: string;
+  tapObj: {
+    pageX: number;
+    pageY: number;
+    clientX: number;
+    clientY: number;
+    distanceX: number;
+    distanceY: number;
+  };
+  disabled: boolean;
+  handler: (e: Event) => any;
+  time: number
 }

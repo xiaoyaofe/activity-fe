@@ -10,9 +10,9 @@
 			<div class="cdkBox" v-show="toastName == 'cdKeys'">
 				<p class="tipTxt">
 					{{txt["tip"].join_success}}
-					<br>
+					<br />
 					{{txt["tip"].reward_txt}}&nbsp;:&nbsp;{{this.rewardName}}
-					<br>
+					<br />
 					{{txt["tip"].time}}&nbsp;:&nbsp;{{this.userCdkeys}}
 				</p>
 				<button @click="close" class="close"></button>
@@ -128,7 +128,7 @@
 </template>
 <script lang="ts">
 	import Vue from "vue";
-	import { isLogin } from "../../common/common";
+	import { isLogin } from "../../common/utils";
 
 	export default Vue.extend({
 		name: "DialogTip",
@@ -255,124 +255,124 @@
 				margin-top: -40px;
 			}
 			/* 	.rewardBox {
-									width: 692px;
-									height: 489px;
-									overflow: hidden;
-									position: relative;
-									top: 50%;
-									left: 50%;
-									margin-left: -346px;
-									margin-top: -244.5px;
-									background: url("./img/giftList.png") no-repeat;
+											width: 692px;
+											height: 489px;
+											overflow: hidden;
+											position: relative;
+											top: 50%;
+											left: 50%;
+											margin-left: -346px;
+											margin-top: -244.5px;
+											background: url("./img/giftList.png") no-repeat;
 
-									.close {
-										width: 50px;
-										height: 50px;
-										position: absolute;
-										top: 45px;
-										right: 5px;
-									}
-									.myReward {
-										width: 420px;
-										height: 320px;
-										margin-left: 170px;
-										margin-top: 60px;
-										color: #804827;
-										// border: 1px solid red;
-										h1 {
-											text-align: center;
-											font-size: 30px;
-											font-weight: bold;
-											text-transform: uppercase;
-										}
-										h1:nth-child(3) {
-											font-size: 24px;
-											margin-top: 15px;
-											margin-bottom: 10px;
-										}
-										section {
-											span {
-												width: 79px;
-												height: 113px;
-												margin: 0 14px;
-												display: inline-block;
+											.close {
+												width: 50px;
+												height: 50px;
+												position: absolute;
+												top: 45px;
+												right: 5px;
 											}
-											span:nth-child(1) {
-												background: url("./img/flag1.png") no-repeat;
-												background-position: 0 -15px;
+											.myReward {
+												width: 420px;
+												height: 320px;
+												margin-left: 170px;
+												margin-top: 60px;
+												color: #804827;
+												// border: 1px solid red;
+												h1 {
+													text-align: center;
+													font-size: 30px;
+													font-weight: bold;
+													text-transform: uppercase;
+												}
+												h1:nth-child(3) {
+													font-size: 24px;
+													margin-top: 15px;
+													margin-bottom: 10px;
+												}
+												section {
+													span {
+														width: 79px;
+														height: 113px;
+														margin: 0 14px;
+														display: inline-block;
+													}
+													span:nth-child(1) {
+														background: url("./img/flag1.png") no-repeat;
+														background-position: 0 -15px;
+													}
+													span:nth-child(2) {
+														background: url("./img/flag2.png") no-repeat;
+														background-position: 0 -15px;
+													}
+													span:nth-child(3) {
+														background: url("./img/flag3.png") no-repeat;
+														background-position: 0 -15px;
+													}
+													span:nth-child(4) {
+														background: url("./img/flag4.png") no-repeat;
+														background-position: 0 -15px;
+														margin-right: 0;
+													}
+												}
+												div {
+													width: 255px;
+													height: 78px;
+													margin: auto;
+													text-align: center;
+													font-size: 24px;
+													strong {
+														float: left;
+														font-weight: bold;
+														padding-top: 32px;
+													}
+													.rewardIcon0,
+													.rewardIcon2,
+													.rewardIcon4,
+													.rewardIcon5,
+													.rewardIcon6,
+													.rewardIcon7,
+													.rewardIcon8 {
+														width: 65px;
+														height: 65px;
+														float: right;
+													}
+													.rewardIcon0 {
+														background: url("./img/roteIcon0.png") no-repeat center;
+														background-size: contain;
+													}
+													.rewardIcon2 {
+														background: url("./img/roteIcon2.png") no-repeat center;
+														background-size: contain;
+													}
+													.rewardIcon4 {
+														background: url("./img/roteIcon4.png") no-repeat center;
+														background-size: contain;
+													}
+													.rewardIcon5 {
+														background: url("./img/roteIcon5.png") no-repeat center;
+														background-size: contain;
+													}
+													.rewardIcon6 {
+														background: url("./img/roteIcon6.png") no-repeat center;
+														background-size: contain;
+													}
+													.rewardIcon7 {
+														background: url("./img/roteIcon7.png") no-repeat center;
+														background-size: contain;
+													}
+													.rewardIcon8 {
+														background: url("./img/roteIcon8.png") no-repeat center;
+														background-size: contain;
+													}
+												}
+												p {
+													text-align: center;
+													font-size: 24px;
+													font-weight: bold;
+												}
 											}
-											span:nth-child(2) {
-												background: url("./img/flag2.png") no-repeat;
-												background-position: 0 -15px;
-											}
-											span:nth-child(3) {
-												background: url("./img/flag3.png") no-repeat;
-												background-position: 0 -15px;
-											}
-											span:nth-child(4) {
-												background: url("./img/flag4.png") no-repeat;
-												background-position: 0 -15px;
-												margin-right: 0;
-											}
-										}
-										div {
-											width: 255px;
-											height: 78px;
-											margin: auto;
-											text-align: center;
-											font-size: 24px;
-											strong {
-												float: left;
-												font-weight: bold;
-												padding-top: 32px;
-											}
-											.rewardIcon0,
-											.rewardIcon2,
-											.rewardIcon4,
-											.rewardIcon5,
-											.rewardIcon6,
-											.rewardIcon7,
-											.rewardIcon8 {
-												width: 65px;
-												height: 65px;
-												float: right;
-											}
-											.rewardIcon0 {
-												background: url("./img/roteIcon0.png") no-repeat center;
-												background-size: contain;
-											}
-											.rewardIcon2 {
-												background: url("./img/roteIcon2.png") no-repeat center;
-												background-size: contain;
-											}
-											.rewardIcon4 {
-												background: url("./img/roteIcon4.png") no-repeat center;
-												background-size: contain;
-											}
-											.rewardIcon5 {
-												background: url("./img/roteIcon5.png") no-repeat center;
-												background-size: contain;
-											}
-											.rewardIcon6 {
-												background: url("./img/roteIcon6.png") no-repeat center;
-												background-size: contain;
-											}
-											.rewardIcon7 {
-												background: url("./img/roteIcon7.png") no-repeat center;
-												background-size: contain;
-											}
-											.rewardIcon8 {
-												background: url("./img/roteIcon8.png") no-repeat center;
-												background-size: contain;
-											}
-										}
-										p {
-											text-align: center;
-											font-size: 24px;
-											font-weight: bold;
-										}
-									}
-								} */
+										} */
 		}
 	}
 	@include mq($mobile) {
@@ -440,124 +440,124 @@
 				margin-top: -40px;
 			}
 			/* 	.rewardBox {
-								width: 692px;
-								height: 489px;
-								overflow: hidden;
-								position: relative;
-								top: 50%;
-								left: 50%;
-								margin-left: -346px;
-								margin-top: -244.5px;
-								background: url("./img/giftList.png") no-repeat;
+										width: 692px;
+										height: 489px;
+										overflow: hidden;
+										position: relative;
+										top: 50%;
+										left: 50%;
+										margin-left: -346px;
+										margin-top: -244.5px;
+										background: url("./img/giftList.png") no-repeat;
 
-								.close {
-									width: 50px;
-									height: 50px;
-									position: absolute;
-									top: 45px;
-									right: 5px;
-								}
-								.myReward {
-									width: 420px;
-									height: 320px;
-									margin-left: 170px;
-									margin-top: 60px;
-									color: #804827;
-									// border: 1px solid red;
-									h1 {
-										text-align: center;
-										font-size: 30px;
-										font-weight: bold;
-										text-transform: uppercase;
-									}
-									h1:nth-child(3) {
-										font-size: 24px;
-										margin-top: 15px;
-										margin-bottom: 10px;
-									}
-									section {
-										span {
-											width: 79px;
-											height: 113px;
-											margin: 0 14px;
-											display: inline-block;
+										.close {
+											width: 50px;
+											height: 50px;
+											position: absolute;
+											top: 45px;
+											right: 5px;
 										}
-										span:nth-child(1) {
-											background: url("./img/flag1.png") no-repeat;
-											background-position: 0 -15px;
+										.myReward {
+											width: 420px;
+											height: 320px;
+											margin-left: 170px;
+											margin-top: 60px;
+											color: #804827;
+											// border: 1px solid red;
+											h1 {
+												text-align: center;
+												font-size: 30px;
+												font-weight: bold;
+												text-transform: uppercase;
+											}
+											h1:nth-child(3) {
+												font-size: 24px;
+												margin-top: 15px;
+												margin-bottom: 10px;
+											}
+											section {
+												span {
+													width: 79px;
+													height: 113px;
+													margin: 0 14px;
+													display: inline-block;
+												}
+												span:nth-child(1) {
+													background: url("./img/flag1.png") no-repeat;
+													background-position: 0 -15px;
+												}
+												span:nth-child(2) {
+													background: url("./img/flag2.png") no-repeat;
+													background-position: 0 -15px;
+												}
+												span:nth-child(3) {
+													background: url("./img/flag3.png") no-repeat;
+													background-position: 0 -15px;
+												}
+												span:nth-child(4) {
+													background: url("./img/flag4.png") no-repeat;
+													background-position: 0 -15px;
+													margin-right: 0;
+												}
+											}
+											div {
+												width: 255px;
+												height: 78px;
+												margin: auto;
+												text-align: center;
+												font-size: 24px;
+												strong {
+													float: left;
+													font-weight: bold;
+													padding-top: 32px;
+												}
+												.rewardIcon0,
+												.rewardIcon2,
+												.rewardIcon4,
+												.rewardIcon5,
+												.rewardIcon6,
+												.rewardIcon7,
+												.rewardIcon8 {
+													width: 65px;
+													height: 65px;
+													float: right;
+												}
+												.rewardIcon0 {
+													background: url("./img/roteIcon0.png") no-repeat center;
+													background-size: contain;
+												}
+												.rewardIcon2 {
+													background: url("./img/roteIcon2.png") no-repeat center;
+													background-size: contain;
+												}
+												.rewardIcon4 {
+													background: url("./img/roteIcon4.png") no-repeat center;
+													background-size: contain;
+												}
+												.rewardIcon5 {
+													background: url("./img/roteIcon5.png") no-repeat center;
+													background-size: contain;
+												}
+												.rewardIcon6 {
+													background: url("./img/roteIcon6.png") no-repeat center;
+													background-size: contain;
+												}
+												.rewardIcon7 {
+													background: url("./img/roteIcon7.png") no-repeat center;
+													background-size: contain;
+												}
+												.rewardIcon8 {
+													background: url("./img/roteIcon8.png") no-repeat center;
+													background-size: contain;
+												}
+											}
+											p {
+												text-align: center;
+												font-size: 24px;
+												font-weight: bold;
+											}
 										}
-										span:nth-child(2) {
-											background: url("./img/flag2.png") no-repeat;
-											background-position: 0 -15px;
-										}
-										span:nth-child(3) {
-											background: url("./img/flag3.png") no-repeat;
-											background-position: 0 -15px;
-										}
-										span:nth-child(4) {
-											background: url("./img/flag4.png") no-repeat;
-											background-position: 0 -15px;
-											margin-right: 0;
-										}
-									}
-									div {
-										width: 255px;
-										height: 78px;
-										margin: auto;
-										text-align: center;
-										font-size: 24px;
-										strong {
-											float: left;
-											font-weight: bold;
-											padding-top: 32px;
-										}
-										.rewardIcon0,
-										.rewardIcon2,
-										.rewardIcon4,
-										.rewardIcon5,
-										.rewardIcon6,
-										.rewardIcon7,
-										.rewardIcon8 {
-											width: 65px;
-											height: 65px;
-											float: right;
-										}
-										.rewardIcon0 {
-											background: url("./img/roteIcon0.png") no-repeat center;
-											background-size: contain;
-										}
-										.rewardIcon2 {
-											background: url("./img/roteIcon2.png") no-repeat center;
-											background-size: contain;
-										}
-										.rewardIcon4 {
-											background: url("./img/roteIcon4.png") no-repeat center;
-											background-size: contain;
-										}
-										.rewardIcon5 {
-											background: url("./img/roteIcon5.png") no-repeat center;
-											background-size: contain;
-										}
-										.rewardIcon6 {
-											background: url("./img/roteIcon6.png") no-repeat center;
-											background-size: contain;
-										}
-										.rewardIcon7 {
-											background: url("./img/roteIcon7.png") no-repeat center;
-											background-size: contain;
-										}
-										.rewardIcon8 {
-											background: url("./img/roteIcon8.png") no-repeat center;
-											background-size: contain;
-										}
-									}
-									p {
-										text-align: center;
-										font-size: 24px;
-										font-weight: bold;
-									}
-								}
-							} */
+									} */
 		}
 	}
 </style>

@@ -5,5 +5,5 @@ module.exports = {
   version: "v3",
   // # Id, En, Fr, De, Vn, Tw
   language:"Tw",
-  title:"神奇訓練師",
+  title:"神奇訓練師"
 }

@@ -13,7 +13,7 @@
 						v-model="userName"
 						@keydown.enter="down(1)"
 						:placeholder="tip.userName"
-					>
+					/>
 					<input
 						type="password"
 						class="userpass"
@@ -21,7 +21,7 @@
 						v-model="userPassword"
 						@keydown.enter="sdkLogin($event)"
 						:placeholder="tip.userPass"
-					>
+					/>
 					<button class="login_btn1" @click="sdkLogin"></button>
 
 					<button class="fb_btn" @click="facebook"></button>
@@ -40,7 +40,7 @@
 						@click="dropSelectInput()"
 						v-focus="focusStatus"
 						@keydown.enter="serverBtn($event)"
-					>
+					/>
 					<section class="selectZone">
 						<p
 							v-for="(item,index) in this.zones"
@@ -61,15 +61,15 @@
 	declare var FB: any;
 	declare var Kakao: any;
 	import Vue from "vue";
-	import { isLogin } from "../../common/common";
+	import { isLogin } from "../../common/utils";
 	import {
 		loginWithAccount,
 		loginWithKakao,
 		loginWithFB,
 		initZones,
 		findRole
-	} from "../../common/api";
-	import { zoneAnimate } from "../../common/common";
+	} from "../../api";
+	import { zoneAnimate } from "../../common/utils";
 	export default Vue.extend({
 		data() {
 			return {

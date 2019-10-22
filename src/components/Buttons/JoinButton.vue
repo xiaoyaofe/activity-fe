@@ -7,8 +7,8 @@
 </template>
 <script lang="ts">
 	import Vue from "vue";
-	import { isLogin } from "../../common/common";
-	import { joinActivity } from "../../common/api";
+	import { isLogin } from "../../common/utils";
+	import { joinActivity } from "../../api";
 	import RgButton from "../base/RgButton.vue";
 	declare module "vue/types/vue" {
 		interface Vue {

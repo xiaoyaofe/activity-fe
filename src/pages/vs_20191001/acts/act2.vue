@@ -53,8 +53,8 @@
 
 <script lang="ts">
 	import Vue from "vue";
-	import { isLogin } from "@/common/common";
-	import { getCardCount, joinCardReward, joinBoxFb } from "@/common/api";
+	import { isLogin } from "@/common/utils";
+	import { getCardCount, joinCardReward, joinBoxFb } from "@/api";
 	import RgButton from "@/components/base/RgButton.vue";
 	import RgFlip from "@/components/animations/RgFlip.vue";
 	import * as Velocity from "velocity-animate/velocity";
@@ -108,7 +108,6 @@
 					"4V百變怪禮包（6種性格：保守、固執、開朗、膽小、天真、急躁自選一種）",
 					"哲爾尼亞斯轉換石 x 50"
 				],
-				VUE_APP_PATH: VUE_APP_PATH,
 				cardClass: indexs
 			};
 		},

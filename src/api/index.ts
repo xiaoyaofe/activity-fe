@@ -12,7 +12,7 @@ export const loginWithAccount = (username, password) => {
   let params = {
     userName: username,
     password: md5(password),
-    version: window._RG.config.data.version
+    version: VERSION
   }
   return get(BASE_URL + Routes.login, params)
 }
@@ -20,7 +20,7 @@ export const loginWithAccount = (username, password) => {
 // FB登录
 export const loginWithFB = (token) => {
   let params = {
-    clientId: window._RG.config.data.appId,
+    clientId: APPID,
     access_token: token
   }
   return get(BASE_URL + Routes.fb_login, params)
@@ -29,7 +29,7 @@ export const loginWithFB = (token) => {
 // kakao登录
 export const loginWithKakao = (token) => {
   let params = {
-    clientId: window._RG.config.data.appId,
+    clientId: APPID,
     access_token: token,
   }
   return get(BASE_URL + Routes.kk_login, params)
@@ -38,7 +38,7 @@ export const loginWithKakao = (token) => {
 //初始化区服列表
 export const initZones = (msg) => {
   let params = {
-    appId: window._RG.config.data.appId,
+    appId: APPID,
     token: msg.token
   }
   return get(BASE_URL + Routes.zone, params)
@@ -48,7 +48,7 @@ export const initZones = (msg) => {
 export const findRole = (msg) => {
   let zoneId = msg;
   let params = {
-    appId: window._RG.config.data.appId,
+    appId: APPID,
     gameZoneId: zoneId,
     token: localStorage.token
   }

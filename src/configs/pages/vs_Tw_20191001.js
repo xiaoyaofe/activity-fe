@@ -132,14 +132,15 @@ const activityParam = {
 const params = Object.assign({
   fb: "",
   ga: "",
-  isShare: true,
-  shareMeta: `
-   <meta property=og:url content=https://pokeko.pocketgamesol.com/activity/20191001/index.html> 
-   <meta property=og:type content=website>
-   <meta property=og:title content=《神奇訓練師》國慶雙十大狂歡，限量萌寵神獸等你領~>
-   <meta property=og:image content=https://pokeko.pocketgamesol.com/activity/20191001/share.jpg>
-  `
-});
+  shareMeta: {
+    "og:url": "https://pokeko.pocketgamesol.com/activity/20191001/index.html",
+    "og:type": "website",
+    "og:title": "神奇訓練師》國慶雙十大狂歡，限量萌寵神獸等你領~>",
+    "og:image": "https://pokeko.pocketgamesol.com/activity/20191001/share.jpg"
+  },
+  // 设置<link rel="icon" href="<%= BASE_URL + favicon %>">默认favicon.ico
+  favicon: ""
+}, baseParams);
 module.exports = {
   dev: activityParam,
   build: activityParam,

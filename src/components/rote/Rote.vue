@@ -7,7 +7,7 @@
 		<div class="roteInfo">
 			<p class="allDiamondTxt">
 				Total des diamants dépensés
-				<br>
+				<br />
 				{{allDiamond}}
 			</p>
 			<p class="remainCount">Nombre total de tirages: {{remainCount}}</p>
@@ -19,8 +19,8 @@
 	import Vue from "vue";
 	import $ from "jquery";
 	import "../../plugins/jQueryRotate.js";
-	import { isLogin } from "../../common/common";
-	import { getAllHistory, roteJoin, roteCdkeys } from "../../common/api";
+	import { isLogin } from "../../common/utils";
+	import { getAllHistory, roteJoin, roteCdkeys } from "../../api";
 
 	declare var FB: any;
 	declare var CONFIG: any;

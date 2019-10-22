@@ -1,5 +1,5 @@
-const vs_20191001 = require("./vs_20191001");
+const vs_Tw_20191001 = require("./pages/vs_Tw_20191001");
 
 module.exports = {
-  vs_20191001
+  vs_Tw_20191001
 }

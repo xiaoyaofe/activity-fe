@@ -12,8 +12,8 @@
 <script lang="ts">
 	import Vue from "vue";
 	import JoinButton from "@/components/Buttons/JoinButton.vue";
-	import { isLogin } from "@/common/common";
-	import { getAllHistory, infoActivity } from "@/common/api";
+	import { isLogin } from "@/utils";
+	import { getAllHistory, infoActivity } from "@/api";
 	declare module "vue/types/vue" {
 		interface Vue {
 			$pixel: any;

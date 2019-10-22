@@ -47,8 +47,8 @@
 <script lang="ts">
 	import Vue from "vue";
 	import * as Velocity from "velocity-animate/velocity";
-	import { isLogin } from "@/common/common";
-	import { joinFlightChess } from "@/common/api";
+	import { isLogin } from "@/utils";
+	import { joinFlightChess } from "@/api";
 	import { setTimeout, setInterval } from "timers";
 	declare module "vue/types/vue" {
 		interface Vue {

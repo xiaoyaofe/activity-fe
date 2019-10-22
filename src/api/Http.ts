@@ -3,23 +3,13 @@ export default class Http {
   static get instance(): Http {
     return this._ins || new Http;
   }
-  // private serverAddress = IS_TEST || IS_DEV ? RG.jssdk.config.server.test : RG.jssdk.config.server.formal;
-  private serverAddress: string;
+  private serverAddress: string = VUE_APP_BASE_URL;
+
   constructor() {
     Http._ins = this;
   }
-  init(region?: Region) {
-    const regions = {
-      sg: 'https://sdk-sg.pocketgamesol.com',
-      de: 'https://sdk-de.pocketgamesol.com',
-      vn: 'https://sdk-vn.pocketgamesol.com',
-      test: 'https://sdk-test.changic.net.cn'
-    }
-    const key = IS_TEST ? "test" : (region || window._RG_REGION || window.RG.jssdk.config.region);
-    this.serverAddress = regions[key] + "/pocketgames/client";
-  }
 
-  private request(param: requestParam): Promise<ServerRes> {
+  private request<T>(param: any): Promise<T> {
 
     let data: any
     if (param.data) {
@@ -31,7 +21,7 @@ export default class Http {
     var xhr = new XMLHttpRequest();
     xhr.open(param.method, this.serverAddress + param.route);
     xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-    var result = new Promise<ServerRes>((resolve, reject) => {
+    var result = new Promise<T>((resolve, reject) => {
       xhr.onreadystatechange = function () {
         if (xhr.readyState === 4) {
           if (xhr.status === 200) {
@@ -47,13 +37,13 @@ export default class Http {
     return result;
   }
 
-  public post(param: requestParam): Promise<ServerRes> {
-    return this.request(
+  public post<T>(param: any) {
+    return this.request<T>(
       Object.assign({ method: 'POST' }, param)
     )
   }
 
-  public get(param: requestParam = {}) {
+  public get<T>(param: any) {
     return this.request(
       Object.assign({ method: 'GET' }, param)
     )

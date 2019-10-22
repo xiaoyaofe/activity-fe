@@ -43,6 +43,6 @@
 	});
 </script>
 <style lang="scss">
-	@import "../../base.scss";
+	@import "../../common/scss/base";
 	@import "./app.pc.scss";
 </style>

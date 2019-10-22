@@ -4,7 +4,7 @@
   height: $mainPcHeight;
   min-width: $minPcWidth;
   min-height: $minPcHeight;
-  $background-image:url("../../assets/images/#{$path}/pc/bg.jpg");
+  $background-image:url("./assets/images/pc/bg.jpg");
   $background-size: $mainPcWidth $mainPcHeight;
   $background-repeat: no-repeat;
   $background-position: top center;

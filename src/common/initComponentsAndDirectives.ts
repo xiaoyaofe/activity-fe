@@ -4,7 +4,7 @@ import RgMark from "@/components/base/RgMark.vue";
 /* 指令 */
 import vueTap from '@/common/directives/v-tap';
 /* 使用Vue.use 注册的组件 */
-import Dialog from '@/components/dialog/dialog';
+// import Dialog from '@/components/dialog/dialog';
 
 /* 注册全局组件 */
 Vue.component(RgMark.name, RgMark);
@@ -13,7 +13,7 @@ Vue.component(RgMark.name, RgMark);
 Vue.use(vueTap);
 
 // 注册全局弹窗
-Vue.use(Dialog);
+// Vue.use(Dialog);
 
 
 

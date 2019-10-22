@@ -18,12 +18,21 @@ if (process.env.NODE_ENV === 'production') {
   activityParam.data = activityParamDevAndBuild['dev']
 }
 
-const entry = "./src/pages/" + process.env.VUE_APP_PATH + "main.ts";
-
+const entry = "./src/pages/" + process.env.VUE_APP_PATH + "/main.ts";
+/* 获取所有的 process.env 中以 VUE_APP_ 开头的参数*/
+function getEnvObj() {
+  let result = {};
+  for (key in process.env) {
+    if (/VUE_APP_/.test(key)) {
+      result[key] = JSON.stringify(process.env[key]);
+    }
+  }
+  return result;
+}
 module.exports = {
 
   //打包后资源路径配置
-  publicPath: './',
+  publicPath: "./",
   productionSourceMap: false,
   /* 全局变量 */
   configureWebpack: config => {
@@ -52,12 +61,10 @@ module.exports = {
     config
       .plugin('html')
       .tap(args => {
-        args[0].title = activityParamDevAndBuild.otherParams.VUE_APP_TITLE;
-        arg[0].meta = {
-          "Content-Security-Policy": params.shareMeta
-        };
-        arg[0].templateParameters = {
-          'favicon': 'favicon.ico'
+        args[0].meta = params.shareMeta;
+        args[0].templateParameters = {
+          'favicon': 'favicon.ico',
+          title: params.title
         };
         return args
       });
@@ -83,14 +90,4 @@ module.exports = {
     }
   }, */
   }
-
-/* 获取所有的 process.env 中以 VUE_APP_ 开头的参数*/
-function getEnvObj() {
-  let result = {};
-  for (key in process.env) {
-    if (/VUE_APP_/.test(key)) {
-      result[key] = JSON.stringify(process.env[key]);
-    }
-  }
-  return result;
 }

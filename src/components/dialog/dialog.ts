@@ -1,4 +1,4 @@
-import Alert from "../components/dialog/DialogTip.vue";
+import Alert from "@/components/dialog/DialogTip.vue";
 
 type Options = string | object
 let Dialog: {
@@ -19,9 +19,9 @@ Dialog = {
         document.body.appendChild(tpl)
         // 添加实例方法
         Vue.prototype.$dialog = {
-            show(toastName, options,tokenExpired) {
+            show(toastName, options, tokenExpired) {
                 $vm.toastName = toastName;
-                tokenExpired && ($vm.tokenExpired=true);
+                tokenExpired && ($vm.tokenExpired = true);
                 if (typeof options === 'string') {
                     $vm.content = options
                 } else if (toastName === 'reward') {

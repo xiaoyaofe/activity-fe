@@ -1,0 +1,17 @@
+#app{
+  position: relative;
+  width: $mainPcWidth;
+  height: $mainPcHeight;
+  min-width: $minPcWidth;
+  min-height: $minPcHeight;
+  $background-image:url("../../assets/images/#{$path}/pc/bg.jpg");
+  $background-size: $mainPcWidth $mainPcHeight;
+  $background-repeat: no-repeat;
+  $background-position: top center;
+  background: #{$background-image} #{$background-position}/#{$background-size} #{$background-repeat};
+  overflow: hidden;
+}
+.showMessageBtn{
+  background: #fff;
+  border: 1px solid red;
+}

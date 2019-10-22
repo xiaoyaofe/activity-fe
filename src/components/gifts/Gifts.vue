@@ -117,7 +117,7 @@ export default Vue.extend({
         let data: any = await updateReward(msg);
         if (data) {
           if (!flag) {
-            Vue.prototype.$dialog.show("tip", CONFIG["tip"].code_200);
+            Vue.prototype.$dialog.show("tip", window._RG.config["tip"].code_200);
             this.giftsed = true;
           }else if(flag == 'android'){
             Vue.prototype.$dialog.show("tip", 'Herunterladungsveranstaltung ist beendet, Bitte erhalte deine Geschenke');

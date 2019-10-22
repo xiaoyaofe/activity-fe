@@ -1,8 +1,5 @@
 import axios from 'axios'
 import Vue from 'vue'
-declare var CONFIG: {
-  tip: any
-};
 declare var window: any;
 
 // let axiosInstance = {}
@@ -26,58 +23,59 @@ function requestFailFunc(renderError) {
 function responseSuccessFunc(responseObj) {
   //自定义响应成功逻辑，全局拦截接口，根据不同业务做处理，响应成功监控等
   let resData = responseObj.data
-
+  const tip = window._RG.config.tip;
   let { code } = resData
   switch (code) {
     case 102:
-      Vue.prototype.$dialog.show("tip", window._RG.config.tip.code_102);
+      Vue.prototype.$dialog.show("tip", tip.code_102);
       return
     //业务成功
     case 200:
       return resData.state;
     case 300:
       localStorage.clear();
-      Vue.prototype.$dialog.show("tip", window._RG.config.tip.code_300);
+      Vue.prototype.$dialog.show("tip", tip.code_300);
       setTimeout(() => {
         location.reload();
       }, 3000)
       return
-    case 400:
+    // case 400:
+    // 宝箱,翻卡,飞行棋这些接口只有200,401,402,1000,1101,400这些code,没有300这个错误
       // localStorage.clear();
-      // Vue.prototype.$dialog.show("tip", window._RG.config.tip.code_300);
+      // Vue.prototype.$dialog.show("tip", tip.code_300);
       // setTimeout(() => {
       //   location.reload();
       // }, 5000)
-      return
+      // return
     case 401:
-      Vue.prototype.$dialog.show("tip", window._RG.config.tip.code_401);
+      Vue.prototype.$dialog.show("tip", tip.code_401);
       return
     case 402:
-      Vue.prototype.$dialog.show("tip", window._RG.config.tip.code_402);
+      Vue.prototype.$dialog.show("tip", tip.code_402);
       return
     case 444:
-      Vue.prototype.$dialog.show("tip", window._RG.config.tip.code_444);
+      Vue.prototype.$dialog.show("tip", tip.code_444);
       return
     case 405:
-      Vue.prototype.$dialog.show("tip", window._RG.config.tip.code_405);
+      Vue.prototype.$dialog.show("tip", tip.code_405);
       return
     case 1000:
-      Vue.prototype.$dialog.show("tip", window._RG.config.tip.code_1000);
+      Vue.prototype.$dialog.show("tip", tip.code_1000);
       return
     case 1001:
-      Vue.prototype.$dialog.show("tip", window._RG.config.tip.code_1001);
+      Vue.prototype.$dialog.show("tip", tip.code_1001);
       return
     case 1002:
-      Vue.prototype.$dialog.show("tip", window._RG.config.tip.code_1002);
+      Vue.prototype.$dialog.show("tip", tip.code_1002);
       return
     case 1005:
-      Vue.prototype.$dialog.show("tip", window._RG.config.tip.code_1005);
+      Vue.prototype.$dialog.show("tip", tip.code_1005);
       return
     case 1006:
-      Vue.prototype.$dialog.show("tip", window._RG.config.tip.code_1006);
+      Vue.prototype.$dialog.show("tip", tip.code_1006);
       return
     case 1101:
-      Vue.prototype.$dialog.show("tip", window._RG.config.tip.code_1101);
+      Vue.prototype.$dialog.show("tip", tip.code_1101);
       return
     default:
       return Promise.reject(resData)
@@ -110,7 +108,7 @@ export const get = function (url: string, params: any) {
     })
     .catch(function (error) {
       Vue.prototype.$dialog.hide();
-      // Vue.prototype.$dialog.show("tip", window._RG.config.tip.code_400);
+      // Vue.prototype.$dialog.show("tip", tip.code_400);
       console.log(error)
     })
 }

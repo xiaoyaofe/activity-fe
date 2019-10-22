@@ -62,10 +62,7 @@
 						this.isDisabled = true;
 						this.$dialog.show(
 							"tip",
-							window._RG.config.tip.code_200.replace(
-								"禮包",
-								data.rewardName
-							)
+							window._RG.config.tip.code_200.replace("$禮包", data.rewardName)
 						);
 					}
 				} else {

@@ -37,7 +37,7 @@
 	import RgButton from "@/components/base/RgButton.vue";
 	import RgFooter from "@/components/base/RgFooter.vue";
 	import { isLogin } from "@/common/common";
-	import { getAllHistory, infoActivity } from "@/common/api";
+	import { getAllHistory, infoActivity } from "@/api";
 	import Act1 from "./acts/act1.vue";
 	import Act2 from "./acts/act2.vue";
 	import Act5 from "./acts/act5.vue";

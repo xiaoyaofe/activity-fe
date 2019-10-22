@@ -1,9 +1,13 @@
 type version = "de" | "v1" | "v3";
-/* webpack 定义值 */
+/* webpack 全局覆盖的值 */
 declare const CONFIG: CONFIG;
 declare const VUE_APP_BASE_URL: string;
 declare const VUE_APP_PATH: string;
 declare const VUE_APP_LANG: string;
+declare const VUE_APP_FB_Ad_ID: string;
+declare const VUE_APP_GA_Ad_ID: string;
+declare const VUE_APP_FB_APP_ID: string;
+declare const VUE_APP_FBSDK_VERSION: string;
 
 declare const FB: any;
 
@@ -12,7 +16,8 @@ interface ProcessEnv {
   [key: string]: undefined | string;
 }
 interface Window {
-  fbq: Function
+  fbq: Function;
+  gtag: Function;
   dataLayer: any[];
   fbAsyncInit: Function;
   _RG: {

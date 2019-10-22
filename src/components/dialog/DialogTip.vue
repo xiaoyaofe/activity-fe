@@ -130,7 +130,6 @@
 	import Vue from "vue";
 	import { isLogin } from "../../common/common";
 
-	declare var CONFIG: Object;
 	export default Vue.extend({
 		name: "DialogTip",
 		props: {

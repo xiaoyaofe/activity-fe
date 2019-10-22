@@ -54,6 +54,10 @@
 		interface Vue {
 			$pixel: any;
 			$isPc: boolean;
+			$dialog: {
+				show: Function;
+				hide: Function;
+			};
 		}
 	}
 

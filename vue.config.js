@@ -12,6 +12,11 @@ function getEnvObj() {
       result[key] = JSON.stringify(process.env[key]);
     }
   }
+  for (key in activityParamDevAndBuild.otherParams) {
+    if (/VUE_APP_/.test(key)) {
+      result[key] = JSON.stringify(process.env[key]);
+    }
+  }
   return result;
 }
 let activityParam = {
@@ -42,12 +47,22 @@ module.exports = {
       //   jQuery: 'jquery',
       //   'window.jQuery': 'jquery',
       // })
-    )
+    );
+
+  },
+  chainWebpack: config => {
+    config
+      .plugin('html')
+      .tap(args => {
+        args[0].title = activityParamDevAndBuild.otherParams.VUE_APP_TITLE
+        console.log(args[0]);
+        return args
+      });
   },
   pluginOptions: {
     'style-resources-loader': {
       preProcessor: 'scss',
-      patterns: [path.resolve(__dirname, './src/assets/scss/*.scss')]
+      patterns: [path.resolve(__dirname, './src/common/scss/global/*.scss')]
     }
   },
   devServer: {

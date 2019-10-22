@@ -12,7 +12,7 @@
 						key="userAccount"
 						v-model="userName"
 						@keydown.enter="down(1)"
-						:placeholder="CONFIG.tip.userName"
+						:placeholder="tip.userName"
 					>
 					<input
 						type="password"
@@ -20,7 +20,7 @@
 						key="userPassword"
 						v-model="userPassword"
 						@keydown.enter="sdkLogin($event)"
-						:placeholder="CONFIG.tip.userPass"
+						:placeholder="tip.userPass"
 					>
 					<button class="login_btn1" @click="sdkLogin"></button>
 
@@ -29,14 +29,14 @@
 				</div>
 				<!-- 区服 -->
 				<div class="serverBox" v-if="!isType" style="position: relative;">
-					<p class="title">{{CONFIG.tip.zone_null}}</p>
+					<p class="title">{{tip.zone_null}}</p>
 					<input
 						type="number"
 						v-number-only
 						class="userzone"
 						key="userServer"
 						v-model="userZone"
-						:placeholder="CONFIG.tip.serve"
+						:placeholder="tip.serve"
 						@click="dropSelectInput()"
 						v-focus="focusStatus"
 						@keydown.enter="serverBtn($event)"
@@ -58,7 +58,6 @@
 </template>
 
 <script lang="ts">
-	declare var CONFIG: Object;
 	declare var FB: any;
 	declare var Kakao: any;
 	import Vue from "vue";
@@ -74,7 +73,7 @@
 	export default Vue.extend({
 		data() {
 			return {
-				CONFIG: window._RG.config,
+				tip: window._RG.config.tip,
 				userName: "",
 				userPassword: "",
 				userZone: "",
@@ -145,7 +144,7 @@
 						(await this.handleLogin(loginData)) &&
 						(this.isType = false);
 				} else {
-					Vue.prototype.$dialog.show("tip", CONFIG["tip"].login_info_null);
+					Vue.prototype.$dialog.show("tip", this.tip.login_info_null);
 				}
 			},
 			/******************************************************************************/
@@ -195,7 +194,7 @@
 					let id = gameZone.gameZoneId;
 					let data: any = await findRole(id);
 					if (!data.length || data.code == "102") {
-						Vue.prototype.$dialog.show("tip", window._RG.config.tip.player_null);
+						Vue.prototype.$dialog.show("tip", this.tip.player_null);
 					} else {
 						// 区服成功
 						localStorage.setItem("playerName", data[0].playerName);
@@ -207,7 +206,7 @@
 						// pixel
 					}
 				} else {
-					Vue.prototype.$dialog.show("tip", window._RG.config.tip.zone_null);
+					Vue.prototype.$dialog.show("tip", this.tip.zone_null);
 				}
 			},
 			/******************************************************************************/

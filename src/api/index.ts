@@ -1,41 +1,12 @@
 /**
  * 活动ID：config.data.actId[typeId]
    礼包ID：config.data.rewardId[typeId][0]*/
-// import md5 from 'js-md5'
+
 import md5 from 'md5';
 import { get } from "./axios";
-const BASE_URL = VUE_APP_BASE_URL;
-const api = {
-  login: "/user/sdk/login", //sdk登录接口
-  fb_login: "/user/fb/login", //fb登录接口
-  kk_login: "/user/kk/login", //kk登录接口
-  zone: "/user/sdk/zones", //区服接口
-  role: "/user/player/list", //角色接口
-  join: "/activity/join", //参与活动接口
-  info: "/activity/info", //活动信息接口
-  cdKeys: "/activity/cdKeys", //礼包数据接口
-  CdKeys_all: "/activity/cdKeysList", //获取所有礼包
-  join_allPay: "/activity/weekPay", //累计充值接口
-  info_allPay: "/activity/weekPayInfo", //累计充值数据
-  gifsList: "/activity/lottery/list", //许愿中奖列表
-  desireList: "/activity/recently/cdkeys", //许愿愿望列表
-  getCount: "/activity/getTotal", //许愿次数
-  makeWish: "/activity/submit/info", //许愿接口
-  flip: "/activity/fflReward", //翻卡牌接口
-  fflInfo: "/activity/fflUserInfo", //翻卡牌信息接口
-  reserveJoin: "/activity/advance/join", //预约接口
-  roteJoin: "/activity/facebook/join", //抽獎接口
-  roteInfo: "/activity/facebook/info",
-  roteCdkeys: "/activity/facebook/cdKeys",
-  updateReward: "/activity/updateReward", //更新包礼包
-  // 20190706
-  roteRecharge: "/activity/vipReturn",
-  carCount: '/activity/cardCount', //获取宝箱数量
-  cardReward: "/activity/cardReward", //参与宝箱活动
-  cardBoxFB: "/activity/cardBoxFB", //分享调用
-  // 飞行棋,港台vs使用
-  flightChess:"/activity/flightChess"
-}
+import * as Routes from "./Routes";
+
+export const BASE_URL = VUE_APP_BASE_URL;
 // sdk登录
 export const loginWithAccount = (username, password) => {
   let params = {
@@ -43,7 +14,7 @@ export const loginWithAccount = (username, password) => {
     password: md5(password),
     version: window._RG.config.data.version
   }
-  return get(BASE_URL + api.login, params)
+  return get(BASE_URL + Routes.login, params)
 }
 
 // FB登录
@@ -52,7 +23,7 @@ export const loginWithFB = (token) => {
     clientId: window._RG.config.data.appId,
     access_token: token
   }
-  return get(BASE_URL + api.fb_login, params)
+  return get(BASE_URL + Routes.fb_login, params)
 }
 
 // kakao登录
@@ -61,7 +32,7 @@ export const loginWithKakao = (token) => {
     clientId: window._RG.config.data.appId,
     access_token: token,
   }
-  return get(BASE_URL + api.kk_login, params)
+  return get(BASE_URL + Routes.kk_login, params)
 }
 
 //初始化区服列表
@@ -70,7 +41,7 @@ export const initZones = (msg) => {
     appId: window._RG.config.data.appId,
     token: msg.token
   }
-  return get(BASE_URL + api.zone, params)
+  return get(BASE_URL + Routes.zone, params)
 }
 
 // 获取角色
@@ -81,7 +52,7 @@ export const findRole = (msg) => {
     gameZoneId: zoneId,
     token: localStorage.token
   }
-  return get(BASE_URL + api.role, params)
+  return get(BASE_URL + Routes.role, params)
 }
 
 // 获取所有活动历史记录
@@ -90,7 +61,7 @@ export const getAllHistory = () => {
     groupId: window._RG.config.data.groupId,
     token: localStorage.token
   }
-  return get(BASE_URL + api.CdKeys_all, params)
+  return get(BASE_URL + Routes.CdKeys_all, params)
 }
 
 // 获取单个活动历史记录
@@ -102,7 +73,7 @@ export const getHistory = (typeId) => {
     token: localStorage.token,
     rewardId: window._RG.config.data.rewardId[typeId][0],
   }
-  return get(BASE_URL + api.cdKeys, params)
+  return get(BASE_URL + Routes.cdKeys, params)
 }
 
 // 获取活动信息
@@ -113,7 +84,7 @@ export const infoActivity = (typeId) => {
     token: localStorage.token,
     rewardId: window._RG.config.data.rewardId[typeId][0],
   }
-  return get(BASE_URL + api.info, params)
+  return get(BASE_URL + Routes.info, params)
 }
 
 // 参加活动join
@@ -124,7 +95,7 @@ export const joinActivity = (typeId, index) => {
     token: localStorage.token,
     rewardId: window._RG.config.data.rewardId[typeId][index]
   }
-  return get(BASE_URL + api.join, params)
+  return get(BASE_URL + Routes.join, params)
 }
 
 // 许愿
@@ -137,7 +108,7 @@ export const wishActivity = (wish_word, goodsId) => {
       "wish": wish_word
     })
   }
-  return get(BASE_URL + api.makeWish, params)
+  return get(BASE_URL + Routes.makeWish, params)
 }
 //所有许愿记录
 export const wishHistory = (length) => {
@@ -148,7 +119,7 @@ export const wishHistory = (length) => {
     limit: length,
     token: localStorage.token,
   }
-  return get(BASE_URL + api.desireList, params)
+  return get(BASE_URL + Routes.desireList, params)
 }
 // 点击翻转卡牌
 //一键翻开index：-1；正常翻开index：0
@@ -159,7 +130,7 @@ export const joinFilp = (typeId, index) => {
     token: localStorage.token,
     index: index
   }
-  return get(BASE_URL + api.flip, params)
+  return get(BASE_URL + Routes.flip, params)
 }
 // 卡牌活动信息
 export const infoFlip = (typeId) => {
@@ -168,7 +139,7 @@ export const infoFlip = (typeId) => {
     actId: window._RG.config.data.actId[typeId].id,
     token: localStorage.token,
   }
-  return get(BASE_URL + api.fflInfo, params)
+  return get(BASE_URL + Routes.fflInfo, params)
 }
 // 获取预约人数
 export const reserveInfo = () => {
@@ -176,7 +147,7 @@ export const reserveInfo = () => {
     groupId: window._RG.config.data.groupId,
     actId: window._RG.config.data.actId.reserve,
   }
-  return get(BASE_URL + api.info, params)
+  return get(BASE_URL + Routes.info, params)
 }
 // 参与预约
 export const reserveJoin = (userPhone) => {
@@ -185,7 +156,7 @@ export const reserveJoin = (userPhone) => {
     actId: window._RG.config.data.actId.reserve,
     phone: userPhone,
   }
-  return get(BASE_URL + api.reserveJoin, params)
+  return get(BASE_URL + Routes.reserveJoin, params)
 }
 // 預約轉盤
 export const roteJoin = (fb) => {
@@ -195,7 +166,7 @@ export const roteJoin = (fb) => {
     token: localStorage.token,
     fbshare: fb
   }
-  return get(BASE_URL + api.roteJoin, params)
+  return get(BASE_URL + Routes.roteJoin, params)
 }
 export const roteInfo = () => {
   let params = {
@@ -203,7 +174,7 @@ export const roteInfo = () => {
     actId: window._RG.config.data.actId.rotate,
     token: localStorage.token
   }
-  return get(BASE_URL + api.roteInfo, params)
+  return get(BASE_URL + Routes.roteInfo, params)
 }
 
 //获取礼包记录
@@ -213,7 +184,7 @@ export const roteCdkeys = () => {
     actId: window._RG.config.data.actId.rotate,
     token: localStorage.token
   }
-  return get(BASE_URL + api.roteCdkeys, params)
+  return get(BASE_URL + Routes.roteCdkeys, params)
 }
 // 20190706
 // 更新礼包
@@ -226,7 +197,7 @@ export const updateReward = (msg) => {
     advChannel: "27",
     isUpdate: msg
   }
-  return get(BASE_URL + api.updateReward, params)
+  return get(BASE_URL + Routes.updateReward, params)
 }
 // 参加活动join
 export const getRecharge = (typeId, index) => {
@@ -237,7 +208,7 @@ export const getRecharge = (typeId, index) => {
     rewardId: window._RG.config.data.rewardId[typeId][index],
     viplevel: index
   }
-  return get(BASE_URL + api.roteRecharge, params)
+  return get(BASE_URL + Routes.roteRecharge, params)
 }
 
 // 宝箱的三个接口
@@ -249,7 +220,7 @@ export const joinBoxFb = (fbShare: boolean) => {
     token: localStorage.token,
     fbShare
   }
-  return get(BASE_URL + api.cardBoxFB, params)
+  return get(BASE_URL + Routes.cardBoxFB, params)
 }
 export const getCardCount = (wishId: string = "") => {
   let params = {
@@ -259,7 +230,7 @@ export const getCardCount = (wishId: string = "") => {
     fbShare: "false",
     // wishId
   }
-  return get(BASE_URL + api.carCount, params)
+  return get(BASE_URL + Routes.carCount, params)
 }
 export const joinCardReward = (index: number) => {
   let params = {
@@ -269,16 +240,16 @@ export const joinCardReward = (index: number) => {
     rewardId: window._RG.config.data.rewardId.box[0],
     index: index
   }
-  return get(BASE_URL + api.cardReward, params)
+  return get(BASE_URL + Routes.cardReward, params)
 }
 // 飞行棋
 // 0-查询刷新次数/1-投骰子领奖/ 2-砸彩蛋
-export const joinFlightChess = (type: 0|1|2) => {
+export const joinFlightChess = (type: 0 | 1 | 2) => {
   let params = {
     groupId: window._RG.config.data.groupId,
     actId: window._RG.config.data.actId.flightChess,
     token: localStorage.token,
     type
   };
-  return get(BASE_URL + api.flightChess, params);
+  return get(BASE_URL + Routes.flightChess, params);
 }

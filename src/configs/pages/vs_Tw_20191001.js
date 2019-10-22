@@ -1,13 +1,7 @@
+const baseParams = require("../baseConfig/vs-tw");
+
 const activityParam = {
-  appId: "10086",
-  fbId: "1857107671238192",
-  kkId: "",
   groupId: "5d82d61bb5cb6717884d975d",
-  // 德法为de,越南、泰国攻城是v1，其他都是v3
-  version: "v3",
-  // 打点Id
-  fb: '',
-  ga: '',
   // 活动ID
   actId: {
     // 登录
@@ -135,8 +129,19 @@ const activityParam = {
     ]
   }
 };
-
+const params = Object.assign({
+  fb: "",
+  ga: "",
+  isShare: true,
+  shareMeta: `
+   <meta property=og:url content=https://pokeko.pocketgamesol.com/activity/20191001/index.html> 
+   <meta property=og:type content=website>
+   <meta property=og:title content=《神奇訓練師》國慶雙十大狂歡，限量萌寵神獸等你領~>
+   <meta property=og:image content=https://pokeko.pocketgamesol.com/activity/20191001/share.jpg>
+  `
+});
 module.exports = {
   dev: activityParam,
-  build: activityParam
+  build: activityParam,
+  params
 }

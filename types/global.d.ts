@@ -15,7 +15,7 @@ declare const FB: any;
 
 interface ProcessEnv {
   VUE_APP_BASE_URL: string;
-  VUE_APP_FBSDK_VERSION:string;
+  VUE_APP_FBSDK_VERSION: string;
   [key: string]: string;
 }
 interface Window {
@@ -229,6 +229,9 @@ interface Tip {
   oldPlayer: string;
 }
 
+interface Res {
+  code: number;
+}
 interface HTMLElement {
   href: string;
   tapObj: {

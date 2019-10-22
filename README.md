@@ -23,8 +23,11 @@ yarn or npm run build
 yarn or npm run dev-build
 
 
-## 说明
+## 设计理念
+
+复用, 易于扩展
 
 1. 每个活动需要提供一个mixin来做混入
 2. 接口返回数据需要做一次映射,做数据解耦
-3. 提供基础的组件来屏蔽平台差异
+3. 提供基础的组件来屏蔽平台差异(如:click在pc 和 mobile 中的差异)
+4. 样式文件根据大小来判断 pc 和 mobile 768px

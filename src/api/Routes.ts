@@ -1,5 +1,6 @@
 /* 所有的路由  */
 
+/* 登录的接口开始 */
 
 // sdk平台登录接口
 export const login = "/user/sdk/login";
@@ -11,6 +12,11 @@ export const kk_login = "/user/kk/login";
 export const zone = "/user/sdk/zones";
 //角色接口
 export const role = "/user/player/list";
+
+/* 登录的接口结束 */
+
+/* 活动接口的开始 */
+
 //参与活动接口
 export const join = "/activity/join";
 //活动信息接口
@@ -37,11 +43,11 @@ export const flip = "/activity/fflReward";
 export const fflInfo = "/activity/fflUserInfo";
 //预约接口
 export const reserveJoin = "/activity/advance/join";
-//抽獎接口
+//转盘参与接口
 export const roteJoin = "/activity/facebook/join";
-
+// 转盘信息接口
 export const roteInfo = "/activity/facebook/info";
-
+// 转盘历史接口
 export const roteCdkeys = "/activity/facebook/cdKeys";
 //更新包礼包
 export const updateReward = "/activity/updateReward";
@@ -55,3 +61,5 @@ export const cardReward = "/activity/cardReward";
 export const cardBoxFB = "/activity/cardBoxFB";
 // 飞行棋,港台vs使用
 export const flightChess = "/activity/flightChess";
+
+/* 活动接口的结束 */

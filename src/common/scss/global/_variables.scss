@@ -1,23 +1,10 @@
 /*---- variables ----*/
-$pc: "screen and (min-width: 751px)";
-$mobile: "screen and (max-width: 750px) and (min-width: 0px)";
-$path: "vs_20191001";
 
-$mainPcWidth:19.2rem;
-$mainPcHeight:51.79rem;
-$mainMbWidth:7.5rem;
-$mainMbHeight:70.64rem;
-
-//不要随意更改PC端的minPcWidth这个值,需要修改 src/utils/fns 下的setHtmlFontSize函数中的值
-$minPcWidth:1200px;
-//高度值计算公式: 设计稿高度 * $minPcWidth/设计稿宽度
-$minPcHeight:3237px;
-
-/* 为了 footer 的吸底的效果 */
-$footerPcHeight:1.07rem;
-$footermbHeight:1.06rem;
-
-$z-index2:2;
-$z-index3:3;
-$z-index4:4;
-$z-index5:5;
+/* 不要随意更改PC端的minPcWidth这个值,
+需要修改 src/common/utils 下的setHtmlFontSize 函数中的值
+在1200-768 这个区间内 rem 的值等于1200的值 */
+$pc: "screen and (min-width: 768px)";
+$mobile: "screen and (max-width: 768px)";
+$pcWidth:19.2rem;
+$mbWidth:7.5rem;
+$minWidth:1200px;

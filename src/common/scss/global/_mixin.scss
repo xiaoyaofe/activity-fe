@@ -4,3 +4,39 @@
     @content;
   }
 }
+@mixin isAdd($propotyName,$propotyValue){
+  @if($propotyValue != "none"){
+    #{$propotyName}:$propotyValue;
+  }
+}
+@mixin footer($footerClassName,$footerHeight,$footerBackground){
+  .#{$footerClassName}{
+		  width: 100%;
+		  height: $footerHeight;
+      margin: -$footerHeight auto 0;
+      @include isAdd("background",$footerBackground);
+  }
+}
+
+@mixin minWidthAndHeight($width,$height,$minWidth){
+  width: $width;
+  height: $height;
+  min-width: $minWidth;
+}
+@mixin backgroundImage( $background-image, $background-position,$background-size,$background-repeat){
+  background: #{$background-image} #{$background-position}/#{$background-size} #{$background-repeat};
+}
+// 多张背景图
+/* background: url(images/scroll_top.jpg) center top no-repeat,
+            url(images/scroll_bottom.jpg) center bottom no-repeat,
+            url(images/scroll_middle.jpg) center top repeat-y;
+ */
+
+@mixin outline (){
+  body * {
+    outline: 1px solid red
+  }
+}
+
+
+

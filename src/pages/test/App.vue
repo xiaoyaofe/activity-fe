@@ -6,12 +6,15 @@
 			:isShowMark="true"
 			@close="toogleAttr('isShowMessager',false)"
 		></RgMessageContainer>
+		<div class="app_container"></div>
 		<RgButton class="showMessageBtn" @click="toogleAttr('isShowMessager',true)">打开消息框</RgButton>
+		<RgFooter class="app_footer"></RgFooter>
 	</div>
 </template>
 <script lang="ts">
 	import Vue from "vue";
 	import RgButton from "@/components/base/RgButton.vue";
+	import RgFooter from "@/components/base/RgFooter.vue";
 	// import RgFooter from "@/components/base/RgFooter.vue";
 	import RgMessageContainer from "@/components/base/RgMessageContainer.vue";
 	declare module "vue/types/vue" {
@@ -23,7 +26,7 @@
 	}
 	// 尽量抽象mixin
 	export default Vue.extend({
-		components: { RgMessageContainer, RgButton },
+		components: { RgMessageContainer, RgButton, RgFooter },
 		data() {
 			return {
 				isShowMessager: false
@@ -43,6 +46,6 @@
 	});
 </script>
 <style lang="scss">
-	@import "../../common/scss/base";
-	@import "./app.pc.scss";
+	@import "../base";
+	@import "./app.scss";
 </style>

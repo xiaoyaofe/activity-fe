@@ -2,15 +2,105 @@
  * 活动ID：config.data.actId[typeId]
    礼包ID：config.data.rewardId[typeId][0]
 */
-export * from "./base/login";
-export * from "./base/historyAndJoinAndInfo"
+// export * from "./reqs/login";
+// export * from "./reqs/historyAndJoinAndInfo"
 
-import { get } from "./axios";
-import * as Routes from "./Routes";
+import { get } from "./base/axios";
+import md5 from "md5";
+import * as Routes from "./base/Routes";
 
 const BASE_URL = VUE_APP_BASE_URL;
 
+// sdk登录
+export const loginWithAccount = (username, password) => {
+  let params = {
+    userName: username,
+    password: md5(password),
+    version: VERSION
+  }
+  return get(BASE_URL + Routes.login, params)
+}
 
+// FB登录
+export const loginWithFB = (token) => {
+  let params = {
+    clientId: APPID,
+    access_token: token
+  }
+  return get(BASE_URL + Routes.fb_login, params)
+}
+
+// kakao登录
+export const loginWithKakao = (token) => {
+  let params = {
+    clientId: APPID,
+    access_token: token,
+  }
+  return get(BASE_URL + Routes.kk_login, params)
+}
+
+//初始化区服列表
+export const initZones = (msg) => {
+  let params = {
+    appId: APPID,
+    token: msg.token
+  }
+  return get(BASE_URL + Routes.zone, params)
+}
+
+// 获取角色
+export const findRole = (msg) => {
+  let zoneId = msg;
+  let params = {
+    appId: APPID,
+    gameZoneId: zoneId,
+    token: localStorage.token
+  }
+  return get(BASE_URL + Routes.role, params)
+}
+
+// 获取所有活动历史记录
+export const getAllHistory = () => {
+  let params = {
+    groupId: window._RG.config.data.groupId,
+    token: localStorage.token
+  }
+  return get(BASE_URL + Routes.CdKeys_all, params);
+}
+
+// 获取单个活动历史记录
+export const getHistory = (typeId: string) => {
+
+  let params = {
+    groupId: window._RG.config.data.groupId,
+    actId: window._RG.config.data.actId[typeId],
+    token: localStorage.token,
+    rewardId: window._RG.config.data.rewardId[typeId][0],
+  }
+  return get(BASE_URL + Routes.cdKeys, params)
+}
+
+// 获取活动信息
+export const infoActivity = (typeId: string) => {
+  let params = {
+    groupId: window._RG.config.data.groupId,
+    actId: window._RG.config.data.actId[typeId],
+    token: localStorage.token,
+    rewardId: window._RG.config.data.rewardId[typeId][0],
+  }
+  return get(BASE_URL + Routes.info, params)
+}
+
+// 参加活动join
+export const joinActivity = (typeId: string, index: number) => {
+  let params = {
+    groupId: window._RG.config.data.groupId,
+    actId: window._RG.config.data.actId[typeId],
+    token: localStorage.token,
+    rewardId: window._RG.config.data.rewardId[typeId][index]
+  }
+  return get(BASE_URL + Routes.join, params)
+}
 
 // 许愿
 export const wishActivity = (wish_word, goodsId) => {
@@ -35,6 +125,7 @@ export const wishHistory = (length) => {
   }
   return get(BASE_URL + Routes.desireList, params)
 }
+
 // 点击翻转卡牌
 //一键翻开index：-1；正常翻开index：0
 export const joinFilp = (typeId, index) => {

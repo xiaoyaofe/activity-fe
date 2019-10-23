@@ -1,3 +1,4 @@
+/* 暂时没有使用 */
 import Vue from 'vue'
 
 export class Http {
@@ -45,8 +46,8 @@ export class Http {
     return result;
   }
 
-  public post<T>(route: string, data: any) {
-    return this.request<T>({ method: 'POST', route, data })
+  public post(route: string, data: any) {
+    return this.request({ method: 'POST', route, data })
       .then((res: any) => {
         responseSuccessFunc(res);
         return res;

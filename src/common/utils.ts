@@ -34,7 +34,7 @@ export function isPc() {
 // 设置rem基准值, 好处是小数点前移两位
 export function setHtmlFontSize(viewBaseWidth: number) {
   let clientWidth = document.documentElement.clientWidth;
-  if (clientWidth <= 1200 && viewBaseWidth > 750) clientWidth = 1200;
+  if (clientWidth <= 1200 && viewBaseWidth > 768) clientWidth = 1200;
   let _fontSize = clientWidth / (viewBaseWidth / 100);
   document.documentElement.style.fontSize = _fontSize + "px";
 }

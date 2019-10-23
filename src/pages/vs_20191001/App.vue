@@ -144,7 +144,7 @@
 	});
 </script>
 <style lang="scss">
-	@import "../../base.scss";
+	@import "../base.scss";
 	@import "./app.pc.scss";
 	@import "./app.mb.scss";
 </style>

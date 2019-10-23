@@ -7,4 +7,5 @@ module.exports = {
   language: "Th",
   /* 需要修改 */
   title: "",
+  isKakao: false
 }

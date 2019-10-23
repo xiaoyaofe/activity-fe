@@ -5,4 +5,5 @@ module.exports = {
   version: "v3",
   language: "Vn",
   title: "Liên minh pet",
+  isKakao: false
 }

@@ -4,4 +4,5 @@ module.exports = {
   version: "v1",
   language: "Vn",
   title: "Công Thành Xưng Đế",
+  isKakao: false
 }

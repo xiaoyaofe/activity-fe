@@ -1,17 +1,19 @@
 type version = "de" | "v1" | "v3";
 /* webpack 全局覆盖的值 */
 declare const CONFIG: CONFIG;
-/* 对应config-> baseConfig中的 fb,ga, fbId, */
+/* 对应config-> baseConfig中的 appId,version,fb,ga, fbId,isKakao */
 declare const APPID: string;
 declare const VERSION: string;
 declare const FB_Ad_ID: string;
 declare const GA_Ad_ID: string;
 declare const FB_APP_ID: string;
+declare const IS_KAKAO: boolean;
 /* 定义在.env中 */
 declare const VUE_APP_BASE_URL: string;
 declare const VUE_APP_FBSDK_VERSION: string;
 
 declare const FB: any;
+declare const Kakao: any;
 
 interface ProcessEnv {
   VUE_APP_BASE_URL: string;

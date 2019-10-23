@@ -38,7 +38,9 @@ $footerBackgroundValue: "#fff";
 
 /* 内容的容器包裹除footer之外的一切元素 */
   .app_container {
+    box-sizing: border-box;
     height: 100%;
+    padding:50px;
   }
 
 /* 添加一个吸顶的footer */

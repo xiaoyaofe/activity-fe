@@ -1,5 +1,4 @@
-import * as Velocity from "velocity-animate/velocity";//完成动画延迟和动画队列
-
+export * from "./animation";
 /* 获取地址栏参数 */
 export const getParameterByName = (function () {
   let urlParamMap = {}
@@ -102,6 +101,24 @@ export function initfacebook(appId: string, version: string) {
   }(document, 'script', 'facebook-jssdk'));
 }
 
+export function initKakao() {
+  (function (d, s, id) {
+    let js;
+    const fjs: any = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) {
+      return;
+    }
+    js = d.createElement(s);
+    js.id = id;
+    js.onload = function () {
+      Kakao.init('2aa46e2170d6d1b9268934304e63b35e');
+    }
+    js.src = 'https://developers.kakao.com/sdk/js/kakao.min.js';
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'kakao-jssdk'));
+
+}
+
 // 兼容IE9页面滚动属性
 
 export function polyfillAnimation() {
@@ -182,7 +199,8 @@ export function isShowPc() {
   }
   return result;
 }
-/* 
+
+/*
 
 那就是使用getBoundingClientRect()方法。它返回一个对象，其中包含了left、right、top、bottom四个属性，分别对应了该元素的左上角和右下角相对于浏览器窗口（viewport）左上角的距离。
 所以，网页元素的相对位置就是
@@ -192,4 +210,4 @@ var Y =this.getBoundingClientRect().top;
 var X= this.getBoundingClientRect().left+document.documentElement.scrollLeft;
 var Y =this.getBoundingClientRect().top+document.documentElement.scrollTop;
 
-*/ 
+*/

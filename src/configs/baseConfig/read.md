@@ -15,5 +15,7 @@ module.exports = {
   language: "Th",
   /* 游戏的名称,这个不需要频繁的更换,最好是固定一个 */
   title: "",
+  /* 是否有卡考登录,只有韩国有 */
+  isKakao:false
 }
 ```

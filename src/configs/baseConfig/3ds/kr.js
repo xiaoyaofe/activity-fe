@@ -7,4 +7,5 @@ module.exports = {
   version: "v3",
   language: "Kr",
   title: "[트레이너 리그] 크리스마스이벤트",
+  isKakao: true
 }

@@ -6,4 +6,5 @@ module.exports = {
   version: "v3",
   language: "Id",
   title: "Malam Hari Natal",
+  isKakao: false
 }

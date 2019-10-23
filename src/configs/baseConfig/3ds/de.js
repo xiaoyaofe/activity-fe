@@ -6,4 +6,5 @@ module.exports = {
   version: "de",
   language: "De",
   title: "Heiligabend",
+  isKakao:false
 }

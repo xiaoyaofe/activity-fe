@@ -6,4 +6,5 @@ module.exports = {
   version: "de",
   language: "Fr",
   title: "Trainer Battle",
+  isKakao: false
 }

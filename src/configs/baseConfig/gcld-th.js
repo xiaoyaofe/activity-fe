@@ -6,4 +6,5 @@ module.exports = {
   // # Id, En, Fr, De, Vn, Tw
   language: "De",
   title: "",
+  isKakao: false
 }

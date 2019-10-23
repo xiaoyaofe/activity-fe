@@ -1,5 +1,7 @@
 # 活动页
 
+要对基础组件和公共的函数和api做修改时留下注释,以备其他人合并解决冲突
+
 ## 技术栈
 
 vue sass typescript axios Velocityjs

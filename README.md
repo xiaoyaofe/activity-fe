@@ -29,7 +29,7 @@ yarn or npm run dev-build
 复用, 易于扩展
 
 1. 每个活动需要提供一个mixin来做混入
-2. 接口返回数据需要做一次映射,做数据解耦
+2. 接口返回数据需要做一次映射,做数据解耦,现阶段不需要
 3. 提供基础的组件来屏蔽平台差异(如:click在pc 和 mobile 中的差异)
 4. 样式文件根据大小来判断 pc 和 mobile 768px
 
@@ -37,13 +37,9 @@ yarn or npm run dev-build
 
 pachage.json -> vue.config.js -> pages/ 
 
-## 活动页条件设计
-
-做活动页的目的是为了拉动游戏的活跃和消费,因此登录做成登录游戏会对提高活跃有一定的帮助,也可以登录就送,有了奖励会增加玩家去游戏查看的可能;消费需要看活动机制和奖励的好坏,来确定拉收的程度
-
 ## 作用的单词 
 
-###CSS书写顺序:<br/>>
+###CSS书写顺序:<br/>
 
 1. 位置属性(position, top, right, z-index, display, float等)
 2. 大小(width, height, padding, margin)

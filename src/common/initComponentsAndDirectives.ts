@@ -1,13 +1,13 @@
 import Vue from 'vue'
 /* 组件 */
-import RgMark from "@/components/base/RgMark.vue";
+
 /* 指令 */
 import vueTap from '@/common/directives/v-tap';
 /* 使用Vue.use 注册的组件 */
 // import Dialog from '@/components/dialog/dialog';
 
 /* 注册全局组件 */
-Vue.component(RgMark.name, RgMark);
+
 
 /* 注册全局指令 */
 Vue.use(vueTap);

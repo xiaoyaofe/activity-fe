@@ -10,8 +10,8 @@
 </template>
 <script lang="ts">
 	import Vue from "vue";
-	import { isLogin } from "../../common/utils";
-	import { joinActivity } from "../../api";
+	import { isLogin } from "@/common/utils";
+	import { joinActivity } from "@/api";
 	declare var CONFIG: any;
 	export default Vue.extend({
 		name: "oldPlayer",

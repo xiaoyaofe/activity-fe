@@ -1,66 +1,75 @@
 <template>
-	<div id="app">
+	<div id="app" class="app">
 		<!-- 导航栏 -->
-		<DowmNavigation :isPc="isPc" v-bind="navAnimateOption" :buttons="navButtons"></DowmNavigation>
+		<!-- <DowmNavigation :isPc="isPc" v-bind="navAnimateOption" :buttons="navButtons"></DowmNavigation> -->
 		<!-- 登录 -->
-		<login v-show="loginIsVisible" @visibleLogin="visibleLogin(false)" @init="initUserInfo($event)"></login>
+		<!-- <login v-show="loginIsVisible" @visibleLogin="visibleLogin(false)" @init="initUserInfo($event)"></login> -->
 		<!-- 容器 -->
-		<div class="app__content">
+		<div class="container">
 			<!-- 头部 -->
-			<header id="header">
-				<div class="header_actTime" v-once></div>
-				<div class="header_btnBox">
-					<RgButton :class="['header_btnBox_loginBtn',{hide:userRolle}]" @click="visibleLogin(true)"></RgButton>
+			<header class="header">
+				<div class="header__title-and-time" v-once></div>
+				<div class="header__btns-wraper">
+					<RgButton
+						v-if="!userRolle"
+						class="header__btns-wraper__login-btn btn-relative"
+						@click="visibleLogin(true)"
+					></RgButton>
 				</div>
-				<div class="userInfo" v-show="userRolle">
-					<span class="userInfo_span">{{_RG.config.tip.serve}}:&nbsp;{{userZone.replace(/[^0-9]/ig,"")}}</span>
-					<span class="userInfo_span">{{_RG.config.tip.player}}:&nbsp;{{userRolle}}</span>
-					<RgButton class="userInfo_dropBtn" @click="dropOut">[&nbsp;{{_RG.config.tip.loginOut}}&nbsp;]</RgButton>
+				<div class="header__user-info" v-show="userRolle">
+					<span
+						class="header__user-info__txt"
+					>{{_RG.config.tip.serve}}:&nbsp;{{userZone.replace(/[^0-9]/ig,"")}}</span>
+					<span class="header__user-info__txt">{{_RG.config.tip.player}}:&nbsp;{{userRolle}}</span>
+					<RgButton
+						class="header__user-info__drop-btn"
+						@click="dropOut"
+					>[&nbsp;{{_RG.config.tip.loginOut}}&nbsp;]</RgButton>
 				</div>
 			</header>
-			<act1 v-bind="act1Props" @showLogin="visibleLogin"></act1>
+			<!-- <act1 v-bind="act1Props" @showLogin="visibleLogin"></act1>
 			<act2 :isGetHistory="isGetHistory" @showLogin="visibleLogin"></act2>
 			<section id="act3"></section>
 			<section id="act4"></section>
 			<act5 id="act5" :isGetHistory="isGetHistory" @showLogin="visibleLogin"></act5>
-			<section id="act6"></section>
+			<section id="act6"></section>-->
 		</div>
-		<RgFooter class="app_footer">
-			<div class="bottomLogo center"></div>
-		</RgFooter>
+		<footer class="footer">
+			<div class="center footer__logo"></div>
+		</footer>
 	</div>
 </template>
 <script lang="ts">
 	import Vue from "vue";
-	import Login from "@/components/login/Login.vue";
-	import DowmNavigation from "@/components/Navigation/DowmNavigation.vue";
+	// import Login from "@/components/login/Login.vue";
+	import DowmNavigation from "@/components/download/DowmNavigation.vue";
 	import RgButton from "@/components/base/RgButton.vue";
-	import RgFooter from "@/components/base/RgFooter.vue";
 	import { isLogin } from "@/common/utils";
 	import { getAllHistory, infoActivity } from "@/api";
-	import Act1 from "./acts/act1.vue";
-	import Act2 from "./acts/act2.vue";
-	import Act5 from "./acts/act5.vue";
+	// import Act1 from "./acts/act1.vue";
+	// import Act2 from "./acts/act2.vue";
+	// import Act5 from "./acts/act5.vue";
 	declare module "vue/types/vue" {
 		interface Vue {
 			$pixel: any;
-			$isPc: boolean;
+			$dialog: {
+				show: Function;
+				hide: Function;
+			};
 		}
 	}
 	// 尽量抽象mixin
 	export default Vue.extend({
 		components: {
-			Login,
 			DowmNavigation,
-			RgButton,
-			Act1,
-			RgFooter,
-			Act2,
-			Act5
+			RgButton
+			// Login,
+			// Act1,
+			// Act2,
+			// Act5
 		},
 		data() {
 			return {
-				isPc: this.$isPc,
 				loginIsVisible: false,
 				userZone: "",
 				userRolle: "",
@@ -144,6 +153,6 @@
 	});
 </script>
 <style lang="scss">
-	@import "../base.scss";
+	@import "@/common/scss/base.scss";
 	@import "./app.scss";
 </style>

@@ -1,15 +1,14 @@
 <template>
-	<RgButton
+	<button
 		:disabled="isDisabled"
 		:class="isDisabled?isEndClassName:isStartClassName"
-		@click="JoinBtn"
-	></RgButton>
+		v-tap="{methods:JoinBtn}"
+	></button>
 </template>
 <script lang="ts">
 	import Vue from "vue";
-	import { isLogin } from "../../common/utils";
-	import { joinActivity } from "../../api";
-	import RgButton from "../base/RgButton.vue";
+	import { isLogin } from "@/common/utils";
+	import { joinActivity } from "@/api";
 	declare module "vue/types/vue" {
 		interface Vue {
 			$dialog: {
@@ -20,10 +19,6 @@
 	}
 	export default Vue.extend({
 		name: "JoinButton",
-
-		components: {
-			RgButton
-		},
 		props: {
 			initIsDisabled: {
 				type: Boolean,
@@ -48,7 +43,7 @@
 		},
 		data() {
 			return {
-				isDisabled: this.initIsDisabled
+				isDisabled: false
 			};
 		},
 		methods: {

@@ -17,7 +17,10 @@
 	declare module "vue/types/vue" {
 		interface Vue {
 			$pixel: any;
-			$isPc: boolean;
+				$dialog: {
+				show: Function;
+				hide: Function;
+			};
 		}
 	}
 	function isShowBtn(actTime: string) {
@@ -55,7 +58,6 @@
 				initIsDisabled = this.initIsDisabled2;
 			}
 			return {
-				isPc: this.$isPc,
 				act1JoinButtonProps: {
 					initIsDisabled: initIsDisabled,
 					actName: act1Name,

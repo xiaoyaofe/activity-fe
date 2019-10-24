@@ -61,7 +61,10 @@
 	declare module "vue/types/vue" {
 		interface Vue {
 			$pixel: any;
-			$isPc: boolean;
+				$dialog: {
+				show: Function;
+				hide: Function;
+			};
 		}
 	}
 	// 尽量抽象mixin
@@ -85,7 +88,6 @@
 				indexs.push(0);
 			}
 			return {
-				isPc: this.$isPc,
 				isALLCards: false,
 				currentCardNum: 0,
 				needCardNum: 0,

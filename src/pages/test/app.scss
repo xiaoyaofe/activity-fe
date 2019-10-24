@@ -13,8 +13,6 @@
 
 
  /* footer 的配置 */
- /* 使用为1,不使用为0 */
- $isShowFooter   :1;
  $footerClassName: "app_footer";
  $footerHeight   : 1.07rem;
  /* 不需要是none */
@@ -46,9 +44,8 @@
  }
 
  /* 添加一个吸顶的footer */
- @if($isShowFooter==1) {
-   @include footer(app_footer, 1.07rem, rgba(255, 255, 255, 0.9));
- }
+@include footer(app_footer, 1.07rem, rgba(255, 255, 255, 0.9));
+
 
  /*------------------------------------*\
   #以下仅仅是做BEN 尝试在 sass 中的技巧

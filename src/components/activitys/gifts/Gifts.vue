@@ -57,8 +57,8 @@
 	import Vue from "vue";
 	import $ from "jquery";
 	import Swiper from "swiper";
-	import { updateReward } from "../../api";
-	import { isLogin } from "../../common/utils";
+	import { updateReward } from "@/api";
+	import { isLogin } from "@/common/utils";
 	import "../swipe1/swiper.scss";
 	declare var CONFIG: Object;
 	export default Vue.extend({

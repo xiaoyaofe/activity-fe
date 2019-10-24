@@ -19,8 +19,8 @@
 	import Vue from "vue";
 	import $ from "jquery";
 	import "../../plugins/jQueryRotate.js";
-	import { isLogin } from "../../common/utils";
-	import { getAllHistory, roteJoin, roteCdkeys } from "../../api";
+	import { isLogin } from "@/common/utils";
+	import { getAllHistory, roteJoin, roteCdkeys } from "@/api";
 
 	declare var FB: any;
 	declare var CONFIG: any;

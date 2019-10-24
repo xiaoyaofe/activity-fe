@@ -1,27 +1,24 @@
 <template>
 	<div id="app" class="app">
-		<!-- aaaaaaaaa
-		<RgMessageContainer
+		aaaaaaaaa
+		<RgPopup
 			:isShow="isShowMessager"
 			:isShowMark="true"
-			@close="toogleAttr('isShowMessager',false)"
-		></RgMessageContainer>-->
-		<div class="app-container">
-			<RgButton class="animate-btn" @click="animate">开始</RgButton>
+			@close="toogleAttr({name:'isShowMessager',value:false})"
+		></RgPopup>
+		<!-- <div class="app-container">
+			<button class="animate-btn" v-tap="{methods:animate} >开始</button>
 			<div ref="animate1" class="animate"></div>
 			<div ref="animate2" class="animate2"></div>
-		</div>
-		<!-- <RgButton class="showMessageBtn" @click="toogleAttr('isShowMessager',true)">打开消息框</RgButton>
-		<RgFooter class="app_footer"></RgFooter>-->
+		</div>-->
+		<button class="showMessageBtn" v-tap="{methods:toogleAttr,name:'isShowMessager',value:true}">打开消息框</button>
+		<!-- <footer class="app_footer"></footer> -->
 	</div>
 </template>
 <script lang="ts">
 	import { animate } from "../../common//utils/";
 	import Vue from "vue";
-	import RgButton from "@/components/base/RgButton.vue";
-	import RgFooter from "@/components/base/RgFooter.vue";
-	// import RgFooter from "@/components/base/RgFooter.vue";
-	import RgMessageContainer from "@/components/base/RgMessageContainer.vue";
+	import RgPopup from "@/components/popup/RgPopup.vue";
 	declare module "vue/types/vue" {
 		interface Vue {
 			$pixel: any;
@@ -31,7 +28,9 @@
 	}
 	// 尽量抽象mixin
 	export default Vue.extend({
-		components: { RgMessageContainer, RgButton, RgFooter },
+		components: {
+			RgPopup
+		},
 		data() {
 			return {
 				isShowMessager: false
@@ -44,8 +43,8 @@
 		},
 		async mounted() {},
 		methods: {
-			toogleAttr(name: string, isShow: boolean) {
-				this[name] = isShow;
+			toogleAttr({ name, value }) {
+				this[name] = value;
 			},
 			animate() {
 				const ele1 = this.$refs.animate1;
@@ -59,7 +58,7 @@
 	});
 </script>
 <style lang="scss">
-	@import "../base";
+	@import "@/common/scss/base.scss";
 	@import "./app.scss";
 	.animate-btn {
 		width: 100px;

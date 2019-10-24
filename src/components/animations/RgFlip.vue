@@ -1,19 +1,19 @@
 <template>
-	<RgAnimateNotAppear
+	<transition
 		name="rg-flip"
 		@before-enter="beforeEnter"
 		@before-leave="beforeLeave"
 		@enter="enter"
 		@leave="leave"
 		:mode="mode"
+		:css="false"
 	>
 		<slot></slot>
-	</RgAnimateNotAppear>
+	</transition>
 </template>
 <script lang="ts">
 	import Vue from "vue";
 	import * as Velocity from "velocity-animate/velocity";
-	import RgAnimateNotAppear from "../base/RgAnimateNotAppear.vue";
 	export default Vue.extend({
 		name: "RgFlip",
 		props: {
@@ -29,18 +29,13 @@
 		data() {
 			return {};
 		},
-		components: { RgAnimateNotAppear },
 		methods: {
 			beforeEnter: function(el) {
 				el.style.opacity = 0;
 				el.style.transform = "rotateY(-90deg)";
 			},
 			enter: function(el, done) {
-					Velocity(
-					el,
-					{ opacity: 1, rotateY: "-90deg" },
-					{ duration: 0 }
-				);
+				Velocity(el, { opacity: 1, rotateY: "-90deg" }, { duration: 0 });
 				Velocity(
 					el,
 					{ opacity: 1, rotateY: "0deg" },
@@ -61,4 +56,3 @@
 		}
 	});
 </script>
-<style lang="scss"></style>

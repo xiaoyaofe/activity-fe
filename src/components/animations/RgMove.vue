@@ -1,12 +1,19 @@
 <template>
-	<RgAnimate name="rg-fade" @before-enter="beforeEnter" @enter="enter" @leave="leave" :mode="mode">
+	<transition
+		name="rg-fade"
+		@before-enter="beforeEnter"
+		@enter="enter"
+		@leave="leave"
+		:mode="mode"
+		appear
+		:css="false"
+	>
 		<slot></slot>
-	</RgAnimate>
+	</transition>
 </template>
 <script lang="ts">
 	import Vue from "vue";
 	import * as Velocity from "velocity-animate/velocity";
-	import RgAnimate from "../base/RgAnimate.vue";
 	export default Vue.extend({
 		name: "RgMove",
 		props: {
@@ -38,7 +45,6 @@
 		data() {
 			return {};
 		},
-		components: { RgAnimate },
 		methods: {
 			beforeEnter: function(el) {
 				el.style[this.$props.direction] = this.$props.maxValue;
@@ -64,4 +70,3 @@
 		}
 	});
 </script>
-<style lang="scss"></style>

@@ -1,6 +1,6 @@
 <template functional>
 	<div class="messageContainer" v-show="props.isShow">
-		<RgMark class="messageMark" @click="listeners.close" v-if="props.isShowMark"></RgMark>
+		<div class="mark--message" @click="listeners.close" v-if="props.isShowMark"></div>
 		<div class="messageContent center">
 			<span class="close" v-tap="{methods:listeners.close}">x</span>
 			<slot></slot>
@@ -10,7 +10,7 @@
 <script lang="ts">
 	import Vue from "vue";
 	export default Vue.extend({
-		name: "RgMessageContainer",
+		name: "RgPopup",
 		props: {
 			isShow: {
 				required: true,
@@ -24,6 +24,9 @@
 	});
 </script>
 <style scoped lang="scss">
+	.mark--message {
+		@include mark(#000, 0.6);
+	}
 	.messageContainer {
 		position: fixed;
 		top: 0;

@@ -53,7 +53,6 @@
 	declare module "vue/types/vue" {
 		interface Vue {
 			$pixel: any;
-			$isPc: boolean;
 			$dialog: {
 				show: Function;
 				hide: Function;
@@ -77,7 +76,6 @@
 			}
 			return {
 				isShowMore: false,
-				isPc: this.$isPc,
 				// 骰子的点数
 				diceIndex: 1,
 				// 筛子遮罩

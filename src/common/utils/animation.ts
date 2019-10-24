@@ -4,7 +4,8 @@ import * as Velocity from "velocity-animate/velocity";
 /* 中文文档: http://shouce.jb51.net/velocity/command.html 比较老
 英文文档: http://velocityjs.org/#stop
 不支持: 2-2. 单一对象的参数写法：
-2-3. 逗号分割的参数写法（类似 $.animate）：
+      2-3. 逗号分割的参数写法（类似 $.animate）：
+其他的就是按文档操作就好了,把 $(选择器) 换成 animate(element)     
 */
 interface EleObj {
   elements: any;

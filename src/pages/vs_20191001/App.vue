@@ -5,7 +5,7 @@
 		<!-- 登录 -->
 		<login v-show="loginIsVisible" @visibleLogin="visibleLogin(false)" @init="initUserInfo($event)"></login>
 		<!-- 容器 -->
-		<div class="app_container">
+		<div class="app__content">
 			<!-- 头部 -->
 			<header id="header">
 				<div class="header_actTime" v-once></div>
@@ -145,6 +145,5 @@
 </script>
 <style lang="scss">
 	@import "../base.scss";
-	@import "./app.pc.scss";
-	@import "./app.mb.scss";
+	@import "./app.scss";
 </style>

@@ -6,6 +6,12 @@
 
 vue sass typescript axios Velocityjs
 
+## 编辑器和插件
+
+编辑器: Visual Studio Code
+格式化插件: formate: CSS/LESS/SCSS formatter
+引用插件:Vetur ,Sass ,Auto Close Tag, Auto Rename Tag,
+
 ## 配置步骤
 
 1. src/config中根据规则在page中新建自己的配置文件
@@ -16,6 +22,7 @@ vue sass typescript axios Velocityjs
 1. 配置文件的文件名和对应页面的文件名必须是.env中定义的名称,具体规则是:游戏名缩写 + _ + 地区(首字母大写) + _ +活动页上线日期 (如:vs_Tw_20191001),或者单独的页面,起其他的名字都可以
 2. 具体的配置规则见对应文件夹中`read.md`文件
 3. 如果修改 common/scss/global 和 config 中的文件需要重新启动
+4. 组件的基本样式,的考虑定义在组件的文件夹内,如果使用基础组件则,在app.vue的style标签中引入,否则定义scss文件复制基础样式修改后在app.vue中引入
 
 ## 启动
 
@@ -34,7 +41,7 @@ yarn or npm run dev-build
 
 复用, 易于扩展
 
-1. 每个活动需要提供一个mixin来做混入,现阶段先随缘吧
+1. 每个活动需要提供一个mixin来做混入,现阶段先随缘吧.我的想法是使用mixin编写每个活动的接口,动画等,然后预留接口,因为mixin可以组件数据方法覆盖,生命钩子是合为数组,都调用.因此可以做基础展示组件来展示功能, 将来可以提供给运营做参考,每次活动中使用mixin混入,因为界面变换较大,因此不做要求,复制基础版,修改就好了
 2. 接口返回数据需要做一次映射,做数据解耦,(现阶段不需要)
 3. 提供基础的组件来屏蔽平台差异(如:click在pc 和 mobile 中的差异)
 4. 样式文件根据大小来判断 pc 和 mobile 768px,使用平板的屏幕大小来做划分
@@ -43,7 +50,6 @@ yarn or npm run dev-build
 
 pachage.json -> vue.config.js -> pages/ 
 
-## 作用的单词 
 
 ###CSS书写顺序:<br/>
 
@@ -59,7 +65,7 @@ css 书写规则 https://github.com/fex-team/styleguide/blob/master/css.md <br/>
 
 css 中的命名采用BEN命名规范. https://jiandanxinli.github.io/2016-08-11.html <br/>
 
-BEM 规则中如果嵌套太深重新审视:
+BEM 规则中如果嵌套太深(最好不要超过3层)重新审视:
 - 如果一个区域可以复用且不依赖其它组件，则可作为一个块（Block）。
 - 如果一个区域不能拿到外部单独使用，那么就应该作为一个元素（Element）。
 - 素不能单独使用，只能作为块的一部分使用。元素不能包含元素，因为这样做会妨碍块内部元素位置的层级调整。
@@ -85,9 +91,19 @@ https://zcfy.cc/article/battling-bem-extended-edition-10-common-problems-and-how
   #BAR
 \*------------------------------------*/
 
+
+
 ```
 
 9. 动画我们使用优雅降级:对于功能性的动画使用动画库来做,非功能性动画,使用css3 transition,和 animation 来做.功能性动画,如转盘转动,翻卡,区服选择下拉等,非功能性动画, 登录框的淡入淡出等
+
+样式设计为三层,第一层:app 为顶层, 第二层container,login,navigator 第三层 为内容层 section,header等
+z-index 设计为 -1 1,2,3,4,5,6,7,8,9 最高为9,层级分为3陈 -1,1,2,3为第一层页面层,静态页面活动内部动画属于这一层,
+第二层为position:fixed层,需要固定在页面上 4,5,6 ,
+第三层为弹窗层 7,8 登录这些属于这一层
+最后一层为提示层,因为优先级最高,因此使用 9
+
+## 作用的单词 
 
 头：header
 内容：content/container

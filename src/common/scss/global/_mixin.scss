@@ -4,39 +4,81 @@
     @content;
   }
 }
-@mixin isAdd($propotyName,$propotyValue){
-  @if($propotyValue != "none"){
-    #{$propotyName}:$propotyValue;
-  }
-}
-@mixin footer($footerClassName,$footerHeight,$footerBackground){
-  .#{$footerClassName}{
-		  width: 100%;
-		  height: $footerHeight;
-      margin: -$footerHeight auto 0;
-      @include isAdd("background",$footerBackground);
+
+@mixin isAdd($propotyName, $propotyValue) {
+  @if($propotyValue !="none") {
+    #{$propotyName}: $propotyValue;
   }
 }
 
-@mixin minWidthAndHeight($width,$height,$minWidth){
-  width: $width;
-  height: $height;
+@mixin footer($footerClassName, $footerHeight, $footerBackground) {
+  .#{$footerClassName} {
+    width : 100%;
+    height: $footerHeight;
+    margin: -$footerHeight auto 0;
+    @include isAdd("background", $footerBackground);
+  }
+}
+
+@mixin minWidthAndHeight($width, $height, $minWidth) {
+  width    : $width;
+  height   : $height;
   min-width: $minWidth;
 }
-@mixin backgroundImage( $background-image, $background-position,$background-size,$background-repeat){
+
+@mixin backgroundImage($background-image, $background-position, $background-size, $background-repeat) {
   background: #{$background-image} #{$background-position}/#{$background-size} #{$background-repeat};
 }
+
 // 多张背景图
 /* background: url(images/scroll_top.jpg) center top no-repeat,
             url(images/scroll_bottom.jpg) center bottom no-repeat,
             url(images/scroll_middle.jpg) center top repeat-y;
  */
 
-@mixin outline (){
+@mixin outline () {
   body * {
     outline: 1px solid red
   }
 }
 
+@mixin scrollbar($width, $height, $radius, $color, $color1) {
 
+  // 改变滚动条样式
+  // ::-webkit-scrollbar 滚动条整体部分，可以设置宽度啥的
+  // ::-webkit-scrollbar-button 滚动条两端的按钮
+  // ::-webkit-scrollbar-track 外层轨道
+  // ::-webkit-scrollbar-track-piece 内层滚动槽
+  // ::-webkit-scrollbar-thumb 滚动的滑块
+  // ::-webkit-scrollbar-corner 边角
+  // ::-webkit-resizer 定义右下角拖动块的样式
 
+  ::-webkit-scrollbar {
+    width : $width; //垂直
+    height: $height; //水平
+  }
+
+  ::-webkit-scrollbar-track-piece {
+    background-color     : $color; //槽的颜色
+    -webkit-border-radius: $radius;
+    border-radius        : $radius;
+  }
+
+  /* 水平 */
+  ::-webkit-scrollbar-thumb:vertical {
+    height               : $height;
+    background-color     : $color1; //水平块的颜色
+    -webkit-border-radius: $height;
+    border-radius        : $height;
+
+  }
+
+  /* 垂直 */
+  ::-webkit-scrollbar-thumb:horizontal {
+    width                : $width;
+    background-color     : $color1; //垂直块的颜色
+    -webkit-border-radius: $width; 
+    border-radius        : $width;
+
+  }
+}

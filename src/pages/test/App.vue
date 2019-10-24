@@ -1,12 +1,12 @@
 <template>
-	<div id="app">
+	<div id="app" class="app">
 		<!-- aaaaaaaaa
 		<RgMessageContainer
 			:isShow="isShowMessager"
 			:isShowMark="true"
 			@close="toogleAttr('isShowMessager',false)"
 		></RgMessageContainer>-->
-		<div class="app_container">
+		<div class="app-container">
 			<RgButton class="animate-btn" @click="animate">开始</RgButton>
 			<div ref="animate1" class="animate"></div>
 			<div ref="animate2" class="animate2"></div>
@@ -54,44 +54,6 @@
 				// 	.delay(2000)
 				// 	.velocity({ width: 1000, opacity: 0.5 }, 1000);
 				// animate(ele2).velocity({ opacity: 0 }, {dycat});
-				console.log(Velocity.Utilities.rever);
-				// Velocity([ele1, ele2], { width: 1000 }, { duration: 2000, delay: 2000 });
-				// Velocity(
-				// 	ele1,
-				// 	{ opacity: 0.5 },
-				// 	{ duration: 2000, delay: 1000, queue: false }
-				// );
-				// Velocity(ele1, { height: 250 }, { duration: 2000, queue: false });
-				// Velocity(ele2, { width: 1000 }, { duration: 2000 });
-				// Velocity(ele2, { opacity: 0.5 }, { duration: 2000 });
-
-				// Velocity(ele1, { width: 1000 }, { duration: 3000, queue: "a" });
-				// Velocity(ele1, { opacity: 0 }, { duration: 3000, queue: "a" });
-
-				// Velocity(ele1, { width: 200 }, { duration: 3000, queue: "b" });
-				// Velocity(ele1, { opacity: 1 }, { duration: 3000, queue: "b" });
-
-				// Velocity.Utilities.dequeue(ele1, "a");
-				// setTimeout(() => {
-				// 	Velocity.Utilities.dequeue(ele1, "b");
-				// }, 6000);
-				// Velocity(ele2, { width: 1000 }, { duration: 3000, queue: "a" });
-				// Velocity(ele2, { opacity: 0 }, { duration: 3000, queue: "a" });
-
-				// Velocity(ele2, { width: 200 }, { duration: 3000, queue: "b" });
-				// Velocity(ele2, { opacity: 1 }, { duration: 3000, queue: "b" });
-
-				// Velocity.Utilities.dequeue(ele1, "a");
-				// setTimeout(() => {
-				// 	Velocity.Utilities.dequeue(ele1, "b");
-				// }, 6000);
-
-				// Velocity(ele).dequeue("a");
-				// 			$("div")
-				// .velocity({ translateX: 75 }, { queue: "a" })
-				// .velocity({ width: 50 }, { queue: "b" })
-				// .velocity({ translateY: 75 }, { queue: "a" })
-				// .velocity({ height: 0 }, { queue: "b" })
 			}
 		}
 	});

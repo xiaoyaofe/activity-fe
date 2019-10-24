@@ -1,60 +1,68 @@
-/* #app 的配置  */
-/* 查看布局 ,使用完毕注释*/
-// @include outline();
-/* $pcWidth:19.2rem */
-$mainPcWidth:$pcWidth;
-$minPcWidth: $minWidth;
-$mainPcHeight:51.79rem;
-/* $mbWidth: 7.5rem */
-$mainMbWidth:$mbWidth;
-$mainMbHeight:70.64rem;
+ /* #app 的配置  */
+ /* 查看布局 ,使用完毕注释*/
+ // @include outline();
+ /* $pcWidth  :19.2rem */
+ $mainPcWidth :$pcWidth;
+ $minPcWidth  : $minWidth;
+ $mainPcHeight:51.79rem;
+ /* $mbWidth  : 7.5rem */
+ $mainMbWidth :$mbWidth;
+ $mainMbHeight:70.64rem;
+
+ $isShowMessage: 0;
 
 
-/* footer 的配置 */
-/* 使用为1,不使用为0 */
-$isShowFooter:1;
-$footerClassName: "app_footer";
-$footerHeight: 1.07rem;
-/* 不需要是none */
-$footerBackgroundValue: "#fff";
+ /* footer 的配置 */
+ /* 使用为1,不使用为0 */
+ $isShowFooter   :1;
+ $footerClassName: "app_footer";
+ $footerHeight   : 1.07rem;
+ /* 不需要是none */
+ $footerBackgroundValue: "#fff";
+ // 滚动条
+ @include scrollbar(8px, 8px, 8px, rgb(125, 125, 125), rgb(11, 205, 240));
 
-/* 
-  样式设计为三层,第一层:app 为顶层, 第二层container,login,navigator 第三层 为内容层 section,header等
-  z-index 设计为 -1 1,2,3,4,5,6,7,8,9 最高为9
-*/
-#app{
-  $width:$mainPcWidth;
-  $height:$mainPcHeight;
-  $url:url("./assets/images/pc/bg.jpg");
-  $position: top center;
-  @include minWidthAndHeight($width,$height,$minPcWidth);
-  @include backgroundImage($url,$position,$width $height,no-repeat);
-  overflow: hidden;
-}
-.showMessageBtn{
-  background: #fff;
-  border: 1px solid red;
-}
+ #app {
+   $width   : $mainPcWidth;
+   $height  : $mainPcHeight;
+   $url     : url("./images/pc/bg.jpg");
+   $position: top center;
+   @include minWidthAndHeight($width, $height, $minPcWidth);
+   @include backgroundImage($url, $position, $width $height, no-repeat);
+   overflow: auto;
+ }
 
-/* 内容的容器包裹除footer之外的一切元素 */
-  .app_container {
-    box-sizing: border-box;
-    height: 100%;
-    padding:50px;
-  }
+ .showMessageBtn {
+   background: #fff;
+   border    : 1px solid red;
+ }
 
-/* 添加一个吸顶的footer */
-@if($isShowFooter == 1){
-  @include footer(app_footer,1.07rem ,rgba(255, 255, 255, 0.9));
-}
-.block {
-  font-size: 22px;
-  @at-root #{&}__element {
-    display: inline;
-  }
-  @at-root #{&}--modifier {
+ /* 内容的容器包裹除footer之外的一切元素 */
+ .app-container {
+   // box-sizing: border-box;
+   width        : 100%;
+   height       : 100%;
+   padding-left : 500px;
+ }
+
+ /* 添加一个吸顶的footer */
+ @if($isShowFooter==1) {
+   @include footer(app_footer, 1.07rem, rgba(255, 255, 255, 0.9));
+ }
+
+ /*------------------------------------*\
+  #以下仅仅是做BEN 尝试在 sass 中的技巧
+\*------------------------------------*/
+ .block {
+   font-size: 22px;
+
+   @at-root #{&}__element {
      display: inline;
-  }
-}
+   }
 
-/* footer 内部的其他的元素样式 */
+   @at-root #{&}--modifier {
+     display: inline;
+   }
+ }
+
+ /* footer 内部的其他的元素样式 */

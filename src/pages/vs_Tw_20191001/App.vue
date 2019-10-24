@@ -27,6 +27,7 @@
 					>[&nbsp;{{_RG.config.tip.loginOut}}&nbsp;]</RgButton>
 				</div>
 			</header>
+			<div>{{_giftNames}}</div>
 			<!-- <act1 v-bind="act1Props" @showLogin="visibleLogin"></act1>
 			<act2 :isGetHistory="isGetHistory" @showLogin="visibleLogin"></act2>
 			<section id="act3"></section>
@@ -49,7 +50,12 @@
 	// import Act1 from "./acts/act1.vue";
 	// import Act2 from "./acts/act2.vue";
 	// import Act5 from "./acts/act5.vue";
-
+	declare module "vue/types/vue" {
+		// 3. 声明为 Vue 补充的东西
+		interface Vue {
+			_giftNames: any;
+		}
+	}
 	export default Vue.extend({
 		components: {
 			Sidebar,
@@ -60,6 +66,7 @@
 			// Act5
 		},
 		data() {
+			this._giftNames = ["test"];
 			return {
 				loginIsVisible: false,
 				userZone: "",
@@ -128,7 +135,7 @@
 						this.$dialog.show("cdKeys", data);
 					}
 				} else {
-					this.isLoginVisible = true;
+					this.loginIsVisible = true;
 				}
 			},
 

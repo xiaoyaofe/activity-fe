@@ -14,15 +14,7 @@
 	import JoinButton from "@/components/Buttons/JoinButton.vue";
 	import { isLogin } from "@/common/utils";
 	import { getAllHistory, infoActivity } from "@/api";
-	declare module "vue/types/vue" {
-		interface Vue {
-			$pixel: any;
-			$dialog: {
-				show: Function;
-				hide: Function;
-			};
-		}
-	}
+
 	function isTime(time: string) {
 		const date = new Date();
 		const year = date.getFullYear();

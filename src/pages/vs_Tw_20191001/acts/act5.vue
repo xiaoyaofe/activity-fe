@@ -50,15 +50,6 @@
 	import { isLogin } from "@/common/utils";
 	import { joinFlightChess } from "@/api";
 	import { setTimeout, setInterval } from "timers";
-	declare module "vue/types/vue" {
-		interface Vue {
-			$pixel: any;
-			$dialog: {
-				show: Function;
-				hide: Function;
-			};
-		}
-	}
 
 	export default Vue.extend({
 		name: "Act5",

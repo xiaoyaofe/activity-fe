@@ -91,14 +91,14 @@
 		},
 		async mounted() {
 			// 初始化
-			(this as any).initUserInfo();
+			this.initUserInfo();
 		},
 		methods: {
 			//初始化用户信息
 			async initUserInfo() {
 				if (isLogin()) {
-					(this as any).userRolle = localStorage.getItem("playerName") as string;
-					(this as any).userZone = localStorage.getItem("zoneName") as string;
+					this.userRolle = localStorage.getItem("playerName") as string;
+					this.userZone = localStorage.getItem("zoneName") as string;
 
 					// 获取礼包记录
 					await getAllHistory().then((val: any) => {
@@ -128,13 +128,13 @@
 						this.$dialog.show("cdKeys", data);
 					}
 				} else {
-					(this as any).isLoginVisible = true;
+					this.isLoginVisible = true;
 				}
 			},
 
 			//是否显示登录框
 			visibleLogin(val) {
-				(this as any).loginIsVisible = val;
+				this.loginIsVisible = val;
 			},
 			dropOut() {
 				localStorage.clear();

@@ -58,15 +58,6 @@
 	import RgButton from "@/components/base/RgButton.vue";
 	import RgFlip from "@/components/animations/RgFlip.vue";
 	import * as Velocity from "velocity-animate/velocity";
-	declare module "vue/types/vue" {
-		interface Vue {
-			$pixel: any;
-				$dialog: {
-				show: Function;
-				hide: Function;
-			};
-		}
-	}
 	export default Vue.extend({
 		name: "Act2",
 		components: {

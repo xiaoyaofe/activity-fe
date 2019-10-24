@@ -114,7 +114,7 @@ const componentUpdated = function (el: HTMLElement, binding: DirectiveBinding) {
 }
 const unbind = function (el: HTMLElement) {
   // 卸载
-  el.tapObj = null as any;
+  delete el.tapObj;
   delete el.time;
   el.handler = function () { };
 }

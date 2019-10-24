@@ -19,14 +19,6 @@
 	import { animate } from "../../common//utils/";
 	import Vue from "vue";
 	import RgPopup from "@/components/popup/RgPopup.vue";
-	declare module "vue/types/vue" {
-		interface Vue {
-			$pixel: any;
-			$isPc: boolean;
-			loginIsVisible: boolean;
-		}
-	}
-	// 尽量抽象mixin
 	export default Vue.extend({
 		components: {
 			RgPopup

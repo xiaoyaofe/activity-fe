@@ -3,9 +3,7 @@
 /*------------------------------------*\
   #公共的样式
 \*------------------------------------*/
-.container {
-  height: 100%;
-}
+
 
 /*------------------------------------*\
   #移动端样式
@@ -252,6 +250,11 @@
     overflow: hidden;
   }
 
+  .container {
+    height        : $mainPcHeight - $footerHeight;
+    padding-bottom: $footerHeight;
+  }
+
   /* Header  */
 
   .header {
@@ -314,7 +317,7 @@
       }
     }
   }
-  
+
   // /* 下载的右侧悬浮窗 */
   // .navBox {
   //   width   : 2.42rem;

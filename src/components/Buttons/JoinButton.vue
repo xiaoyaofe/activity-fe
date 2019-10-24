@@ -9,14 +9,6 @@
 	import Vue from "vue";
 	import { isLogin } from "@/common/utils";
 	import { joinActivity } from "@/api";
-	declare module "vue/types/vue" {
-		interface Vue {
-			$dialog: {
-				show: Function;
-				hide: Function;
-			};
-		}
-	}
 	export default Vue.extend({
 		name: "JoinButton",
 		props: {

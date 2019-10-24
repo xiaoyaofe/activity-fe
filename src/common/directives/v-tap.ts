@@ -1,7 +1,6 @@
 /** 
  * https://cn.vuejs.org/v2/guide/custom-directive.html
  * 来源: https://github.com/MeCKodo/vue-tap
- * 不能使用,闭包导致的共享状态,需要修改,
  * 修改完成,未测试
  */
 // 引入类型

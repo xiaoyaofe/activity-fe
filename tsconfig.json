@@ -19,10 +19,14 @@
     "types": [
       "webpack-env",
       "node",
-      "dom"
+      "dom",
+      "./node_modules/vue/types",
+      "./types"
     ],
     "paths": {
-      "*": ["types/*"],
+      "*": [
+        "types/*"
+      ],
       "@/*": [
         "src/*"
       ]

@@ -67,7 +67,6 @@
 			};
 		}
 	}
-	// 尽量抽象mixin
 	export default Vue.extend({
 		name: "Act2",
 		components: {

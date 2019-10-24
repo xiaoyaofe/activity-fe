@@ -5,7 +5,6 @@ import Pixel from '@/common/pixel';
 import { initSetRem, polyfillAnimation, initfacebook, initKakao } from "@/common/utils"
 //注册所有的需要注册的组件 
 import "@/common/initComponentsAndDirectives";
-
 //运行时编译的原因不能使用变量替换路径 要使用变量替换 开启 runtimeCompiler 会大 10kb
 import App from "./App.vue";
 

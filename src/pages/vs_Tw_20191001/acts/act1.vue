@@ -17,23 +17,23 @@
 	declare module "vue/types/vue" {
 		interface Vue {
 			$pixel: any;
-				$dialog: {
+			$dialog: {
 				show: Function;
 				hide: Function;
 			};
 		}
 	}
-	function isShowBtn(actTime: string) {
+	function isTime(time: string) {
 		const date = new Date();
 		const year = date.getFullYear();
 		const month = date.getMonth() + 1;
 		const day = date.getDate();
-		const arr = actTime.split("-");
+		const arr = time.split("-");
 		if (year === +arr[0] && month === +arr[1] && day >= +arr[2]) return true;
 		return false;
 	}
-	const isShowBtn2 = () => isShowBtn("2019-10-10");
-	// 尽量抽象mixin
+	const isShowBtn2 = () => isTime("2019-10-10");
+
 	export default Vue.extend({
 		name: "Act1",
 		components: {

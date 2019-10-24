@@ -35,16 +35,7 @@ interface CONFIG {
   data: ActiveParams
 }
 interface ActiveParams {
-  appId: string;
-  fbId: string;
-  kkId: string;
   groupId: string;
-  // 德法为de , 越南、泰国攻城是v1，其他都是v3
-  version: version;
-  // 打点Id
-  fb: string;
-  ga: string;
-  // 活动ID
   actId: {
     flightChess: string
     login: string;
@@ -109,34 +100,6 @@ interface ActiveParams {
     oldPlayer: string[]
   }
 }
-
-interface Api {
-  login: string; //sdk登录接口
-  fb_login: string; //fb登录接口
-  kk_login: string; //kk登录接口
-  zone: string; //区服接口
-  role: string; //角色接口
-  join: string; //参与活动接口
-  info: string; //活动信息接口
-  cdKeys: string; //礼包数据接口
-  CdKeys_all: string; //获取所有礼包
-  join_allPay: string; //累计充值接口
-  info_allPay: string; //累计充值数据
-  gifsList: string; //许愿中奖列表
-  desireList: string; //许愿愿望列表
-  getCount: string; //许愿次数
-  makeWish: string; //许愿接口
-  flip: string; //翻卡牌接口
-  fflInfo: string;//翻卡牌信息接口
-  reserveJoin: string;//预约接口
-  roteJoin: string;//抽獎接口
-  roteInfo: string;
-  roteCdkeys: string;
-  updateReward: string;//更新包礼包
-  // 20190706
-  roteRecharge: string
-}
-
 interface Tip {
   // api
   //102账号不存在或者密码错误

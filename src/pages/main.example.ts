@@ -5,6 +5,15 @@ import Pixel from '@/common/pixel';
 import { initSetRem, polyfillAnimation, initfacebook, initKakao } from "@/common/utils"
 //注册所有的需要注册的组件 
 import "@/common/initComponentsAndDirectives";
+declare global {
+  interface Vue {
+    $pixel: any;
+    $dialog: {
+      show: Function;
+      hide: Function;
+    };
+  }
+}
 
 //运行时编译的原因不能使用变量替换路径 要使用变量替换 开启 runtimeCompiler 会大 10kb
 import App from "@/pages/test/App.vue";
@@ -18,6 +27,7 @@ initfacebook(FB_APP_ID, VUE_APP_FBSDK_VERSION);
 
 Vue.prototype.$pixel = new Pixel(GA_Ad_ID, FB_Ad_ID);
 
+Vue.prototype.$rgConfig = CONFIG;
 window._RG = { config: CONFIG };
 
 new Vue({

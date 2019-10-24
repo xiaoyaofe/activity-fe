@@ -1,7 +1,7 @@
 <template>
 	<div id="app" class="app">
 		<!-- 导航栏 -->
-		<!-- <DowmNavigation :isPc="isPc" v-bind="navAnimateOption" :buttons="navButtons"></DowmNavigation> -->
+		<Sidebar :isPc="false" v-bind="navAnimateOption" :buttons="navButtons"></Sidebar>
 		<!-- 登录 -->
 		<!-- <login v-show="loginIsVisible" @visibleLogin="visibleLogin(false)" @init="initUserInfo($event)"></login> -->
 		<!-- 容器 -->
@@ -42,26 +42,17 @@
 <script lang="ts">
 	import Vue from "vue";
 	// import Login from "@/components/login/Login.vue";
-	import DowmNavigation from "@/components/download/DowmNavigation.vue";
+	import Sidebar from "@/components/sidebar/index.vue";
 	import RgButton from "@/components/base/RgButton.vue";
 	import { isLogin } from "@/common/utils";
 	import { getAllHistory, infoActivity } from "@/api";
 	// import Act1 from "./acts/act1.vue";
 	// import Act2 from "./acts/act2.vue";
 	// import Act5 from "./acts/act5.vue";
-	declare module "vue/types/vue" {
-		interface Vue {
-			$pixel: any;
-			$dialog: {
-				show: Function;
-				hide: Function;
-			};
-		}
-	}
-	// 尽量抽象mixin
+
 	export default Vue.extend({
 		components: {
-			DowmNavigation,
+			Sidebar,
 			RgButton
 			// Login,
 			// Act1,

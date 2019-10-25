@@ -40,7 +40,7 @@ const activityParam = {
   // 礼包ID
   rewardId: {
     // 登录
-    login1: ["5d82d7b4b5cb6717884d9760"],
+    login1: ["5d82d7b4b5cb6717884d9760", "5db291aab5cb6714cc3dbab4"],
     login2: ["5d82d813b5cb6717884d9764"],
     //  许愿（wish[0]：goosId；wish[1]：wishReward；wish[2]：luckyReward）
     wish: [],

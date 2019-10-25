@@ -1,14 +1,15 @@
 <template>
 	<button
-		:disabled="isDisabled"
-		:class="isDisabled?isEndClassName:isStartClassName"
-		v-tap="{methods:JoinBtn}"
+		:disabled="disabled"
+		:class="disabled?isEndClassName:isStartClassName"
+		v-tap="{methods:join}"
 	></button>
 </template>
 <script lang="ts">
 	import Vue from "vue";
-	import { isLogin } from "@/common/utils";
 	import { joinActivity } from "@/api";
+	import { isLogin } from "@/common/utils";
+
 	export default Vue.extend({
 		name: "JoinButton",
 		props: {
@@ -33,13 +34,18 @@
 				type: String
 			}
 		},
+		computed: {
+			disabled(): boolean {
+				return this.$props.initIsDisabled || this.isDisabled;
+			}
+		},
 		data() {
 			return {
 				isDisabled: false
 			};
 		},
 		methods: {
-			JoinBtn: async function() {
+			join: async function() {
 				if (isLogin()) {
 					let data: any = await joinActivity(
 						this.$props.actName,
@@ -55,11 +61,6 @@
 				} else {
 					this.$emit("showLogin", true);
 				}
-			}
-		},
-		watch: {
-			initIsDisabled() {
-				this.isDisabled = this.initIsDisabled;
 			}
 		}
 	});

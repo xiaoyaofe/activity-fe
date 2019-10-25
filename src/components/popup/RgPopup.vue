@@ -1,8 +1,8 @@
 <template functional>
-	<div class="messageContainer" v-show="props.isShow">
+	<div class="popup" v-show="props.isShow">
 		<div class="mark--message" @click="listeners.close" v-if="props.isShowMark"></div>
-		<div class="messageContent center">
-			<span class="close" v-tap="{methods:listeners.close}">x</span>
+		<div class="popup__content center">
+			<span class="popup__content__close" v-tap="{methods:listeners.close}">x</span>
 			<slot></slot>
 		</div>
 	</div>
@@ -23,24 +23,24 @@
 		}
 	});
 </script>
-<style scoped lang="scss">
+<style lang="scss">
 	.mark--message {
 		@include mark(#000, 0.6);
 	}
-	.messageContainer {
+	.popup {
 		position: fixed;
 		top: 0;
 		left: 0;
 		width: 100%;
 		height: 100%;
 	}
-	.messageContent {
+	.popup__content {
 		width: 600px;
 		height: 200px;
 		background-color: #bababa;
 		animation: slideDown 0.2s ease;
 	}
-	.close {
+	.popup__content__close {
 		width: 80px;
 		height: 80px;
 		position: absolute;

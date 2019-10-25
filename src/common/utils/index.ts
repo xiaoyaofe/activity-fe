@@ -200,7 +200,15 @@ export function isShowPc() {
   }
   return result;
 }
-
+export function isTime(time: string) {
+  const date = new Date();
+  const year = date.getFullYear();
+  const month = date.getMonth() + 1;
+  const day = date.getDate();
+  const arr = time.split("-");
+  if (year === +arr[0] && month === +arr[1] && day >= +arr[2]) return true;
+  return false;
+}
 /*
 
 那就是使用getBoundingClientRect()方法。它返回一个对象，其中包含了left、right、top、bottom四个属性，分别对应了该元素的左上角和右下角相对于浏览器窗口（viewport）左上角的距离。

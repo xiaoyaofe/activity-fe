@@ -10,11 +10,13 @@ $mainPcHeight:51.79rem;
 $mainMbWidth :$mbWidth;
 $mainMbHeight:70.64rem;
 
+$userInfoColor:#5d3a9b;
 
 /* footer 的配置 */
 /* 使用为1,不使用为0 */
 $footerClassName: "footer";
-$footerHeight   : 1.07rem;
+$footerPcHeight   : 1.07rem;
+$footerMbHeight   : 1.07rem;
 /* 不需要是none */
 $footerBackgroundValue: rgba(255, 255, 255, 0.9);
 

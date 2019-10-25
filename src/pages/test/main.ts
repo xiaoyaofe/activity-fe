@@ -16,7 +16,6 @@ initfacebook(FB_APP_ID, VUE_APP_FBSDK_VERSION);
 
 Vue.prototype.$pixel = new Pixel(GA_Ad_ID, FB_Ad_ID);
 
-window._RG = { config: CONFIG };
 
 new Vue({
   render: h => h(App)

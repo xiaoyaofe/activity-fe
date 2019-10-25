@@ -81,12 +81,12 @@ export const getHistory = (typeId: string) => {
 }
 
 // 获取活动信息
-export const infoActivity = (typeId: string) => {
+export const infoActivity = (typeId: string, giftIndex: number) => {
   let params = {
     groupId: window._RG.config.data.groupId,
     actId: window._RG.config.data.actId[typeId],
     token: localStorage.token,
-    rewardId: window._RG.config.data.rewardId[typeId][0],
+    rewardId: window._RG.config.data.rewardId[typeId][giftIndex],
   }
   return get(BASE_URL + Routes.info, params)
 }

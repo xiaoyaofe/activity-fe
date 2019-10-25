@@ -44,8 +44,10 @@
  }
 
  /* 添加一个吸顶的footer */
-@include footer(app_footer, 1.07rem, rgba(255, 255, 255, 0.9));
+ .#{ $footerClassName} {
+   @include footer($footerHeight, $footerBackgroundValue);
 
+ }
 
  /*------------------------------------*\
   #以下仅仅是做BEN 尝试在 sass 中的技巧

@@ -12,18 +12,8 @@
 <script lang="ts">
 	import Vue from "vue";
 	import JoinButton from "@/components/Buttons/JoinButton.vue";
-	import { isLogin } from "@/common/utils";
+	import { isLogin,isTime } from "@/common/utils";
 	import { getAllHistory, infoActivity } from "@/api";
-
-	function isTime(time: string) {
-		const date = new Date();
-		const year = date.getFullYear();
-		const month = date.getMonth() + 1;
-		const day = date.getDate();
-		const arr = time.split("-");
-		if (year === +arr[0] && month === +arr[1] && day >= +arr[2]) return true;
-		return false;
-	}
 	const isShowBtn2 = () => isTime("2019-10-10");
 
 	export default Vue.extend({

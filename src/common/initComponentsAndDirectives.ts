@@ -1,10 +1,12 @@
 import Vue from 'vue'
+/* 需要先注册参数,才能使用组件,组件中的使用了config中的值 */
+window._RG = { config: CONFIG };
 /* 组件 */
 
 /* 指令 */
 import vueTap from '@/common/directives/v-tap';
 /* 使用Vue.use 注册的组件 */
-// import Dialog from '@/components/dialog/dialog';
+import Dialog from '@/components/dialog/dialog';
 
 /* 注册全局组件 */
 
@@ -13,7 +15,7 @@ import vueTap from '@/common/directives/v-tap';
 Vue.use(vueTap);
 
 // 注册全局弹窗
-// Vue.use(Dialog);
+Vue.use(Dialog);
 
 
 

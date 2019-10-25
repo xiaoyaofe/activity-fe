@@ -1,20 +1,19 @@
 <template>
-	<div class="navBox">
-		<div v-if="isPc" class="navBox" ref="navBox">
-			<div
-				:class="isShowContent ?'navBox_controlBtn navBox_controlBtn1' : 'navBox_controlBtn navBox_controlBtn2'"
-				v-tap="{methods:toggleContent}"
-			>
-				<slot name="controlContent"></slot>
-			</div>
-			<div class="navBox_content">
-				<a v-for="(value,key) in buttons" :class="key" :href="value" :key="key" v-tap></a>
-			</div>
+	<div class="download-box" ref="downloadBox">
+		<div
+			:class="[isShowContent ?'download-box__control-btn--show':'download-box__control-btn--hide','download-box__control-btn']"
+			v-tap="{methods:toggleContent}"
+		>
+			<slot name="control-content"></slot>
 		</div>
-		<div v-else>
-			<div class="navBox_content">
-				<a v-for="(value,key) in buttons" :class="key" :href="value" :key="key" v-tap></a>
-			</div>
+		<div class="download-box__content">
+			<a
+				v-for="(value,key) in btns"
+				:class="['download-box__content__btn','download-box__content__btn--'+key]"
+				:href="value"
+				:key="key+'btn'"
+				v-tap
+			></a>
 		</div>
 	</div>
 </template>
@@ -22,7 +21,7 @@
 	import Vue from "vue";
 	import { animate } from "@/common/utils";
 	export default Vue.extend({
-		name: "Sidebar",
+		name: "downloadBox",
 		props: {
 			distance: {
 				type: String,
@@ -40,11 +39,7 @@
 				type: String,
 				default: "linear"
 			},
-			isPc: {
-				type: Boolean,
-				required: true
-			},
-			buttons: {
+			btns: {
 				type: Object,
 				required: true
 			}
@@ -63,7 +58,7 @@
 				}
 			},
 			move: function(distance: string) {
-				animate(this.$refs.navBox).velocity(
+				animate(this.$refs.downloadBox).velocity(
 					{
 						[this.$props.direction]: distance
 					},

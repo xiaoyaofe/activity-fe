@@ -258,7 +258,7 @@
 		top: 0;
 		left: 0;
 		background: rgba(17, 31, 50, 0.5);
-		z-index: $z-index5;
+		z-index: 5;
 	}
 	.centerBox {
 		width: 6.59rem;
@@ -280,7 +280,7 @@
 		width: $width;
 		height: $height;
 		// margin-top: 0.16rem;
-		$background-image: url("../../assets/images/#{$path}/pc/close.png");
+		$background-image: url("../../pages/vs_Tw_20191001/images/pc/close.png");
 		$background-size: $width $height;
 		$background-repeat: no-repeat;
 		$background-position: center;
@@ -361,8 +361,8 @@
 		margin-left: 0.64rem;
 		text-indent: 0.3rem;
 		margin-top: 0;
-		background: url("../../assets/images/#{$path}/pc/drop.png") no-repeat 4.75rem
-				0.27rem,
+		background: url("../../pages/vs_Tw_20191001/images/pc/drop.png") no-repeat
+				4.75rem 0.27rem,
 			#ffffff;
 		// background: url("./img/input_server.png") no-repeat center;
 	}
@@ -381,8 +381,8 @@
 		height: $btnHeight;
 		margin-top: 0.2rem;
 		margin-left: 0.64rem;
-		background: url("../../assets/images/#{$path}/pc/loginBtn1.png") no-repeat
-			center center/$btnWidth $btnHeight;
+		background: url("../../pages/vs_Tw_20191001/images/pc/loginBtn1.png")
+			no-repeat center center/$btnWidth $btnHeight;
 	}
 	.fb_btn {
 		width: $btnWidth;
@@ -390,7 +390,7 @@
 		margin-top: 0.2rem;
 		margin-left: 0.64rem;
 		border-radius: 0.2rem;
-		background: url("../../assets/images/#{$path}/pc/fb-login.png") no-repeat
+		background: url("../../pages/vs_Tw_20191001/images/pc/fb-login.png") no-repeat
 			center center/$btnWidth $btnHeight;
 	}
 	.server_btn {
@@ -398,8 +398,8 @@
 		height: $btnHeight;
 		margin-left: 64px;
 		margin-top: 111px;
-		background: url("../../assets/images/#{$path}/pc/ok.png") no-repeat center
-			center/$btnWidth $btnHeight;
+		background: url("../../pages/vs_Tw_20191001/images/pc/ok.png") no-repeat
+			center center/$btnWidth $btnHeight;
 	}
 	.selectZone {
 		width: 5.26rem;
@@ -409,7 +409,7 @@
 		overflow-y: auto;
 		position: absolute;
 		background: #fafafa;
-		z-index: $z-index3;
+		z-index: 3;
 		border-bottom-left-radius: 0.1rem;
 		border-bottom-right-radius: 0.1rem;
 	}

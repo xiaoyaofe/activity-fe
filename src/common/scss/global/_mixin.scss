@@ -11,13 +11,11 @@
   }
 }
 
-@mixin footer($footerClassName, $footerHeight, $footerBackground) {
-  .#{$footerClassName} {
-    position: relative;
-    height  : $footerHeight;
-    margin  : -$footerHeight auto 0;
-    @include isAdd("background", $footerBackground);
-  }
+@mixin footer($footerHeight, $footerBackground) {
+  position: relative;
+  height  : $footerHeight;
+  margin  : -$footerHeight auto 0;
+  @include isAdd("background", $footerBackground);
 }
 
 @mixin minWidthAndHeight($width, $height, $minWidth) {
@@ -36,6 +34,7 @@
             url(images/scroll_middle.jpg) center top repeat-y;
  */
 
+/* 查看页面结构 */
 @mixin outline () {
   body * {
     outline: 1px solid red
@@ -88,4 +87,22 @@
   height    : 100%;
   background: $bg;
   opacity   : $opcity;
+}
+
+@mixin fixedRightBox($widht, $height, $top, $right) {
+  position: fixed;
+  top     : $top;
+  right   : $right;
+  width   : $widht;
+  height  : $height;
+  z-index : 4;
+}
+
+@mixin fixedleftBox($widht, $height, $top, $left) {
+  position: fixed;
+  top     : $top;
+  left    : $left;
+  width   : $widht;
+  height  : $height;
+  z-index : 4;
 }

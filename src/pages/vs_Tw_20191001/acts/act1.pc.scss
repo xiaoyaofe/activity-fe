@@ -2,67 +2,67 @@
 
   /* 活动一 国庆登录 10.1 10.10 */
   #act1 {
-    width: 11.82rem;
-    height: 5.37rem;
+    width      : 11.82rem;
+    height     : 5.37rem;
     margin-left: 3.69rem;
   }
 
   .act1-title {
-    $width: 7.17rem;
-    $height: .81rem;
-    width: $width;
-    height: $height;
-    margin-left: 2.09rem;
-    $background-image:url("../../../assets/images/#{$path}/pc/act1-title.png");
-    $background-size: $width $height;
-    $background-repeat: no-repeat;
+    $width              : 7.17rem;
+    $height             : .81rem;
+    width               : $width;
+    height              : $height;
+    margin-left         : 2.09rem;
+    $background-image   :url("../../../assets/images/#{$path}/pc/act1-title.png");
+    $background-size    : $width $height;
+    $background-repeat  : no-repeat;
     $background-position: center;
-    background: #{$background-image} #{$background-position}/#{$background-size} #{$background-repeat};
+    background          : #{$background-image} #{$background-position}/#{$background-size} #{$background-repeat};
   }
 
   .act1_gifts {
-    width: 100%;
-    height: 3.7rem;
+    width     : 100%;
+    height    : 3.7rem;
     margin-top: .16rem;
-    overflow: hidden;
+    overflow  : hidden;
   }
 
   .act1_gift {
-    width: 2.8rem;
-    height: 2.5rem;
-    float: left;
+    width      : 2.8rem;
+    height     : 2.5rem;
+    float      : left;
     margin-left: .56rem;
-    transition: top 0.1s ease-out;
+    transition : top 0.1s ease-out;
   }
 
   .act1_gift1 {
     margin-left: 0;
-    margin-top: .47rem;
+    margin-top : .47rem;
   }
 
   .act1_gift1:hover {
     position: relative;
-    top: -.1rem;
+    top     : -.1rem;
   }
 
   .act1_gift2 {
     margin-left: -.8rem;
-    margin-top: 1.19rem;
+    margin-top : 1.19rem;
   }
 
   .act1_gift2:hover {
     position: relative;
-    top: .1rem;
+    top     : .1rem;
   }
 
   .act1_gift3 {
     margin-left: -.3rem;
-    margin-top: .56rem;
+    margin-top : .56rem;
   }
 
   .act1_gift3:hover {
     position: relative;
-    top: -.1rem;
+    top     : -.1rem;
   }
 
   .act1_gift4 {
@@ -71,55 +71,55 @@
 
   .act1_gift4:hover {
     position: relative;
-    top: .1rem;
+    top     : .1rem;
   }
 
   .act1_gift5 {
     margin-left: -.8rem;
-    margin-top: .86rem;
+    margin-top : .86rem;
   }
 
   .act1_gift5:hover {
     position: relative;
-    top: -.1rem;
+    top     : -.1rem;
   }
 
   @for $i from 1 through 5 {
     .act1_gift#{$i} {
-      $background-image:url("../../../assets/images/#{$path}/pc/act1-gift#{$i}.png");
-      $background-size: 2.8rem 2.5rem;
-      $background-repeat: no-repeat;
+      $background-image   :url("../../../assets/images/#{$path}/pc/act1-gift#{$i}.png");
+      $background-size    : 2.8rem 2.5rem;
+      $background-repeat  : no-repeat;
       $background-position: center;
-      background: #{$background-image} #{$background-position}/#{$background-size} #{$background-repeat};
+      background          : #{$background-image} #{$background-position}/#{$background-size} #{$background-repeat};
     }
   }
 
-  $act1BtnWidth:2.47rem;
+  $act1BtnWidth :2.47rem;
   $act1BtnHeight:.76rem;
 
   .act1_joinBtn_active,
   .act1_joinBtn_end {
-    display: block;
-    width: $act1BtnWidth;
-    height: $act1BtnHeight;
-    margin-top: -.05rem;
+    display    : block;
+    width      : $act1BtnWidth;
+    height     : $act1BtnHeight;
+    margin-top : -.05rem;
     margin-left: 4.7rem;
 
   }
 
   .act1_joinBtn_active {
-    $background-image:url("../../../assets/images/#{$path}/pc/act1-join.png");
-    $background-size: $act1BtnWidth $act1BtnHeight;
-    $background-repeat: no-repeat;
+    $background-image   :url("../../../assets/images/#{$path}/pc/act1-join.png");
+    $background-size    : $act1BtnWidth $act1BtnHeight;
+    $background-repeat  : no-repeat;
     $background-position: center;
-    background: #{$background-image} #{$background-position}/#{$background-size} #{$background-repeat};
+    background          : #{$background-image} #{$background-position}/#{$background-size} #{$background-repeat};
   }
 
   .act1_joinBtn_end {
-    $background-image:url("../../../assets/images/#{$path}/pc/act1-joined.png");
-    $background-size: $act1BtnWidth $act1BtnHeight;
-    $background-repeat: no-repeat;
+    $background-image   :url("../../../assets/images/#{$path}/pc/act1-joined.png");
+    $background-size    : $act1BtnWidth $act1BtnHeight;
+    $background-repeat  : no-repeat;
     $background-position: center;
-    background: #{$background-image} #{$background-position}/#{$background-size} #{$background-repeat};
+    background          : #{$background-image} #{$background-position}/#{$background-size} #{$background-repeat};
   }
 }

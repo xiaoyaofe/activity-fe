@@ -1,7 +1,8 @@
 # 活动页
 
 要对基础组件和公共的函数和api做修改时留下注释,以备其他人合并解决冲突
-每个活动的组件必须要配一个文档,没有的话需要后面补上
+每个活动的组件必须要配一个文档,没有的话需要后面补上,
+图片导致库太大,把图片完成活动后压缩到一个统一的文件夹src/common/images中,命名使用活动来命名,解压后是pc和mb两个文件夹,需要自己在本地进行解压,后面找个压缩和解压缩的库来实现
 
 ## 技术栈
 
@@ -29,6 +30,9 @@ vue sass typescript axios Velocityjs
    后面把api中的window._RG 都改为传入参数,参数来源于inject注入的data
 
 ## 启动
+yarn or npm install
+
+解压命令暂时没有好
 
 yarn or npm run serve 
 

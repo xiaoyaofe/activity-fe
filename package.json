@@ -6,7 +6,10 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "dev-build": "vue-cli-service build --mode development"
+    "dev-build": "vue-cli-service build --mode development",
+    "zip": "node ./command/zip.js",
+    "unzip": "node ./command/unzip.js",
+    "unzipAll": "node ./command/unzipAll.js"
   },
   "dependencies": {
     "@types/axios": "^0.14.0",
@@ -32,6 +35,7 @@
     "@vue/cli-plugin-babel": "^3.11.0",
     "@vue/cli-plugin-typescript": "^3.11.0",
     "@vue/cli-service": "^3.11.0",
+    "compressing": "^1.4.0",
     "sass": "^1.18.0",
     "sass-loader": "^7.1.0",
     "sass-resources-loader": "^2.0.1",

@@ -8,6 +8,7 @@ declare const FB_Ad_ID: string;
 declare const GA_Ad_ID: string;
 declare const FB_APP_ID: string;
 declare const IS_KAKAO: boolean;
+declare const GROUP_ID: string;
 /* 定义在.env中 */
 declare const VUE_APP_BASE_URL: string;
 declare const VUE_APP_FBSDK_VERSION: string;

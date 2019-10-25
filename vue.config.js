@@ -47,6 +47,7 @@ module.exports = {
         GA_Ad_ID: JSON.stringify(params.fb),
         FB_Ad_ID: JSON.stringify(params.ga),
         IS_KAKAO: JSON.stringify(params.isKakao),
+        GROUP_ID: JSON.stringify(activityParam.data.groupId),
         ...getEnvObj()
       })
       // ,

@@ -24,6 +24,8 @@ vue sass typescript axios Velocityjs
 3. 如果修改 common/scss/global 和 config 中的文件需要重新启动
 4. 组件的基本样式,的考虑定义在组件的文件夹内,如果使用基础组件则,在app.vue的style标签中引入,否则定义scss文件复制基础样式修改后在app.vue中引入. scss文件名必须和基础组件名一致
 5. computed 中的属性必须标注返回值,不然会导致类型推断错误,导致一系列的类型检查错误
+6. 可以使用 reject 来注入一些参数和函数,想将参数tip这些都注入, 还有将调起登录这些都注入,这样会导致组件都依赖于 App.vue 的注入,活动组件和根组件间的耦合会比较严重,可以用二次判断来做解耦,防止缺乏注入就不能调起.
+   后面把api中的window._RG 都改为传入参数,参数来源于inject注入的data
 
 ## 启动
 

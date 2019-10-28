@@ -4,7 +4,7 @@
 		<table :class="['table',props.className]">
 			<caption v-if="props.caption" :class="['caption',props.className+'__caption']">{{props.caption}}</caption>
 			<thead :class="['thead',props.className+'__thead']">
-				<tr :class="['tr',props.className+'__tr']">
+				<tr :class="['tr',props.className+'__tr']" :data-row="0">
 					<th :class="['th',props.className+'__th']">序号</th>
 					<th :class="['th',props.className+'__th']">礼包名</th>
 					<th :class="['th',props.className+'__th']">领取时间</th>

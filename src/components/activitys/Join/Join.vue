@@ -1,6 +1,6 @@
 
 <template>
-	<Activity :class="className" :isShowDesc="false">
+	<Activity :class="className" :desc="desc">
 		<slot />
 		<button
 			v-for="(actInfo,index) in actInfos"
@@ -42,6 +42,7 @@
 				type: String,
 				required: true
 			},
+			desc:String,
 			actInfos: {
 				type: Array,
 				required: true

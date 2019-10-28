@@ -1,17 +1,18 @@
 <template>
 	<div id="app" class="app">
-		aaaaaaaaa
-		<RgPopup
+		<RgTable v-bind="{className:'test-table'}"></RgTable>
+		<!-- aaaaaaaaa -->
+		<!-- <RgPopup
 			:isShow="isShowMessager"
 			:isShowMark="true"
 			@close="toogleAttr({name:'isShowMessager',value:false})"
-		></RgPopup>
+		></RgPopup>-->
 		<!-- <div class="app-container">
 			<button class="animate-btn" v-tap="{methods:animate} >开始</button>
 			<div ref="animate1" class="animate"></div>
 			<div ref="animate2" class="animate2"></div>
 		</div>-->
-		<button class="showMessageBtn" v-tap="{methods:toogleAttr,name:'isShowMessager',value:true}">打开消息框</button>
+		<!-- <button class="showMessageBtn" v-tap="{methods:toogleAttr,name:'isShowMessager',value:true}">打开消息框</button> -->
 		<!-- <footer class="app_footer"></footer> -->
 	</div>
 </template>
@@ -19,9 +20,11 @@
 	import { animate } from "../../common//utils/";
 	import Vue from "vue";
 	import RgPopup from "@/components/popup/RgPopup.vue";
+	import RgTable from "@/components/base/table.vue";
 	export default Vue.extend({
 		components: {
-			RgPopup
+			RgPopup,
+			RgTable
 		},
 		data() {
 			return {

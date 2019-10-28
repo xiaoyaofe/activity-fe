@@ -18,15 +18,15 @@
  /* 不需要是none */
  $footerBackgroundValue: "#fff";
  // 滚动条
- @include scrollbar(8px, 8px, 8px, rgb(125, 125, 125), rgb(11, 205, 240));
+ //  @include scrollbar(8px, 8px, 8px, rgb(125, 125, 125), rgb(11, 205, 240));
 
  #app {
-   $width   : $mainPcWidth;
-   $height  : $mainPcHeight;
-   $url     : url("./images/pc/bg.jpg");
-   $position: top center;
-   @include minWidthAndHeight($width, $height, $minPcWidth);
-   @include backgroundImage($url, $position, $width $height, no-repeat);
+   $width       : $mainPcWidth;
+   $height      : $mainPcHeight;
+   //  $url     : url("./images/pc/bg.jpg");
+   $position    : top center;
+   //  @include minWidthAndHeight($width, $height, $minPcWidth);
+   //  @include backgroundImage($url, $position, $width $height, no-repeat);
    overflow: auto;
  }
 

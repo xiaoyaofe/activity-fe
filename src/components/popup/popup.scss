@@ -1,0 +1,41 @@
+.popup-wrapper {
+    position: fixed;
+    top     : 0;
+    left    : 0;
+    width   : 100%;
+    height  : 100%;
+  }
+
+  .mark--popup {
+    @include mark($popupMarkBg, $popupMarkOpacity);
+  }
+
+
+  @keyframes slideDown {
+    from {
+      transform: translate(-50%, -100%);
+    }
+
+    to {
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  .popup {
+    width           : $popupWidth;
+    height          : $popupHeight;
+    background-color: $popupBg;
+    animation       : slideDown 0.2s ease;
+  }
+
+  .popup__close {
+    width        : $popupCloseWidth;
+    height       : $popupCloseHeight;
+    position     : absolute;
+    top          : $popupCloseTop;
+    right        : $popupCloseRight;
+    text-align   : center;
+    line-height  : $popupCloseHeight;
+    border-radius: 50%;
+    cursor       : pointer;
+  }

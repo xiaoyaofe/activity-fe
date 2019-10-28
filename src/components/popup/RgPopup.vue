@@ -1,11 +1,13 @@
 <template functional>
-	<div class="popup" v-show="props.isShow">
-		<div class="mark--message" @click="listeners.close" v-if="props.isShowMark"></div>
-		<div class="popup__content center">
-			<span class="popup__content__close" v-tap="{methods:listeners.close}">x</span>
-			<slot></slot>
+	<transition :name="props.transitionName">
+		<div class="popup-wrapper" v-show="props.isShow">
+			<div class="mark--popup" @click="listeners.close" v-if="props.isShowMark"></div>
+			<div class="popup center">
+				<span class="popup__close" v-tap="{methods:listeners.close}">x</span>
+				<slot></slot>
+			</div>
 		</div>
-	</div>
+	</transition>
 </template>
 <script lang="ts">
 	import Vue from "vue";
@@ -19,48 +21,15 @@
 			isShowMark: {
 				type: Boolean,
 				required: true
+			},
+			transitionName: {
+				type: String,
+				default: "fadeIn"
 			}
 		}
 	});
 </script>
 <style lang="scss">
-	.mark--message {
-		@include mark(#000, 0.6);
-	}
-	.popup {
-		position: fixed;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-	}
-	.popup__content {
-		width: 600px;
-		height: 200px;
-		background-color: #bababa;
-		animation: slideDown 0.2s ease;
-	}
-	.popup__content__close {
-		width: 80px;
-		height: 80px;
-		position: absolute;
-		top: 5px;
-		right: 5px;
-		font-size: 36px;
-		line-height: 80px;
-		text-align: center;
-		color: red;
-		border: 1px solid red;
-		cursor: pointer;
-	}
-
-	@keyframes slideDown {
-		from {
-			transform: translate(-50%, -100%);
-		}
-
-		to {
-			transform: translate(-50%, -50%);
-		}
-	}
+	@import "./variables";
+	@import "./popup";
 </style>

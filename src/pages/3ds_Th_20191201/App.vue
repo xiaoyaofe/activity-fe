@@ -24,8 +24,16 @@
 							@click="dropOut"
 						>[&nbsp;{{_RG.config.tip.loginOut}}&nbsp;]</RgButton>
 					</div>
-					<a class="header__btns-wraper__ios-btn btn-relative" :href="'javascript:;'" v-tap></a>
-					<a class="header__btns-wraper__google-btn btn-relative" :href="'javascript:;'" v-tap></a>
+					<a
+						class="header__btns-wraper__ios-btn btn-relative"
+						href="https://apps.apple.com/th/app/id1169281978"
+						v-tap
+					></a>
+					<a
+						class="header__btns-wraper__google-btn btn-relative"
+						href="https://play.google.com/store/apps/details?id=com.risebofor.th"
+						v-tap
+					></a>
 				</div>
 			</header>
 			<Join id="act1" :className="'act1'" :actInfos="act1Infos" @showLogin="visibleLogin">
@@ -231,7 +239,12 @@
 								// console.log(index1, index2, index3);
 								index1 !== -1 && (this.act1Infos[index1].isDisabled = true);
 								index2 !== -1 && (this.act2Infos[index2].isDisabled = true);
-								index3 !== -1 && (this.act3GiftsCounts[index3] += 1);
+								index3 !== -1 &&
+									this.act3GiftsCounts.splice(
+										index3,
+										1,
+										this.act3GiftsCounts[index3] + 1
+									);
 							});
 						}
 					});

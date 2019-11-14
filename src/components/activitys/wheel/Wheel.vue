@@ -12,11 +12,11 @@
 			<p :class="className+'__gifts__title'">'ยินดีด้วยที่ได้รับรางวัลต่อไปนี้'</p>
 			<ul :class="className+'__gifts clearfix'">
 				<li
-					v-for="(value,index) in giftCounts"
+					v-for="(value,index) in giftBaseCounts"
 					:class="[className+'__gift',className+'__gift--'+(index+1)]"
 					:key="className+'__gift--'+index"
 				>
-					<p :class="className+'__gift__count'">{{"x " + value * giftBaseCounts[index]}}</p>
+					<p :class="className+'__gift__count'">{{"x " + value * giftBaseCounts1[index]}}</p>
 				</li>
 			</ul>
 		</div>
@@ -61,8 +61,11 @@
 		computed: {
 			giftBaseCounts(): number[] {
 				const giftsCountArr = [];
-				const result = this.giftBaseCounts1.map((count, index) => {
-					return count + this.$props.giftsCounts[index];
+
+				const arr = this.$props.giftsCounts;
+				console.log(arr);
+				const result = this.giftCounts.map((count, index) => {
+					return count + arr[index];
 				});
 				return result;
 			}
@@ -124,7 +127,7 @@
 		watch: {
 			isGetHistory: function() {
 				infoActivity("rotate", 0).then((state: any) => {
-					console.log(state);
+					// console.log(state);
 					if (state) {
 						const info = state.data.userActivityResourceMap[state.dayKey];
 						this.sumCount = info.userSumCount;

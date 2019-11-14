@@ -6,6 +6,6 @@ module.exports = {
   version: "v3",
   language: "Th",
   /* 需要修改 */
-  title: "",
+  title: "Poke Saga",
   isKakao: false
 }

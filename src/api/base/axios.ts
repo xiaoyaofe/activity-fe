@@ -34,19 +34,19 @@ function responseSuccessFunc(responseObj) {
       return resData.state;
     case 300:
       localStorage.clear();
-      Vue.prototype.$dialog.show("tip", tip.code_300);
+      // Vue.prototype.$dialog.show("tip", tip.code_300);
       setTimeout(() => {
         location.reload();
       }, 3000)
       return
     // case 400:
     // 宝箱,翻卡,飞行棋这些接口只有200,401,402,1000,1101,400这些code,没有300这个错误
-      // localStorage.clear();
-      // Vue.prototype.$dialog.show("tip", tip.code_300);
-      // setTimeout(() => {
-      //   location.reload();
-      // }, 5000)
-      // return
+    // localStorage.clear();
+    // Vue.prototype.$dialog.show("tip", tip.code_300);
+    // setTimeout(() => {
+    //   location.reload();
+    // }, 5000)
+    // return
     case 401:
       Vue.prototype.$dialog.show("tip", tip.code_401);
       return
@@ -57,7 +57,7 @@ function responseSuccessFunc(responseObj) {
       Vue.prototype.$dialog.show("tip", tip.code_444);
       return
     case 405:
-      Vue.prototype.$dialog.show("tip", tip.code_405);
+      Vue.prototype.$dialog.show("tip", resData.state);
       return
     case 1000:
       Vue.prototype.$dialog.show("tip", tip.code_1000);
@@ -75,7 +75,7 @@ function responseSuccessFunc(responseObj) {
       Vue.prototype.$dialog.show("tip", tip.code_1006);
       return
     case 1101:
-      Vue.prototype.$dialog.show("tip", tip.code_1101);
+      // Vue.prototype.$dialog.show("tip", tip.code_1101);
       return
     default:
       return Promise.reject(resData)

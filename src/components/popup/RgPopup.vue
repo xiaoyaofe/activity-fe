@@ -2,7 +2,7 @@
 	<transition :name="props.transitionName">
 		<div class="popup-wrapper" v-show="props.isShow">
 			<div class="mark--popup" @click="listeners.close" v-if="props.isShowMark"></div>
-			<div class="popup center">
+			<div class="popup center" :class="popupClassName">
 				<span class="popup__close" v-tap="{methods:listeners.close}">x</span>
 				<slot></slot>
 			</div>
@@ -25,11 +25,15 @@
 			transitionName: {
 				type: String,
 				default: "fadeIn"
+			},
+			popupClassName: {
+				type: String,
+				default: ""
 			}
 		}
 	});
 </script>
 <style lang="scss">
-	@import "./variables";
-	@import "./popup";
+	// @import "./variables";
+	// @import "./popup";
 </style>

@@ -8,10 +8,8 @@
 			v-if="actInfo.isShow"
 			:disabled="disableds[index]"
 			:class="[
-				`${className}__join-btn`,
-					disableds[index] ? 
-				`${className}__join-btn${index+1}--end` : 
-				`${className}__join-btn${index+1}--start`,
+				`${className}__join-btn`, 
+				`${className}__join-btn${index+1}`,
 				disableds[index] ? 
 				`${className}__join-btn--end` : 
 				`${className}__join-btn--start`
@@ -42,7 +40,7 @@
 				type: String,
 				required: true
 			},
-			desc:String,
+			desc: String,
 			actInfos: {
 				type: Array,
 				required: true
@@ -56,8 +54,8 @@
 		},
 		computed: {
 			disableds(): boolean[] {
-				return this.isDisabledArr.map(value => {
-					return this.$props.actInfos.isDisabled || value;
+				return this.isDisabledArr.map((value, index) => {
+					return this.$props.actInfos[index].isDisabled || value;
 				});
 			}
 		},
@@ -69,7 +67,7 @@
 						this.$props.actInfos[index].giftIndex
 					).catch(err => console.log(err));
 					if (data) {
-						this.isDisabledArr[index] = true;
+						this.isDisabledArr.splice(index, 1, true);
 						this.$dialog.show(
 							"tip",
 							window._RG.config.tip.code_200.replace("$禮包", data.rewardName)

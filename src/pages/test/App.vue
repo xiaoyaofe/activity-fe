@@ -1,17 +1,17 @@
 <template>
 	<div id="app" class="app">
-		<RgTable v-bind="{className:'test-table'}"></RgTable>
+		<!-- <RgTable v-bind="{className:'test-table'}"></RgTable> -->
 		<!-- aaaaaaaaa -->
 		<!-- <RgPopup
 			:isShow="isShowMessager"
 			:isShowMark="true"
 			@close="toogleAttr({name:'isShowMessager',value:false})"
 		></RgPopup>-->
-		<!-- <div class="app-container">
-			<button class="animate-btn" v-tap="{methods:animate} >开始</button>
+		<div class="app-container">
+			<button class="animate-btn" v-tap="{methods:animate}">开始</button>
 			<div ref="animate1" class="animate"></div>
-			<div ref="animate2" class="animate2"></div>
-		</div>-->
+			<!-- <div ref="animate2" class="animate2"></div> -->
+		</div>
 		<!-- <button class="showMessageBtn" v-tap="{methods:toogleAttr,name:'isShowMessager',value:true}">打开消息框</button> -->
 		<!-- <footer class="app_footer"></footer> -->
 	</div>
@@ -47,7 +47,11 @@
 				// animate([ele1, ele2])
 				// 	.delay(2000)
 				// 	.velocity({ width: 1000, opacity: 0.5 }, 1000);
-				// animate(ele2).velocity({ opacity: 0 }, {dycat});
+				console.log("aaaaaaaaaaaaaa");
+				animate(ele1).velocity(
+					{ rotateZ: 2000 },
+					{ easing: "easeInOutQuad", duration: 3000 }
+				);
 			}
 		}
 	});
@@ -63,9 +67,9 @@
 	.animate,
 	.animate2 {
 		margin-top: 100px;
-		width: 200px;
-		height: 200px;
-		background: red;
+		width: 300px;
+		height: 300px;
+		background: green;
 	}
 	.animate2 {
 		background: green;

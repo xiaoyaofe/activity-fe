@@ -5,6 +5,6 @@ module.exports = {
   version: "de",
   // # Id, En, Fr, De, Vn, Tw
   language: "De",
-  title: "",
+  title: "泰国口袋妖怪",
   isKakao: false
 }

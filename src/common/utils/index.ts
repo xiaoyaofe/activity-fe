@@ -140,7 +140,7 @@ export function initSetRem(pc: number, mb: number) {
 //判断玩家是否登录
 export const isLogin = function () {
 
-  if (localStorage.token) {
+  if (localStorage.token && localStorage.playerId) {
     //   if (localStorage.userId && localStorage.token && localStorage.playerId) {
     // var active = new Date().getTime();
     // active -= 1800000;

@@ -63,7 +63,10 @@ module.exports = {
     config
       .plugin('html')
       .tap(args => {
-        args[0].meta = params.shareMeta;
+        if (params.shareMeta) {
+          args[0].meta = params.shareMeta;
+        }
+        
         args[0].templateParameters = {
           'favicon': 'favicon.ico',
           title: params.title

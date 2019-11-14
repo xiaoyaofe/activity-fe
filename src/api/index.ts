@@ -260,3 +260,5 @@ export const joinFlightChess = (type: 0 | 1 | 2) => {
   };
   return get(BASE_URL + Routes.flightChess, params);
 }
+// 消费转盘
+

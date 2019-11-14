@@ -8,7 +8,7 @@ import { initSetRem, polyfillAnimation, initfacebook, initKakao } from "@/common
 import "@/common/initComponentsAndDirectives";
 
 //运行时编译的原因不能使用变量替换路径 要使用变量替换 开启 runtimeCompiler 会大 10kb
-import App from "@/pages/test/App.vue";
+import App from "./App.vue";
 
 initSetRem(1920, 750);
 polyfillAnimation();

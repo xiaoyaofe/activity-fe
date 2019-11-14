@@ -27,6 +27,7 @@ interface Options {
   loop?: number;          // 循环
   delay?: number;         // 延迟
   mobileHA?: boolean;        // 移动端硬件加速（默认开启true）
+  container?: any
 }
 
 export function animate(ele: any) {

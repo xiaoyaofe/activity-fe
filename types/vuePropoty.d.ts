@@ -6,7 +6,10 @@ import Vue from 'vue'
 declare module 'vue/types/vue' {
   // 3. 声明为 Vue 补充的东西
   interface Vue {
-    $pixel: any;
+    $pixel: {
+      pixel: Function
+    };
+    getMap: Function
     $dialog: {
       show: Function;
       hide: Function;

@@ -44,8 +44,8 @@ module.exports = {
         VERSION: JSON.stringify(params.version),
         APPID: JSON.stringify(params.appId),
         FB_APP_ID: JSON.stringify(params.fbId),
-        GA_Ad_ID: JSON.stringify(params.fb),
-        FB_Ad_ID: JSON.stringify(params.ga),
+        GA_Ad_ID: JSON.stringify(params.ga),
+        FB_Ad_ID: JSON.stringify(params.fb),
         IS_KAKAO: JSON.stringify(params.isKakao),
         GROUP_ID: JSON.stringify(activityParam.data.groupId),
         ...getEnvObj()
@@ -66,7 +66,7 @@ module.exports = {
         if (params.shareMeta) {
           args[0].meta = params.shareMeta;
         }
-        
+
         args[0].templateParameters = {
           'favicon': 'favicon.ico',
           title: params.title

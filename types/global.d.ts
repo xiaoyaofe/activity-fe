@@ -69,6 +69,8 @@ interface ActiveParams {
     active: string;
     // 老玩家回归
     oldPlayer: string;
+    // 周冲值,每日单独计算版
+    weekpay: string;
   }
   // 礼包ID
   rewardId: {
@@ -98,7 +100,8 @@ interface ActiveParams {
     // 在线活跃
     active: string[];
     // 老玩家回归
-    oldPlayer: string[]
+    oldPlayer: string[],
+    weekpay: string[]
   }
 }
 interface Tip {

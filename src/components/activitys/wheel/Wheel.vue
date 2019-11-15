@@ -79,14 +79,14 @@
 					console.log(err)
 				);
 				if (data) {
-					infoActivity("rotate", 0).then((state: any) => {
-						console.log(state);
-						if (state) {
-							const info = state.data.userActivityResourceMap[state.dayKey];
-							this.sumCount = info.userSumCount;
-							this.dayCount = info.userSumCount - info.useCount;
-						}
-					});
+					// infoActivity("rotate", 0).then((state: any) => {
+					// 	console.log(state);
+					// 	if (state) {
+					// 		const info = state.data.userActivityResourceMap[state.dayKey];
+					// 		this.sumCount = info.userSumCount;
+					// 		this.dayCount = info.userSumCount - info.useCount;
+					// 	}
+					// });
 					// const data = { rewardId: "5dca614ab5cb6718ac9ccdfc" };
 					const rewardIndex = window._RG.config.data.rewardId.rotate.indexOf(
 						data.rewardId
@@ -100,7 +100,6 @@
 							easing: "easeInOutQuad",
 							complete: () => {
 								this.disabled = false;
-								this.sumCount -= 1;
 								this.dayCount -= 1;
 								this.giftCounts.splice(
 									rewardIndex,
@@ -109,7 +108,7 @@
 								);
 								this.$dialog.show("reward", {
 									index: rewardIndex + 1,
-									count: "x " + this.giftBaseCounts[rewardIndex]
+									count: "x " + this.giftBaseCounts1[rewardIndex]
 								});
 							}
 						}

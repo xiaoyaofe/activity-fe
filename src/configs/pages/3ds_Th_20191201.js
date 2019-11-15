@@ -23,7 +23,9 @@ const activityParam = {
     // 累计登录
     everyLogin: "5dca5811b5cb6715e856f597",
     // 累计充值
-    paySum: "5dca5825b5cb6715e856f598",
+    paySum: "",
+    // 周冲
+    weekpay: "5dca5825b5cb6715e856f598",
     // 充值达成
     payReach: "",
     // 等级达成
@@ -72,7 +74,7 @@ const activityParam = {
       '5dca5d64b5cb6718ac9ccddb'
     ],
     // 累计充值
-    paySum: [
+    weekpay: [
       '5dca5debb5cb6718ac9ccdde',
       '5dca5e54b5cb6718ac9ccde5',
       '5dca5e7fb5cb6718ac9ccde8',
@@ -81,6 +83,7 @@ const activityParam = {
       '5dca5f61b5cb6718ac9ccdf1',
       '5dca5fb6b5cb6718ac9ccdf4'
     ],
+    paySum: [],
     // 充值达成
     payReach: [],
     // 等级达成
@@ -97,7 +100,7 @@ const activityParam = {
   }
 };
 const params = Object.assign({
-  fb: "",
+  fb: "306201426726996",
   ga: "",
   // 设置<link rel="icon" href="<%= BASE_URL + favicon %>">默认favicon.ico
   favicon: ""

@@ -75,7 +75,7 @@ function responseSuccessFunc(responseObj) {
       Vue.prototype.$dialog.show("tip", tip.code_1006);
       return
     case 1101:
-      // Vue.prototype.$dialog.show("tip", tip.code_1101);
+      Vue.prototype.$dialog.show("tip", tip.code_1101);
       return
     default:
       return Promise.reject(resData)

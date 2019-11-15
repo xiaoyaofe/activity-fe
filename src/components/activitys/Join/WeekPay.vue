@@ -22,7 +22,7 @@
 <script lang="ts">
 	import Vue from "vue";
 	import { isLogin } from "@/common/utils";
-	import { joinActivity } from "@/api";
+	import { joinWeekPay } from "@/api";
 	import Activity from "@/components/base/Activity.vue";
 	interface ActInfo {
 		actName: string;
@@ -31,13 +31,9 @@
 		isShow: boolean;
 	}
 	export default Vue.extend({
-		name: "Join",
-		inject: ["getMap"],
+		name: "WeekPay",
 		components: {
 			Activity
-		},
-		mounted() {
-			console.log(this.getMap());
 		},
 		props: {
 			className: {
@@ -66,8 +62,7 @@
 		methods: {
 			join: async function({ index }) {
 				if (isLogin()) {
-					let data: any = await joinActivity(
-						this.$props.actInfos[index].actName,
+					let data: any = await joinWeekPay(
 						this.$props.actInfos[index].giftIndex
 					).catch(err => console.log(err));
 					if (data) {

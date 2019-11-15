@@ -63,7 +63,7 @@ export const findRole = (msg) => {
 // 获取所有活动历史记录
 export const getAllHistory = () => {
   let params = {
-    groupId:groupId,
+    groupId: groupId,
     token: localStorage.token
   }
   return get(BASE_URL + Routes.CdKeys_all, params);
@@ -73,7 +73,7 @@ export const getAllHistory = () => {
 export const getHistory = (typeId: string) => {
 
   let params = {
-    groupId:groupId,
+    groupId: groupId,
     actId: window._RG.config.data.actId[typeId],
     token: localStorage.token,
     rewardId: window._RG.config.data.rewardId[typeId][0],
@@ -84,7 +84,7 @@ export const getHistory = (typeId: string) => {
 // 获取活动信息
 export const infoActivity = (typeId: string, giftIndex: number) => {
   let params = {
-    groupId:groupId,
+    groupId: groupId,
     actId: window._RG.config.data.actId[typeId],
     token: localStorage.token,
     rewardId: window._RG.config.data.rewardId[typeId][giftIndex],
@@ -95,7 +95,7 @@ export const infoActivity = (typeId: string, giftIndex: number) => {
 // 参加活动join
 export const joinActivity = (typeId: string, index: number) => {
   let params = {
-    groupId:groupId,
+    groupId: groupId,
     actId: window._RG.config.data.actId[typeId],
     token: localStorage.token,
     rewardId: window._RG.config.data.rewardId[typeId][index]
@@ -106,7 +106,7 @@ export const joinActivity = (typeId: string, index: number) => {
 // 许愿
 export const wishActivity = (wish_word, goodsId) => {
   let params = {
-    groupId:groupId,
+    groupId: groupId,
     token: localStorage.token,
     goodsId: goodsId,
     userInfo: JSON.stringify({
@@ -120,7 +120,7 @@ export const wishHistory = (length) => {
 
   let params = {
     actId: window._RG.config.data.actId.wish,
-    groupId:groupId,
+    groupId: groupId,
     limit: length,
     token: localStorage.token,
   }
@@ -131,7 +131,7 @@ export const wishHistory = (length) => {
 //一键翻开index：-1；正常翻开index：0
 export const joinFilp = (typeId, index) => {
   let params = {
-    groupId:groupId,
+    groupId: groupId,
     actId: window._RG.config.data.actId[typeId].id,
     token: localStorage.token,
     index: index
@@ -141,7 +141,7 @@ export const joinFilp = (typeId, index) => {
 // 卡牌活动信息
 export const infoFlip = (typeId) => {
   let params = {
-    groupId:groupId,
+    groupId: groupId,
     actId: window._RG.config.data.actId[typeId].id,
     token: localStorage.token,
   }
@@ -150,7 +150,7 @@ export const infoFlip = (typeId) => {
 // 获取预约人数
 export const reserveInfo = () => {
   let params = {
-    groupId:groupId,
+    groupId: groupId,
     actId: window._RG.config.data.actId.reserve,
   }
   return get(BASE_URL + Routes.info, params)
@@ -158,7 +158,7 @@ export const reserveInfo = () => {
 // 参与预约
 export const reserveJoin = (userPhone) => {
   let params = {
-    groupId:groupId,
+    groupId: groupId,
     actId: window._RG.config.data.actId.reserve,
     phone: userPhone,
   }
@@ -168,7 +168,7 @@ export const reserveJoin = (userPhone) => {
 // 預約轉盤
 export const roteJoin = (fb) => {
   let params = {
-    groupId:groupId,
+    groupId: groupId,
     actId: window._RG.config.data.actId.rotate,
     token: localStorage.token,
     fbshare: fb
@@ -178,7 +178,7 @@ export const roteJoin = (fb) => {
 
 export const roteInfo = () => {
   let params = {
-    groupId:groupId,
+    groupId: groupId,
     actId: window._RG.config.data.actId.rotate,
     token: localStorage.token
   }
@@ -188,7 +188,7 @@ export const roteInfo = () => {
 //获取礼包记录
 export const roteCdkeys = () => {
   let params = {
-    groupId:groupId,
+    groupId: groupId,
     actId: window._RG.config.data.actId.rotate,
     token: localStorage.token
   }
@@ -198,7 +198,7 @@ export const roteCdkeys = () => {
 // 更新礼包
 export const updateReward = (msg) => {
   let params = {
-    groupId:groupId,
+    groupId: groupId,
     actId: window._RG.config.data.actId.login,
     token: localStorage.token,
     rewardId: window._RG.config.data.rewardId.login[0],
@@ -210,7 +210,7 @@ export const updateReward = (msg) => {
 // 参加活动join
 export const getRecharge = (typeId, index) => {
   let params = {
-    groupId:groupId,
+    groupId: groupId,
     actId: window._RG.config.data.actId[typeId],
     token: localStorage.token,
     rewardId: window._RG.config.data.rewardId[typeId][index],
@@ -222,7 +222,7 @@ export const getRecharge = (typeId, index) => {
 // 宝箱的三个接口
 export const joinBoxFb = (fbShare: boolean) => {
   let params = {
-    groupId:groupId,
+    groupId: groupId,
     actId: window._RG.config.data.actId.box,
     token: localStorage.token,
     fbShare
@@ -231,7 +231,7 @@ export const joinBoxFb = (fbShare: boolean) => {
 }
 export const getCardCount = (wishId: string = "") => {
   let params = {
-    groupId:groupId,
+    groupId: groupId,
     actId: window._RG.config.data.actId.box,
     token: localStorage.token,
     fbShare: "false",
@@ -241,7 +241,7 @@ export const getCardCount = (wishId: string = "") => {
 }
 export const joinCardReward = (index: number) => {
   let params = {
-    groupId:groupId,
+    groupId: groupId,
     actId: window._RG.config.data.actId.box,
     token: localStorage.token,
     rewardId: window._RG.config.data.rewardId.box[0],
@@ -253,12 +253,38 @@ export const joinCardReward = (index: number) => {
 // 0-查询刷新次数/1-投骰子领奖/ 2-砸彩蛋
 export const joinFlightChess = (type: 0 | 1 | 2) => {
   let params = {
-    groupId:groupId,
+    groupId: groupId,
     actId: window._RG.config.data.actId.flightChess,
     token: localStorage.token,
     type
   };
   return get(BASE_URL + Routes.flightChess, params);
 }
-// 消费转盘
+/* 爆炸性的充值, 每日清算  例子
+第一天充值超过 300钻 第一天可领取,知道活动结束都可以领取
+第二天充值超过 300钻 第一天可领取,知道活动结束都可以领取
+
+如果第一天充值超过 600 钻还是只能领第一天的, 第二天重新计算
+
+*/
+
+export function joinWeekPay(rewardIndex: number) {
+  let params = {
+    groupId: groupId,
+    actId: window._RG.config.data.actId.weekpay,
+    token: localStorage.token,
+    rewardId: window._RG.config.data.rewardId.weekpay[rewardIndex],
+    index: rewardIndex
+  };
+  return get(BASE_URL + Routes.weekpay, params);
+}
+
+export function weekPayInfo() {
+  let params = {
+    groupId: groupId,
+    actId: window._RG.config.data.actId.weekpay,
+    token: localStorage.token,
+  };
+  return get(BASE_URL + Routes.info_weekPay, params);
+}
 

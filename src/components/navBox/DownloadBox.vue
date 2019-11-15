@@ -12,6 +12,14 @@
 					:class="['download-box__content__btn','download-box__content__btn--'+key]"
 					:href="value ? value : 'javascript:;'"
 					:key="key+'btn'"
+					v-if="!value"
+					v-tap="{methods:scroll,id:key}"
+				></a>
+				<a
+					:class="['download-box__content__btn','download-box__content__btn--'+key]"
+					:href="value ? value : 'javascript:;'"
+					:key="key+'btn'"
+					v-if="value"
 					target="_blank"
 					v-tap="{methods:scroll,id:key}"
 				></a>

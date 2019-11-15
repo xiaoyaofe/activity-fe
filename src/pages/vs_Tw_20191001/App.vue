@@ -75,7 +75,11 @@
 			// Act2,
 			// Act5
 		},
-
+		provide: function() {
+			return {
+				getMap: this.getAct1Infos()
+			};
+		},
 		data() {
 			this._downloadBoxOption = {
 				distance: "-2.5rem",
@@ -157,7 +161,6 @@
 					this.loginIsVisible = true;
 				}
 			},
-
 			//是否显示登录框
 			visibleLogin(val) {
 				this.loginIsVisible = val;
@@ -165,6 +168,12 @@
 			dropOut() {
 				localStorage.clear();
 				location.reload();
+			},
+			getAct1Infos() {
+				let vm = this;
+				return function checkForAct1Info() {
+					return vm.act1Infos;
+				};
 			}
 		}
 	});

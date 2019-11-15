@@ -12,7 +12,7 @@
 <script lang="ts">
 	import Vue from "vue";
 	import JoinButton from "@/components/Buttons/JoinButton.vue";
-	import { isLogin,isTime } from "@/common/utils";
+	import { isLogin, isTime } from "@/common/utils";
 	import { getAllHistory, infoActivity } from "@/api";
 	const isShowBtn2 = () => isTime("2019-10-10");
 

@@ -26,12 +26,12 @@
 					</div>
 					<a
 						class="header__btns-wraper__ios-btn btn-relative"
-						href="https://apps.apple.com/th/app/id1169281978"
+						href="https://app.adjust.com/vh1tuah?redirect_android=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.risebofor.th&redirect_ios=https%3A%2F%2Fapps.apple.com%2Fth%2Fapp%2Fid1169281978 "
 						v-tap
 					></a>
 					<a
 						class="header__btns-wraper__google-btn btn-relative"
-						href="https://play.google.com/store/apps/details?id=com.risebofor.th"
+						href="https://app.adjust.com/vh1tuah?redirect_android=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.risebofor.th&redirect_ios=https%3A%2F%2Fapps.apple.com%2Fth%2Fapp%2Fid1169281978 "
 						v-tap
 					></a>
 				</div>
@@ -45,7 +45,7 @@
 					></li>
 				</ul>
 			</Join>
-			<Join id="act2" :className="'act2'" :actInfos="act2Infos" @showLogin="visibleLogin">
+			<WeekPay id="act2" :className="'act2'" :actInfos="act2Infos" @showLogin="visibleLogin">
 				<ul class="act2__gifts clearfix">
 					<li
 						v-for="key in 7"
@@ -53,7 +53,7 @@
 						:key="'act2__gifts__gift--'+key"
 					></li>
 				</ul>
-			</Join>
+			</WeekPay>
 			<Wheel
 				id="act3"
 				:className="'act3'"
@@ -70,7 +70,6 @@
 						class="fans__a"
 						href="https://www.facebook.com/PokeSagago/"
 						target="_blank"
-						v-tap
 					>https://www.facebook.com/PokeSagago/</a>
 				</p>
 			</section>
@@ -83,10 +82,11 @@
 <script lang="ts">
 	import Vue from "vue";
 	import { isLogin } from "@/common/utils";
-	import { getAllHistory, infoActivity } from "@/api";
+	import { getAllHistory, infoActivity, weekPayInfo } from "@/api";
 	import Login from "@/components/login/Login.vue";
 	import RgButton from "@/components/base/RgButton.vue";
 	import Join from "@/components/activitys/Join/Join.vue";
+	import WeekPay from "@/components/activitys/Join/WeekPay.vue";
 	import Wheel from "@/components/activitys/wheel/Wheel.vue";
 	import DownloadBox from "@/components/navBox/DownloadBox.vue";
 
@@ -95,6 +95,7 @@
 			RgButton,
 			DownloadBox,
 			Join,
+			WeekPay,
 			Login,
 			Wheel
 		},
@@ -108,7 +109,7 @@
 					act1: "",
 					act2: "",
 					act3: "",
-					facebook: "https://www.facebook.com/PocketMonKO/"
+					facebook: "https://www.facebook.com/PokeSagago/"
 				}
 			};
 			return {
@@ -222,6 +223,8 @@
 				if (isLogin()) {
 					this.userRolle = localStorage.getItem("playerName") as string;
 					this.userZone = localStorage.getItem("zoneName") as string;
+					// 打登录点
+					this.$pixel.pixel("login1");
 					// 获取礼包记录
 					await getAllHistory().then((val: any) => {
 						this.isGetHistory = true;
@@ -230,15 +233,13 @@
 								const index1 = this._RG.config.data.rewardId.everyLogin.indexOf(
 									item.rewardId
 								);
-								const index2 = this._RG.config.data.rewardId.paySum.indexOf(
-									item.rewardId
-								);
 								const index3 = this._RG.config.data.rewardId.rotate.indexOf(
 									item.rewardId
 								);
+
 								// console.log(index1, index2, index3);
 								index1 !== -1 && (this.act1Infos[index1].isDisabled = true);
-								index2 !== -1 && (this.act2Infos[index2].isDisabled = true);
+
 								index3 !== -1 &&
 									this.act3GiftsCounts.splice(
 										index3,
@@ -246,6 +247,13 @@
 										this.act3GiftsCounts[index3] + 1
 									);
 							});
+						}
+					});
+					await weekPayInfo().then((res: any) => {
+						for (let key in res) {
+							const index2 = this._RG.config.data.rewardId.weekpay.indexOf(key);
+							console.log(key);
+							index2 !== -1 && (this.act2Infos[index2].isDisabled = true);
 						}
 					});
 				}

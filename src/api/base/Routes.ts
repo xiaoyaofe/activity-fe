@@ -26,9 +26,9 @@ export const cdKeys = "/activity/cdKeys";
 //获取所有礼包
 export const CdKeys_all = "/activity/cdKeysList";
 //累计充值接口
-export const join_allPay = "/activity/weekPay";
+export const weekpay = "/activity/weekPay";
 //累计充值数据
-export const info_allPay = "/activity/weekPayInfo";
+export const info_weekPay = "/activity/weekPayInfo";
 //许愿中奖列表
 export const gifsList = "/activity/lottery/list";
 // //许愿愿望列表

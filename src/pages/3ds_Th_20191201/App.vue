@@ -236,10 +236,12 @@
 								const index3 = this._RG.config.data.rewardId.rotate.indexOf(
 									item.rewardId
 								);
-
+								const index2 = this._RG.config.data.rewardId.weekpay.indexOf(
+									item.rewardId
+								);
 								// console.log(index1, index2, index3);
 								index1 !== -1 && (this.act1Infos[index1].isDisabled = true);
-
+								index2 !== -1 && (this.act2Infos[index2].isDisabled = true);
 								index3 !== -1 &&
 									this.act3GiftsCounts.splice(
 										index3,
@@ -249,13 +251,12 @@
 							});
 						}
 					});
-					await weekPayInfo().then((res: any) => {
-						for (let key in res) {
-							const index2 = this._RG.config.data.rewardId.weekpay.indexOf(key);
-							console.log(key);
-							index2 !== -1 && (this.act2Infos[index2].isDisabled = true);
-						}
-					});
+					// 历史记录全部放在了一起,不用再调用这个接口
+					// await weekPayInfo().then((res: any) => {
+					// 	for (let key in res) {
+					// 		console.log(key);
+					// 	}
+					// });
 				}
 			},
 			// 查看礼包

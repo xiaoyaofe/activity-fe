@@ -75,7 +75,7 @@
 			// Act2,
 			// Act5
 		},
-		provide: function() {
+		provide: function(): any {
 			return {
 				getMap: this.getAct1Infos()
 			};
@@ -115,7 +115,7 @@
 			};
 		},
 		computed: {
-			_RG() {
+			_RG(): { config: CONFIG } {
 				return window._RG;
 			}
 		},

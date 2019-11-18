@@ -32,12 +32,8 @@
 	}
 	export default Vue.extend({
 		name: "Join",
-		inject: ["getMap"],
 		components: {
 			Activity
-		},
-		mounted() {
-			console.log(this.getMap());
 		},
 		props: {
 			className: {

@@ -9,7 +9,6 @@ declare module 'vue/types/vue' {
     $pixel: {
       pixel: Function
     };
-    getMap: Function
     $dialog: {
       show: Function;
       hide: Function;

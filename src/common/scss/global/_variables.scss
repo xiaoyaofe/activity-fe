@@ -3,8 +3,8 @@
 /* 不要随意更改PC端的minPcWidth这个值,
 需要修改 src/common/utils 下的setHtmlFontSize 函数中的值
 在1200-768 这个区间内 rem 的值等于1200的值 */
-$pc: "screen and (min-width: 768px)";
+$pc: "screen and (min-width: 769px)";
 $mobile: "screen and (max-width: 768px)";
 $pcWidth:19.2rem;
 $mbWidth:7.5rem;
-$minWidth:1200px;
+$minWidth:768px;

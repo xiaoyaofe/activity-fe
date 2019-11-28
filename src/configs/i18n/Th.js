@@ -5,17 +5,17 @@ module.exports = {
   //200恭喜你獲得了禮包，請到遊戲內查收
   code_200: "ยินดีด้วยที่ได้รับรางวัล โปรดไปเช็คดูในเกมนะ!",
   //300对不起，您尚未在游戏内登入！无法领取
-  code_300: '登錄過期，請重新登入',
+  code_300: 'Login expired, please log in again',
   //400服务器错误
-  code_400: '網絡錯誤，請稍後重試',
+  code_400: 'Network error, please try again later',
   //401活动未开始
   code_401: "กิจกรรมยังไม่เริ่มขึ้น",
   //402活动已结束     
   code_402: "กิจกรรมสิ้นสุดแล้ว",
   //403激活码耗尽
-  code_403: '激活碼耗盡',
+  code_403: '',
   //405没有找到活动
-  code_405: '沒有找到活動',
+  code_405: 'not find reward.',
   //1000非常抱歉，您尚未达到领取条件。
   code_1000: "ยังไม่ครบเงื่อนไข รับรางวัลไม่ได โปรดลองใหม่อีกครั้งนะ!",
   //1001登录次数不满足
@@ -27,7 +27,7 @@ module.exports = {
   //1006累计登录天数不满足
   code_1006: "วันนี้ยังไม่ครบเงื่อนไข รับรางวัลไม่ได้",
   //1101邮件发送失败
-  code_1101: '郵件發送失敗，請稍後重試',
+  code_1101: 'Mail sending failed, please try again later',
   // 登录
   // 請將登錄信息填寫完整
   login_info_null: "請將登錄信息填寫完整",
@@ -37,24 +37,24 @@ module.exports = {
   player_null: "ไม่มีตัวละครในเซิฟเวอร์ที่คุณได้เลือก",
   // 預約
   // 请输入正确的手机号码
-  phone_null: "請輸入正確的手機號",
+  phone_null: "",
   // 恭喜预约成功 赶快登陆FB并参与抽奖吧！
-  reserve_success: "恭喜預約成功，趕快登陸FB并參與抽獎吧！",
+  reserve_success: "",
   // 谢谢参与
-  join_null: "謝謝參與",
+  join_null: "",
   // 恭喜中奖
-  join_success: "恭喜中獎",
+  join_success: "",
   // 你的獎勵是
-  reward_txt: "你的獎勵是",
+  reward_txt: "",
   // 兌換碼：
-  cdKeys: "兌換碼",
+  cdKeys: "",
   //弹窗
   //礼包名
-  reward_name: "禮包名",
+  reward_name: "",
   // 激活碼
-  code: "激活碼",
+  code: "",
   // 時間
-  time: "時間",
+  time: "",
   // 區服
   serve: "เซิร์ฟ",
   // 角色
@@ -62,16 +62,16 @@ module.exports = {
   // 注销
   loginOut: "ออก",
   // 当前没有任何礼包数据
-  giftArr_null: "当前没有任何礼包数据",
+  giftArr_null: "",
   // 当前没有任何许愿中奖信息
-  wishArr_null: "当前没有任何许愿中奖信息",
+  wishArr_null: "",
   // 许愿
   // 请输入愿望
-  wish_null: '請輸入願望',
+  wish_null: '',
   // 您已成功許願
-  wish_success: '您已成功許願',
+  wish_success: '',
   // 活动尚未结束，幸运名单将于2018/12/25 16:30后公布
-  wish_search: '活動尚未結束，幸運名單將於2018/12/25 16:30后公佈',
+  wish_search: '',
   // 有奖竞猜
   prize: "",
   // 转盘

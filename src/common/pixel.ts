@@ -14,7 +14,7 @@ export default class Pixel {
 	}
 
 	private facebook = (name: string, param?: any) => {
-		param && param.fb ? window.fbq('track', name, param.fb) : window.fbq('track', name);
+		param && param.fb ? window.fbq('trackCustom', name, param.fb) : window.fbq('trackCustom', name);
 		console.info(`"${name}" has pixeled - facebook`, param);
 	}
 

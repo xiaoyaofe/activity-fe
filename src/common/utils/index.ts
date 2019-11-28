@@ -33,7 +33,7 @@ export function isPc() {
 // 设置rem基准值, 好处是小数点前移两位
 export function setHtmlFontSize(viewBaseWidth: number) {
   let clientWidth = document.documentElement.clientWidth;
-  if (clientWidth <= 1200 && viewBaseWidth > 768) clientWidth = 1200;
+  // if (clientWidth <= 1200 && viewBaseWidth > 768) clientWidth = 1200;
   let _fontSize = clientWidth / (viewBaseWidth / 100);
   document.documentElement.style.fontSize = _fontSize + "px";
 }
@@ -188,12 +188,13 @@ export function setRem(pc: number, mb: number) {
 
 export function isShowPc() {
   let result: boolean;
-  // 判断支持touchend事件与否,支持移动端,不支持pc端
-  const isSupportTouch = "ontouchend" in document ? true : false;
+  // // 判断支持touchend事件与否,支持移动端,不支持pc端
+  // const isSupportTouch = "ontouchend" in document ? true : false;
   // 当屏幕宽度小于等于750时,直接默认是移动端
-  const isMin750 = document.body.clientWidth <= 750 ? true : false;
-  const isPcWeb = isPc();
-  if (isMin750 || !isPcWeb || isSupportTouch) {
+  const isMin68 = (window.innerWidth) <= 768 ? true : false;
+  console.log(window.innerWidth)
+  // const isPcWeb = isPc();
+  if (isMin68) {
     result = false;
   } else {
     result = true;

@@ -117,7 +117,6 @@
 			scroll({ id }: { id: string }) {
 				var ele = document.getElementById(id);
 				if (!ele) return console.log("scroll element is not find.");
-				console.log("aaaa");
 				animate(ele).velocity("scroll", {
 					container: document.body
 				});

@@ -60,15 +60,15 @@ input[type=number]::-webkit-outer-spin-button {
 
 /* input占位符颜色*/
 ::-moz-placeholder {
-  color: #369;
+  color: #ad2413
 }
 
 ::-webkit-input-placeholder {
-  color: #369;
+  color: #ad2413
 }
 
 :-ms-input-placeholder {
-  color: #369;
+  color: #ad2413
 }
 
 input {
@@ -110,7 +110,6 @@ ul {
 
 @media screen and (min-width: $minWidth) {
 
-  html,
   body {
     overflow-x: hidden;
   }

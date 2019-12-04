@@ -1,6 +1,6 @@
 <template>
 	<transition name="fadeIn">
-		<div class="DialogTip" v-show="showDialog">
+		<div class="DialogTip" v-show="showDialog" >
 			<!--提示窗  -->
 			<div class="tipBox" v-show="toastName == 'tip'">
 				<p class="tipTxt">{{content}}</p>
@@ -61,49 +61,30 @@
 				</div>
 			</div>
 
-			<!-- 愿望弹窗 -->
+			<!-- 抽奖弹窗 -->
 			<div class="rewardBox" v-show="toastName === 'lucky'">
 				<button @click="close" class="close"></button>
 				<section class="giftNull" v-if="!luckyArr.length">{{tip.wishArr_null}}</section>
 				<section v-if="luckyArr.length" class="rewardContainer">
-					<p>Lucky List</p>
-					<div class="table-head">
-						<div class="table-head-wrap">
-							<table class="grid">
-								<!-- <colgroup>
-                  <col style="width:80px">
-                  <col>
-                  <col style="width:150px">
-								</colgroup>-->
-								<thead>
-									<tr>
-										<th></th>
-										<th>{{tip.server}}</th>
-										<th>{{tip.player}}</th>
-									</tr>
-								</thead>
-							</table>
-						</div>
-					</div>
+					<!-- <p>Log trúng thưởng</p> -->
 					<div class="table-content">
 						<table class="grid">
-							<!-- <colgroup>
-                <col style="width:80px">
-                <col>
-                <col>
-                <col style="width:150px">
-							</colgroup>-->
+							<thead>
+								<tr></tr>
+								<tr>
+									<th class="table-index"></th>
+									<th class="table-server">{{tip.serve}}</th>
+									<th class="table-player">{{tip.player}}</th>
+									<th class="table-time">{{tip.time}}</th>
+								</tr>
+							</thead>
 							<tbody>
+								<!-- :style="parseInt(index%2)?{ background:'#DADADA' }:{ background:'#e9f5ff' }" -->
 								<tr v-for="(item,index) in luckyArr" :key="index">
-									<td
-										:style="parseInt(index%2)?{ background:'#DADADA' }:{ background:'#e9f5ff' }"
-									>{{index+1}}</td>
-									<td
-										:style="parseInt(index%2)?{ background:'#DADADA' }:{ background:'#e9f5ff' }"
-									>{{item.server}}</td>
-									<td
-										:style="parseInt(index%2)?{ background:'#DADADA' }:{ background:'#e9f5ff' }"
-									>{{item.player}}</td>
+									<td class="table-index">{{index+1}}</td>
+									<td class="table-server">{{item.server}}</td>
+									<td class="table-player">{{item.player}}</td>
+									<td class="table-time">{{item.time}}</td>
 								</tr>
 							</tbody>
 						</table>

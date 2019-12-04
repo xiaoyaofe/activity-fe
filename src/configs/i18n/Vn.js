@@ -3,7 +3,7 @@ module.exports = {
   //102账号不存在或者密码错误
   code_102: 'Tài khoản không tồn tại hoặc sai mật khẩu',
   //200恭喜你獲得了禮包，請到遊戲內查收
-  code_200: 'Chúc mừng bạn đã nhận được quà tặng, hãy đăng nhập game để nhận!',
+  code_200: 'Chúc mừng bạn nhận được xx, vui lòng kiểm tra trong game!',
   //300对不起，您尚未在游戏内登入！无法领取
   code_300: 'Chúng tôi không tìm thấy thông tin của bạn, vui lòng đăng nhập trước',
   //400服务器错误
@@ -17,17 +17,17 @@ module.exports = {
   //405没有找到活动
   code_405: '沒有找到活動',
   //1000分享至FB可以再获一次抽奖机会：
-  code_1000: 'Chia sẻ Facebook có thêm 1 cơ hội rút thưởng',
+  // code_1000: 'Không đủ điều kiện nhận',
   //1001登录次数不满足
-  code_1001: 'Chưa đạt điều kiện event',
+  // code_1001: 'Không đủ điều kiện nhận',
   // 1002请勿重复预约
   code_1002: 'Bạn đã đặt gạch rồi',
   //1005参与次数达上限，该礼包您已领取
   code_1005: 'Số lần tham gia đạt tối đa, bạn đã nhận phần quà này',
   //1006累计登录天数不满足
-  code_1006: 'Chưa đạt điều kiện event',
+  code_1006: 'Số ngày đăng nhập liên tục không đủ',
   //1101邮件发送失败
-  code_1101: '郵件發送失敗，請稍後重試',
+  code_1101: 'Thư gửi thất bại, vui lòng liên hệ CSKH',
   // 登录
   // 請將登錄信息填寫完整
   login_info_null: "Nhập mật khẩu Nhập tài khoản",
@@ -54,7 +54,7 @@ module.exports = {
   // 激活碼
   code: "Mã code vòng quay",
   // 時間
-  time: "時間",
+  time: "Thời gian",
   // 區服
   serve: "Server",
   // 角色
@@ -89,5 +89,24 @@ module.exports = {
   // 在线活跃
   active: "",
   // 老玩家回归
-  oldPlayer: ""
+  oldPlayer: "",
+  userName: "Tài khoản",
+  userPass: "Mật khẩu",
+  selectZone: "Chọn server",
+  loginOut: "Hủy bỏ",
+  // 每日登录条件不足 领取失败，您今日还未登录游戏
+  everyLogin1000Or1001: 'Nhận thất bại, hôm nay bạn chưa đăng nhập game',
+  // 很遗憾，您的VIP等级不足1级，无法领奖
+  vipReturn1000Or1001: 'Rất tiếc, LV VIP của bạn không đủ LV1, không thể nhận quà',
+  // 连续登陆天数不足
+  sevenLogin1000Or1001: 'Số ngày đăng nhập liên tục không đủ',
+  // 奖池转盘
+  // 精灵球,消耗品的成功的提示
+  sprite200: "Chúc mừng bạn nhận được xx .",
+  // 精灵球数量不足
+  sprite404: "Số lượng Bóng Poké không đủ",
+  // 奖池钻石获得的提示
+  diamond200: "Chúc mừng bạn nhận được xx Xu*.",
+  // 抽奖次数不足，请充值
+  rotate1000: "Không đủ số lần rút thưởng, vui lòng nạp tiền",
 }

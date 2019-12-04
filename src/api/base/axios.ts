@@ -56,28 +56,29 @@ function responseSuccessFunc(responseObj) {
     case 444:
       Vue.prototype.$dialog.show("tip", tip.code_444);
       return
-    case 405:
-      Vue.prototype.$dialog.show("tip", resData.state);
-      return
-    case 1000:
-      Vue.prototype.$dialog.show("tip", tip.code_1000);
-      return
-    case 1001:
-      Vue.prototype.$dialog.show("tip", tip.code_1001);
-      return
-    case 1002:
-      Vue.prototype.$dialog.show("tip", tip.code_1002);
-      return
-    case 1005:
-      Vue.prototype.$dialog.show("tip", tip.code_1005);
-      return
-    case 1006:
-      Vue.prototype.$dialog.show("tip", tip.code_1006);
-      return
+    // case 405:
+    //   Vue.prototype.$dialog.show("tip", resData.state);
+    //   return
+    // case 1000:
+    //   Vue.prototype.$dialog.show("tip", tip.code_1000);
+    //   return
+    // case 1001:
+    //   Vue.prototype.$dialog.show("tip", tip.code_1001);
+    // //   return
+    // case 1002:
+    //   Vue.prototype.$dialog.show("tip", tip.code_1002);
+    //   return
+    // case 1005:
+    //   Vue.prototype.$dialog.show("tip", tip.code_1005);
+    //   return
+    // case 1006:
+    //   Vue.prototype.$dialog.show("tip", tip.code_1006);
+    //   return
     case 1101:
       Vue.prototype.$dialog.show("tip", tip.code_1101);
       return
     default:
+      // Vue.prototype.$dialog.show("tip", resData.error_msg);
       return Promise.reject(resData)
   }
 }
@@ -93,8 +94,11 @@ axiosInstance.interceptors.request.use(requestSuccessFunc, requestFailFunc)
 //注入响应拦截
 axiosInstance.interceptors.response.use(responseSuccessFunc, responseFailFunc)
 
-export const get = function (url: string, params: any) {
-  Vue.prototype.$dialog.show('loading');
+export const get = function (url: string, params: any, isShowLoading = true) {
+  if (isShowLoading) {
+    Vue.prototype.$dialog.show('loading');
+  }
+
   return axiosInstance.get(url, {
     params: params
   })
@@ -110,5 +114,6 @@ export const get = function (url: string, params: any) {
       Vue.prototype.$dialog.hide();
       // Vue.prototype.$dialog.show("tip", tip.code_400);
       console.log(error)
+      return Promise.reject(error);
     })
 }

@@ -1,0 +1,24 @@
+/*------------------------------------*\
+  #配置的变量
+\*------------------------------------*/
+// 整体页面的宽高
+/* $pcWidth  :19.2rem */
+$mainPcWidth :$pcWidth;
+$minPcWidth  : $minWidth;
+$mainPcHeight:50.9rem;
+/* $mbWidth  : 7.5rem */
+$mainMbWidth :$mbWidth;
+$mainMbHeight:77.5rem;
+
+$userInfoColor:#1560a5;
+
+/* footer 的配置 */
+/* 使用为1,不使用为0 */
+$footerClassName: "footer";
+$footerPcHeight : 2.9rem;
+$footerMbHeight : 3.67rem;
+/* 不需要是none */
+$footerBackgroundValue: none;
+
+/* 查看布局 ,使用完毕注释*/
+// @include outline();

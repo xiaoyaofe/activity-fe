@@ -4,7 +4,7 @@ window._RG = { config: CONFIG };
 /* 组件 */
 
 /* 指令 */
-import vueTap from '@/common/directives/v-tap';
+import vueTap from 'v-tap';
 /* 使用Vue.use 注册的组件 */
 import Dialog from '@/components/dialog/dialog';
 

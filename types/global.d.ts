@@ -71,6 +71,12 @@ interface ActiveParams {
     oldPlayer: string;
     // 周冲值,每日单独计算版
     weekpay: string;
+    // vip
+    vipReturn: string;
+    // 3ds 随机抽奖, 充值送的礼包
+    numLottery1: string;
+    // 随机抽取的礼包
+    numLottery2: string;
   }
   // 礼包ID
   rewardId: {
@@ -101,7 +107,13 @@ interface ActiveParams {
     active: string[];
     // 老玩家回归
     oldPlayer: string[],
-    weekpay: string[]
+    weekpay: string[],
+    // vip
+    vipReturn: string[];
+    // 3ds 随机抽奖, 充值送的礼包
+    numLottery1: string[];
+    // 随机抽取的礼包
+    numLottery2: string[];
   }
 }
 interface Tip {
@@ -196,6 +208,21 @@ interface Tip {
   active: string;
   // 老玩家回归
   oldPlayer: string;
+  // 获得消耗品的提示 恭喜你获得了 xx
+  sprite200: string;
+  // 每日登录条件不足 领取失败，您今日还未登录游戏
+  everyLogin1000Or1001: string;
+  // 很遗憾，您的VIP等级不足1级，无法领奖
+  vipReturn1000Or1001: string;
+  // 连续登陆天数不足
+  sevenLogin1000Or1001: string;
+  // 精灵球数量不足
+  sprite404: string;
+  // 奖池钻石获得的提示
+  diamond200: string;
+  // 抽奖次数不足，请充值
+  rotate1000: string;
+
 }
 
 interface Res {

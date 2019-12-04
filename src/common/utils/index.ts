@@ -178,12 +178,16 @@ export const zoneAnimate = (className, length) => {
 }
 
 
-export function setRem(pc: number, mb: number) {
+export function setRem(pc: number, mb: number): 'mb' | 'pc' {
+  let result: "mb" | "pc";
   if (isShowPc()) {
+    result = 'pc';
     setHtmlFontSize(pc);
   } else {
+    result = 'mb';
     setHtmlFontSize(mb);
   }
+  return result;
 }
 
 export function isShowPc() {
@@ -191,10 +195,10 @@ export function isShowPc() {
   // // 判断支持touchend事件与否,支持移动端,不支持pc端
   // const isSupportTouch = "ontouchend" in document ? true : false;
   // 当屏幕宽度小于等于750时,直接默认是移动端
-  const isMin68 = (window.innerWidth) <= 768 ? true : false;
-  console.log(window.innerWidth)
+  const isMin768 = (window.innerWidth) <= 768 ? true : false;
+  // console.log(window.innerWidth)
   // const isPcWeb = isPc();
-  if (isMin68) {
+  if (isMin768) {
     result = false;
   } else {
     result = true;
@@ -221,3 +225,20 @@ var X= this.getBoundingClientRect().left+document.documentElement.scrollLeft;
 var Y =this.getBoundingClientRect().top+document.documentElement.scrollTop;
 
 */
+// 禁止页面滚动
+let bodyEl = document.body
+let top = 0
+
+function stopBodyScroll(isFixed) {
+  if (isFixed) {
+    top = window.scrollY
+
+    bodyEl.style.position = 'fixed'
+    bodyEl.style.top = -top + 'px'
+  } else {
+    bodyEl.style.position = ''
+    bodyEl.style.top = ''
+
+    window.scrollTo(0, top) // 回到原先的top
+  }
+}

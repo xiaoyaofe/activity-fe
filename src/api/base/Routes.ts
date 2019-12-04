@@ -62,4 +62,13 @@ export const cardBoxFB = "/activity/cardBoxFB";
 // 飞行棋,港台vs使用
 export const flightChess = "/activity/flightChess";
 
+/* vip接口 */
+export const vipReturn = "/activity/vipReturn";
+
+// 奖池转盘的信息接口
+export const poollist = '/activity/poolList';
+
+// 越南的随机抽奖
+export const numLottery = 'activity/numLottery';
+
 /* 活动接口的结束 */

@@ -82,14 +82,14 @@ export const getHistory = (typeId: string) => {
 }
 
 // 获取活动信息
-export const infoActivity = (typeId: string, giftIndex: number) => {
+export const infoActivity = (typeId: string, giftIndex: number, isShowLoading = true) => {
   let params = {
     groupId: groupId,
     actId: window._RG.config.data.actId[typeId],
     token: localStorage.token,
     rewardId: window._RG.config.data.rewardId[typeId][giftIndex],
   }
-  return get(BASE_URL + Routes.info, params)
+  return get(BASE_URL + Routes.info, params, isShowLoading)
 }
 
 // 参加活动join
@@ -288,3 +288,42 @@ export function weekPayInfo() {
   return get(BASE_URL + Routes.info_weekPay, params);
 }
 
+// vip 领取奖励的接口
+export function vipReturn(typeId: string, rewardIndex: number) {
+  let params = {
+    groupId: groupId,
+    actId: window._RG.config.data.actId[typeId],
+    token: localStorage.token,
+    rewardId: window._RG.config.data.rewardId[typeId][rewardIndex],
+    viplevel: '0'
+  };
+  return get(BASE_URL + Routes.vipReturn, params);
+}
+//奖池大奖信息的获取
+export function poollist(typeId: string, rewardIndexArr: number[]) {
+  const rotateIds = window._RG.config.data.rewardId[typeId];
+  const rewardIdsArr = rewardIndexArr.map((ele) => {
+    return rotateIds[ele];
+  });
+  let params = {
+    groupId: groupId,
+    actId: window._RG.config.data.actId[typeId],
+    token: localStorage.token,
+    rewardIds: rewardIdsArr.join(','),
+    viplevel: '0'
+  };
+  return get(BASE_URL + Routes.poollist, params, false);
+}
+
+export function numLottery(type: 0 | 1) {
+  const { actId, rewardId } = window._RG.config.data;
+  let params = {
+    groupId: groupId,
+    actId: actId.numLottery1,
+    token: localStorage.token,
+    rewardId: rewardId.numLottery1[0],
+    lotteryId: actId.numLottery2,
+    type
+  };
+  return get(BASE_URL + Routes.numLottery, params);
+}

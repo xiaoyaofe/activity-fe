@@ -1,7 +1,7 @@
 /** 
  * https://cn.vuejs.org/v2/guide/custom-directive.html
  * 来源: https://github.com/MeCKodo/vue-tap
- * 修改完成,未测试
+ * 修改完成,使用起来不理想
  */
 // 引入类型
 import { DirectiveOptions, DirectiveBinding } from "vue/types/options"

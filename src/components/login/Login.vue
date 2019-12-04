@@ -5,23 +5,32 @@
 				<button @click="close" class="close"></button>
 				<!-- 登录 -->
 				<div class="accountBox" v-show="isType">
-					<input
-						type="text"
-						class="username"
-						autofocus
-						key="userAccount"
-						v-model="userName"
-						@keydown.enter="down(1)"
-						:placeholder="tip.userName"
-					/>
-					<input
-						type="password"
-						class="userpass"
-						key="userPassword"
-						v-model="userPassword"
-						@keydown.enter="sdkLogin($event)"
-						:placeholder="tip.userPass"
-					/>
+					<div class="username-wrap">
+						<label class="username-label" for="userAccount">{{tip.userName}}</label>
+						<input
+							type="text"
+							class="username"
+							autofocus
+							name="userAccount"
+							key="userAccount"
+							v-model="userName"
+							@keydown.enter="down(1)"
+							:placeholder="tip.userName"
+						/>
+					</div>
+					<div class="password-wrap">
+						<label class="password-label" for="password">{{tip.userPass}}</label>
+						<input
+							type="password"
+							class="userpass"
+							name="password"
+							key="userPassword"
+							v-model="userPassword"
+							@keydown.enter="sdkLogin($event)"
+							:placeholder="tip.userPass"
+						/>
+					</div>
+
 					<button class="login_btn1" @click="sdkLogin"></button>
 
 					<button class="fb_btn" @click="facebook"></button>
@@ -30,6 +39,7 @@
 				<!-- 区服 -->
 				<div class="serverBox" v-if="!isType" style="position: relative;">
 					<!-- <p class="title">{{tip.zone_null}}</p> -->
+					<p class="selectZone-txt">{{tip.selectZone}}</p>
 					<div class="userzone-wrap">
 						<input
 							type="number"
@@ -246,6 +256,6 @@
 </script>
 
 <style lang="scss" scoped>
-	@import "./th20191201.scss";
+	@import "./vn20191225.scss";
 </style>
 

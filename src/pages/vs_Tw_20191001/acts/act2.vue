@@ -138,7 +138,7 @@
 					this.$emit("showLogin", true);
 				}
 			},
-			getBoxGift(params) {
+			getBoxGift(params:any) {
 				if (isLogin()) {
 					const flag = this.isSelected[params.index];
 					if (!flag) {
@@ -182,7 +182,7 @@
 				getCardCount().then((res: any) => {
 					if (res) {
 						// console.log(res);
-						res.rewardList.forEach(item => {
+						res.rewardList.forEach((item:any) => {
 							this.cardClass.splice(
 								item.index,
 								1,

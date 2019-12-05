@@ -120,7 +120,7 @@
 				});
 				if (data) {
 					// 请求钻石数这些参数
-					infoActivity("rotate", 0).then((state: any) => {
+					infoActivity("rotate", 0, false).then((state: any) => {
 						console.log(state);
 						if (state) {
 							if (state.poolInfo) {
@@ -201,13 +201,13 @@
 				}
 				//兑换的接口
 				const data: any = await joinActivity("sprite", index).catch(err => {
-					const msg = window._RG.config.tip.code_404;
-					this.$dialog.show("tip", msg.replace(/x+/, data.rewardName));
+					const msg = window._RG.config.tip.sprite404;
+					this.$dialog.show("tip", msg);
 					console.log(err);
 				});
 				if (data) {
 					this.sprites -= this.spriteNums[this.exchangeIndex];
-					const msg = window._RG.config.tip.code_404;
+					const msg = window._RG.config.tip.code_200;
 					this.$dialog.show("tip", msg.replace(/x+/, data.rewardName));
 				}
 			}
@@ -235,7 +235,7 @@
 					});
 				}, 60000);
 				// 请求钻石数这些参数
-				infoActivity("rotate", 0).then((state: any) => {
+				infoActivity("rotate", 0, false).then((state: any) => {
 					console.log(state);
 					if (state) {
 						if (state.poolInfo) {

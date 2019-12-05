@@ -109,4 +109,12 @@ module.exports = {
   diamond200: "Chúc mừng bạn nhận được xx Xu*.",
   // 抽奖次数不足，请充值
   rotate1000: "Không đủ số lần rút thưởng, vui lòng nạp tiền",
+  // 抽奖活动
+  // 今日还未获得抽奖券，请充值
+  numLottery1000: "今日还未获得抽奖券，请充值",
+  // 还未开始抽奖,请耐心等待
+  lotteryInfo_null: "还未开始抽奖,请耐心等待",
+  // 参与成功，礼包已发送到游戏内邮箱。恭喜您获得抽奖券，编号{0}
+  numLottery200: "Tham gia thành công, quà đã gửi qua thư trong game. Chúc mừng bạn nhận được phiếu rút thưởng, số { xxx }"
+
 }

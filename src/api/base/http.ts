@@ -96,9 +96,9 @@ function responseSuccessFunc(responseObj: any) {
     case 402:
       Vue.prototype.$dialog.show("tip", tip.code_402);
       return
-    case 444:
-      Vue.prototype.$dialog.show("tip", tip.code_444);
-      return
+    // case 444:
+    //   Vue.prototype.$dialog.show("tip", tip.code_444);
+    //   return
     case 405:
       Vue.prototype.$dialog.show("tip", tip.code_405);
       return

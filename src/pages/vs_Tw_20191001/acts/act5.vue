@@ -87,7 +87,7 @@
 		},
 		computed: {},
 		methods: {
-			showLogin(val) {
+			showLogin(val:boolean) {
 				this.$emit("showLogin", val);
 			},
 			playEgg() {

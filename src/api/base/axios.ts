@@ -104,9 +104,12 @@ export const get = function (url: string, params: any, isShowLoading = true) {
   })
     .then(function (response) {
       if (response) {
-        Vue.prototype.$dialog.hide();
+        if (isShowLoading) {
+          Vue.prototype.$dialog.hide();
+        }
+
       } else {
-        Vue.prototype.$dialog.hide('tip');
+        // Vue.prototype.$dialog.hide('tip');
       }
       return response
     })

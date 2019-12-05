@@ -32,7 +32,7 @@ interface Window {
 }
 
 interface CONFIG {
-  tip: any
+  tip: Tip
   data: ActiveParams
 }
 interface ActiveParams {
@@ -222,7 +222,12 @@ interface Tip {
   diamond200: string;
   // 抽奖次数不足，请充值
   rotate1000: string;
-
+  // 今日还未获得抽奖券，请充值
+  numLottery1000: string;
+  // 参与成功，礼包已发送到游戏内邮箱。恭喜您获得抽奖券，编号{0}
+  numLottery200: string;
+  // 还未开始抽奖,请耐心等待"
+  lotteryInfo_null:string;
 }
 
 interface Res {

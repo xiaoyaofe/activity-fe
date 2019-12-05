@@ -162,7 +162,7 @@
 				}
 			},
 			//是否显示登录框
-			visibleLogin(val) {
+			visibleLogin(val:boolean) {
 				this.loginIsVisible = val;
 			},
 			dropOut() {

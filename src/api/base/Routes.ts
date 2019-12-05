@@ -69,6 +69,6 @@ export const vipReturn = "/activity/vipReturn";
 export const poollist = '/activity/poolList';
 
 // 越南的随机抽奖
-export const numLottery = 'activity/numLottery';
+export const numLottery = '/activity/numLottery';
 
 /* 活动接口的结束 */

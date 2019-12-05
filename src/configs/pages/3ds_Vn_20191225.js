@@ -50,7 +50,7 @@ const activityParam = {
     // 每日登录
     everyLogin: ['5de62207b5cb671f40c7d436', '5de622b0b5cb671f40c7d437', '5de62339b5cb671f40c7d43c'],
     // 3ds 随机抽奖, 充值送的礼包
-    numLottery1: ["5de71be3b5cb671f40c7d461"],
+    numLottery1: ["5de72569b5cb671f40c7d46b"],
     // 随机抽取的礼包
     numLottery2: [
       "5de72585b5cb671f40c7d46c",

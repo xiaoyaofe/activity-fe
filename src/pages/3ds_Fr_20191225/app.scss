@@ -103,11 +103,11 @@
       @at-root #{&}__txt,
       #{&}__drop-btn {
         margin-left: .1rem;
-        color      : #fb5c6d;
+        color      : $userInfoColor;
       }
 
       @at-root #{&}__txt {
-        color      : #fb5c6d;
+        color      : $userInfoColor;
         font-size  : .24rem;
         line-height: .35rem;
         min-width  : 2.8rem;

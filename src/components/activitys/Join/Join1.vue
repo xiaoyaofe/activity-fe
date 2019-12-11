@@ -22,7 +22,7 @@
 <script lang="ts">
 	import Vue from "vue";
 	import { isLogin } from "@/common/utils";
-	import { joinActivity, vipReturn } from "@/api";
+	import { joinActivity, commmonInfo } from "@/api";
 	import Activity from "@/components/base/Activity.vue";
 	interface ActInfo {
 		actName: string;
@@ -54,18 +54,19 @@
 		},
 		computed: {
 			disableds(): boolean[] {
-				return this.isDisabledArr.map((value:boolean, index:number) => {
+				return this.isDisabledArr.map((value: boolean, index: number) => {
 					return this.$props.actInfos[index].isDisabled || value;
 				});
 			}
 		},
 		methods: {
-			join: async function({ index }:{index:number}) {
+			join: async function({ index }: { index: number }) {
 				if (isLogin()) {
 					if (index === 1) {
-						let data: any = await vipReturn(
+						let data: any = await commmonInfo(
 							this.$props.actInfos[index].actName,
-							this.$props.actInfos[index].giftIndex
+							this.$props.actInfos[index].giftIndex,
+							1
 						).catch(err => {
 							const tip = window._RG.config.tip;
 							if (this.$props.actInfos[index].giftIndex === 0) {
@@ -102,7 +103,6 @@
 						if (data) {
 							this.isDisabledArr.splice(index, 1, true);
 							this.$dialog.show(
-								
 								"tip",
 								window._RG.config.tip.code_200.replace("xx", data.rewardName)
 							);

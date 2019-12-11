@@ -15,7 +15,7 @@
 			</div>
 			<div class="lottery__right">
 				<div
-					v-for="index in 4"
+					v-for="index in days"
 					:class="['lottery__gift',index-1===activeIndex?'active': '',isJoined[index-1]?'joined':'']"
 				>
 					<div class="lottery__gift-img-bg">
@@ -32,7 +32,7 @@
 <script lang="ts">
 	import Vue from "vue";
 	import { isLogin } from "@/common/utils";
-	import { numLottery } from "@/api";
+	import { numLottery, getHistory } from "@/api";
 	import Activity from "@/components/base/Activity.vue";
 
 	export default Vue.extend({
@@ -46,54 +46,49 @@
 				required: true
 			},
 			desc: String,
-			isGetHistory: Boolean
+			isGetHistory: Boolean,
+			days: {
+				type: Number,
+				default: 4
+			},
+			activeTime: {
+				type: String,
+				required: true
+			}
 		},
 		data() {
 			return {
 				activeIndex: 0,
 				isJoined: [false, false, false, false],
 				code: "",
-				history: []
+				history: [] as any[]
 			};
 		},
 		computed: {},
 		methods: {
 			async join(params: { index: number }) {
+				if (this.code) return;
 				if (params.index !== this.activeIndex) return;
-				// if (isLogin()) {
-				const tip = window._RG.config.tip;
-				await numLottery(1)
-					.then(res => {
-						console.log(res);
-						this.$dialog.show("tip", tip.numLottery200);
-					})
-					.catch(e => {
-						this.$dialog.show("tip", tip.numLottery1000);
-					});
-
-				// this.isJoined.splice(0, 1, true);
-				// } else {
-				// 	this.$emit("showLogin", true);
-				// }
-			},
-			async showHistory() {
-				const tip = window._RG.config.tip;
-				if (this.history.length === 0) {
-					this.$dialog.show("tip", tip.lotteryInfo_null);
-					return;
+				if (isLogin()) {
+					const tip = window._RG.config.tip;
+					await numLottery(1)
+						.then((res: any) => {
+							console.log(res);
+							this.code = res.lotteryNum;
+							this.$dialog.show(
+								"tip",
+								tip.numLottery200.replace(/x+/, res.lotteryNum)
+							);
+							this.isJoined.splice(this.activeIndex, 1, true);
+						})
+						.catch(e => {
+							this.$dialog.show("tip", tip.numLottery1000);
+						});
+				} else {
+					this.$emit("showLogin", true);
 				}
-				await numLottery(0)
-					.then(res => {
-						console.log(res);
-					})
-					.catch(e => {
-						// this.$dialog.show("tip", "今日还未获得抽奖券，请充值");
-					});
-				// if (isLogin()) {
-				// } else {
-				// 	this.$emit("showLogin", true);
-				// }
-				// 获取历史记录,并展示
+			},
+			showHistory() {
 				// this.$dialog.show("lucky", [
 				// 	{ server: 200, player: "Qiong@9266.com", time: "18/12" },
 				// 	{ server: 200, player: "Qiong@9266.com", time: "18/12" },
@@ -117,10 +112,87 @@
 				// 	{ server: 200, player: "Qiong@9266.com", time: "18/12" },
 				// 	{ server: 200, player: "Qiong@9266.com", time: "18/12" }
 				// ]);
+
+				if (isLogin()) {
+					const tip = window._RG.config.tip;
+					if (this.history.length === 0) {
+						this.$dialog.show("tip", tip.lotteryInfo_null);
+						return;
+					}
+					// 获取历史记录,并展示
+					this.$dialog.show("lucky", this.history);
+				} else {
+					this.$emit("showLogin", true);
+				}
 			}
 		},
 		watch: {
-			isGetHistory: function() {}
+			isGetHistory: async function() {
+				var date = new Date();
+				let startDate = new Date(this.activeTime);
+				var times = Math.floor(
+					(date.getTime() - startDate.getTime()) / (24 * 3600 * 1000)
+				);
+				this.activeIndex = times;
+				const lotteryRewardIds = window._RG.config.data.rewardId.numLottery2;
+				await getHistory("numLottery2").then((state: any) => {
+					console.log(state);
+					this.history = state;
+					let activeIndex = -1;
+					let history: { server: string; player: string; time: string }[] = [];
+					state.forEach(item => {
+						// history.push({ server: '', player: "aaa", time: "" });
+						const date = new Date(item.getDate);
+						history.push({
+							server: item.thirdGameZoneId,
+							player: item.playerName,
+							time: `${date.getDate()}/${date.getMonth() + 1}`
+						});
+						const index = lotteryRewardIds.indexOf(item.rewardId);
+						if (index > activeIndex) {
+							activeIndex = index;
+						}
+					});
+					// 可参与的是领取过的下一个
+					if (activeIndex + 1 > this.activeIndex) {
+						this.activeIndex = activeIndex + 1;
+					}
+
+					this.history = history;
+				});
+				// 获取code
+				numLottery(0).then((state: any) => {
+					this.code = state.lotteryNum;
+					if (state.lotteryNum) {
+						this.isJoined.splice(this.activeIndex, 1, true);
+					}
+				});
+				// 判断是否参与来改变按钮状态
+				getHistory("numLottery1").then((state: any) => {
+					let timeArr: string[] = [];
+					this.isJoined.forEach((item, index) => {
+						if (index < this.activeIndex) {
+							const time = new Date(
+								new Date().getTime() -
+									24 * 3600 * 1000 * (this.activeIndex - index)
+							);
+							timeArr.push(getTimeStr(time));
+						}
+					});
+					state.forEach((item, index) => {
+						const getTime = getTimeStr(new Date(item.getDate));
+						for (let i = 0; i < timeArr.length; i++) {
+							if (getTime === timeArr[i] && !this.isJoined[i]) {
+								this.isJoined.splice(i, 1, true);
+								break;
+							}
+						}
+					});
+				});
+				function getTimeStr(date: Date): string {
+					return `${date.getFullYear()}-${date.getMonth() + 1}-${date.getDay()}`;
+				}
+			}
 		}
 	});
 </script>

@@ -56,24 +56,24 @@ function responseSuccessFunc(responseObj) {
     case 444:
       Vue.prototype.$dialog.show("tip", tip.code_444);
       return
-    // case 405:
-    //   Vue.prototype.$dialog.show("tip", resData.state);
+    case 405:
+      Vue.prototype.$dialog.show("tip", resData.state);
+      return
+    case 1000:
+      Vue.prototype.$dialog.show("tip", tip.code_1000);
+      return
+    case 1001:
+      Vue.prototype.$dialog.show("tip", tip.code_1001);
     //   return
-    // case 1000:
-    //   Vue.prototype.$dialog.show("tip", tip.code_1000);
-    //   return
-    // case 1001:
-    //   Vue.prototype.$dialog.show("tip", tip.code_1001);
-    // //   return
-    // case 1002:
-    //   Vue.prototype.$dialog.show("tip", tip.code_1002);
-    //   return
-    // case 1005:
-    //   Vue.prototype.$dialog.show("tip", tip.code_1005);
-    //   return
-    // case 1006:
-    //   Vue.prototype.$dialog.show("tip", tip.code_1006);
-    //   return
+    case 1002:
+      Vue.prototype.$dialog.show("tip", tip.code_1002);
+      return
+    case 1005:
+      Vue.prototype.$dialog.show("tip", tip.code_1005);
+      return
+    case 1006:
+      Vue.prototype.$dialog.show("tip", tip.code_1006);
+      return
     case 1101:
       Vue.prototype.$dialog.show("tip", tip.code_1101);
       return

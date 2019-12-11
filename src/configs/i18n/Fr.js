@@ -97,6 +97,31 @@ module.exports = {
   // 在线活跃
   active: "",
   // 老玩家回归
-  oldPlayer: ""
-
+  oldPlayer: "",
+  userName: "Compte",
+  userPass: "Mot de passe",
+  selectZone: "Choisissez le serveur",
+  loginOut: "Déconnexion",
+  // 每日登录条件不足 领取失败，您今日还未登录游戏
+  everyLogin1000Or1001: '每日登录条件不足 领取失败，您今日还未登录游戏',
+  // 很遗憾，您的VIP等级不足1级，无法领奖
+  vipReturn1000Or1001: '很遗憾，您的VIP等级不足1级，无法领奖',
+  // 连续登陆天数不足
+  sevenLogin1000Or1001: '连续登陆天数不足',
+  // 奖池转盘
+  // 精灵球,消耗品的成功的提示
+  sprite200: "精灵球,消耗品的成功的提示",
+  // 精灵球数量不足
+  sprite404: "精灵球数量不足",
+  // 奖池钻石获得的提示
+  diamond200: "奖池钻石获得的提示",
+  // 抽奖次数不足，请充值
+  rotate1000: "抽奖次数不足，请充值",
+  // 抽奖活动
+  // 今日还未获得抽奖券，请充值
+  numLottery1000: "今日还未获得抽奖券，请充值",
+  // 还未开始抽奖,请耐心等待
+  lotteryInfo_null: "还未开始抽奖,请耐心等待",
+  // 参与成功，礼包已发送到游戏内邮箱。恭喜您获得抽奖券，编号{0}
+  numLottery200: "参与成功，礼包已发送到游戏内邮箱。恭喜您获得抽奖券，编号{xxx}"
 }

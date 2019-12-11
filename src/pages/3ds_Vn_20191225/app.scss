@@ -49,10 +49,18 @@
   }
 
   .container {
-    position      : relative;
-    box-sizing    : border-box;
-    height        : $mainPcHeight;
-    padding-bottom: $footerPcHeight;
+    position           : relative;
+    box-sizing         : border-box;
+    height             : $mainPcHeight;
+    padding-bottom     : $footerPcHeight;
+    top                : 0;
+    left               : 0;
+    z-index            : 1;
+    background-image   : url("./images/snow.png");
+    background-position: .1rem .1rem;
+    -webkit-animation  : flow 80s infinite ease-out;
+    -o-animation       : flow 80s infinite ease-out;
+    animation          : flow 80s infinite ease-out;
   }
 
   /* Header  */
@@ -987,6 +995,7 @@
   /* footer的样式 */
   .#{$footerClassName} {
     @include footer($footerPcHeight, $footerBackgroundValue);
+    z-index: 1;
 
     @at-root #{&}__logo {
       margin : 0.06rem auto 0;
@@ -1050,31 +1059,33 @@
     }
 
     .rewardContainer {
-      margin-top   : .2rem;
-      width        : 8.3rem;
-      height       : 3.2rem;
-      border-radius: .5rem;
-      overflow-x   : hidden;
-      overflow-y   : auto;
+      box-sizing: border-box;
+      width     : 8.08rem;
+      height    : 2.88rem;
+      overflow  : auto;
+      margin    : 0.48rem 0.4rem 0.4rem 0.3rem;
+    }
+
+    .table-content {
+      box-sizing: border-box;
+      width     : 100%;
+      height    : 100%;
     }
 
     .grid {
-      width      : 100%;
-      height     : 100%;
-      padding-top: 1px;
-    }
-
-    table {
-      margin-left    : 0.2rem;
-      overflow       : auto;
+      width          : 100%;
+      box-sizing     : border-box;
+      overflow-y     : auto;
       border-collapse: collapse;
+
+      // background-color: rgba(255, 255, 255, 0.3);
     }
 
     th,
     td {
       vertical-align: middle;
       text-align    : center;
-      line-height   : 1.5em;
+      line-height   : 1.6em;
       color         : #fff;
       font-size     : .24rem;
       border        : 1px solid #fff;
@@ -1117,10 +1128,18 @@
   }
 
   .container {
-    position      : relative;
-    box-sizing    : border-box;
-    height        : $mainMbHeight;
-    padding-bottom: $footerMbHeight;
+    position           : relative;
+    box-sizing         : border-box;
+    height             : $mainMbHeight;
+    padding-bottom     : $footerMbHeight;
+    top                : 0;
+    left               : 0;
+    z-index            : 1;
+    background-image   : url("./images/snow.png");
+    background-position: .1rem .1rem;
+    -webkit-animation  : flow 80s infinite ease-out;
+    -o-animation       : flow 80s infinite ease-out;
+    animation          : flow 80s infinite ease-out;
   }
 
   /* Header  */
@@ -2072,6 +2091,7 @@
   /* footer的样式 */
   .#{$footerClassName} {
     @include footer($footerMbHeight, $footerBackgroundValue);
+    z-index: 1;
 
     @at-root #{&}__logo {
       margin    : 0.06rem auto 0;
@@ -2136,28 +2156,32 @@
     }
 
     .rewardContainer {
-      margin-top   : .2rem;
-      width        : 5.8rem;
-      height       : 4rem;
-      border-radius: .5rem;
-      overflow     : auto;
-      padding      : 0.2rem 0.1rem 0;
+      box-sizing: border-box;
+      width     : 5.64rem;
+      height    : 3.85rem;
+      overflow-y: auto;
+      margin    : 0.48rem 0.3rem 0.3rem 0.2rem;
+    }
+
+    .table-content {
+      box-sizing: border-box;
+      width     : 100%;
+      height    : 100%;
     }
 
     .grid {
-      height: 100%;
-    }
-
-    table {
-      overflow       : auto;
-      border-collapse: collapse;
+      box-sizing         : border-box;
+      width              : 5.62rem;
+      height             : 100%;
+      border-collapse    : collapse;
+      // background-color: rgba(255, 255, 255, 0.5);
     }
 
     th,
     td {
       vertical-align: middle;
       text-align    : center;
-      line-height   : 2em;
+      line-height   : 1.98em;
       color         : #fff;
       font-size     : .24rem;
       border        : 1px solid #fff;
@@ -2169,26 +2193,51 @@
     }
 
     .table-index {
-      width: 0.2rem;
+      width: 1em;
     }
 
     .table-server {
-      width: 0.3rem;
+      width: 3em;
     }
 
-    .table-player {
-      width: 4rem;
-      ;
-    }
+    // .table-player {
+    // width: 4rem;
+    // }
 
     .table-time {
-      width: 1rem;
+      width: 3em;
     }
-
 
     /* 提示框的样式结束 */
 
   }
+}
 
-  /* 提示框的样式结束 */
+/*下雪的动画 */
+@keyframes flow {
+  100% {
+    background-position-y: 100%;
+    background-position-x: 7.5rem;
+  }
+}
+
+@-webkit-keyframes flow {
+  100% {
+    background-position-y: 100%;
+    background-position-x: 7.5rem;
+  }
+}
+
+@-o-keyframes flow {
+  100% {
+    background-position-y: 100%;
+    background-position-x: 7.5rem;
+  }
+}
+
+@-o-keyframes flow {
+  100% {
+    background-position-y: 100%;
+    background-position-x: 7.5rem;
+  }
 }

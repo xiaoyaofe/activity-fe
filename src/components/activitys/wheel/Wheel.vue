@@ -26,7 +26,7 @@
 <script lang="ts">
 	import Vue from "vue";
 	import { isLogin } from "@/common/utils";
-	import { infoActivity, joinActivity } from "@/api";
+	import { infoActivity, turntable } from "@/api";
 	import { animate } from "../../../common/utils/";
 	import Activity from "@/components/base/Activity.vue";
 
@@ -41,11 +41,11 @@
 				required: true
 			},
 			desc: String,
-			isGetHistory: Boolean,
-			giftsCounts: {
-				type: Array,
-				required: true
-			}
+			isGetHistory: Boolean
+			// giftsCounts: {
+			// 	type: Array,
+			// 	required: true
+			// }
 		},
 		data() {
 			return {
@@ -75,7 +75,7 @@
 				if (!isLogin()) return this.$emit("showLogin", true);
 				if (this.disabled) return;
 				this.disabled = true;
-				let data: any = await joinActivity("rotate", 0).catch(err =>
+				let data: any = await turntable("rotate", 0, 1).catch(err =>
 					console.log(err)
 				);
 				if (data) {
@@ -125,12 +125,11 @@
 		},
 		watch: {
 			isGetHistory: function() {
-				infoActivity("rotate", 0).then((state: any) => {
+				turntable("rotate", 0, 0).then((state: any) => {
 					// console.log(state);
 					if (state) {
-						const info = state.data.userActivityResourceMap[state.dayKey];
-						this.sumCount = info.userSumCount;
-						this.dayCount = info.userSumCount - info.useCount;
+						this.sumCount = state.consumeCount;
+						this.dayCount = state.restCount;
 					}
 				});
 			}

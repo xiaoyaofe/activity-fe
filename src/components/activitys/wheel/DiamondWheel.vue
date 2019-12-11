@@ -119,24 +119,7 @@
 					console.log(err);
 				});
 				if (data) {
-					// 请求钻石数这些参数
-					infoActivity("rotate", 0, false).then((state: any) => {
-						console.log(state);
-						if (state) {
-							if (state.poolInfo) {
-								this.diamondNum = state.poolInfo.sumCount;
-							}
-							this.nums = state.data.userSumCount - state.data.useCount;
-							this.sprites = state.data.sumScore;
-						}
-					});
-					// 请求中大奖的名单
-					poollist("rotate", [2, 5, 12]).then((state: any) => {
-						// console.log(state);
-						if (state) {
-							this.poolList = state;
-						}
-					});
+					this.getInfo(false);
 					// const data = { rewardId: "5de62b48b5cb671f40c7d44d" };
 					const rewardIndex = window._RG.config.data.rewardId.rotate.indexOf(
 						data.rewardId
@@ -152,6 +135,13 @@
 								this.disabled = false;
 
 								if (rewardIndex === 1 || rewardIndex === 4 || rewardIndex === 7) {
+									if (rewardIndex === 1) {
+										this.sprites += 1;
+									} else if (rewardIndex === 4) {
+										this.sprites += 3;
+									} else if (rewardIndex === 7) {
+										this.sprites += 5;
+									}
 									this.$dialog.show(
 										"tip",
 										window._RG.config.tip.sprite200.replace(/x+/, data.rewardName)
@@ -210,32 +200,10 @@
 					const msg = window._RG.config.tip.code_200;
 					this.$dialog.show("tip", msg.replace(/x+/, data.rewardName));
 				}
-			}
-		},
-		watch: {
-			isGetHistory: function() {
-				//转盘信息的初始化
-				setInterval(() => {
-					infoActivity("rotate", 0, false).then((state: any) => {
-						console.log(state);
-						if (state) {
-							if (state.poolInfo) {
-								this.diamondNum = state.poolInfo.sumCount;
-							}
-							this.nums = state.data.userSumCount - state.data.useCount;
-							this.sprites = state.data.sumScore;
-						}
-					});
-					// 请求中大奖的名单
-					poollist("rotate", [2, 5, 12]).then((state: any) => {
-						// console.log(state);
-						if (state) {
-							this.poolList = state;
-						}
-					});
-				}, 60000);
+			},
+			getInfo(isloading?: boolean) {
 				// 请求钻石数这些参数
-				infoActivity("rotate", 0, false).then((state: any) => {
+				infoActivity("rotate", 0, isloading).then((state: any) => {
 					console.log(state);
 					if (state) {
 						if (state.poolInfo) {
@@ -246,12 +214,24 @@
 					}
 				});
 				// 请求中大奖的名单
-				poollist("rotate", [2, 5, 12]).then((state: any) => {
+				poollist("rotate", [2, 5, 11]).then((state: any) => {
 					// console.log(state);
 					if (state) {
 						this.poolList = state;
 					}
 				});
+			}
+		},
+		watch: {
+			isGetHistory: function() {
+				//转盘信息的初始化
+				setInterval(() => {
+					this.getInfo(false);
+				}, 60000);
+				this.getInfo();
+				// infoActivity("sprite", 0).then((state: any) => {
+				// 	this.sprites = state.data.sumScore - state.data.usedScore;
+				// });
 			}
 		}
 	});

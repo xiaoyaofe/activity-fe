@@ -75,10 +75,9 @@ export const getHistory = (typeId: string) => {
   let params = {
     groupId: groupId,
     actId: window._RG.config.data.actId[typeId],
-    token: localStorage.token,
-    rewardId: window._RG.config.data.rewardId[typeId][0],
+    token: localStorage.token
   }
-  return get(BASE_URL + Routes.cdKeys, params)
+  return get(BASE_URL + Routes.cdKeys, params, false)
 }
 
 // 获取活动信息
@@ -88,6 +87,15 @@ export const infoActivity = (typeId: string, giftIndex: number, isShowLoading = 
     actId: window._RG.config.data.actId[typeId],
     token: localStorage.token,
     rewardId: window._RG.config.data.rewardId[typeId][giftIndex],
+  }
+  return get(BASE_URL + Routes.info, params, isShowLoading)
+}
+// 获取活动信息1
+export const infoActivity1 = (typeId: string, isShowLoading = true) => {
+  let params = {
+    groupId: groupId,
+    actId: window._RG.config.data.actId[typeId],
+    token: localStorage.token
   }
   return get(BASE_URL + Routes.info, params, isShowLoading)
 }
@@ -325,5 +333,28 @@ export function numLottery(type: 0 | 1) {
     lotteryId: actId.numLottery2,
     type
   };
-  return get(BASE_URL + Routes.numLottery, params);
+  return get(BASE_URL + Routes.numLottery, params, !!type);
+}
+
+// 补充转盘的发奖
+export const turntable = (typeId: string, index: number, type: 0 | 1) => {
+  let params = {
+    groupId: groupId,
+    actId: window._RG.config.data.actId[typeId],
+    token: localStorage.token,
+    rewardId: window._RG.config.data.rewardId[typeId][index],
+    type
+  }
+  return get(BASE_URL + Routes.turntable, params)
+}
+
+export const commmonInfo = (typeId: string, index: number, type: 0 | 1) => {
+  let params = {
+    groupId: groupId,
+    actId: window._RG.config.data.actId[typeId],
+    token: localStorage.token,
+    rewardId: window._RG.config.data.rewardId[typeId][index],
+    type
+  }
+  return get(BASE_URL + Routes.commmonInfo, params)
 }

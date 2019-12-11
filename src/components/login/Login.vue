@@ -6,7 +6,7 @@
 				<!-- 登录 -->
 				<div class="accountBox" v-show="isType">
 					<div class="username-wrap">
-						<label class="username-label" for="userAccount">{{tip.userName}}</label>
+						<label class="username-label label" for="userAccount">{{tip.userName}}:</label>
 						<input
 							type="text"
 							class="username"
@@ -19,7 +19,7 @@
 						/>
 					</div>
 					<div class="password-wrap">
-						<label class="password-label" for="password">{{tip.userPass}}</label>
+						<label class="password-label label" for="password">{{tip.userPass}}:</label>
 						<input
 							type="password"
 							class="userpass"
@@ -256,6 +256,8 @@
 </script>
 
 <style lang="scss" scoped>
-	@import "./vn20191225.scss";
+	// @import "./vn20191225.scss";
+	// @import "./fr20191225.scss";
+	@import "./th20191201.scss";
 </style>
 

@@ -65,10 +65,16 @@ export const flightChess = "/activity/flightChess";
 /* vip接口 */
 export const vipReturn = "/activity/vipReturn";
 
+// vip ,每日领奖的接口
+export const commmonInfo = "/activity/commonInfo";
+
 // 奖池转盘的信息接口
 export const poollist = '/activity/poolList';
 
 // 越南的随机抽奖
 export const numLottery = '/activity/numLottery';
+
+// turntable 泰国转盘补充发奖 研发消费接口爆炸后的结果
+export const turntable = "/activity/turntable"
 
 /* 活动接口的结束 */

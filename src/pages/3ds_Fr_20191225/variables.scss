@@ -8,17 +8,18 @@ $minPcWidth  : $minWidth;
 $mainPcHeight:45.4rem;
 /* $mbWidth  : 7.5rem */
 $mainMbWidth :$mbWidth;
-$mainMbHeight:77.5rem;
+$mainMbHeight:59rem;
 
 $userInfoColor:#fb5c6d;
 
 /* footer 的配置 */
 /* 使用为1,不使用为0 */
 $footerClassName: "footer";
-$footerPcHeight : 2.9rem;
-$footerMbHeight : 3.67rem;
+$footerPcHeight : 3.1rem;
+$footerMbHeight : 3.9rem;
 /* 不需要是none */
 $footerBackgroundValue: none;
+$font-family          : Calibri,sans-serif;
 
 /* 查看布局 ,使用完毕注释*/
 // @include outline();

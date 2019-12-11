@@ -12,7 +12,7 @@
   width               : $width;
   height              : $height;
   // margin-top       : 0.16rem;
-  $background-image   : url("../../pages/3ds_Vn_20191225/images/pc/close.png");
+  $background-image   : url("./images/pc/close.png");
   $background-size    : $width $height;
   $background-repeat  : no-repeat;
   $background-position: center;
@@ -45,23 +45,32 @@
     $url   : url("./images/pc/bg.jpg");
     @include minWidthAndHeight($width, $height, $minPcWidth);
     @include backgroundImage($url, top center, $width $height, no-repeat);
-    overflow: hidden;
+    font-family: $font-family;
+    overflow   : hidden;
   }
 
   .container {
-    position      : relative;
-    box-sizing    : border-box;
-    height        : $mainPcHeight;
-    padding-bottom: $footerPcHeight;
+    position           : relative;
+    box-sizing         : border-box;
+    width              : 100%;
+    height             : $mainPcHeight;
+    padding-bottom     : $footerPcHeight;
+    top                : 0;
+    left               : 0;
+    z-index            : 1;
+    background-image   : url("./images/snow.png");
+    background-position: .1rem .1rem;
+    -webkit-animation  : flow 80s infinite ease-out;
+    -o-animation       : flow 80s infinite ease-out;
+    animation          : flow 80s infinite ease-out;
   }
 
   /* Header  */
 
   .header {
-    box-sizing : border-box;
-    position   : relative;
-    padding-top: 1px;
-    height     : 12.78rem;
+    position: relative;
+    height  : 12.79rem;
+    overflow: hidden;
 
     // @at-root #{&}__title-and-time {
     //   $width     : 12.71rem;
@@ -83,7 +92,7 @@
         display    : block;
         width      : $width;
         height     : $height;
-        margin-left: 8.13rem;
+        margin-left: 8.08rem;
         $url       : url("./images/pc/login-control.png");
         @include backgroundImage($url, center, $width $height, no-repeat);
       }
@@ -126,7 +135,7 @@
   /* 下载的右侧悬浮窗 */
 
   .download-box {
-    @include fixedRightBox(3.23rem, 4.58rem, 3rem, 0.06rem);
+    @include fixedRightBox(3.23rem, 4.57rem, 3rem, 0.06rem);
     $url: url("./images/pc/nav-bg.png");
     @include backgroundImage($url, center, 3.23rem 4.58rem, no-repeat);
 
@@ -148,13 +157,13 @@
         display            : inline-block;
         background-repeat  : no-repeat;
         background-position: center;
-        margin-left        : 1.06rem;
-        height             : .32rem;
-        margin-top         : .2rem;
+        margin-left        : .84rem;
+        height             : .36rem;
+        margin-top         : .12rem;
         cursor             : pointer;
 
         @at-root #{&}--act1 {
-          margin-top: 1.02rem;
+          margin-top: 1.21rem;
         }
 
         @at-root #{&}--active {
@@ -162,27 +171,28 @@
           color          : #ff0000;
         }
 
+        $downLoadBtnWidth : 1.83rem;
+        $downLoadBtnHeight: .6rem;
+
         @at-root #{&}--android,
         #{&}--ios {
-          $width     : 1.83rem;
-          $height    : .6rem;
+          $width     : $downLoadBtnWidth;
+          $height    : $downLoadBtnHeight;
           width      : $width;
           height     : $height;
           margin-left: .72rem;
         }
 
         @at-root #{&}--ios {
-          $width          : 1.83rem;
-          $height         : .6rem;
-          margin-top      : .2rem;
+          $width          : $downLoadBtnWidth;
+          $height         : $downLoadBtnHeight;
           background-size : $width $height;
           background-image: url("./images/pc/google.png");
         }
 
         @at-root #{&}--android {
-          $width          : 1.83rem;
-          $height         : .6rem;
-          margin-top      : .16rem;
+          $width          : $downLoadBtnWidth;
+          $height         : $downLoadBtnHeight;
           background-size : $width $height;
           background-image: url("./images/pc/ios.png");
         }
@@ -190,16 +200,16 @@
     }
 
     @at-root #{&}__scroll-top-btn {
-      position        : absolute;
-      bottom          : .26rem;
-      left            : 1.43rem;
-      $width          : .33rem;
-      $height         : .24rem;
-      width           : $width;
-      height          : $height;
-      background-size : $width $height;
-      background-image: url("./images/pc/top.png");
-      cursor          : pointer;
+      position  : absolute;
+      bottom    : .1rem;
+      left      : 1.5rem;
+      $width    : .28rem;
+      $height   : .22rem;
+      width     : $width;
+      height    : $height;
+      padding   : .1rem;
+      background: url("./images/pc/top.png") center/ $width $height no-repeat;
+      cursor    : pointer;
     }
   }
 
@@ -210,11 +220,11 @@
   /* 活动一 累计登录  vip累计登录  7天登录*/
   .act1 {
     width : 100%;
-    height: 6rem;
+    height: 6.73rem;
 
     @at-root #{&}__title {
-      $width     : 11.66rem;
-      $height    : 1.75rem;
+      $width     : 11.35rem;
+      $height    : 2.15rem;
       width      : $width;
       height     : $height;
       margin-left: 3.59rem;
@@ -227,74 +237,73 @@
     }
 
     @at-root #{&}__content {
-      position   : relative;
-      width      : 11.8rem;
-      height     : 3.18rem;
-      margin-left: 3.71rem;
-      margin-top : .3rem;
+      position  : relative;
+      width     : 100%;
+      height    : 4.28rem;
+      margin-top: .3rem;
     }
 
     @at-root #{&}__gifts {
       margin     : 0;
       width      : 100%;
-      $giftWidth : 3.72rem;
-      $giftHeight: 3.18rem;
+      $giftWidth : 3.71rem;
+      $giftHeight: 3.48rem;
 
       @at-root #{&}__gift {
-        width       : $giftWidth;
-        margin-right: .3rem;
-        float       : left;
-        height      : $giftHeight;
-        $url        : url("./images/pc/act1-gift-bg.png");
+        width      : $giftWidth;
+        height     : $giftHeight;
+        margin-left: .34rem;
+        float      : left;
+        $url       : url("./images/pc/act1-gift-bg.png");
         @include backgroundImage($url, center, $giftWidth $giftHeight, no-repeat);
       }
 
-      @at-root #{&}__gift:nth-child(3) {
-        margin-right: 0;
+      @at-root #{&}__gift:nth-child(1) {
+        margin-left: 3.71rem;
       }
 
-      @at-root #{&}__gift--title {
-        font-size  : .2rem;
-        height     : .24rem;
-        font-weight: bold;
-        color      : #e42620;
-        margin     : .45rem 0 0 .3rem;
-      }
+      // @at-root #{&}__gift--title {
+      //   font-size  : .2rem;
+      //   height     : .24rem;
+      //   font-weight: bold;
+      //   color      : #e42620;
+      //   margin     : .45rem 0 0 .3rem;
+      // }
 
-      @at-root #{&}__gift--title2 {
-        margin: .45rem 0 0 .3rem;
-      }
+      // @at-root #{&}__gift--title2 {
+      //   margin: .45rem 0 0 .3rem;
+      // }
 
-      @at-root #{&}__gift--title3 {
-        margin: .45rem 0 0 .22rem;
-      }
+      // @at-root #{&}__gift--title3 {
+      //   margin: .45rem 0 0 .22rem;
+      // }
 
       @at-root #{&}__gift--1 {
         $width : 3.15rem;
-        $height: 1.48rem;
+        $height: 1.95rem;
         width  : $width;
         height : $height;
-        margin : 0.04rem 0 0 .26rem;
+        margin : 0.5rem 0 0 .25rem;
         $url   : url("./images/pc/act1-gift1.png");
         @include backgroundImage($url, center, $width $height, no-repeat);
       }
 
       @at-root #{&}__gift--2 {
-        $width : 3.15rem;
-        $height: 1.50rem;
+        $width : 3.2rem;
+        $height: 1.95rem;
         width  : $width;
         height : $height;
-        margin : 0.04rem 0 0 .26rem;
+        margin : 0.5rem 0 0 .2rem;
         $url   : url("./images/pc/act1-gift2.png");
         @include backgroundImage($url, center, $width $height, no-repeat);
       }
 
       @at-root #{&}__gift--3 {
         $width : 2.47rem;
-        $height: 1.37rem;
+        $height: 2.07rem;
         width  : $width;
         height : $height;
-        margin : 0.04rem 0 0 .56rem;
+        margin : 0.38rem 0 0 .55rem;
         $url   : url("./images/pc/act1-gift3.png");
         @include backgroundImage($url, center, $width $height, no-repeat);
       }
@@ -321,366 +330,33 @@
     }
 
     @at-root #{&}__join-btn1 {
-      top : 2.33rem;
-      left: .89rem;
+      top : 2.59rem;
+      left: 4.6rem;
     }
 
     @at-root #{&}__join-btn2 {
-      top : 2.33rem;
-      left: 4.94rem;
+      top : 2.59rem;
+      left: 8.65rem;
     }
 
     @at-root #{&}__join-btn3 {
-      top : 2.33rem;
-      left: 8.98rem;
+      top : 2.59rem;
+      left: 12.69rem;
     }
   }
 
-  /* 活动二 奖池转盘 */
+  /*活动二  抽奖 */
   .act2 {
     width : 100%;
-    height: 18rem;
+    height: 11.73rem;
 
     @at-root #{&}__title {
-      $width     : 11.87rem;
-      $height    : 2.18rem;
-      width      : $width;
-      height     : $height;
-      margin-left: 3.62rem;
-      $url       : url("./images/pc/act2-title.png");
-      @include backgroundImage($url, center, $width $height, no-repeat);
-    }
-
-    @at-root #{&}__desc {
-      display: none;
-    }
-
-    @at-root #{&}__content {
-      position  : relative;
-      width     : 100%;
-      height    : 18.3rem;
-      margin-top: .3rem;
-      overflow  : hidden;
-    }
-
-    @at-root #{&}__turn-text {
-      box-sizing         : border-box;
-      width              : 8.3rem;
-      height             : 6.34rem;
-      margin-top         : .94rem;
-      margin-left        : 7.3rem;
-      text-align         : center;
-      // background-color: rgba(255, 255, 255, 0.32);
-      // border          : solid 1px #ced3df;
-    }
-
-    @at-root #{&}__nums-txt,
-    #{&}__diamondNum {
-      // height     : .32rem;
-      font-size     : .28rem;
-      color         : #d43023;
-      font-family   : Calibri-Bold;
-      font-weight   : bold;
-    }
-
-    @at-root #{&}__nums {
-      width      : 4.6rem;
-      height     : .32rem;
-      font-size  : .32rem;
-      color      : #2b0402;
-      font-family: Calibri;
-      padding-top: .18rem;
-      margin-left: 3.2rem;
-    }
-
-
-
-    @at-root #{&}__giftDiamond {
-      box-sizing   : border-box;
-      position     : relative;
-      height       : 0.28rem;
-      font-size    : 0.26rem;
-      padding-right: .5rem;
-      text-align   : center;
-      color        : #2b0402;
-      font-family  : Calibri;
-      margin       : 0.14rem 0 0 2.9rem;
-    }
-
-    @at-root #{&}__diamondNum {
-      font-size      : .24rem;
-      text-decoration: underline solid #d43023;
-    }
-
-    @at-root #{&}__diamond {
-      position: absolute;
-      top     : -0.1rem;
-      right   : 0;
-      $width  : .46rem;
-      $height : .46rem;
-      width   : $width;
-      height  : $height;
-      $url    : url("./images/pc/diamond.png");
-      @include backgroundImage($url, center, $width $height, no-repeat);
-    }
-
-    @at-root #{&}__history-title {
-      $width : 4.1rem;
-      $height: .46rem;
-      width  : $width;
-      height : $height;
-      margin : .24rem 0 0 3.74rem;
-      $url   : url("./images/pc/act2-history-title.png");
-      @include backgroundImage($url, center, $width $height, no-repeat);
-    }
-
-    @at-root #{&}__exchange-history {
-      width      : 4.2rem;
-      height     : 2.2rem;
-      padding-top: .1rem;
-      margin-left: 3.74rem;
-      overflow   : auto;
-    }
-
-    @at-root #{&}__exchange-info {
-      font-size  : .18rem;
-      font-family: Calibri-Light;
-      color      : #222222;
-      text-align : left;
-      line-height: 1.5em;
-    }
-
-    @at-root #{&}__content-title {
-      $width : 4.1rem;
-      $height: 2.14rem;
-      width  : $width;
-      height : $height;
-      margin : .14rem 0 0 3.74rem;
-      $url   : url("./images/pc/act2-gift-content.png");
-      @include backgroundImage($url, center, $width $height, no-repeat);
-    }
-
-    @at-root #{&}__pannel {
-      position: absolute;
-      top     : 0;
-      left    : 3.42rem;
-      width   : 7.42rem;
-      height  : 7.7rem;
-
-      @at-root #{&}__bg {
-        float   : left;
-        position: relative;
-        $width  : 7.42rem;
-        $height : 7.7rem;
-        width   : $width;
-        height  : $height;
-        $url    : url("./images/pc/act2-gifts.png");
-        @include backgroundImage($url, center top, $width $height, no-repeat);
-      }
-
-      @at-root #{&}__start-btn {
-        position: absolute;
-        top     : 2.24rem;
-        left    : 2.68rem;
-        $width  : 2.14rem;
-        $height : 2.7rem;
-        width   : $width;
-        height  : $height;
-        $url    : url("./images/pc/act2-start.png");
-        @include backgroundImage($url, center, $width $height, no-repeat);
-      }
-    }
-
-    @at-root #{&}__exchange-gift {
-      width      : 12.2rem;
-      height     : 4.7rem;
-      margin-left: 3.6rem;
-      margin-top : 0.6rem;
-    }
-
-    @at-root #{&}__spriteNums {
-      box-sizing  : border-box;
-      $width      : 4.1rem;
-      $height     : .46rem;
-      width       : $width;
-      height      : $height;
-      padding-left: 2.16rem;
-      $url        : url("./images/pc/act2-ball-title.png");
-      @include backgroundImage($url, center, $width $height, no-repeat);
-      color      : #2b0402;
-      font-family: Calibri;
-      font-size  : .28rem;
-      line-height: .46rem;
-    }
-
-    @at-root #{&}__exchange-gifts-li {
-      width        : 2.8rem;
-      height       : 1.86rem;
-      border-radius: .1rem;
-      float        : left;
-      margin-left  : .1rem;
-      margin-top   : .26rem;
-    }
-
-    @at-root #{&}__exchange-gifts-li:nth-child(1),
-    #{&}__exchange-gifts-li:nth-child(2),
-    #{&}__exchange-gifts-li:nth-child(3),
-    #{&}__exchange-gifts-li:nth-child(4) {
-      margin-top: 0;
-    }
-
-    @at-root #{&}__exchange-gifts-li:nth-child(1),
-    #{&}__exchange-gifts-li:nth-child(5) {
-      margin-left: .1rem;
-    }
-
-    @at-root #{&}__exchange-gift-img1 {
-      $width : 2.55rem;
-      $height: .78rem;
-      width  : $width;
-      height : $height;
-      margin : .29rem auto 0;
-      $url   : url("./images/pc/act2-gift1.png");
-      @include backgroundImage($url, center, $width $height, no-repeat);
-    }
-
-    @at-root #{&}__exchange-gift-img2 {
-      $width : 2.23rem;
-      $height: .9rem;
-      width  : $width;
-      height : $height;
-      margin : .19rem auto 0;
-      $url   : url("./images/pc/act2-gift2.png");
-      @include backgroundImage($url, center, $width $height, no-repeat);
-    }
-
-    @at-root #{&}__exchange-gift-img3 {
-      $width : 2.3rem;
-      $height: .91rem;
-      width  : $width;
-      height : $height;
-      margin : .19rem auto 0;
-      $url   : url("./images/pc/act2-gift3.png");
-      @include backgroundImage($url, center, $width $height, no-repeat);
-    }
-
-    @at-root #{&}__exchange-gift-img4 {
-      $width : 2.32rem;
-      $height: .88rem;
-      width  : $width;
-      height : $height;
-      margin : .19rem auto 0;
-      $url   : url("./images/pc/act2-gift4.png");
-      @include backgroundImage($url, center, $width $height, no-repeat);
-    }
-
-    @at-root #{&}__exchange-gift-img5 {
-      $width : 2.1rem;
-      $height: .88rem;
-      width  : $width;
-      height : $height;
-      margin : .19rem auto 0;
-      $url   : url("./images/pc/act2-gift5.png");
-      @include backgroundImage($url, center, $width $height, no-repeat);
-    }
-
-    @at-root #{&}__exchange-gift-img6 {
-      $width : 2.14rem;
-      $height: .91rem;
-      width  : $width;
-      height : $height;
-      margin : .19rem auto 0;
-      $url   : url("./images/pc/act2-gift6.png");
-      @include backgroundImage($url, center, $width $height, no-repeat);
-    }
-
-    @at-root #{&}__exchange-gift-img7 {
-      $width : 2.16rem;
-      $height: .88rem;
-      width  : $width;
-      height : $height;
-      margin : .19rem auto 0;
-      $url   : url("./images/pc/act2-gift7.png");
-      @include backgroundImage($url, center, $width $height, no-repeat);
-    }
-
-    @at-root #{&}__exchange-gift-img8 {
-      $width : 2.15rem;
-      $height: .89rem;
-      width  : $width;
-      height : $height;
-      margin : .19rem auto 0;
-      $url   : url("./images/pc/act2-gift8.png");
-      @include backgroundImage($url, center, $width $height, no-repeat);
-    }
-
-    @at-root #{&}__exchange-btn {
-      $width : 1.64rem;
-      $height: .63rem;
-      width  : $width;
-      height : $height;
-      margin : .1rem 0 0 .6rem;
-      $url   : url("./images/pc/act2-join.png");
-      @include backgroundImage($url, center, $width $height, no-repeat);
-    }
-
-    @at-root #{&}__description {
-      width      : 12rem;
-      margin-left: 3.6rem;
-      font-family: Calibri-Light;
-      font-size  : .18rem;
-      color      : #222222;
-    }
-
-    @at-root #{&}__descrition-txt {
-      line-height: 1.6em;
-    }
-
-    @at-root #{&}__description-title {
-      font-family: Calibri-Bold;
-      font-weight: bold;
-      font-size  : .28rem;
-      line-height: .34rem;
-      color      : #0387db;
-    }
-
-    @at-root #{&}__isExchangeBtns {
-      margin-top: .2rem;
-    }
-
-    .yes,
-    .no {
-      cursor     : pointer;
-      height     : .32rem;
-      line-height: .32rem;
-      font-size  : .28rem;
-      color      : #fff;
-      font-family: Calibri-Bold;
-      font-weight: bold;
-    }
-
-    .yes {
-      margin-right: .6rem;
-    }
-
-    //  @at-root #{&}__isExchange
-    //  @at-root #{&}__isExchange
-    //  @at-root #{&}__isExchange
-    //  @at-root #{&}__isExchange
-  }
-
-  /*活动三  抽奖 */
-  .act3 {
-    width : 100%;
-    height: 10.94rem;
-
-    @at-root #{&}__title {
-      $width     : 12.11rem;
-      $height    : 2.6rem;
+      $width     : 12.14rem;
+      $height    : 3.02rem;
       width      : $width;
       height     : $height;
       margin-left: 3.39rem;
-      $url       : url("./images/pc/act3-title.png");
+      $url       : url("./images/pc/act2-title.png");
       @include backgroundImage($url, center, $width $height, no-repeat);
     }
 
@@ -691,44 +367,21 @@
     @at-root #{&}__content {
       position: relative;
       width   : 100%;
-      height  : 8.34rem;
+      height  : 8.71rem;
     }
 
     .lottery__every-gift {
-      box-sizing  : border-box;
-      width       : 8.68rem;
-      height      : 1.6rem;
-      margin-left : 5.18rem;
-      padding-left: 5rem;
+      $width : 6.74rem;
+      $height: 1.48rem;
+      width  : $width;
+      height : $height;
+      margin : .28rem 0 0.16rem 6.18rem;
+      $url   : url("./images/pc/act2-every-gift.png");
+      @include backgroundImage($url, center, $width $height, no-repeat);
     }
 
     .lottery__every-gift-img-wrap {
-      float           : left;
-      margin-top      : .2rem;
-      width           : 2.94rem;
-      height          : 1.08rem;
-      background-color: rgba(89, 89, 89, 0.1);
-    }
-
-    .lottery__every-gift-img {
-      $width : 2.28rem;
-      $height: .91rem;
-      width  : $width;
-      height : $height;
-      margin : 0.08rem 0 0 .26rem;
-      $url   : url("./images/pc/act3-gift.png");
-      @include backgroundImage($url, center, $width $height, no-repeat);
-    }
-
-    .lottery__every-gift-btn {
-      float  : left;
-      $width : 1.92rem;
-      $height: .71rem;
-      width  : $width;
-      height : $height;
-      margin : .3rem 0 0 .32rem;
-      $url   : url("./images/pc/act1-join.png");
-      @include backgroundImage($url, center, $width $height, no-repeat);
+      display: none;
     }
 
     .lottery__right,
@@ -739,7 +392,7 @@
 
     .lottery__left {
       width      : 3.65rem;
-      margin-left: 3.72rem;
+      margin-left: 3.71rem;
     }
 
     .lottery__code {
@@ -747,8 +400,8 @@
       $height   : 4.8rem;
       width     : $width;
       height    : $height;
-      margin-top: .36rem;
-      $url      : url("./images/pc/act3-code.png");
+      margin-top: .46rem;
+      $url      : url("./images/pc/act2-left-bg.png");
       @include backgroundImage($url, center, $width $height, no-repeat);
       overflow: hidden;
     }
@@ -756,41 +409,40 @@
     .lottery__code-txt {
       box-sizing : border-box;
       text-align : center;
-      margin     : 3.7rem 0 0 0;
+      margin     : 3.78rem 0 0 0;
       padding    : 0 .4rem;
       height     : .48rem;
       font-family: Calibri-Bold;
       font-size  : .4rem;
-      line-height: .48rem;
       color      : #318e3d;
     }
 
     .lottery__history-btn {
-      $width    : 3.5rem;
-      $height   : .81rem;
-      width     : $width;
-      height    : $height;
-      margin-top: .2rem;
-      $url      : url("./images/pc/act3-list-btn.png");
+      $width : 3.5rem;
+      $height: .81rem;
+      width  : $width;
+      height : $height;
+      margin : .14rem 0 0 .17rem;
+      $url   : url("./images/pc/act2-history-btn.png");
       @include backgroundImage($url, center, $width $height, no-repeat);
     }
 
     .lottery__right {
-      box-sizing   : border-box;
-      $width       : 7.28rem;
-      $height      : 6.14rem;
-      width        : $width;
-      height       : $height;
-      border-radius: .04rem;
-      margin-left  : 0.6rem;
-      padding      : .3rem .24rem 0;
-      $url         : url("./images/pc/act3-bg.png");
+      box-sizing : border-box;
+      $width     : 7.37rem;
+      $height    : 6.14rem;
+      width      : $width;
+      height     : $height;
+      margin-left: 0.6rem;
+      padding    : .4rem 0 0 .26rem;
+      $url       : url("./images/pc/act2-right-bg.png");
       @include backgroundImage($url, center, $width $height, no-repeat);
     }
 
     .lottery__gift-img-bg {
-      width           : 3.3rem;
-      height          : 1.83rem;
+      box-sizing      : border-box;
+      width           : 3.31rem;
+      height          : 1.91rem;
       background-color: rgba(89, 89, 89, 0.15);
       overflow        : hidden;
     }
@@ -798,49 +450,38 @@
     .lottery__gift {
       box-sizing  : border-box;
       position    : relative;
-      width       : 3.32rem;
-      height      : 2.46rem;
+      width       : 3.31rem;
+      height      : 2.74rem;
       float       : left;
-      margin-right: 0.08rem;
-      margin-top  : 0.24rem;
+      margin-right: 0.15rem;
 
       .lottery__gift-img1 {
-        $width : 2.6rem;
-        $height: 1.41rem;
+        $width : 3.1rem;
+        $height: 1.72rem;
         width  : $width;
         height : $height;
-        margin : .1rem auto 0;
-        $url   : url("./images/pc/act3-gift1-joined.png");
+        margin : .13rem 0 0 .14rem;
+        $url   : url("./images/pc/act2-gift1-joined.png");
         @include backgroundImage($url, center, $width $height, no-repeat);
       }
 
       .lottery__gift-img2 {
-        $width : 3.09rem;
-        $height: 1.62rem;
+        $width : 3.15rem;
+        $height: 1.72rem;
         width  : $width;
         height : $height;
-        margin : .1rem auto 0;
-        $url   : url("./images/pc/act3-gift2-joined.png");
+        margin : .13rem 0 0 .14rem;
+        $url   : url("./images/pc/act2-gift2-joined.png");
         @include backgroundImage($url, center, $width $height, no-repeat);
       }
 
       .lottery__gift-img3 {
-        $width : 2.65rem;
-        $height: 1.58rem;
+        $width : 3.04rem;
+        $height: 1.75rem;
         width  : $width;
         height : $height;
-        margin : .1rem auto 0;
-        $url   : url("./images/pc/act3-gift3-joined.png");
-        @include backgroundImage($url, center, $width $height, no-repeat);
-      }
-
-      .lottery__gift-img4 {
-        $width : 2.67rem;
-        $height: 1.59rem;
-        width  : $width;
-        height : $height;
-        margin : .1rem auto 0;
-        $url   : url("./images/pc/act3-gift4-joined.png");
+        margin : .13rem 0 0 .14rem;
+        $url   : url("./images/pc/act2-gift3-joined.png");
         @include backgroundImage($url, center, $width $height, no-repeat);
       }
 
@@ -850,7 +491,7 @@
         width  : $width;
         height : $height;
         margin : .1rem auto 0;
-        $url   : url("./images/pc/act3-joined1.png");
+        $url   : url("./images/pc/act2-joined1.png");
         @include backgroundImage($url, center, $width $height, no-repeat);
       }
 
@@ -860,7 +501,7 @@
     }
 
     .lottery__gift:nth-child(2),
-    .lottery__gift:nth-child(4) {
+    .lottery__gift:nth-child(3) {
       margin-right: 0;
     }
 
@@ -870,42 +511,32 @@
       }
 
       .lottery__gift-img1 {
-        $width : 2.6rem;
-        $height: 1.41rem;
+        $width : 3.1rem;
+        $height: 1.72rem;
         width  : $width;
         height : $height;
-        margin : .1rem 0 0 .56rem;
-        $url   : url("./images/pc/act3-gift1.png");
+        margin : .13rem 0 0 .14rem;
+        $url   : url("./images/pc/act2-gift1-join.png");
         @include backgroundImage($url, center, $width $height, no-repeat);
       }
 
       .lottery__gift-img2 {
-        $width : 3.09rem;
-        $height: 1.62rem;
+        $width : 3.15rem;
+        $height: 1.72rem;
         width  : $width;
         height : $height;
-        margin : .1rem auto 0;
-        $url   : url("./images/pc/act3-gift2.png");
+        margin : .13rem 0 0 .14rem;
+        $url   : url("./images/pc/act2-gift2-join.png");
         @include backgroundImage($url, center, $width $height, no-repeat);
       }
 
       .lottery__gift-img3 {
-        $width : 2.65rem;
-        $height: 1.58rem;
+        $width : 3.04rem;
+        $height: 1.75rem;
         width  : $width;
         height : $height;
-        margin : .1rem auto 0;
-        $url   : url("./images/pc/act3-gift3.png");
-        @include backgroundImage($url, center, $width $height, no-repeat);
-      }
-
-      .lottery__gift-img4 {
-        $width : 2.67rem;
-        $height: 1.59rem;
-        width  : $width;
-        height : $height;
-        margin : .1rem auto 0;
-        $url   : url("./images/pc/act3-gift4.png");
+        margin : .13rem 0 0 .14rem;
+        $url   : url("./images/pc/act2-gift3-join.png");
         @include backgroundImage($url, center, $width $height, no-repeat);
       }
 
@@ -915,7 +546,7 @@
         width  : $width;
         height : $height;
         margin : .1rem auto 0;
-        $url   : url("./images/pc/act3-join.png");
+        $url   : url("./images/pc/act2-join.png");
         @include backgroundImage($url, center, $width $height, no-repeat);
       }
 
@@ -928,7 +559,7 @@
         $height : .3rem;
         width   : $width;
         height  : $height;
-        $url    : url("./images/pc/act3-gift-icon.png");
+        $url    : url("./images/pc/act2-gift-icon.png");
         @include backgroundImage($url, center, $width $height, no-repeat);
       }
     }
@@ -939,25 +570,119 @@
         $height: .71rem;
         width  : $width;
         height : $height;
-        margin : .1rem auto 0;
-        $url   : url("./images/pc/act3-joined2.png");
+        margin : .1rem 0 0;
+        $url   : url("./images/pc/act2-joined2.png");
         @include backgroundImage($url, center, $width $height, no-repeat);
       }
     }
 
   }
 
+  /* 活动三 一般转盘 */
+  .act3 {
+    width : 100%;
+    height: 11.04rem;
+
+    @at-root #{&}__title {
+      $width     : 11.5rem;
+      $height    : 2.11rem;
+      width      : $width;
+      height     : $height;
+      margin-left: 3.62rem;
+      $url       : url("./images/pc/act3-title.png");
+      @include backgroundImage($url, center, $width $height, no-repeat);
+    }
+
+    @at-root #{&}__desc {
+      display: none;
+    }
+
+    @at-root #{&}__content {
+      position: relative;
+      width   : 100%;
+      height  : 8.93rem;
+      overflow: hidden;
+    }
+
+    @at-root #{&}__turn-text {
+      box-sizing: border-box;
+      width     : 100%;
+      height    : 1.16rem;
+      text-align: left;
+      $url      : url("./images/pc/act3-icon.png");
+      @include backgroundImage($url, 6.29rem top, .8rem .99rem, no-repeat);
+    }
+
+    @at-root #{&}__nums-txt,
+    #{&}__diamondNum {
+      font-size  : .32rem;
+      color      : #e42620;
+      font-family: Calibri-Bold;
+      font-weight: bold;
+      line-height: .58rem;
+    }
+
+    @at-root #{&}__nums,
+    #{&}__giftDiamond {
+      box-sizing  : border-box;
+      width       : 100%;
+      height      : .58rem;
+      padding-left: 7.19rem;
+      font-size   : .32rem;
+      color       : #3a893c;
+      font-family : Calibri-Bold;
+      font-weight : bold;
+    }
+
+    @at-root #{&}__giftDiamond {
+      text-indent: .14rem;
+    }
+
+    @at-root #{&}__pannel {
+      margin-left: 5.89rem;
+      width      : 7.42rem;
+      height     : 7.7rem;
+      position   : relative;
+
+      @at-root #{&}__bg {
+        float   : left;
+        position: relative;
+        z-index : 1;
+        $width  : 7.42rem;
+        $height : 7.7rem;
+        width   : $width;
+        height  : $height;
+        $url    : url("./images/pc/act3-bg.png");
+        @include backgroundImage($url, center top, $width $height, no-repeat);
+      }
+
+      @at-root #{&}__start-btn {
+        position: absolute;
+        top     : 2.24rem;
+        left    : 2.68rem;
+        z-index : 1;
+        $width  : 2.14rem;
+        $height : 2.7rem;
+        width   : $width;
+        height  : $height;
+        $url    : url("./images/pc/act3-start.png");
+        @include backgroundImage($url, center, $width $height, no-repeat);
+      }
+    }
+  }
+
   .fans-info {
-    box-sizing : border-box;
-    padding    : .22rem 0 0 .3rem;
-    width      : 12rem;
-    height     : 1.85rem;
-    background : rgba(255, 255, 255, 0.5);
-    margin     : 0 auto;
-    font-family: Calibri;
-    font-size  : .28rem;
-    line-height: .4rem;
-    color      : #130504;
+    box-sizing   : border-box;
+    padding      : .27rem 0 0 .29rem;
+    margin       : 0 auto;
+    width        : 12rem;
+    height       : 1.85rem;
+    border-radius: .2rem;
+    font-family  : Calibri;
+    font-size    : .28rem;
+    line-height  : .4rem;
+    color        : #130504;
+    background   : rgba(255, 255, 255, 0.5);
   }
 
   .fans-info1 {
@@ -970,7 +695,7 @@
     height   : 0.4rem;
   }
 
-  .fans__a-pc {
+  .fans__a {
     font-size  : inherit;
     line-height: inherit;
     font-family: "Calibri-Bold";
@@ -987,11 +712,12 @@
   /* footer的样式 */
   .#{$footerClassName} {
     @include footer($footerPcHeight, $footerBackgroundValue);
+    z-index: 1;
 
     @at-root #{&}__logo {
-      margin : 0.06rem auto 0;
-      $width : 2.74rem;
-      $height: .86rem;
+      margin : 0.2rem auto 0;
+      $width : 2.46rem;
+      $height: .77rem;
       width  : $width;
       height : $height;
       $url   : url("./images/pc/footer-logo.png");
@@ -1020,16 +746,15 @@
     .tipBox,
     .cdkBox,
     .rewardBox {
-      $width       : 8.78rem;
-      $height      : 3.75rem;
-      width        : $width;
-      height       : $height;
-      position     : fixed;
-      top          : 50%;
-      left         : 50%;
-      transform    : translate(-50%, -50%);
-      border-radius: .2rem;
-      $url         : url("./images/pc/box.png");
+      $width   : 8.74rem;
+      $height  : 3.6rem;
+      width    : $width;
+      height   : $height;
+      position : fixed;
+      top      : 50%;
+      left     : 50%;
+      transform: translate(-50%, -50%);
+      $url     : url("./images/pc/box-bg.png");
       @include backgroundImage($url, center, $width $height, no-repeat);
       // box-shadow           : 0px 14px 0 0px #59a8bf;
       // border-bottom        : 10px solid #59a8bf;
@@ -1050,31 +775,33 @@
     }
 
     .rewardContainer {
-      margin-top   : .2rem;
-      width        : 8.3rem;
-      height       : 3.2rem;
-      border-radius: .5rem;
-      overflow-x   : hidden;
-      overflow-y   : auto;
+      box-sizing: border-box;
+      width     : 8.08rem;
+      height    : 2.88rem;
+      overflow  : auto;
+      margin    : 0.48rem 0.4rem 0.4rem 0.3rem;
+    }
+
+    .table-content {
+      box-sizing: border-box;
+      width     : 100%;
+      height    : 100%;
     }
 
     .grid {
-      width      : 100%;
-      height     : 100%;
-      padding-top: 1px;
-    }
-
-    table {
-      margin-left    : 0.2rem;
-      overflow       : auto;
+      width          : 100%;
+      box-sizing     : border-box;
+      overflow-y     : auto;
       border-collapse: collapse;
+
+      // background-color: rgba(255, 255, 255, 0.3);
     }
 
     th,
     td {
       vertical-align: middle;
       text-align    : center;
-      line-height   : 1.5em;
+      line-height   : 1.6em;
       color         : #fff;
       font-size     : .24rem;
       border        : 1px solid #fff;
@@ -1113,23 +840,31 @@
     $height: $mainMbHeight;
     $url   : url("./images/mb/bg.jpg");
     @include backgroundImage($url, top center, $width $height, no-repeat);
-    overflow: hidden;
+    font-family: $font-family;
+    overflow   : hidden;
   }
 
   .container {
-    position      : relative;
-    box-sizing    : border-box;
-    height        : $mainMbHeight;
-    padding-bottom: $footerMbHeight;
+    position           : relative;
+    box-sizing         : border-box;
+    height             : $mainMbHeight;
+    padding-bottom     : $footerMbHeight;
+    top                : 0;
+    left               : 0;
+    z-index            : 1;
+    background-image   : url("./images/snow.png");
+    background-position: .1rem .1rem;
+    -webkit-animation  : flow 80s infinite ease-out;
+    -o-animation       : flow 80s infinite ease-out;
+    animation          : flow 80s infinite ease-out;
   }
 
   /* Header  */
 
   .header {
-    box-sizing : border-box;
-    position   : relative;
-    padding-top: 1px;
-    height     : 13.5rem;
+    position: relative;
+    height  : 13.39rem;
+    overflow: hidden;
 
     // @at-root #{&}__title-and-time {
     //   $width    : 7.5rem;
@@ -1203,11 +938,106 @@
 
   /* download-box */
   /* 下载的右侧悬浮窗 */
-
   .download-box {
-    @include fixedRightBox(2.45rem, 3.47rem, 2rem, 0);
+    @include fixedRightBox(3.23rem, 4.57rem, 3rem, 0.06rem);
+    $url: url("./images/pc/nav-bg.png");
+    @include backgroundImage($url, center, 3.23rem 4.58rem, no-repeat);
+
+    @at-root #{&}__control-btn {
+      position: absolute;
+      top     : 2rem;
+      left    : -0.1rem;
+      $width  : .34rem;
+      $height : .94rem;
+      width   : $width;
+      height  : $height;
+      $url    : url("./images/mb/nav-toggle.png");
+      @include backgroundImage($url, center, $width $height, no-repeat);
+      cursor: pointer;
+
+      @at-root #{&}--hide {
+        transform: rotateZ(0);
+      }
+
+      @at-root #{&}--show {
+        transform: rotateZ(180deg);
+      }
+    }
+
+    @at-root #{&}__content {
+      $width     : 100%;
+      $height    : 100%;
+      width      : $width;
+      height     : $height;
+      font-size  : .28rem;
+      line-height: .32rem;
+      color      : #2b0402;
+      font-weight: bold;
+
+      @at-root #{&}__btn {
+        display            : inline-block;
+        background-repeat  : no-repeat;
+        background-position: center;
+        margin-left        : .84rem;
+        height             : .36rem;
+        margin-top         : .12rem;
+        cursor             : pointer;
+
+        @at-root #{&}--act1 {
+          margin-top: 1.21rem;
+        }
+
+        @at-root #{&}--active {
+          text-decoration: underline;
+          color          : #ff0000;
+        }
+
+        $downLoadBtnWidth : 1.83rem;
+        $downLoadBtnHeight: .6rem;
+
+        @at-root #{&}--android,
+        #{&}--ios {
+          $width     : $downLoadBtnWidth;
+          $height    : $downLoadBtnHeight;
+          width      : $width;
+          height     : $height;
+          margin-left: .72rem;
+        }
+
+        @at-root #{&}--ios {
+          $width          : $downLoadBtnWidth;
+          $height         : $downLoadBtnHeight;
+          background-size : $width $height;
+          background-image: url("./images/pc/google.png");
+        }
+
+        @at-root #{&}--android {
+          $width          : $downLoadBtnWidth;
+          $height         : $downLoadBtnHeight;
+          background-size : $width $height;
+          background-image: url("./images/pc/ios.png");
+        }
+      }
+    }
+
+    @at-root #{&}__scroll-top-btn {
+      position  : absolute;
+      bottom    : .1rem;
+      left      : 1.5rem;
+      $width    : .28rem;
+      $height   : .22rem;
+      width     : $width;
+      height    : $height;
+      padding   : .1rem;
+      background: url("./images/pc/top.png") center/ $width $height no-repeat;
+      cursor    : pointer;
+    }
+  }
+
+  /*   .download-box {
+    @include fixedRightBox(3.23rem, 4.57rem, 2rem, 0);
     $url: url("./images/mb/nav-bg.png");
-    @include backgroundImage($url, center, 2.45rem 3.47rem, no-repeat);
+    @include backgroundImage($url, center, 3.23rem rem, no-repeat);
 
     @at-root #{&}__control-btn {
       position: absolute;
@@ -1297,7 +1127,7 @@
       background-image      : url("./images/pc/top.png");
       cursor                : pointer;
     }
-  }
+  } */
 
   /* End download-box */
 
@@ -1306,14 +1136,14 @@
   /* 活动一 累计登录  vip累计登录  7天登录*/
   .act1 {
     width : 100%;
-    height: 8.17rem;
+    height: 9.35rem;
 
     @at-root #{&}__title {
-      $width     : 6.33rem;
-      $height    : 1.72rem;
+      $width     : 6.21rem;
+      $height    : 2.27rem;
       width      : $width;
       height     : $height;
-      margin-left: .58rem;
+      margin-left: .67rem;
       $url       : url("./images/mb/act1-title.png");
       @include backgroundImage($url, center, $width $height, no-repeat);
     }
@@ -1325,70 +1155,66 @@
     @at-root #{&}__content {
       position  : relative;
       width     : 100%;
-      height    : 6.25rem;
-      margin-top: .2rem;
+      height    : 6.86rem;
+      margin-top: .22rem;
     }
 
     @at-root #{&}__gifts {
       margin     : 0;
       width      : 100%;
-      $giftWidth : 3.18rem;
-      $giftHeight: 2.7rem;
+      $giftWidth : 3.22rem;
+      $giftHeight: 3rem;
 
       @at-root #{&}__gift {
         width      : $giftWidth;
-        margin-left: .27rem;
-        float      : left;
         height     : $giftHeight;
+        margin-left: .4rem;
+        float      : left;
         $url       : url("./images/mb/act1-gift-bg.png");
         @include backgroundImage($url, center, $giftWidth $giftHeight, no-repeat);
       }
 
-      @at-root #{&}__gift:nth-child(1) {
-        margin-left: .45rem;
+      @at-root #{&}__gift:nth-child(2) {
+        margin-left: .28rem;
       }
 
       @at-root #{&}__gift:nth-child(3) {
-        margin-left: 2.18rem;
-        margin-top : .23rem;
-      }
-
-      @at-root #{&}__gift--title {
-        display: none;
+        margin-left: 2.14rem;
+        margin-top : .27rem;
       }
 
       @at-root #{&}__gift--1 {
-        $width : 2.68rem;
-        $height: 1.51rem;
+        $width : 2.73rem;
+        $height: 1.69rem;
         width  : $width;
         height : $height;
-        margin : 0.38rem 0 0 .22rem;
+        margin : 0.42rem 0 0 .22rem;
         $url   : url("./images/mb/act1-gift1.png");
         @include backgroundImage($url, center, $width $height, no-repeat);
       }
 
       @at-root #{&}__gift--2 {
-        $width : 2.69rem;
-        $height: 1.53rem;
+        $width : 2.77rem;
+        $height: 1.69rem;
         width  : $width;
         height : $height;
-        margin : 0.38rem 0 0 .22rem;
-        $url   : url("./images/mb/act1-gift2.png");
+        margin : 0.42rem 0 0 .18rem;
+        $url   : url("./images/pc/act1-gift2.png");
         @include backgroundImage($url, center, $width $height, no-repeat);
       }
 
       @at-root #{&}__gift--3 {
-        $width : 2.34rem;
-        $height: 1.5rem;
+        $width : 2.13rem;
+        $height: 1.8rem;
         width  : $width;
         height : $height;
-        margin : 0.39rem 0 0 .25rem;
-        $url   : url("./images/mb/act1-gift3.png");
+        margin : 0.31rem 0 0 .49rem;
+        $url   : url("./images/pc/act1-gift3.png");
         @include backgroundImage($url, center, $width $height, no-repeat);
       }
     }
 
-    $act1BtnWidth :1.67rem;
+    $act1BtnWidth :1.68rem;
     $act1BtnHeight:.64rem;
 
     @at-root #{&}__join-btn {
@@ -1409,32 +1235,32 @@
     }
 
     @at-root #{&}__join-btn1 {
-      top : 1.96rem;
-      left: 1.2rem;
+      top : 2.22rem;
+      left: 1.17rem;
     }
 
     @at-root #{&}__join-btn2 {
-      top : 1.96rem;
-      left: 4.66rem;
+      top : 2.22rem;
+      left: 4.67rem;
     }
 
     @at-root #{&}__join-btn3 {
-      top : 4.89rem;
-      left: 2.93rem;
+      top : 5.49rem;
+      left: 2.9rem;
     }
   }
 
-  /* 活动二 奖池转盘 */
+  /*活动二  抽奖 */
   .act2 {
     width : 100%;
-    height: 32.05rem;
+    height: 20.62rem;
 
     @at-root #{&}__title {
-      $width     : 6.16rem;
-      $height    : 3.88rem;
+      $width     : 6.36rem;
+      $height    : 5.11rem;
       width      : $width;
       height     : $height;
-      margin-left: .67rem;
+      margin-left: .58rem;
       $url       : url("./images/mb/act2-title.png");
       @include backgroundImage($url, center, $width $height, no-repeat);
     }
@@ -1444,396 +1270,45 @@
     }
 
     @at-root #{&}__content {
-      position  : relative;
-      width     : 100%;
-      height    : 27.94rem;
-      margin-top: .24rem;
-      overflow  : hidden;
-    }
-
-    @at-root #{&}__turn-text {
-      box-sizing         : border-box;
-      width              : 6.4rem;
-      height             : 6.34rem;
-      margin-top         : 7.57rem;
-      margin-left        : .55rem;
-      text-align         : left;
-      // background-color: rgba(255, 255, 255, 0.32);
-      // border          : solid 1px #ced3df;
-    }
-
-    @at-root #{&}__nums {
-      width      : 100%;
-      height     : .32rem;
-      font-size  : .32rem;
-      color      : #2b0402;
-      font-family: Calibri;
-      padding-top: .18rem;
-      text-indent: .28rem;
-    }
-
-    @at-root #{&}__nums-txt,
-    #{&}__diamondNum {
-      height     : .28rem;
-      line-height: .28rem;
-      font-size  : .28rem;
-      color      : #d43023;
-      font-family: Calibri-Bold;
-      font-weight: bold;
-    }
-
-    @at-root #{&}__giftDiamond {
-      position      : relative;
-      // width      : 5.8rem;
-      height        : .28rem;
-      font-size     : .28rem;
-      color         : #2b0402;
-      font-family   : Calibri;
-      margin        : .14rem 0 0 .28rem;
-    }
-
-    @at-root #{&}__diamondNum {
-      font-size      : .26rem;
-      text-decoration: underline solid #d43023;
-    }
-
-    @at-root #{&}__diamond {
-      position: absolute;
-      top     : -0.1rem;
-      right   : 0.2rem;
-      $width  : .46rem;
-      $height : .46rem;
-      width   : $width;
-      height  : $height;
-      $url    : url("./images/mb/diamond.png");
-      @include backgroundImage($url, center, $width $height, no-repeat);
-    }
-
-    @at-root #{&}__history-title {
-      $width : 4.1rem;
-      $height: .46rem;
-      width  : $width;
-      height : $height;
-      margin : .24rem 0 0 .28rem;
-      $url   : url("./images/pc/act2-history-title.png");
-      @include backgroundImage($url, center, $width $height, no-repeat);
-    }
-
-    @at-root #{&}__exchange-history {
-      width      : 6rem;
-      height     : 2.2rem;
-      padding-top: .1rem;
-      margin-left: .28rem;
-      overflow   : auto;
-    }
-
-    @at-root #{&}__exchange-info {
-      font-size  : .24rem;
-      font-family: Calibri-Light;
-      color      : #222222;
-      text-align : left;
-      line-height: 1.3em;
-    }
-
-    @at-root #{&}__content-title {
-      $width : 4.1rem;
-      $height: 2.14rem;
-      width  : $width;
-      height : $height;
-      margin : .14rem 0 0 .28rem;
-      $url   : url("./images/mb/act2-gift-content.png");
-      @include backgroundImage($url, center, $width $height, no-repeat);
-    }
-
-    @at-root #{&}__pannel {
-      position: absolute;
-      top     : 0;
-      left    : .22rem;
-      width   : 7.06rem;
-      height  : 7.31rem;
-
-      @at-root #{&}__bg {
-        position: relative;
-        $width  : 7.06rem;
-        $height : 7.31rem;
-        width   : $width;
-        height  : $height;
-        $url    : url("./images/mb/act2-gifts.png");
-        @include backgroundImage($url, center top, $width $height, no-repeat);
-      }
-
-      @at-root #{&}__start-btn {
-        position: absolute;
-        top     : 2.12rem;
-        left    : 2.55rem;
-        $width  : 2.04rem;
-        $height : 2.58rem;
-        width   : $width;
-        height  : $height;
-        $url    : url("./images/mb/act2-start.png");
-        @include backgroundImage($url, center, $width $height, no-repeat);
-      }
-    }
-
-    @at-root #{&}__exchange-gifts {
-      margin: 0
-    }
-
-    @at-root #{&}__exchange-gift {
-      width      : 100%;
-      height     : 9.7rem;
-      margin-left: .56rem;
-      margin-top : 0.3rem;
-    }
-
-    @at-root #{&}__spriteNums {
-      box-sizing  : border-box;
-      $width      : 4.1rem;
-      $height     : .46rem;
-      width       : $width;
-      height      : $height;
-      padding-left: 2.16rem;
-      $url        : url("./images/mb/act2-ball-title.png");
-      @include backgroundImage($url, center, $width $height, no-repeat);
-      color      : #2b0402;
-      font-family: Calibri;
-      font-size  : .28rem;
-      line-height: .46rem;
-    }
-
-    @at-root #{&}__exchange-gifts-li {
-      width        : 3.07rem;
-      height       : 2.06rem;
-      border-radius: .1rem;
-      float        : left;
-      margin-left  : .22rem;
-      margin-top   : .2rem;
-    }
-
-    @at-root #{&}__exchange-gifts-li:nth-child(1),
-    #{&}__exchange-gifts-li:nth-child(3),
-    #{&}__exchange-gifts-li:nth-child(5),
-    #{&}__exchange-gifts-li:nth-child(7) {
-      margin-left: 0;
-    }
-
-    @at-root #{&}__exchange-gift-img1 {
-      $width : 2.81rem;
-      $height: .85rem;
-      width  : $width;
-      height : $height;
-      margin : .32rem 0 0 .15rem;
-      $url   : url("./images/mb/act2-gift1.png");
-      @include backgroundImage($url, center, $width $height, no-repeat);
-    }
-
-    @at-root #{&}__exchange-gift-img2 {
-      $width : 2.46rem;
-      $height: 1.03rem;
-      width  : $width;
-      height : $height;
-      margin : .17rem 0 0 .22rem;
-      $url   : url("./images/mb/act2-gift2.png");
-      @include backgroundImage($url, center, $width $height, no-repeat);
-    }
-
-    @at-root #{&}__exchange-gift-img3 {
-      $width : 2.54rem;
-      $height: 1.01rem;
-      width  : $width;
-      height : $height;
-      margin : .21rem 0 0 .14rem;
-      $url   : url("./images/mb/act2-gift3.png");
-      @include backgroundImage($url, center, $width $height, no-repeat);
-    }
-
-    @at-root #{&}__exchange-gift-img4 {
-      $width : 2.55rem;
-      $height: .97rem;
-      width  : $width;
-      height : $height;
-      margin : .21rem 0 0 .18rem;
-      $url   : url("./images/mb/act2-gift4.png");
-      @include backgroundImage($url, center, $width $height, no-repeat);
-    }
-
-    @at-root #{&}__exchange-gift-img5 {
-      $width : 2.31rem;
-      $height: .97rem;
-      width  : $width;
-      height : $height;
-      margin : .21rem 0 0 .42rem;
-      $url   : url("./images/mb/act2-gift5.png");
-      @include backgroundImage($url, center, $width $height, no-repeat);
-    }
-
-    @at-root #{&}__exchange-gift-img6 {
-      $width : 2.35rem;
-      $height: 1.01rem;
-      width  : $width;
-      height : $height;
-      margin : .2rem 0 0 .38rem;
-      $url   : url("./images/mb/act2-gift6.png");
-      @include backgroundImage($url, center, $width $height, no-repeat);
-    }
-
-    @at-root #{&}__exchange-gift-img7 {
-      $width : 2.38rem;
-      $height: .97rem;
-      width  : $width;
-      height : $height;
-      margin : .21rem 0 0 .35rem;
-      $url   : url("./images/mb/act2-gift7.png");
-      @include backgroundImage($url, center, $width $height, no-repeat);
-    }
-
-    @at-root #{&}__exchange-gift-img8 {
-      $width : 2.36rem;
-      $height: .98rem;
-      width  : $width;
-      height : $height;
-      margin : .21rem 0 0 .37rem;
-      $url   : url("./images/mb/act2-gift8.png");
-      @include backgroundImage($url, center, $width $height, no-repeat);
-    }
-
-    @at-root #{&}__exchange-btn {
-      $width : 1.64rem;
-      $height: .63rem;
-      width  : $width;
-      height : $height;
-      margin : .13rem 0 0 .71rem;
-      $url   : url("./images/pc/act2-join.png");
-      @include backgroundImage($url, center, $width $height, no-repeat);
-    }
-
-    @at-root #{&}__description {
-      width      : 6.36rem;
-      margin-left: .55rem;
-      margin-top : .2rem;
-      font-family: Calibri-Light;
-      font-size  : .22rem;
-      color      : #222222;
-    }
-
-    @at-root #{&}__descrition-txt {
-      line-height: 1.3em;
-    }
-
-    @at-root #{&}__description-title {
-      font-family: Calibri-Bold;
-      font-weight: bold;
-      font-size  : .28rem;
-      line-height: .4rem;
-      color      : #0387db;
-    }
-
-    @at-root #{&}__isExchangeBtns {
-      margin-top: .4rem;
-    }
-
-    .yes,
-    .no {
-      cursor     : pointer;
-      height     : .32rem;
-      line-height: .32rem;
-      font-size  : .28rem;
-      color      : #fff;
-      font-family: Calibri-Bold;
-      font-weight: bold;
-    }
-
-    .yes {
-      margin-right: .3rem;
-    }
-
-    //  @at-root #{&}__isExchange
-    //  @at-root #{&}__isExchange
-    //  @at-root #{&}__isExchange
-    //  @at-root #{&}__isExchange
-  }
-
-  /*活动三  抽奖 */
-  .act3 {
-    width : 100%;
-    height: 20.1rem;
-
-    @at-root #{&}__title {
-      $width     : 6.37rem;
-      $height    : 3.87rem;
-      width      : $width;
-      height     : $height;
-      margin-left: .57rem;
-      $url       : url("./images/mb/act3-title.png");
-      @include backgroundImage($url, center, $width $height, no-repeat);
-    }
-
-    @at-root #{&}__desc {
-      display: none;
-    }
-
-    @at-root #{&}__content {
-      position  : relative;
-      width     : 100%;
-      margin-top: .32rem;
-      height    : 18.42rem;
+      position: relative;
+      width   : 100%;
+      height  : 15.51rem;
     }
 
     .lottery__every-gift {
-      width : 100%;
-      height: 1.8rem;
+      $width : 6.39rem;
+      $height: 1.48rem;
+      width  : $width;
+      height : $height;
+      margin : .33rem 0 0 .56rem;
+      $url   : url("./images/mb/act2-every-gift.png");
+      @include backgroundImage($url, center, $width $height, no-repeat);
     }
 
     .lottery__every-gift-img-wrap {
-      width           : 2.94rem;
-      height          : 1.08rem;
-      margin-left     : 4.02rem;
-      margin-top      : .12rem;
-      background-color: rgba(89, 89, 89, 0.1);
-    }
-
-    .lottery__every-gift-img {
-      float      : left;
-      $width     : 2.28rem;
-      $height    : .91rem;
-      width      : $width;
-      height     : $height;
-      margin-top : .08rem;
-      margin-left: .26rem;
-      $url       : url("./images/mb/act3-gift.png");
-      @include backgroundImage($url, center, $width $height, no-repeat);
-    }
-
-    .lottery__every-gift-btn {
-      float  : left;
-      $width : 1.67rem;
-      $height: .64rem;
-      width  : $width;
-      height : $height;
-      margin : .27rem 0 0 2.87rem;
-      $url   : url("./images/mb/act1-join.png");
-      @include backgroundImage($url, center, $width $height, no-repeat);
+      display: none;
     }
 
     .lottery {
-      position: relative;
-      width   : 100%;
-      height  : 13.43rem;
+      position  : relative;
+      width     : 100%;
+      height    : 13.31rem;
+      margin-top: .39rem;
     }
 
     .lottery__left {
-      width   : 4.61rem;
+      width   : 4.34rem;
       position: absolute;
-      top     : 5.86rem;
-      left    : 1.47rem;
+      top     : 6.15rem;
+      left    : 1.55rem;
     }
 
     .lottery__code {
-      $width : 4.61rem;
-      $height: 6.05rem;
+      $width : 4.34rem;
+      $height: 5.7rem;
       width  : $width;
       height : $height;
-      $url   : url("./images/mb/act3-code.png");
+      $url   : url("./images/mb/act2-left-bg.png");
       @include backgroundImage($url, center, $width $height, no-repeat);
       overflow: hidden;
     }
@@ -1841,42 +1316,40 @@
     .lottery__code-txt {
       box-sizing : border-box;
       text-align : center;
-      margin     : 4.7rem 0 0 0;
+      margin     : 4.48rem 0 0 0;
       padding    : 0 .4rem;
       height     : .48rem;
       font-family: Calibri-Bold;
-      font-size  : .56rem;
-      line-height: .48rem;
+      font-size  : .4rem;
       color      : #318e3d;
     }
 
     .lottery__history-btn {
-      $width     : 4.38rem;
-      $height    : .98rem;
-      width      : $width;
-      height     : $height;
-      margin-top : .2rem;
-      margin-left: .23rem;
-      $url       : url("./images/mb/act3-list-btn.png");
+      $width : 3.5rem;
+      $height: .81rem;
+      width  : $width;
+      height : $height;
+      margin : .18rem 0 0 .47rem;
+      $url   : url("./images/mb/act2-history-btn.png");
       @include backgroundImage($url, center, $width $height, no-repeat);
     }
 
     .lottery__right {
-      box-sizing   : border-box;
-      $width       : 6.8rem;
-      $height      : 5.66rem;
-      width        : $width;
-      height       : $height;
-      border-radius: .04rem;
-      margin-left  : 0.4rem;
-      padding      : .3rem .24rem 0;
-      $url         : url("./images/mb/act3-bg.png");
+      box-sizing : border-box;
+      $width     : 6.95rem;
+      $height    : 5.73rem;
+      width      : $width;
+      height     : $height;
+      margin-left: 0.32rem;
+      padding    : .36rem 0 0 .24rem;
+      $url       : url("./images/mb/act2-right-bg.png");
       @include backgroundImage($url, center, $width $height, no-repeat);
     }
 
     .lottery__gift-img-bg {
-      width           : 3.06rem;
-      height          : 1.71rem;
+      box-sizing      : border-box;
+      width           : 3.13rem;
+      height          : 1.79rem;
       background-color: rgba(89, 89, 89, 0.15);
       overflow        : hidden;
     }
@@ -1884,58 +1357,48 @@
     .lottery__gift {
       box-sizing  : border-box;
       position    : relative;
-      width       : 3.06rem;
-      height      : 2.61rem;
+      width       : 3.13rem;
+      height      : 2.58rem;
       float       : left;
-      margin-right: 0.04rem;
+      margin-right: 0.13rem;
 
       .lottery__gift-img1 {
-        $width : 2.54rem;
-        $height: 1.3rem;
+        $width : 2.93rem;
+        $height: 1.6rem;
         width  : $width;
         height : $height;
-        margin : .1rem 0 0 .45rem;
-        $url   : url("./images/mb/act3-gift1-joined.png");
+        margin : .13rem 0 0 .13rem;
+        $url   : url("./images/mb/act2-gift1-joined.png");
         @include backgroundImage($url, center, $width $height, no-repeat);
       }
 
       .lottery__gift-img2 {
-        $width : 2.92rem;
-        $height: 1.5rem;
+        $width : 2.97rem;
+        $height: 1.6rem;
         width  : $width;
         height : $height;
-        margin : .1rem auto 0;
-        $url   : url("./images/mb/act3-gift2-joined.png");
+        margin : .13rem 0 0 .14rem;
+        $url   : url("./images/mb/act2-gift2-joined.png");
         @include backgroundImage($url, center, $width $height, no-repeat);
       }
 
       .lottery__gift-img3 {
-        $width : 2.54rem;
-        $height: 1.46rem;
+        $width : 2.87rem;
+        $height: 1.64rem;
         width  : $width;
         height : $height;
-        margin : .1rem 0 0 .45rem;
-        $url   : url("./images/mb/act3-gift3-joined.png");
-        @include backgroundImage($url, center, $width $height, no-repeat);
-      }
-
-      .lottery__gift-img4 {
-        $width : 2.54rem;
-        $height: 1.47rem;
-        width  : $width;
-        height : $height;
-        margin : .1rem 0 0 .45rem;
-        $url   : url("./images/mb/act3-gift4-joined.png");
+        margin : .12rem 0 0 .13rem;
+        $url   : url("./images/mb/act2-gift3-joined.png");
         @include backgroundImage($url, center, $width $height, no-repeat);
       }
 
       .lottery__gift-btn {
-        $width : 2.84rem;
-        $height: .67rem;
+        $width : 2.89rem;
+        $height: .68rem;
         width  : $width;
         height : $height;
         margin : .1rem auto 0;
-        $url   : url("./images/mb/act3-joined1.png");
+        $url   : url("./images/mb/act2-joined1.png");
         @include backgroundImage($url, center, $width $height, no-repeat);
       }
 
@@ -1945,7 +1408,7 @@
     }
 
     .lottery__gift:nth-child(2),
-    .lottery__gift:nth-child(4) {
+    .lottery__gift:nth-child(3) {
       margin-right: 0;
     }
 
@@ -1955,52 +1418,42 @@
       }
 
       .lottery__gift-img1 {
-        $width : 2.54rem;
-        $height: 1.3rem;
+        $width : 2.93rem;
+        $height: 1.6rem;
         width  : $width;
         height : $height;
-        margin : .1rem 0 0 .45rem;
-        $url   : url("./images/mb/act3-gift1.png");
+        margin : .13rem 0 0 .13rem;
+        $url   : url("./images/mb/act2-gift1-join.png");
         @include backgroundImage($url, center, $width $height, no-repeat);
       }
 
       .lottery__gift-img2 {
-        $width : 2.92rem;
-        $height: 1.5rem;
+        $width : 2.97rem;
+        $height: 1.6rem;
         width  : $width;
         height : $height;
-        margin : .1rem auto 0;
-        $url   : url("./images/mb/act3-gift2.png");
+        margin : .13rem 0 0 .14rem;
+        $url   : url("./images/mb/act2-gift2-join.png");
         @include backgroundImage($url, center, $width $height, no-repeat);
       }
 
       .lottery__gift-img3 {
-        $width : 2.54rem;
-        $height: 1.46rem;
+        $width : 2.87rem;
+        $height: 1.64rem;
         width  : $width;
         height : $height;
-        margin : .1rem 0 0 .45rem;
-        $url   : url("./images/mb/act3-gift3.png");
-        @include backgroundImage($url, center, $width $height, no-repeat);
-      }
-
-      .lottery__gift-img4 {
-        $width : 2.54rem;
-        $height: 1.47rem;
-        width  : $width;
-        height : $height;
-        margin : .1rem 0 0 .45rem;
-        $url   : url("./images/mb/act3-gift4.png");
+        margin : .12rem 0 0 .13rem;
+        $url   : url("./images/mb/act2-gift3-join.png");
         @include backgroundImage($url, center, $width $height, no-repeat);
       }
 
       .lottery__gift-btn {
-        $width : 2.84rem;
-        $height: .67rem;
+        $width : 2.89rem;
+        $height: .68rem;
         width  : $width;
         height : $height;
         margin : .1rem auto 0;
-        $url   : url("./images/mb/act3-join.png");
+        $url   : url("./images/mb/act2-join.png");
         @include backgroundImage($url, center, $width $height, no-repeat);
       }
 
@@ -2009,27 +1462,127 @@
         position: absolute;
         top     : 0.06rem;
         left    : 0.07rem;
-        $width  : .3rem;
-        $height : .3rem;
+        $width  : .29rem;
+        $height : .28rem;
         width   : $width;
         height  : $height;
-        $url    : url("./images/mb/act3-gift-icon.png");
+        $url    : url("./images/mb/act2-gift-icon.png");
         @include backgroundImage($url, center, $width $height, no-repeat);
       }
     }
 
     .lottery__gift.joined {
       .lottery__gift-btn {
-        $width : 2.84rem;
-        $height: .67rem;
+        $width : 2.89rem;
+        $height: .68rem;
         width  : $width;
         height : $height;
         margin : .1rem auto 0;
-        $url   : url("./images/mb/act3-joined2.png");
+        $url   : url("./images/mb/act2-joined2.png");
         @include backgroundImage($url, center, $width $height, no-repeat);
       }
     }
 
+  }
+
+  /* 活动三 一般转盘 */
+  .act3 {
+    width : 100%;
+    height: 11.7rem;
+
+    @at-root #{&}__title {
+      $width     : 6.22rem;
+      $height    : 2.71rem;
+      width      : $width;
+      height     : $height;
+      margin-left: .64rem;
+      $url       : url("./images/mb/act3-title.png");
+      @include backgroundImage($url, center, $width $height, no-repeat);
+    }
+
+    @at-root #{&}__desc {
+      display: none;
+    }
+
+    @at-root #{&}__content {
+      position: relative;
+      width   : 100%;
+      height  : 8.99rem;
+      overflow: hidden;
+    }
+
+    @at-root #{&}__turn-text {
+      box-sizing: border-box;
+      width     : 100%;
+      height    : 1.71rem;
+      text-align: left;
+      $url      : url("./images/mb/act3-icon.png");
+      @include backgroundImage($url, .9rem .29rem, .8rem .99rem, no-repeat);
+      overflow: hidden;
+    }
+
+    @at-root #{&}__nums-txt,
+    #{&}__diamondNum {
+      font-size  : .32rem;
+      color      : #e42620;
+      font-family: Calibri-Bold;
+      font-weight: bold;
+      line-height: .58rem;
+    }
+
+    @at-root #{&}__nums,
+    #{&}__giftDiamond {
+      box-sizing  : border-box;
+      width       : 100%;
+      height      : .5rem;
+      line-height : .5rem;
+      padding-left: 1.8rem;
+      font-size   : .32rem;
+      color       : #3a893c;
+      font-family : Calibri-Bold;
+      font-weight : bold;
+      overflow    : hidden;
+    }
+
+    @at-root #{&}__nums {
+      margin-top: .3rem;
+    }
+
+    @at-root #{&}__giftDiamond {
+      text-indent: .14rem;
+    }
+
+    @at-root #{&}__pannel {
+      position   : relative;
+      margin-left: .45rem;
+      width      : 6.69rem;
+      height     : 6.92rem;
+
+      @at-root #{&}__bg {
+        float   : left;
+        position: relative;
+        z-index : 1;
+        $width  : 6.69rem;
+        $height : 6.92rem;
+        width   : $width;
+        height  : $height;
+        $url    : url("./images/mb/act3-bg.png");
+        @include backgroundImage($url, center top, $width $height, no-repeat);
+      }
+
+      @at-root #{&}__start-btn {
+        position: absolute;
+        top     : 2.01rem;
+        left    : 2.39rem;
+        z-index : 1;
+        $width  : 1.93rem;
+        $height : 2.44rem;
+        width   : $width;
+        height  : $height;
+        $url    : url("./images/mb/act3-start.png");
+        @include backgroundImage($url, center, $width $height, no-repeat);
+      }
+    }
   }
 
   .fans-info {
@@ -2046,8 +1599,9 @@
   }
 
   .fans-info1 {
-    font-size: .36rem;
-    height   : 0.4rem;
+    font-size  : .36rem;
+    height     : 0.4rem;
+    font-weight: bold;
   }
 
   .fans-info2 {
@@ -2055,15 +1609,11 @@
     line-height: 0.4rem;
   }
 
-  .fans__a-pc {
-    display: none;
-  }
-
-  .fans__a-mb {
+  .fans__a {
     font-size  : inherit;
     line-height: inherit;
     font-family: "Calibri-Bold";
-    font-size  : .32rem;
+    font-size  : .28rem;
     font-weight: bold;
   }
 
@@ -2072,6 +1622,7 @@
   /* footer的样式 */
   .#{$footerClassName} {
     @include footer($footerMbHeight, $footerBackgroundValue);
+    z-index: 1;
 
     @at-root #{&}__logo {
       margin    : 0.06rem auto 0;
@@ -2080,7 +1631,7 @@
       margin-top: .18rem;
       width     : $width;
       height    : $height;
-      $url      : url("./images/pc/footer-logo.png");
+      $url      : url("./images/mb/footer-logo.png");
       @include backgroundImage($url, center, $width $height, no-repeat);
     }
   }
@@ -2115,7 +1666,7 @@
       left            : 50%;
       transform       : translate(-53%, -50%);
       // border-radius: 20px;
-      $url            : url("./images/mb/box.png");
+      $url            : url("./images/mb/box1.png");
       @include backgroundImage($url, center, $width $height, no-repeat);
       // box-shadow           : 0px 14px 0 0px #59a8bf;
       // border-bottom        : 10px solid #59a8bf;
@@ -2136,28 +1687,32 @@
     }
 
     .rewardContainer {
-      margin-top   : .2rem;
-      width        : 5.8rem;
-      height       : 4rem;
-      border-radius: .5rem;
-      overflow     : auto;
-      padding      : 0.2rem 0.1rem 0;
+      box-sizing: border-box;
+      width     : 5.64rem;
+      height    : 3.85rem;
+      overflow-y: auto;
+      margin    : 0.48rem 0.3rem 0.3rem 0.2rem;
+    }
+
+    .table-content {
+      box-sizing: border-box;
+      width     : 100%;
+      height    : 100%;
     }
 
     .grid {
-      height: 100%;
-    }
-
-    table {
-      overflow       : auto;
-      border-collapse: collapse;
+      box-sizing         : border-box;
+      width              : 5.62rem;
+      height             : 100%;
+      border-collapse    : collapse;
+      // background-color: rgba(255, 255, 255, 0.5);
     }
 
     th,
     td {
       vertical-align: middle;
       text-align    : center;
-      line-height   : 2em;
+      line-height   : 1.98em;
       color         : #fff;
       font-size     : .24rem;
       border        : 1px solid #fff;
@@ -2191,4 +1746,33 @@
   }
 
   /* 提示框的样式结束 */
+}
+
+/*下雪的动画 */
+@keyframes flow {
+  100% {
+    background-position-y: 100%;
+    background-position-x: 7.5rem;
+  }
+}
+
+@-webkit-keyframes flow {
+  100% {
+    background-position-y: 100%;
+    background-position-x: 7.5rem;
+  }
+}
+
+@-o-keyframes flow {
+  100% {
+    background-position-y: 100%;
+    background-position-x: 7.5rem;
+  }
+}
+
+@-o-keyframes flow {
+  100% {
+    background-position-y: 100%;
+    background-position-x: 7.5rem;
+  }
 }

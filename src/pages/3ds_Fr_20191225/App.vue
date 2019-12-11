@@ -33,35 +33,33 @@
 						:class="['act1__gifts__gift']"
 						:key="'act1__gifts__gift--'+index"
 					>
-						<div :class="['act1__gifts__gift--title','act1__gifts__gift--title'+(index+1)]">{{item}}</div>
 						<div :class="['act1__gifts__gift--'+(index+1)]"></div>
 					</li>
 				</ul>
 			</Join>
-			<DiamondWheel
+			<Lottery
 				id="act2"
 				:className="'act2'"
 				@showLogin="visibleLogin"
 				:isGetHistory="isGetHistory"
-			></DiamondWheel>
-			<Lottery id="act3" :className="'act3'" @showLogin="visibleLogin" :isGetHistory="isGetHistory"></Lottery>
+				:days="3"
+				:activeTime="'2019-12-9'"
+			></Lottery>
+			<Wheel id="act3" :className="'act3'" @showLogin="visibleLogin" :isGetHistory="isGetHistory"></Wheel>
 		</div>
 		<footer class="footer">
 			<section class="fans-info">
-				<p class="red fans-info1">Nhắc nhở:</p>
-				<p class="fans-info2">Nếu có thắc mắc, vui lòng liên hệ fanpage để được hỗ trợ</p>
+				<p class="red fans-info1">Rappel:</p>
+				<p
+					class="fans-info2"
+				>Si vous avez des questions, veuillez nous contacter via la fanpage pour obtenir de l'aide</p>
 				<p class="fans-info2">
-					Link fanpage:
+					Lien Fanpage:
 					<a
-						class="fans__a-pc red"
-						href="https://www.facebook.com/pokedaichien/"
+						class="fans__a red"
+						href="//www.facebook.com/TrainerBattle/"
 						target="_blank"
-					>https://www.facebook.com/pokedaichien/</a>
-					<a
-						class="fans__a-mb red"
-						href="https://www.facebook.com/pokedaichien/"
-						target="_blank"
-					>https://www.face-book.com/pokedaichien/</a>
+					>https://www.facebook.com/TrainerBattle/</a>
 				</p>
 			</section>
 			<div class="footer__logo"></div>
@@ -76,7 +74,7 @@
 	import RgButton from "@/components/base/RgButton.vue";
 	import Join from "@/components/activitys/Join/Join1.vue";
 	import WeekPay from "@/components/activitys/Join/WeekPay.vue";
-	import DiamondWheel from "@/components/activitys/wheel/DiamondWheel.vue";
+	import Wheel from "@/components/activitys/wheel/Wheel-Fr.vue";
 	import Lottery from "@/components/activitys/Lottery/Lottery.vue";
 	import DownloadBox from "@/components/navBox/DownloadBox1.vue";
 
@@ -87,12 +85,12 @@
 			Join,
 			WeekPay,
 			Login,
-			DiamondWheel,
+			Wheel,
 			Lottery
 		},
 		data() {
 			this._downloadBoxOption1 = {
-				distance: "-2.2rem",
+				distance: "-3rem",
 				duration: 800,
 				direction: "right",
 				isShowTop: true,
@@ -101,16 +99,21 @@
 					{ txt: "", id: "android", href: "" }
 				],
 				activeBtns: [
-					{ txt: "EVENT1", id: "act1" },
-					{ txt: "EVENT2", id: "act2" },
-					{ txt: "EVENT3", id: "act3" }
+					{ txt: "Événement 1", id: "act1" },
+					{ txt: "Événement 2", id: "act2" },
+					{ txt: "Événement 3", id: "act3" }
 				]
 			};
 			return {
 				loginIsVisible: false,
 				userZone: "",
 				userRolle: "",
-				act3GiftsCounts: [0, 0, 0, 0, 0, 0, 0, 0],
+				act2GiftJoined: {
+					gift1: false,
+					gift2: false,
+					gift3: false,
+					gift4: false
+				},
 				act1Infos: [
 					{
 						isShow: true,
@@ -151,17 +154,21 @@
 					this.userZone = localStorage.getItem("zoneName") as string;
 					// 打登录点
 					// this.$pixel.pixel("login1");
-					// 获取礼包记录
+					const config = this._RG.config;
 					await getAllHistory().then((val: any) => {
 						this.isGetHistory = true;
 						if (val) {
 							val.forEach((item: any) => {
-								const index1 = this._RG.config.data.rewardId.everyLogin.indexOf(
+								const index1 = config.data.rewardId.everyLogin.indexOf(
 									item.rewardId
 								);
+								// 判断是否已经领取
+								if (config.data.rewardId.numLottery1[0] === item.rewardId) {
+									// 跟据时间判断应该改变哪一个按钮的状态,根据第二个发放的奖励的Id来确定
+								}
 								if (
 									new Date().getDate() === new Date(item.getDate).getDate() ||
-									item.rewardId === "5de62339b5cb671f40c7d43c"
+									item.rewardId === config.data.rewardId.everyLogin[3]
 								) {
 									index1 !== -1 && (this.act1Infos[index1].isDisabled = true);
 								}
@@ -170,22 +177,6 @@
 					});
 				}
 			},
-			// 查看礼包
-			async searchRewardBtn() {
-				if (isLogin()) {
-					let data: any = await getAllHistory();
-					if (data) {
-						if (!data.length) {
-							this.$dialog.show("tip", window._RG.config.tip.giftArr_null);
-							return;
-						}
-						this.$dialog.show("cdKeys", data);
-					}
-				} else {
-					this.loginIsVisible = true;
-				}
-			},
-
 			//是否显示登录框
 			visibleLogin(val: boolean) {
 				this.loginIsVisible = val;

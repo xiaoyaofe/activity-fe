@@ -44,7 +44,7 @@
 				@showLogin="visibleLogin"
 				:isGetHistory="isGetHistory"
 			></DiamondWheel>
-			<Lottery id="act3" :className="'act3'" @showLogin="visibleLogin" :isGetHistory="isGetHistory"></Lottery>
+			<Lottery id="act3" :className="'act3'" @showLogin="visibleLogin" :isGetHistory="isGetHistory" :activeTime="'2019-12-9'"></Lottery>
 		</div>
 		<footer class="footer">
 			<section class="fans-info">
@@ -110,7 +110,12 @@
 				loginIsVisible: false,
 				userZone: "",
 				userRolle: "",
-				act3GiftsCounts: [0, 0, 0, 0, 0, 0, 0, 0],
+				act3GiftJoined: {
+					gift1: false,
+					gift2: false,
+					gift3: false,
+					gift4: false
+				},
 				act1Infos: [
 					{
 						isShow: true,
@@ -152,16 +157,17 @@
 					// 打登录点
 					// this.$pixel.pixel("login1");
 					// 获取礼包记录
+					const config = this._RG.config;
 					await getAllHistory().then((val: any) => {
 						this.isGetHistory = true;
 						if (val) {
 							val.forEach((item: any) => {
-								const index1 = this._RG.config.data.rewardId.everyLogin.indexOf(
+								const index1 = config.data.rewardId.everyLogin.indexOf(
 									item.rewardId
 								);
 								if (
 									new Date().getDate() === new Date(item.getDate).getDate() ||
-									item.rewardId === "5de62339b5cb671f40c7d43c"
+									item.rewardId === config.data.rewardId.everyLogin[3]
 								) {
 									index1 !== -1 && (this.act1Infos[index1].isDisabled = true);
 								}

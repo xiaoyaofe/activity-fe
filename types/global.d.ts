@@ -212,22 +212,32 @@ interface Tip {
   sprite200: string;
   // 每日登录条件不足 领取失败，您今日还未登录游戏
   everyLogin1000Or1001: string;
+  everyLogin200: string;
   // 很遗憾，您的VIP等级不足1级，无法领奖
   vipReturn1000Or1001: string;
+  vipReturn200: string;
   // 连续登陆天数不足
   sevenLogin1000Or1001: string;
+  sevenLogin200: string;
   // 精灵球数量不足
   sprite404: string;
   // 奖池钻石获得的提示
   diamond200: string;
-  // 抽奖次数不足，请充值
   rotate1000: string;
+  rotate200: string;
   // 今日还未获得抽奖券，请充值
   numLottery1000: string;
   // 参与成功，礼包已发送到游戏内邮箱。恭喜您获得抽奖券，编号{0}
   numLottery200: string;
   // 还未开始抽奖,请耐心等待"
-  lotteryInfo_null:string;
+  lotteryInfo_null: string;
+  userName: string;
+  userNamePlaceholder: string;
+  userPass: string;
+  userPassPlaceholder: string;
+  selectZone: string;
+  loginOut: string;
+  rotate_1001: string;
 }
 
 interface Res {

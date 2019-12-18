@@ -65,7 +65,9 @@
 					let data: any = await joinActivity(
 						this.$props.actInfos[index].actName,
 						this.$props.actInfos[index].giftIndex
-					).catch(err => console.log(err));
+					).catch(err => {
+						this.$dialog.show("tip", window._RG.config.tip.code_1000);
+					});
 					if (data) {
 						this.isDisabledArr.splice(index, 1, true);
 						this.$dialog.show(

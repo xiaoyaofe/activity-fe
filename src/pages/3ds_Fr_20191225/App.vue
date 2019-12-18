@@ -43,7 +43,7 @@
 				@showLogin="visibleLogin"
 				:isGetHistory="isGetHistory"
 				:days="3"
-				:activeTime="'2019-12-9'"
+				:activeTime="'2019-12-18'"
 			></Lottery>
 			<Wheel id="act3" :className="'act3'" @showLogin="visibleLogin" :isGetHistory="isGetHistory"></Wheel>
 		</div>
@@ -73,7 +73,6 @@
 	import Login from "@/components/login/Login.vue";
 	import RgButton from "@/components/base/RgButton.vue";
 	import Join from "@/components/activitys/Join/Join1.vue";
-	import WeekPay from "@/components/activitys/Join/WeekPay.vue";
 	import Wheel from "@/components/activitys/wheel/Wheel-Fr.vue";
 	import Lottery from "@/components/activitys/Lottery/Lottery.vue";
 	import DownloadBox from "@/components/navBox/DownloadBox1.vue";
@@ -83,7 +82,6 @@
 			RgButton,
 			DownloadBox,
 			Join,
-			WeekPay,
 			Login,
 			Wheel,
 			Lottery

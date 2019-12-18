@@ -5,21 +5,25 @@
 /* $pcWidth  :19.2rem */
 $mainPcWidth :$pcWidth;
 $minPcWidth  : $minWidth;
-$mainPcHeight:37.04rem;
+$mainPcHeight:46.4rem;
 /* $mbWidth  : 7.5rem */
 $mainMbWidth :$mbWidth;
-$mainMbHeight:37.7rem;
+$mainMbHeight:61rem;
 
 $userInfoColor:#1560a5;
 
 /* footer 的配置 */
 /* 使用为1,不使用为0 */
 $footerClassName: "footer";
-$footerPcHeight : 1rem;
-$footerMbHeight : 1rem;
+$footerPcHeight : 1.2rem;
+$footerMbHeight : 1.38rem;
 /* 不需要是none */
-$footerBackgroundValue: linear-gradient(0deg, #ffffff 87%, #eeeeee 100%),
-linear-gradient(#ffffff, #ffffff);
+$footerBackgroundValue: linear-gradient(0deg,
+  rgba(54, 59, 74, 0.06) 1%,
+  rgba(155, 157, 165, 0.06) 40%,
+  rgba(255, 255, 255, 0.06) 100%),
+linear-gradient(#ffffff,
+  #ffffff);
 
 /* 查看布局 ,使用完毕注释*/
 // @include outline();

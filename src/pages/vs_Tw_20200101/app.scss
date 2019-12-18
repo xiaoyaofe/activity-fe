@@ -1,0 +1,977 @@
+/*------------------------------------*\
+  #pc,其他的配置的参数
+\*------------------------------------*/
+@import "./variables.scss";
+
+/*------------------------------------*\
+  #pc,移动可以通用的样式
+\*------------------------------------*/
+
+/*------------------------------------*\
+  #PC端样式
+\*------------------------------------*/
+
+@include mq($pc) {
+  .close {
+    $width              : 0.45rem;
+    $height             : 0.45rem;
+    width               : $width;
+    height              : $height;
+    // margin-top       : 0.16rem;
+    $background-image   : url("../../pages/vs_Tw_20200101/images/pc/close.png");
+    $background-size    : $width $height;
+    $background-repeat  : no-repeat;
+    $background-position: center;
+    background          : #{$background-image} #{$background-position}/#{$background-size} #{$background-repeat};
+    position            : relative;
+    // border-radius    : 50%;
+    position            : absolute;
+    top                 : 0.06rem;
+    right               : -0.7rem;
+    cursor              : pointer;
+  }
+
+  .app {
+    $width : $mainPcWidth;
+    $height: $mainPcHeight;
+    $url   : url("./images/pc/bg.jpg");
+    @include minWidthAndHeight($width, $height, $minPcWidth);
+    @include backgroundImage($url, top center, $width $height, no-repeat);
+    overflow: hidden;
+  }
+
+  .container {
+    box-sizing    : border-box;
+    height        : $mainPcHeight;
+    padding-bottom: $footerPcHeight;
+    overflow      : hidden;
+  }
+
+  .logo {
+    display: none;
+  }
+
+  /* Header  */
+
+  .header {
+    box-sizing: border-box;
+    overflow  : hidden;
+    position  : relative;
+    height    : 10.97rem;
+
+    @at-root #{&}__title-and-time {
+      $width     : 6.22rem;
+      $height    : 3.85rem;
+      width      : $width;
+      height     : $height;
+      margin-left: 10.46rem;
+      margin-top : 1.48rem;
+      $url       : url("./images/pc/title.png");
+      @include backgroundImage($url, center, $width $height, no-repeat);
+    }
+
+    @at-root #{&}__btns-wraper {
+      margin-top: -.83rem;
+
+      @at-root #{&}__login-btn {
+        $width     : 2.33rem;
+        $height    : 1.43rem;
+        width      : $width;
+        height     : $height;
+        margin-left: 13.06rem;
+        $url       : url("./images/pc/login.png");
+        @include backgroundImage($url, center, $width $height, no-repeat);
+      }
+    }
+
+    @at-root #{&}__user-info {
+      position   : relative;
+      margin-top : 5.8rem;
+      margin-left: 6rem;
+      width      : auto;
+      height     : .7rem;
+      font-family: "FZPHFW--GB1-0";
+      font-size  : .24rem;
+      line-height: .7rem;
+      color      : $userInfoColor;
+      text-align : left;
+
+      @at-root #{&}__txt,
+      #{&}__drop-btn {
+        margin-left: .1rem;
+        color      : red;
+      }
+
+      @at-root #{&}__txt {
+        color      : #000;
+        font-size  : .26rem;
+        line-height: .32rem;
+        min-width  : 300px;
+        display    : inline-block;
+      }
+
+      @at-root #{&}__txt:nth-child(1) {
+        min-width: 150px;
+      }
+    }
+  }
+
+  /* End Header  */
+
+  /* download-box */
+  /* 下载的右侧悬浮窗 */
+
+  .download-box {
+    $downloadWidth : 2.89rem;
+    $downloadHeight: 7.26rem;
+    @include fixedRightBox($downloadWidth, $downloadHeight, 1.5rem, 0);
+    $url: url("./images/pc/nav-bg.png");
+    @include backgroundImage($url, center, $downloadWidth $downloadHeight, no-repeat);
+
+    @at-root #{&}__control-btn {
+      display: none;
+    }
+
+    @at-root #{&}__content {
+      $width     : 100%;
+      $height    : 100%;
+      width      : $width;
+      height     : $height;
+      font-size  : .24rem;
+      line-height: .26rem;
+      color      : #fdcb1f;
+      font-family: MicrosoftYaHei, Arial, Helvetica, sans-serif;
+      overflow   : hidden;
+
+      @at-root #{&}__btn {
+        display            : inline-block;
+        background-repeat  : no-repeat;
+        background-position: center;
+        margin-left        : .5rem;
+        height             : .45rem;
+        line-height        : .45rem;
+        cursor             : pointer;
+
+        @at-root #{&}--act1 {
+          margin-top: 1.8rem;
+        }
+
+        @at-root #{&}--active {
+          text-shadow: 2px 4px 6px 0px rgba(20, 64, 191, 0.59);
+          color      : #ffffff;
+          font-weight: bold;
+        }
+
+        $downLoadBtnWidth : 1.93rem;
+        $downLoadBtnHeight: .63rem;
+
+        @at-root #{&}--android,
+        #{&}--ios,
+        #{&}--fans {
+          width      : $downLoadBtnWidth;
+          height     : $downLoadBtnHeight;
+          margin-left: .54rem;
+          margin-top : .08rem;
+        }
+
+        @at-root #{&}--fans {
+          margin-top: .2rem;
+          $width    : $downLoadBtnWidth;
+          $height   : $downLoadBtnHeight;
+          $url      : url("./images/pc/fb.png");
+          @include backgroundImage($url, center, $width $height, no-repeat);
+        }
+
+        @at-root #{&}--android {
+          $width : $downLoadBtnWidth;
+          $height: $downLoadBtnHeight;
+          $url   : url("./images/pc/google.png");
+          @include backgroundImage($url, center, $width $height, no-repeat);
+        }
+
+        @at-root #{&}--ios {
+          $width : $downLoadBtnWidth;
+          $height: $downLoadBtnHeight;
+          $url   : url("./images/pc/ios.png");
+          @include backgroundImage($url, center, $width $height, no-repeat);
+        }
+      }
+    }
+
+    @at-root #{&}__scroll-top-btn {
+      position  : absolute;
+      bottom    : .4rem;
+      left      : 1.22rem;
+      $width    : .46rem;
+      $height   : .31rem;
+      width     : $width;
+      height    : $height;
+      background: url("./images/pc/top.png") center/ $width $height no-repeat;
+      cursor    : pointer;
+    }
+  }
+
+  /* End download-box */
+
+  /* 活动开始 */
+
+  .act1 {
+    width      : 11.37rem;
+    height     : 4.34rem;
+    margin-left: 3.89rem;
+
+    @at-root #{&}__title {
+      $width     : 7.01rem;
+      $height    : 1.21rem;
+      width      : $width;
+      height     : $height;
+      margin-left: 2.22rem;
+      $url       : url("./images/pc/act1-title.png");
+      @include backgroundImage($url, center, $width $height, no-repeat);
+    }
+
+    @at-root #{&}__desc {
+      display: none;
+    }
+
+    @at-root #{&}__content {
+      overflow  : hidden;
+      margin-top: .34rem;
+      width     : 100%;
+      height    : 1.95rem;
+      $url      : url("./images/pc/act1-bg.png");
+      @include backgroundImage($url, left center, 8.14rem 1.95rem, no-repeat);
+    }
+
+    $act1BtnWidth :3rem;
+    $act1BtnHeight:.73rem;
+
+    @at-root #{&}__join-btn {
+      display    : block;
+      width      : $act1BtnWidth;
+      height     : $act1BtnHeight;
+      margin-top : .67rem;
+      margin-left: 8.3rem;
+
+      @at-root #{&}--end {
+        $url: url("./images/pc/act1-joined.png");
+        @include backgroundImage($url, center, $act1BtnWidth $act1BtnHeight, no-repeat);
+      }
+
+      @at-root #{&}--start {
+        $url: url("./images/pc/act1-join.png");
+        @include backgroundImage($url, center, $act1BtnWidth $act1BtnHeight, no-repeat);
+      }
+    }
+  }
+
+  .act2 {
+    width      : 12.77rem;
+    height     : 5.94rem;
+    margin-left: 3.22rem;
+
+    @at-root #{&}__title {
+      $width     : 8.04rem;
+      $height    : 1.19rem;
+      width      : $width;
+      height     : $height;
+      margin-left: 2.29rem;
+      $url       : url("./images/pc/act2-title.png");
+      @include backgroundImage($url, center, $width $height, no-repeat);
+    }
+
+    @at-root #{&}__desc {
+      display: none;
+    }
+
+    @at-root #{&}__content {
+      margin-top: .1rem;
+      width     : 100%;
+      height    : 3.94rem;
+      $url      : url("./images/pc/act2-bg.png");
+      @include backgroundImage($url, left center, 12.77rem 3.94rem, no-repeat);
+    }
+  }
+
+  .act3 {
+    width      : 12rem;
+    height     : 3.77rem;
+    margin-left: 3.6rem;
+
+    @at-root #{&}__title {
+      $width     : 8.9rem;
+      $height    : .99rem;
+      width      : $width;
+      height     : $height;
+      margin-left: 1.49rem;
+      $url       : url("./images/pc/act3-title.png");
+      @include backgroundImage($url, center, $width $height, no-repeat);
+    }
+
+    @at-root #{&}__desc {
+      display: none;
+    }
+
+    @at-root #{&}__content {
+      margin-top: .5rem;
+      width     : 100%;
+      height    : 1.87rem;
+      $url      : url("./images/pc/act3-bg.png");
+      @include backgroundImage($url, left center, 12.14rem 1.87rem, no-repeat);
+    }
+  }
+
+  .act4 {
+    width      : 14.33rem;
+    height     : 10.11rem;
+    margin-left: 2.46rem;
+
+    @at-root #{&}__title {
+      $width     : 5.33rem;
+      $height    : .99rem;
+      width      : $width;
+      height     : $height;
+      margin-left: 4.44rem;
+      $url       : url("./images/pc/act4-title.png");
+      @include backgroundImage($url, center, $width $height, no-repeat);
+    }
+
+    @at-root #{&}__desc {
+      display: none;
+    }
+
+    @at-root #{&}__content {
+      margin-top: -.5rem;
+      width     : 100%;
+      height    : 8.21rem;
+      $url      : url("./images/pc/act4-bg.png");
+      @include backgroundImage($url, center, 14.33rem 8.21rem, no-repeat);
+    }
+  }
+
+  /*活动五  转盘 */
+  .act5 {
+    width      : 9.46rem;
+    height     : 10.36rem;
+    margin-left: 4.81rem;
+
+    @at-root #{&}__title {
+      $width : 9.46rem;
+      $height: 1.24rem;
+      width  : $width;
+      height : $height;
+      $url   : url("./images/pc/act5-title.png");
+      @include backgroundImage($url, center, $width $height, no-repeat);
+    }
+
+    @at-root #{&}__desc {
+      display: none;
+    }
+
+    @at-root #{&}__content {
+      position: relative;
+      width   : 100%;
+      height  : 10rem;
+      overflow: hidden;
+    }
+
+    @at-root #{&}__pannel {
+      position  : relative;
+      width     : 100%;
+      margin-top: .28rem;
+      overflow  : hidden;
+
+      @at-root #{&}__bg {
+        position   : relative;
+        z-index    : 1;
+        $width     : 7.43rem;
+        $height    : 7.42rem;
+        width      : $width;
+        height     : $height;
+        margin-left: 1.08rem;
+        $url       : url("./images/pc/act5-bg.png");
+        @include backgroundImage($url, center top, $width $height, no-repeat);
+      }
+
+      @at-root #{&}__start-btn {
+        position: absolute;
+        top     : 2rem;
+        left    : 3.53rem;
+        z-index : 2;
+        $width  : 2.52rem;
+        $height : 2.97rem;
+        width   : $width;
+        height  : $height;
+        $url    : url("./images/pc/start.png");
+        @include backgroundImage($url, center, $width $height, no-repeat);
+      }
+    }
+
+    $iconWidth :1.61rem;
+    $iconHeight: 1.8rem;
+
+    @at-root #{&}__left-icon,
+    #{&}__right-icon {
+      position: absolute;
+      top     : 5.61rem;
+      width   : $iconWidth;
+      height  : $iconHeight;
+      z-index : 2;
+    }
+
+    @at-root #{&}__left-icon {
+      left: .5rem;
+      $url: url("./images/pc/left.png");
+      @include backgroundImage($url, center, $iconWidth $iconHeight, no-repeat);
+    }
+
+    @at-root #{&}__right-icon {
+      left: 7.4rem;
+      $url: url("./images/pc/right.png");
+      @include backgroundImage($url, center, $iconWidth $iconHeight, no-repeat);
+    }
+
+    @at-root #{&}__day-count {
+      margin-top : .35rem;
+      margin-left: .5rem;
+      font-size  : .3rem;
+      line-height: 1.2em;
+      text-align : center;
+      font-family: MicrosoftYaHei;
+      color      : #ecdaaa;
+
+      @at-root #{&}__txt {
+        color: #ff1010;
+      }
+    }
+  }
+
+  /* 活动结束 */
+
+  /* footer的样式 */
+  .#{$footerClassName} {
+    @include footer($footerPcHeight, $footerBackgroundValue);
+    box-shadow: 0px -5px 32px 0px rgba(24, 25, 104, 0.32);
+
+    @at-root #{&}__logo {
+      $width : 2.46rem;
+      $height: .77rem;
+      width  : $width;
+      height : $height;
+      $url   : url("./images/pc/bottomLogo.png");
+      @include backgroundImage($url, center, $width $height, no-repeat);
+    }
+  }
+
+  /* footer的样式结束 */
+
+  /* 滚动条样式 */
+
+  @include scrollbar(8px, 8px, 8px, rgb(125, 125, 125), rgb(11, 205, 240));
+
+  /* 滚动条样式结束 */
+  /* 提示框的样式 */
+  .DialogTip {
+    width     : 100%;
+    height    : 100%;
+    position  : fixed;
+    top       : 0;
+    left      : 0;
+    z-index   : 99;
+    background: rgba(17, 31, 50, 0.5);
+
+    .tipBox,
+    .cdkBox,
+    .rewardBox {
+      $width   : 11.52rem;
+      $height  : 2.65rem;
+      width    : $width;
+      height   : $height;
+      position : fixed;
+      top      : 50%;
+      left     : 50%;
+      transform: translate(-50%, -50%);
+      $url     : url("./images/pc/box.png");
+      @include backgroundImage($url, center, $width $height, no-repeat);
+      // box-shadow           : 0px 14px 0 0px #59a8bf;
+      // border-bottom        : 10px solid #59a8bf;
+
+      .tipTxt {
+        width      : 80%;
+        position   : absolute;
+        top        : 50%;
+        left       : 50%;
+        transform  : translate(-50%, -50%);
+        text-align : center;
+        padding    : 0 .3rem;
+        font-family: DokChampa;
+        font-size  : .32rem;
+        color      : #210305;
+        line-height: .3rem
+      }
+    }
+
+    /* 提示框的样式结束 */
+
+  }
+
+}
+
+/*------------------------------------*\
+  #移动端样式
+\*------------------------------------*/
+
+@include mq($mobile) {
+  .close {
+    $width              : 0.45rem;
+    $height             : 0.45rem;
+    width               : $width;
+    height              : $height;
+    // margin-top       : 0.16rem;
+    $background-image   : url("../../pages/vs_Tw_20200101/images/pc/close.png");
+    $background-size    : $width $height;
+    $background-repeat  : no-repeat;
+    $background-position: center;
+    background          : #{$background-image} #{$background-position}/#{$background-size} #{$background-repeat};
+    position            : relative;
+    // border-radius    : 50%;
+    position            : absolute;
+    top                 : 0.06rem;
+    right               : -0.56rem;
+    cursor              : pointer;
+  }
+
+  .app {
+    $width : $mainMbWidth;
+    $height: $mainMbHeight;
+    $url   : url("./images/mb/bg.jpg");
+    @include backgroundImage($url, top center, $width $height, no-repeat);
+    overflow: hidden;
+  }
+
+  .container {
+    position      : relative;
+    box-sizing    : border-box;
+    height        : $mainMbHeight;
+    padding-bottom: $footerMbHeight;
+  }
+
+  .logo {
+    position: absolute;
+    top     : 0.08rem;
+    left    : .14rem;
+    $width  : 2.52rem;
+    $height : 1.07rem;
+    width   : $width;
+    height  : $height;
+    $url    : url("./images/mb/top-logo.png");
+    @include backgroundImage($url, center, $width $height, no-repeat);
+  }
+
+  /* Header  */
+
+  .header {
+    box-sizing: border-box;
+    overflow  : hidden;
+    width     : 100%;
+    height    : 11.45rem;
+
+    @at-root #{&}__title-and-time {
+      $width     : 6.22rem;
+      $height    : 3.85rem;
+      width      : $width;
+      height     : $height;
+      margin-top : .92rem;
+      margin-left: .81rem;
+      $url       : url("./images/mb/title.png");
+      @include backgroundImage($url, center, $width $height, no-repeat);
+    }
+
+    @at-root #{&}__btns-wraper {
+      margin-top: -.32rem;
+
+      @at-root #{&}__login-btn {
+        $width     : 2.33rem;
+        $height    : 1.43rem;
+        width      : $width;
+        height     : $height;
+        margin-left: 3.13rem;
+        margin-top : -.5rem;
+        $url       : url("./images/pc/login.png");
+        @include backgroundImage($url, center, $width $height, no-repeat);
+      }
+    }
+
+    @at-root #{&}__user-info {
+      position   : relative;
+      margin-top : .1rem;
+      margin-left: 1.5rem;
+      width      : auto;
+      height     : .7rem;
+      font-family: "FZPHFW--GB1-0";
+      font-size  : .24rem;
+      line-height: .5rem;
+      color      : $userInfoColor;
+      text-align : left;
+
+      @at-root #{&}__txt,
+      #{&}__drop-btn {
+        margin-left: .3rem;
+        color      : inherit;
+      }
+
+      @at-root #{&}__txt {
+        color      : #000;
+        font-size  : .24rem;
+        line-height: .3rem;
+        min-width  : 2rem;
+        display    : inline-block;
+      }
+
+      @at-root #{&}__txt:nth-child(1) {
+        min-width: 1.5rem;
+      }
+    }
+  }
+
+  .download-box {
+    display: none;
+  }
+
+  /* download-box */
+  /* 下载的右侧悬浮窗 */
+
+  // .download-box {
+  //   @include fixedRightBox($mainMbWidth, .81rem, 0, 0);
+
+  //   @at-root #{&}__control-btn {
+  //     display: none;
+  //   }
+
+  //   @at-root #{&}__content {
+  //     $width : $mainMbWidth;
+  //     $height: .81rem;
+  //     width  : $width;
+  //     height : $height;
+  //     $url   : url("./images/mb/nav-bg.png");
+  //     @include backgroundImage($url, center, $width $height, no-repeat);
+
+  //     @at-root #{&}__btn {
+  //       display            : inline-block;
+  //       $width             : 1.98rem;
+  //       $height            : .57rem;
+  //       width              : $width;
+  //       height             : $height;
+  //       margin-left        : .41rem;
+  //       margin-top         : .15rem;
+  //       background-size    : $width $height;
+  //       background-repeat  : no-repeat;
+  //       background-position: center;
+
+  //       @at-root #{&}--ios {
+  //         margin-top      : .37rem;
+  //         background-image: url("./images/pc/ios.png");
+  //       }
+
+  //       @at-root #{&}--google {
+  //         background-image: url("./images/pc/google.png");
+  //       }
+
+  //       @at-root #{&}--facebook {
+  //         background-image: url("./images/pc/fans.png");
+  //       }
+  //     }
+  //   }
+  // }
+
+  /* End download-box */
+
+  /* 活动开始 */
+  .act1 {
+    width : 100%;
+    height: 9.06rem;
+
+    @at-root #{&}__title {
+      $width     : 6.36rem;
+      $height    : 2.16rem;
+      width      : $width;
+      height     : $height;
+      margin-left: .57rem;
+      $url       : url("./images/mb/act1-title.png");
+      @include backgroundImage($url, center, $width $height, no-repeat);
+    }
+
+    @at-root #{&}__desc {
+      display: none;
+    }
+
+    @at-root #{&}__content {
+      overflow  : hidden;
+      margin-top: .4rem;
+      width     : 100%;
+      height    : 5.8rem;
+      $url      : url("./images/mb/act1-bg.png");
+      @include backgroundImage($url, center top, 6.05rem 4.78rem, no-repeat);
+    }
+
+    $act1BtnWidth :3rem;
+    $act1BtnHeight:.73rem;
+
+    @at-root #{&}__join-btn {
+      display    : block;
+      width      : $act1BtnWidth;
+      height     : $act1BtnHeight;
+      margin-top : 5rem;
+      margin-left: 2.33rem;
+
+      @at-root #{&}--end {
+        $url: url("./images/mb/act1-joined.png");
+        @include backgroundImage($url, center, $act1BtnWidth $act1BtnHeight, no-repeat);
+      }
+
+      @at-root #{&}--start {
+        $url: url("./images/mb/act1-join.png");
+        @include backgroundImage($url, center, $act1BtnWidth $act1BtnHeight, no-repeat);
+      }
+    }
+  }
+
+  .act2 {
+    width : 100%;
+    height: 6.2rem;
+
+    @at-root #{&}__title {
+      $width     : 6.26rem;
+      $height    : 1.49rem;
+      width      : $width;
+      height     : $height;
+      margin-left: .62rem;
+      $url       : url("./images/mb/act2-title.png");
+      @include backgroundImage($url, center, $width $height, no-repeat);
+    }
+
+    @at-root #{&}__desc {
+      display: none;
+    }
+
+    @at-root #{&}__content {
+      margin-top: .65rem;
+      width     : 100%;
+      height    : 2.56rem;
+      $url      : url("./images/mb/act2-bg.png");
+      @include backgroundImage($url, center top, 7.15rem 2.56rem, no-repeat);
+    }
+  }
+
+  .act3 {
+    width : 100%;
+    height: 3.94rem;
+
+    @at-root #{&}__title {
+      $width     : 6.79rem;
+      $height    : 1.45rem;
+      width      : $width;
+      height     : $height;
+      margin-left: .4rem;
+      $url       : url("./images/mb/act3-title.png");
+      @include backgroundImage($url, center, $width $height, no-repeat);
+    }
+
+    @at-root #{&}__desc {
+      display: none;
+    }
+
+    @at-root #{&}__content {
+      margin-top: .28rem;
+      width     : 100%;
+      height    : 1.87rem;
+      $url      : url("./images/mb/act3-bg.png");
+      @include backgroundImage($url, center top, 6.9rem 1.87rem, no-repeat);
+    }
+  }
+
+  .act4 {
+    width : 100%;
+    height: 17.64rem;
+
+    @at-root #{&}__title {
+      $width     : 6.24rem;
+      $height    : 1.45rem;
+      width      : $width;
+      height     : $height;
+      margin-left: .62rem;
+      $url       : url("./images/mb/act4-title.png");
+      @include backgroundImage($url, center, $width $height, no-repeat);
+    }
+
+    @at-root #{&}__desc {
+      display: none;
+    }
+
+    @at-root #{&}__content {
+      margin-top: .28rem;
+      width     : 100%;
+      height    : 15.19rem;
+      $url      : url("./images/mb/act4-bg.png");
+      @include backgroundImage($url, center top, 6.41rem 15.19rem, no-repeat);
+    }
+  }
+
+  /*活动五  转盘 */
+  .act5 {
+    width : 100%;
+    height: 11.33rem;
+
+    @at-root #{&}__title {
+      $width     : 6.39rem;
+      $height    : 2.08rem;
+      width      : $width;
+      height     : $height;
+      margin-left: .55rem;
+      $url       : url("./images/mb/act5-title.png");
+      @include backgroundImage($url, center, $width $height, no-repeat);
+    }
+
+    @at-root #{&}__desc {
+      display: none;
+    }
+
+    @at-root #{&}__content {
+      position  : relative;
+      width     : 100%;
+      height    : 8.92rem;
+      margin-top: .3rem;
+      overflow  : hidden;
+    }
+
+    @at-root #{&}__pannel {
+      position: relative;
+      width   : 100%;
+      overflow: hidden;
+
+      @at-root #{&}__bg {
+        position   : relative;
+        z-index    : 1;
+        $width     : 7.42rem;
+        $height    : 7.42rem;
+        width      : $width;
+        height     : $height;
+        margin-left: 0.05rem;
+        $url       : url("./images/mb/act5-bg.png");
+        @include backgroundImage($url, center top, $width $height, no-repeat);
+      }
+
+      @at-root #{&}__start-btn {
+        position: absolute;
+        top     : 2rem;
+        left    : 2.52rem;
+        z-index : 2;
+        $width  : 2.52rem;
+        $height : 2.96rem;
+        width   : $width;
+        height  : $height;
+        $url    : url("./images/mb/start.png");
+        @include backgroundImage($url, center, $width $height, no-repeat);
+      }
+    }
+
+    $iconWidth :1.61rem;
+    $iconHeight: 1.8rem;
+
+    @at-root #{&}__left-icon,
+    #{&}__right-icon {
+      position: absolute;
+      top     : 6.25rem;
+      width   : $iconWidth;
+      height  : $iconHeight;
+      z-index : 2;
+    }
+
+    @at-root #{&}__left-icon {
+      left: .44rem;
+      $url: url("./images/pc/left.png");
+      @include backgroundImage($url, center, $iconWidth $iconHeight, no-repeat);
+    }
+
+    @at-root #{&}__right-icon {
+      left: 5.58rem;
+      $url: url("./images/pc/right.png");
+      @include backgroundImage($url, center, $iconWidth $iconHeight, no-repeat);
+    }
+
+    @at-root #{&}__day-count {
+      margin-top : .35rem;
+      font-size  : .3rem;
+      line-height: 1.2em;
+      text-align : center;
+      font-family: MicrosoftYaHei;
+      color      : #ecdaaa;
+
+      @at-root #{&}__txt {
+        color: #ff1010;
+      }
+    }
+  }
+
+  /* 展示活动结束 */
+
+  /* footer的样式 */
+
+
+  .#{$footerClassName} {
+    @include footer($footerPcHeight, $footerBackgroundValue);
+
+    @at-root #{&}__logo {
+      $width : 2.46rem;
+      $height: .77rem;
+      width  : $width;
+      height : $height;
+      $url   : url("./images/pc/bottomLogo.png");
+      @include backgroundImage($url, center, $width $height, no-repeat);
+    }
+  }
+
+  .DialogTip {
+    width     : 100%;
+    height    : 100%;
+    position  : fixed;
+    top       : 0;
+    left      : 0;
+    z-index   : 99;
+    background: rgba(17, 31, 50, 0.5);
+
+    .tipBox,
+    .cdkBox,
+    .rewardBox {
+      $width   : 6.38rem;
+      $height  : 3.29rem;
+      width    : $width;
+      height   : $height;
+      position : fixed;
+      top      : 50%;
+      left     : 50%;
+      transform: translate(-51%, -50%);
+      $url     : url("./images/pc/box.png");
+      @include backgroundImage($url, center, $width $height, no-repeat);
+      // box-shadow           : 0px 14px 0 0px #59a8bf;
+      // border-bottom        : 10px solid #59a8bf;
+
+      .tipTxt {
+        width      : 80%;
+        position   : absolute;
+        top        : 50%;
+        left       : 50%;
+        transform  : translate(-50%, -50%);
+        text-align : center;
+        padding    : 0 .3rem;
+        font-family: DokChampa;
+        font-size  : .24rem;
+        color      : #210305;
+        line-height: .3rem
+      }
+    }
+
+    /* 提示框的样式结束 */
+
+  }
+}

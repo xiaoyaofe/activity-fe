@@ -7,16 +7,18 @@
 				<span :class="className+'__nums-txt'">{{nums}}</span>
 			</p>
 			<p :class="className + '__giftDiamond'">
-				Articles dans le lot de récompense:
+				Số lượng Xu ở bể quà hiện tại:
 				<span :class="className + '__diamondNum'">{{diamondNum}}</span>
 				<span :class="className+'__diamond'"></span>
 			</p>
 			<div :class="className + '__history-title'"></div>
 			<div :class="className +'__exchange-history'">
 				<p v-for="(item,index) in poolList" :key="index" :class="className+'__exchange-info'">
-					{{'Chúc mừng '}}
+					<!-- 恭喜某区服某某某获得xx大奖，内含xx钻石
+					Chúc mừng S547 - AttocRo nhận được Quà Lớn May Mắn*1 gồm Xu*360-->
+					Chúc mừng {{" S"+ item.thirdGameZoneId + '-'}}
 					<span style="color:#d43023;">{{item.playerName}}</span>
-					{{` nhận được ${item.rewardName}, nhận Xu*${item.count}`}}
+					{{` nhận được ${item.rewardName}, gồm Xu * ${item.count}`}}
 				</p>
 			</div>
 			<div :class="className +'__content-title'"></div>

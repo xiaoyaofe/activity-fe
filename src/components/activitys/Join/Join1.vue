@@ -62,17 +62,21 @@
 		methods: {
 			join: async function({ index }: { index: number }) {
 				if (isLogin()) {
+					const tip = window._RG.config.tip;
 					if (index === 1) {
 						let data: any = await commmonInfo(
 							this.$props.actInfos[index].actName,
 							this.$props.actInfos[index].giftIndex,
 							1
 						).catch(err => {
-							const tip = window._RG.config.tip;
 							if (this.$props.actInfos[index].giftIndex === 0) {
 								this.$dialog.show("tip", tip.everyLogin1000Or1001);
 							} else if (this.$props.actInfos[index].giftIndex === 1) {
-								this.$dialog.show("tip", tip.vipReturn1000Or1001);
+								if (err.state === "today not game login!") {
+									this.$dialog.show("tip", tip.everyLogin1000Or1001);
+								} else {
+									this.$dialog.show("tip", tip.vipReturn1000Or1001);
+								}
 							} else if (this.$props.actInfos[index].giftIndex === 2) {
 								this.$dialog.show("tip", tip.sevenLogin1000Or1001);
 							}
@@ -80,17 +84,19 @@
 						});
 						if (data) {
 							this.isDisabledArr.splice(index, 1, true);
-							this.$dialog.show(
-								"tip",
-								window._RG.config.tip.code_200.replace("xx", data.rewardName)
-							);
+							if (this.$props.actInfos[index].giftIndex === 0) {
+								this.$dialog.show("tip", tip.everyLogin200);
+							} else if (this.$props.actInfos[index].giftIndex === 1) {
+								this.$dialog.show("tip", tip.vipReturn200);
+							} else if (this.$props.actInfos[index].giftIndex === 2) {
+								this.$dialog.show("tip", tip.sevenLogin200);
+							}
 						}
 					} else {
 						let data: any = await joinActivity(
 							this.$props.actInfos[index].actName,
 							this.$props.actInfos[index].giftIndex
 						).catch(err => {
-							const tip = window._RG.config.tip;
 							if (this.$props.actInfos[index].giftIndex === 0) {
 								this.$dialog.show("tip", tip.everyLogin1000Or1001);
 							} else if (this.$props.actInfos[index].giftIndex === 1) {
@@ -102,10 +108,13 @@
 						});
 						if (data) {
 							this.isDisabledArr.splice(index, 1, true);
-							this.$dialog.show(
-								"tip",
-								window._RG.config.tip.code_200.replace("xx", data.rewardName)
-							);
+							if (this.$props.actInfos[index].giftIndex === 0) {
+								this.$dialog.show("tip", tip.everyLogin200);
+							} else if (this.$props.actInfos[index].giftIndex === 1) {
+								this.$dialog.show("tip", tip.vipReturn200);
+							} else if (this.$props.actInfos[index].giftIndex === 2) {
+								this.$dialog.show("tip", tip.sevenLogin200);
+							}
 						}
 					}
 				} else {

@@ -15,7 +15,7 @@
 							key="userAccount"
 							v-model="userName"
 							@keydown.enter="down(1)"
-							:placeholder="tip.userName"
+							:placeholder="tip.userNamePlaceholder"
 						/>
 					</div>
 					<div class="password-wrap">
@@ -27,7 +27,7 @@
 							key="userPassword"
 							v-model="userPassword"
 							@keydown.enter="sdkLogin($event)"
-							:placeholder="tip.userPass"
+							:placeholder="tip.userPassPlaceholder"
 						/>
 					</div>
 
@@ -35,6 +35,7 @@
 
 					<button class="fb_btn" @click="facebook"></button>
 					<!-- <button class="kakaoBtn" @click="KakaoBtn"></button> -->
+					<p class="tip-visitor" v-show="isType">{{tip.visitor_null || ''}}</p>
 				</div>
 				<!-- 区服 -->
 				<div class="serverBox" v-if="!isType" style="position: relative;">
@@ -257,7 +258,8 @@
 
 <style lang="scss" scoped>
 	// @import "./vn20191225.scss";
-	// @import "./fr20191225.scss";
-	@import "./th20191201.scss";
+	@import "./fr20191225.scss";
+	// @import "./th20191201.scss";
+	// @import "./tw20200101.scss";
 </style>
 

@@ -23,13 +23,34 @@
 		z-index   : 5;
 	}
 
+	// input提示字体颜色
+	::-webkit-input-placeholder {
+		/* WebKit browsers */
+		color: #cccccc
+	}
+
+	:-moz-placeholder {
+		/* Mozilla Firefox 4 to 18 */
+		color: #cccccc
+	}
+
+	::-moz-placeholder {
+		/* Mozilla Firefox 19+ */
+		color: #cccccc
+	}
+
+	:-ms-input-placeholder {
+		/* Internet Explorer 10+ */
+		color: #cccccc
+	}
+
 	@include mq($pc) {
 		.centerBox {
-			$width : 8.79rem;
-			$height: 4rem;
+			$width : 11.52rem;
+			$height: 2.65rem;
 			width  : $width;
 			height : $height;
-			$url   : url("../../pages/3ds_Vn_20191225/images/pc/box.png");
+			$url   : url("../../pages/vs_Tw_20200101/images/pc/box.png");
 			@include backgroundImage($url, center, $width $height, no-repeat);
 			position                   : relative;
 			top                        : 50%;
@@ -39,17 +60,16 @@
 			// background-size         : contain;
 			// box-shadow              : 0px 14px 0 0px #59a8bf;
 			// border-bottom           : 0.1rem solid #59a8bf;
-			border-radius              : .5rem;
 			padding-top                : .01rem;
 		}
 
 		.close {
-			$width              : 0.64rem;
-			$height             : 0.64rem;
+			$width              : 0.45rem;
+			$height             : 0.45rem;
 			width               : $width;
 			height              : $height;
 			// margin-top       : 0.16rem;
-			$background-image   : url("../../pages/3ds_Vn_20191225/images/pc/close.png");
+			$background-image   : url("../../pages/vs_Tw_20200101/images/pc/close.png");
 			$background-size    : $width $height;
 			$background-repeat  : no-repeat;
 			$background-position: center;
@@ -117,23 +137,262 @@
 
 		.password-wrap,
 		.username-wrap {
-			// width      : 4.13rem;
-			height        : 0.6rem;
-			margin-left   : 2rem;
+			display    : inline-block;
+			width      : 3.2rem;
+			height     : 0.5rem;
+			margin-left: 2rem;
+			margin-top : .56rem;
 		}
 
-		.username-wrap {
-			margin-top: .5rem;
+		.password-wrap {
+			margin-left: 1.4rem;
 		}
 
 		.password-label,
 		.username-label {
-			width         : 1.2rem;
-			height        : .22rem;
-			font-family   : Calibri;
-			font-size     : .22rem;
-			letter-spacing: 1px;
-			color         : #ffffff;
+			width      : .65rem;
+			height     : .5rem;
+			font-family: MicrosoftYaHei;
+			font-size  : .3rem;
+			color      : #210305;
+		}
+
+		// .userzone,
+		.username,
+		.userpass {
+			width                          : 2.4rem;
+			height                         : 0.5rem;
+			// border-radius               : 5px;
+			margin-left                    : 0.03rem;
+			// margin-top                  : 0.5rem;
+			text-indent                    : 0.24rem;
+			font-size                      : 0.24rem;
+			border-radius                  : .24rem;
+			border                         : solid 1px #ffd200;
+			background-color               : #211403 !important;
+			border-radius                  : .25rem;
+			color                          : #cccccc !important;
+		}
+
+		// .userpass {
+		//   margin-top: 0.2rem;
+		// }
+		$zone-left:3.8rem;
+
+		.userzone-wrap {
+			position        : relative;
+			width           : 3.91rem;
+			height          : .56rem;
+			background-color: #ffffff;
+			margin-left     : $zone-left;
+			margin-top      : 0.6rem;
+			overflow        : hidden;
+		}
+
+		.selectZone-txt {
+			display: none;
+		}
+
+		.userzone {
+			margin-top      : .03rem;
+			width           : 3.56rem;
+			height          : .5rem;
+			text-indent     : 0.3rem;
+			background-color: #ffffff;
+			font-size       : 0.24rem;
+		}
+
+		.zone-select-btn {
+			content         : "";
+			$width          : .18rem;
+			$height         : .16rem;
+			display         : block;
+			width           : $width;
+			height          : $height;
+			position        : absolute;
+			top             : 0.2rem;
+			right           : 0.2rem;
+			// border-radius: .15rem;
+			$url            : url("../../pages/vs_Tw_20200101/images/pc/drop.png");
+			@include backgroundImage($url, center, $width $height, no-repeat);
+			// background-color: #36a3ff;
+		}
+
+		// .kakaoBtn{
+		//   width      : 207px;
+		//   height     : 72px;
+		//   margin-top : 20px;
+		//   margin-left: 49px;
+		//   background : url("./img/fbBtn.png");
+		// }
+		$btnWidth : 1.94rem;
+		$btnHeight: 0.63rem;
+
+		.login_btn1 {
+			width      : $btnWidth;
+			height     : $btnHeight;
+			margin-top : 0.5rem;
+			margin-left: 3.5rem;
+			background : url("../../pages/vs_Tw_20200101/images/pc/login-btn.png") no-repeat center center/$btnWidth $btnHeight;
+		}
+
+		.fb_btn {
+			width           : $btnWidth;
+			height          : $btnHeight;
+			margin-top      : 0.38rem;
+			margin-left     : 0.8rem;
+			// border-radius: 0.15rem;
+			background      : url("../../pages/vs_Tw_20200101/images/pc/login-fb-btn.png") no-repeat center center/$btnWidth $btnHeight;
+		}
+
+		.server_btn {
+			width      : $btnWidth;
+			height     : $btnHeight;
+			margin-left: 4.8rem;
+			margin-top : .5rem;
+			background : url("../../pages/vs_Tw_20200101/images/pc/login-btn.png") no-repeat center center/$btnWidth $btnHeight;
+		}
+
+		.selectZone {
+			width                     : 3.9rem;
+			height                    : 0;
+			margin-left               : $zone-left;
+			margin-top                : -0.02rem;
+			overflow-y                : auto;
+			position                  : absolute;
+			background                : #fff;
+			z-index                   : 3;
+			border-bottom-left-radius : 0.1rem;
+			border-bottom-right-radius: 0.1rem;
+		}
+
+		.selectZone>p {
+			width      : 100%;
+			height     : 0.45rem;
+			line-height: 0.45rem;
+			font-size  : 0.24rem;
+			text-indent: 0.3rem;
+			color      : #000
+		}
+
+		.userInfo {
+			font-size  : 0.24rem;
+			color      : #2c2c2c;
+			margin-left: 1.5rem;
+		}
+	}
+
+	@include mq($mobile) {
+		.centerBox {
+			$width : 6.38rem;
+			$height: 3.29rem;
+			width  : $width;
+			height : $height;
+			$url   : url("../../pages/vs_Tw_20200101/images/mb/box.png");
+			@include backgroundImage($url, center, $width $height, no-repeat);
+			position                   : relative;
+			top                        : 50%;
+			left                       : 50%;
+			transform                  : translate(-51%, -50%);
+			// background              : #8ed7e5;
+			// background-size         : contain;
+			// box-shadow              : 0px 14px 0 0px #59a8bf;
+			// border-bottom           : 0.1rem solid #59a8bf;
+			padding-top                : .01rem;
+		}
+
+		.close {
+			$width              : 0.45rem;
+			$height             : 0.45rem;
+			width               : $width;
+			height              : $height;
+			// margin-top       : 0.16rem;
+			$background-image   : url("../../pages/vs_Tw_20200101/images/pc/close.png");
+			$background-size    : $width $height;
+			$background-repeat  : no-repeat;
+			$background-position: center;
+			background          : #{$background-image} #{$background-position}/#{$background-size} #{$background-repeat};
+			position            : relative;
+			// border-radius    : 50%;
+			position            : absolute;
+			top                 : 0.06rem;
+			right               : -0.56rem;
+			cursor              : pointer;
+		}
+
+		.close:hover,
+		.login_btn:hover,
+		.login_btn1:hover,
+		.fb_btn:hover,
+		.server_btn:hover {
+			cursor : pointer;
+			opacity: 0.75;
+		}
+
+		.loginTip {
+			width     : 100%;
+			text-align: center;
+			position  : absolute;
+			top       : 2.3rem;
+			left      : 0;
+			color     : red;
+			z-index   : 99;
+		}
+
+		.zoneTip {
+			width     : 100%;
+			text-align: center;
+			position  : absolute;
+			top       : 2.6rem;
+			left      : 0;
+			color     : red;
+			z-index   : 99;
+		}
+
+		.zoneli {
+			height     : 0.36rem;
+			// border  : 1px solid red;
+			line-height: 0.36rem;
+			text-align : left;
+			text-indent: 10px;
+			color      : white;
+		}
+
+		.zoneli:hover {
+			cursor   : pointer;
+			font-size: 0.26rem;
+			color    : #0976d9;
+		}
+
+		.title {
+			font-size  : 0.24rem;
+			color      : #fff;
+			text-align : left;
+			padding-top: 0.77rem;
+			margin-left: 0.64rem;
+			line-height: 3;
+		}
+
+		.password-wrap,
+		.username-wrap {
+			width     : 100%;
+			height    : 0.5rem;
+			margin-top: .3rem;
+		}
+
+		.username-wrap {
+			margin-top: .3rem;
+		}
+
+		.password-label,
+		.username-label {
+			width      : .65rem;
+			height     : .5rem;
+			margin-left: 1.2rem;
+			font-family: MicrosoftYaHei;
+			font-size  : .3rem;
+			color      : #210305;
+			font-weight: bold;
 		}
 
 		// .userzone,
@@ -142,293 +401,36 @@
 			width                          : 3.4rem;
 			height                         : 0.5rem;
 			// border-radius               : 5px;
-			margin-left                    : 0.3rem;
+			margin-left                    : 0.33rem;
 			// margin-top                  : 0.5rem;
 			text-indent                    : 0.24rem;
-			font-size                      : 0.24rem;
-			// background-color            : transparent !important;
-			// background-image            : url("../../pages/3ds_Th_20191201/images/pc/login-input-bg.png") !important;
-			// background-position         : center;
-			// background-size             : 3.34rem 0.48rem;
-			// background-repeat           : no-repeat;
-			background-color               : #fff;
+			font-size                      : 12px;
+			border-radius                  : .24rem;
+			border                         : solid 1px #ffd200;
+			background-color               : #211403 !important;
 			border-radius                  : .25rem;
-			color                          : #000 !important;
+			color                          : #cccccc !important;
 		}
 
-		.userpass {
-			margin-top: 0.2rem;
-		}
+		// .userpass {
+		//   margin-top: 0.2rem;
+		// }
+		$zone-left:1.2rem;
 
 		.userzone-wrap {
 			position        : relative;
 			width           : 3.91rem;
 			height          : .56rem;
 			background-color: #ffffff;
-			box-shadow      : inset 0px 3px 0px 0px #b2acac;
-			margin-left     : 2.3rem;
-			margin-top      : .1rem;
+			margin-left     : $zone-left;
+			margin-top      : 0.6rem;
+			overflow        : hidden;
 		}
 
 		.selectZone-txt {
-			margin        : .61rem 3.2rem 0;
-			text-align    : center;
-			font-family   : SourceHanSansCN-Medium;
-			font-size     : .36rem;
-			letter-spacing: 2px;
-			color         : #ffffff;
-		}
-
-		.userzone {
-			margin-top      : .03rem;
-			width           : 3.56rem;
-			height          : .5rem;
-			text-indent     : 0.3rem;
-			background-color: #ffffff;
-			font-size       : 0.24rem;
-		}
-
-		.zone-select-btn {
-			content         : "";
-			$width          : .36rem;
-			$height         : .53rem;
-			display         : block;
-			width           : $width;
-			height          : $height;
-			position        : absolute;
-			top             : 0.03rem;
-			right           : 0;
-			// border-radius: .15rem;
-			$url            : url("../../pages/3ds_Vn_20191225/images/pc/drop.png");
-			@include backgroundImage($url, center, $width $height, no-repeat);
-			// background-color: #36a3ff;
-		}
-
-		// .kakaoBtn{
-		//   width      : 207px;
-		//   height     : 72px;
-		//   margin-top : 20px;
-		//   margin-left: 49px;
-		//   background : url("./img/fbBtn.png");
-		// }
-		$btnWidth : 3.3rem;
-		$btnHeight: 0.86rem;
-
-		.login_btn1 {
-			width      : $btnWidth;
-			height     : $btnHeight;
-			margin-top : 0.38rem;
-			margin-left: 0.8rem;
-			background : url("../../pages/3ds_Vn_20191225/images/pc/login-btn.png") no-repeat center center/$btnWidth $btnHeight;
-		}
-
-		.fb_btn {
-			$btnHeight      : 0.85rem;
-			width           : $btnWidth;
-			height          : $btnHeight;
-			margin-top      : 0.38rem;
-			margin-left     : 0.8rem;
-			// border-radius: 0.15rem;
-			background      : url("../../pages/3ds_Vn_20191225/images/pc/login-fb-btn.png") no-repeat center center/$btnWidth $btnHeight;
-		}
-
-		.server_btn {
-			width      : $btnWidth;
-			height     : $btnHeight;
-			margin-left: 2.73rem;
-			margin-top : .3rem;
-			background : url("../../pages/3ds_Vn_20191225/images/pc/login-btn.png") no-repeat center center/$btnWidth $btnHeight;
-		}
-
-		.selectZone {
-			width                     : 3.9rem;
-			height                    : 0;
-			margin-left               : 2.3rem;
-			margin-top                : -0.02rem;
-			overflow-y                : auto;
-			position                  : absolute;
-			background                : #fff;
-			z-index                   : 3;
-			border-bottom-left-radius : 0.1rem;
-			border-bottom-right-radius: 0.1rem;
-		}
-
-		.selectZone>p {
-			width      : 100%;
-			height     : 0.45rem;
-			line-height: 0.45rem;
-			font-size  : 0.24rem;
-			text-indent: 0.3rem;
-			color      : #000
-		}
-
-		.userInfo {
-			font-size  : 0.24rem;
-			color      : #2c2c2c;
-			margin-left: 1.5rem;
-		}
-
-		.tip-visitor {
-			box-sizing : border-box;
-			padding    : 0 .3rem 0 0.48rem;
-			font-size  : 0.14rem;
-			color      : #fff;
-			margin     : 0.2rem auto;
-			line-height: 1.4;
-		}
-	}
-
-	@include mq($mobile) {
-		.centerBox {
-			$width : 6.14rem;
-			$height: 5.78rem;
-			width  : $width;
-			height : $height;
-			$url   : url("../../pages/3ds_Vn_20191225/images/mb/box.png");
-			@include backgroundImage($url, center, $width $height, no-repeat);
-			position                      : relative;
-			top                           : 50%;
-			left                          : 50%;
-			transform                     : translate(-53%, -50%);
-			// background                 : #8ed7e5;
-			// background-size            : contain;
-			// box-shadow                 : 0px 14px 0 0px #59a8bf;
-			// border-bottom              : 0.1rem solid #59a8bf;
-			// border-radius              : .5rem;
-			padding-top                   : .01rem;
-		}
-
-		.close {
-			$width              : 0.65rem;
-			$height             : 0.65rem;
-			width               : $width;
-			height              : $height;
-			// margin-top       : 0.16rem;
-			$background-image   : url("../../pages/3ds_Vn_20191225/images/mb/close.png");
-			$background-size    : $width $height;
-			$background-repeat  : no-repeat;
-			$background-position: center;
-			background          : #{$background-image} #{$background-position}/#{$background-size} #{$background-repeat};
-			position            : relative;
-			// border-radius    : 50%;
-			position            : absolute;
-			top                 : 0.06rem;
-			right               : -0.7rem;
-			cursor              : pointer;
-		}
-
-		.close:hover,
-		.login_btn:hover,
-		.login_btn1:hover,
-		.fb_btn:hover,
-		.server_btn:hover {
-			cursor : pointer;
-			opacity: 0.75;
-		}
-
-		.loginTip {
-			width     : 100%;
-			text-align: center;
-			position  : absolute;
-			top       : 2.3rem;
-			left      : 0;
-			color     : red;
-			z-index   : 99;
-		}
-
-		.zoneTip {
-			width     : 100%;
-			text-align: center;
-			position  : absolute;
-			top       : 2.6rem;
-			left      : 0;
-			color     : red;
-			z-index   : 99;
-		}
-
-		.zoneli {
-			height     : 0.36rem;
-			// border  : 1px solid red;
-			line-height: 0.36rem;
-			text-align : left;
-			text-indent: 10px;
-			color      : white;
-		}
-
-		.zoneli:hover {
-			cursor   : pointer;
-			font-size: 0.26rem;
-			color    : #0976d9;
-		}
-
-		.title {
-			font-size  : 0.24rem;
-			color      : #fff;
-			text-align : left;
-			padding-top: 0.77rem;
-			margin-left: 0.64rem;
-			line-height: 3;
-		}
-
-		.password-wrap,
-		.username-wrap {
-			// width      : 4.58rem;
-			height        : 0.65rem;
-			margin-left   : .68rem;
-		}
-
-		.username-wrap {
-			margin-top: .5rem;
-		}
-
-		.password-label,
-		.username-label {
 			display: none;
 		}
 
-		// .userzone,
-		.username,
-		.userpass {
-			width                             : 4.58rem;
-			height                            : 0.65rem;
-			// border-radius                  : 5px;
-			// margin-left                    : 0.3rem;
-			// margin-top                     : 0.5rem;
-			text-indent                       : 0.24rem;
-			font-size                         : 0.24rem;
-			// background-color               : transparent !important;
-			// background-image               : url("../../pages/3ds_Th_20191201/images/pc/login-input-bg.png") !important;
-			// background-position            : center;
-			// background-size                : 3.34rem 0.48rem;
-			// background-repeat              : no-repeat;
-			background-color                  : #fff;
-			border-radius                     : .25rem;
-			color                             : #ad2413 !important;
-		}
-
-		.userpass {
-			margin-top: 0.2rem;
-		}
-
-		.userzone-wrap {
-			position        : relative;
-			width           : 3.91rem;
-			height          : .56rem;
-			background-color: #ffffff;
-			box-shadow      : inset 0px 3px 0px 0px #b2acac;
-			margin-left     : 1.2rem;
-			margin-top      : .6rem;
-		}
-
-		.selectZone-txt {
-			margin-top    : .61rem;
-			text-align    : center;
-			font-family   : SourceHanSansCN-Medium;
-			font-size     : .36rem;
-			letter-spacing: 2px;
-			color         : #ffffff;
-		}
-
 		.userzone {
 			margin-top      : .03rem;
 			width           : 3.56rem;
@@ -440,16 +442,16 @@
 
 		.zone-select-btn {
 			content         : "";
-			$width          : .36rem;
-			$height         : .53rem;
+			$width          : .18rem;
+			$height         : .16rem;
 			display         : block;
 			width           : $width;
 			height          : $height;
 			position        : absolute;
-			top             : 0.03rem;
-			right           : 0;
+			top             : 0.2rem;
+			right           : 0.2rem;
 			// border-radius: .15rem;
-			$url            : url("../../pages/3ds_Vn_20191225/images/pc/drop.png");
+			$url            : url("../../pages/vs_Tw_20200101/images/pc/drop.png");
 			@include backgroundImage($url, center, $width $height, no-repeat);
 			// background-color: #36a3ff;
 		}
@@ -461,40 +463,38 @@
 		//   margin-left: 49px;
 		//   background : url("./img/fbBtn.png");
 		// }
-		$btnWidth : 4.51rem;
-		$btnHeight: 0.76rem;
+		$btnWidth : 1.94rem;
+		$btnHeight: 0.63rem;
 
 		.login_btn1 {
 			width      : $btnWidth;
 			height     : $btnHeight;
-			margin-top : 0.5rem;
-			margin-left: 0.8rem;
-			background : url("../../pages/3ds_Vn_20191225/images/mb/login-btn.png") no-repeat center center/$btnWidth $btnHeight;
+			margin-top : 0.6rem;
+			margin-left: 1.2rem;
+			background : url("../../pages/vs_Tw_20200101/images/pc/login-btn.png") no-repeat center center/$btnWidth $btnHeight;
 		}
 
 		.fb_btn {
 			width           : $btnWidth;
 			height          : $btnHeight;
-			margin-top      : 0.2rem;
-			margin-left     : 0.8rem;
+			margin-top      : 0.6rem;
+			margin-left     : 0.5rem;
 			// border-radius: 0.15rem;
-			background      : url("../../pages/3ds_Vn_20191225/images/mb/login-fb-btn.png") no-repeat center center/$btnWidth $btnHeight;
+			background      : url("../../pages/vs_Tw_20200101/images/pc/login-fb-btn.png") no-repeat center center/$btnWidth $btnHeight;
 		}
 
 		.server_btn {
-			$btnWidth  : 3.3rem;
-			$btnHeight : .86rem;
 			width      : $btnWidth;
 			height     : $btnHeight;
-			margin-left: 1.34rem;
+			margin-left: 2rem;
 			margin-top : .5rem;
-			background : url("../../pages/3ds_Vn_20191225/images/mb/login-btn.png") no-repeat center center/$btnWidth $btnHeight;
+			background : url("../../pages/vs_Tw_20200101/images/pc/login-btn.png") no-repeat center center/$btnWidth $btnHeight;
 		}
 
 		.selectZone {
 			width                     : 3.9rem;
 			height                    : 0;
-			margin-left               : 1.2rem;
+			margin-left               : $zone-left;
 			margin-top                : -0.02rem;
 			overflow-y                : auto;
 			position                  : absolute;
@@ -517,14 +517,5 @@
 			font-size  : 0.24rem;
 			color      : #2c2c2c;
 			margin-left: 1.5rem;
-		}
-
-		.tip-visitor {
-			box-sizing : border-box;
-			padding    : 0 .3rem 0 0.48rem;
-			font-size  : 0.14rem;
-			color      : #fff;
-			margin     : 0.2rem auto;
-			line-height: 1.4;
 		}
 	}

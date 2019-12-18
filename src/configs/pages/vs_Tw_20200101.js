@@ -92,7 +92,7 @@ const params = Object.assign({
   //   "og:image": "https://pokeko.pocketgamesol.com/activity/20191001/share.jpg"
   // },
   // 设置 : <link rel="icon" href="<%= BASE_URL + favicon %>">默认favicon.ico
-  favicon: "favicontw.ico"
+  // favicon: "favicontw.ico"
 }, baseParams);
 module.exports = {
   dev: activityParam,

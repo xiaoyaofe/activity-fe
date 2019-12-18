@@ -92,6 +92,9 @@ module.exports = {
   active: "",
   // 老玩家回归
   oldPlayer: "",
-  userName: "請輸入賬號",
-  userPass: "請輸入密碼"
+  userName: '賬號',
+  userNamePlaceholder: "請輸入賬號",
+  userPass: "密碼",
+  userPassPlaceholder: "請輸入密碼",
+  selectZone: "請選擇您所在的伺服器:"
 }

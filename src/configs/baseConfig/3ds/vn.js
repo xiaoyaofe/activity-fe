@@ -4,6 +4,6 @@ module.exports = {
   // 德法为de,越南、泰国攻城是v1，其他都是v3
   version: "v3",
   language: "Vn",
-  title: "Liên minh pet",
+  title: "Event Noel & Năm Mới",
   isKakao: false
 }

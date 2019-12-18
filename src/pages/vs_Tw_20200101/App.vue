@@ -1,11 +1,12 @@
 <template>
 	<div id="app" class="app">
 		<!-- 导航栏 -->
-		<DownloadBox v-bind="_downloadBoxOption"></DownloadBox>
+		<DownloadBox v-bind="_downloadBoxOption1"></DownloadBox>
 		<!-- 登录 -->
 		<login v-show="loginIsVisible" @visibleLogin="visibleLogin(false)" @init="initUserInfo($event)"></login>
 		<!-- 容器 -->
-		<div class="container">
+		<div class="container" id="container">
+			<div class="logo"></div>
 			<!-- 头部 -->
 			<header class="header">
 				<div class="header__title-and-time" v-once></div>
@@ -27,15 +28,11 @@
 					>[&nbsp;{{_RG.config.tip.loginOut}}&nbsp;]</RgButton>
 				</div>
 			</header>
-			<Join :className="'act1'" :actInfos="act1Infos" @showLogin="visibleLogin">
-				<ul class="act1__gifts clearfix">
-					<li
-						v-for="key in 5"
-						:class="['act1__gifts__gift','act1__gifts__gift--'+key]"
-						:key="'act1__gifts__gift--'+key"
-					></li>
-				</ul>
-			</Join>
+			<Join :className="'act1'" :actInfos="act1Infos" @showLogin="visibleLogin"></Join>
+			<Activity :class="'act2'" :desc="''"></Activity>
+			<Activity :class="'act3'" :desc="''"></Activity>
+			<Activity :class="'act4' " :desc="''"></Activity>
+			<Wheel :className="'act5'" @showLogin="visibleLogin" :isGetHistory="isGetHistory"></Wheel>
 		</div>
 		<footer class="footer">
 			<div class="center footer__logo"></div>
@@ -44,22 +41,23 @@
 </template>
 <script lang="ts">
 	import Vue from "vue";
-	import { isLogin, isTime } from "@/common/utils";
+	import { isLogin } from "@/common/utils";
 	import { getAllHistory, infoActivity } from "@/api";
 	import Login from "@/components/login/Login.vue";
 	import DownloadBox from "@/components/navBox/DownloadBox1.vue";
 	import RgButton from "@/components/base/RgButton.vue";
 	import Join from "@/components/activitys/Join/Join.vue";
+	import Activity from "@/components/base/Activity.vue";
+	import Wheel from "@/components/activitys/wheel/Wheel-tw.vue";
 
-	const isShowBtn2Fn = () => isTime("2019-10-10");
 	export default Vue.extend({
 		components: {
 			DownloadBox,
 			RgButton,
 			Join,
-			Login
-			// Act2,
-			// Act5
+			Login,
+			Activity,
+			Wheel
 		},
 		provide: function(): any {
 			return {
@@ -67,32 +65,32 @@
 			};
 		},
 		data() {
-			this._downloadBoxOption = {
-				distance: "-2.5rem",
-				duration: 1000,
+			this._downloadBoxOption1 = {
+				distance: "-3rem",
+				duration: 800,
 				direction: "right",
-				btns: {
-					ios: "https://itunes.apple.com/tw/app/id1208000721",
-					google:
-						"http://res-pkg-cdn.pocketgamesol.com/kdygvs/com.payvsgame.tw_20.8.3110.apk",
-					facebook: "https://www.facebook.com/PocketMonKO/"
-				}
+				isShowTop: true,
+				hrefBtns: [
+					{ txt: "", id: "fans", href: "" },
+					{ txt: "", id: "android", href: "" },
+					{ txt: "", id: "ios", href: "" }
+				],
+				activeBtns: [
+					{ txt: "1.新年禮包", id: "act1" },
+					{ txt: "2.扭蛋-新年神獸禮包", id: "act2" },
+					{ txt: "3.新年新氣象", id: "act3" },
+					{ txt: "4.新年特惠", id: "act4" },
+					{ txt: "5.新年轉轉樂", id: "act5" }
+				]
 			};
-			const isShowJoinBtn2 = isShowBtn2Fn();
 			return {
 				loginIsVisible: false,
 				userZone: "",
 				userRolle: "",
 				act1Infos: [
 					{
-						isShow: !isShowJoinBtn2,
-						actName: "login1",
-						giftIndex: 0,
-						isDisabled: false
-					},
-					{
-						isShow: isShowJoinBtn2,
-						actName: "login2",
+						isShow: true,
+						actName: "login",
 						giftIndex: 0,
 						isDisabled: false
 					}
@@ -113,23 +111,20 @@
 			//初始化用户信息
 			async initUserInfo() {
 				if (isLogin()) {
+					this.isGetHistory = true;
 					this.userRolle = localStorage.getItem("playerName") as string;
 					this.userZone = localStorage.getItem("zoneName") as string;
-					infoActivity("login1", 1);
+					// infoActivity("login1", 1);
 					// 获取礼包记录
-					// await getAllHistory().then((val: any) => {
-					// 	if (val) {
-					// 		val.forEach((item: any) => {
-					// 			if (item.rewardId === this._RG.config.data.rewardId.login1[0]) {
-					// 				this.act1Infos[0].isDisabled = true;
-					// 			}
-					// 			if (item.rewardId === this._RG.config.data.rewardId.login2[0]) {
-					// 				this.act1Infos[1].isDisabled = true;
-					// 			}
-					// 		});
-					// 	}
-					// });
-					// this.isGetHistory = true;
+					await getAllHistory().then((val: any) => {
+						if (val) {
+							val.forEach((item: any) => {
+								if (item.rewardId === this._RG.config.data.rewardId.login[0]) {
+									this.act1Infos[0].isDisabled = true;
+								}
+							});
+						}
+					});
 				}
 			},
 			// 查看礼包
@@ -148,7 +143,7 @@
 				}
 			},
 			//是否显示登录框
-			visibleLogin(val:boolean) {
+			visibleLogin(val: boolean) {
 				this.loginIsVisible = val;
 			},
 			dropOut() {

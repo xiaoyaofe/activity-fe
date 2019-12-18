@@ -44,7 +44,13 @@
 				@showLogin="visibleLogin"
 				:isGetHistory="isGetHistory"
 			></DiamondWheel>
-			<Lottery id="act3" :className="'act3'" @showLogin="visibleLogin" :isGetHistory="isGetHistory" :activeTime="'2019-12-9'"></Lottery>
+			<Lottery
+				id="act3"
+				:className="'act3'"
+				@showLogin="visibleLogin"
+				:isGetHistory="isGetHistory"
+				:activeTime="'2019-12-18'"
+			></Lottery>
 		</div>
 		<footer class="footer">
 			<section class="fans-info">
@@ -97,8 +103,8 @@
 				direction: "right",
 				isShowTop: true,
 				hrefBtns: [
-					{ txt: "", id: "ios", href: "" },
-					{ txt: "", id: "android", href: "" }
+					{ txt: "", id: "ios", href: "http://bit.ly/EventNoel" },
+					{ txt: "", id: "android", href: "http://bit.ly/EventNoel" }
 				],
 				activeBtns: [
 					{ txt: "EVENT1", id: "act1" },

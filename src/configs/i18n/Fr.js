@@ -3,7 +3,7 @@ module.exports = {
   //102账号不存在或者密码错误
   code_102: "Faux nom d'utilisateur / mot de passe ou utilisateur inexistant.",
   //200恭喜你獲得了禮包，請到遊戲內查收
-  code_200: "Reçu avec succès, veuillez vous connecter au jeu pour vérifier!",
+  code_200: "Félicitations pour avoir gagné le prix, la récompense a été envoyée à votre email en jeu!",
   //300超过连接时间，请重新登录！
   code_300: 'Délai de connexion dépassé, veuillez vous reconnecter! (actualisation de la page après 5")',
   //400服务器错误
@@ -98,16 +98,19 @@ module.exports = {
   active: "",
   // 老玩家回归
   oldPlayer: "",
-  userName: "Compte",
-  userPass: "Mot de passe",
+  userNamePlaceholder: "Compte",
+  userPassPlaceholder: "Mot de passe",
   selectZone: "Choisissez le serveur",
   loginOut: "Déconnexion",
   // 每日登录条件不足 领取失败，您今日还未登录游戏
   everyLogin1000Or1001: '每日登录条件不足 领取失败，您今日还未登录游戏',
+  everyLogin200: '每日登录领取成功',
   // 很遗憾，您的VIP等级不足1级，无法领奖
   vipReturn1000Or1001: '很遗憾，您的VIP等级不足1级，无法领奖',
+  vipReturn200: 'vip每日登录领奖成功',
   // 连续登陆天数不足
   sevenLogin1000Or1001: '连续登陆天数不足',
+  sevenLogin200: '七日登录领奖成功',
   // 奖池转盘
   // 精灵球,消耗品的成功的提示
   sprite200: "精灵球,消耗品的成功的提示",
@@ -115,13 +118,15 @@ module.exports = {
   sprite404: "精灵球数量不足",
   // 奖池钻石获得的提示
   diamond200: "奖池钻石获得的提示",
-  // 抽奖次数不足，请充值
-  rotate1000: "抽奖次数不足，请充值",
+  rotate200: "Félicitations pour votre récompenses xx Veuillez accéder à l'email en jeu pour recevoir",
+  // 抽奖次数不足！ 请前往游戏内消耗钻石获得抽奖次数
+  rotate1000: "Le nombre de tirages n'est pas suffisant! Dépensez plus des diamants dans le jeu et recevoir le nombre de tirages. ",
   // 抽奖活动
   // 今日还未获得抽奖券，请充值
   numLottery1000: "今日还未获得抽奖券，请充值",
-  // 还未开始抽奖,请耐心等待
-  lotteryInfo_null: "还未开始抽奖,请耐心等待",
+  // 暂时还无人中奖,请耐心等待
+  lotteryInfo_null: "暂时还无人中奖,请耐心等待",
   // 参与成功，礼包已发送到游戏内邮箱。恭喜您获得抽奖券，编号{0}
-  numLottery200: "参与成功，礼包已发送到游戏内邮箱。恭喜您获得抽奖券，编号{xxx}"
+  numLottery200: "Participation avec succès, la récompense a été envoyée sur votre email en jeu. Félicitations pour avoir reçu le coupon de tirage, numéro { xxx }",
+  visitor_null: "游客账号不能领奖,请升级后再来!"
 }

@@ -268,12 +268,22 @@
 			color      : #2c2c2c;
 			margin-left: 1.5rem;
 		}
+
+		.tip-visitor {
+			box-sizing : border-box;
+			padding    : 0 .3rem 0 0.48rem;
+			font-size  : 0.14rem;
+			color      : #fff;
+			margin     : 0.2rem auto;
+			line-height: 1.4;
+			text-align : center;
+		}
 	}
 
 	@include mq($mobile) {
 		.centerBox {
 			$width : 6.14rem;
-			$height: 4.78rem;
+			$height: 5.78rem;
 			width  : $width;
 			height : $height;
 			$url   : url("../../pages/3ds_Fr_20191225/images/mb/box1.png");
@@ -454,8 +464,8 @@
 		//   margin-left: 49px;
 		//   background : url("./img/fbBtn.png");
 		// }
-		$btnWidth : 3.3rem;
-		$btnHeight: 0.86rem;
+		$btnWidth : 4.51rem;
+		$btnHeight: 0.77rem;
 
 		.login_btn1 {
 			width      : $btnWidth;
@@ -510,5 +520,15 @@
 			font-size  : 0.24rem;
 			color      : #2c2c2c;
 			margin-left: 1.5rem;
+		}
+
+		.tip-visitor {
+			box-sizing : border-box;
+			padding    : 0 .3rem 0 0.48rem;
+			font-size  : 0.14rem;
+			color      : #fff;
+			margin     : 0.2rem auto;
+			line-height: 1.4;
+			text-align : center;
 		}
 	}

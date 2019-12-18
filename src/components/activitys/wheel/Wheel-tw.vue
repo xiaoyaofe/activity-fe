@@ -1,20 +1,14 @@
 <template>
 	<Activity :class="className" :desc="desc">
-		<!-- 转盘描述 -->
-		<div :class="className+'__turn-text'">
-			<p :class="className+'__nums'">
-				Total des diamants dépensés:
-				<span :class="className+'__nums-txt'">{{diamondNum}}</span>
-			</p>
-			<p :class="className + '__giftDiamond'">
-				Nombre de tirages restants:
-				<span :class="className + '__diamondNum'">{{nums}}</span>
-			</p>
-		</div>
-		<!-- 转盘 -->
 		<div :class="className+'__pannel clearfix'">
 			<div :class="className+'__pannel__bg'" ref="rotateBg"></div>
 			<div :class="className+'__pannel__start-btn'" v-tap="{methods:rotatehandle}"></div>
+			<span :class="className+'__left-icon'"></span>
+			<span :class="className+'__right-icon'"></span>
+			<p :class="className+'__day-count'">
+				剩余轉盤[
+				<span :class="className+'__day-count__txt'">{{dayCount}}</span> ]次
+			</p>
 		</div>
 	</Activity>
 </template>
@@ -27,7 +21,7 @@
 	import Activity from "@/components/base/Activity.vue";
 
 	export default Vue.extend({
-		name: "DiamondWheel",
+		name: "Wheel",
 		components: {
 			Activity
 		},
@@ -38,12 +32,16 @@
 			},
 			desc: String,
 			isGetHistory: Boolean
+			// giftsCounts: {
+			// 	type: Array,
+			// 	required: true
+			// }
 		},
 		data() {
 			return {
+				dayCount: 0,
 				disabled: false,
-				nums: 0,
-				diamondNum: 0
+				getGiftIndex: 0
 			};
 		},
 		methods: {
@@ -52,11 +50,19 @@
 				if (this.disabled) return;
 				this.disabled = true;
 				let data: any = await joinActivity("rotate", 0).catch(err => {
-					this.$dialog.show("tip", window._RG.config.tip.rotate1000);
-					// console.log(err);
+					this.$dialog.show("tip", window._RG.config.tip.rotate_1001);
 				});
 				if (data) {
-					// const data = { rewardId: "5de62b48b5cb671f40c7d44d" };
+					// infoActivity("rotate", 0).then((state: any) => {
+					// 	console.log(state);
+					// 	if (state) {
+					// 		const info = state.data.userActivityResourceMap[state.dayKey];
+					// 		this.sumCount = info.userSumCount;
+					// 		this.dayCount = info.userSumCount - info.useCount;
+					// 	}
+					// });
+					// const data = { rewardId: "5dca614ab5cb6718ac9ccdfc" };
+					this.dayCount -= 1;
 					const rewardIndex = window._RG.config.data.rewardId.rotate.indexOf(
 						data.rewardId
 					);
@@ -69,10 +75,9 @@
 							easing: "easeInOutQuad",
 							complete: () => {
 								this.disabled = false;
-								this.nums -= 1;
 								this.$dialog.show(
 									"tip",
-									window._RG.config.tip.rotate200.replace(/x+/, data.rewardName)
+									window._RG.config.tip.code_200.replace("$禮包", data.rewardName)
 								);
 							}
 						}
@@ -81,23 +86,20 @@
 					this.disabled = false;
 				}
 			},
-			getInfo(isloading?: boolean) {
-				// 请求钻石数这些参数
-				infoActivity("rotate", 0, isloading).then((state: any) => {
-					// console.log(state);
-					if (state) {
-						if (state.poolInfo) {
-							this.diamondNum = state.data.consume;
-						}
-						this.nums = state.data.userSumCount - state.data.useCount;
-					}
-				});
+			toogle({ key }) {
+				if (!key && key !== 0) return;
+				const flag = this[key];
+				this[key] = !flag;
 			}
 		},
 		watch: {
 			isGetHistory: function() {
-				//转盘信息的初始化
-				this.getInfo();
+				infoActivity("rotate", 0).then((state: any) => {
+					// console.log(state);
+					if (state) {
+						this.dayCount = state.data.userSumCount - state.data.useCount;
+					}
+				});
 			}
 		}
 	});

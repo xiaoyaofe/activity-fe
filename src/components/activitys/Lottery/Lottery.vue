@@ -89,36 +89,35 @@
 				}
 			},
 			showHistory() {
-				// this.$dialog.show("lucky", [
-				// 	{ server: 200, player: "Qiong@9266.com", time: "18/12" },
-				// 	{ server: 200, player: "Qiong@9266.com", time: "18/12" },
-				// 	{ server: 200, player: "Qiong@9266.com", time: "18/12" },
-				// 	{ server: 200, player: "Qiong@9266.com", time: "18/12" },
-				// 	{ server: 200, player: "Qiong@9266.com", time: "18/12" },
-				// 	{ server: 200, player: "Qiong@9266.com", time: "18/12" },
-				// 	{ server: 200, player: "Qiong@9266.com", time: "18/12" },
-				// 	{ server: 200, player: "Qiong@9266.com", time: "18/12" },
-				// 	{ server: 200, player: "Qiong@9266.com", time: "18/12" },
-				// 	{ server: 200, player: "Qiong@9266.com", time: "18/12" },
-				// 	{ server: 200, player: "Qiong@9266.com", time: "18/12" },
-				// 	{ server: 200, player: "Qiong@9266.com", time: "18/12" },
-				// 	{ server: 200, player: "Qiong@9266.com", time: "18/12" },
-				// 	{ server: 200, player: "Qiong@9266.com", time: "18/12" },
-				// 	{ server: 200, player: "Qiong@9266.com", time: "18/12" },
-				// 	{ server: 200, player: "Qiong@9266.com", time: "18/12" },
-				// 	{ server: 200, player: "Qiong@9266.com", time: "18/12" },
-				// 	{ server: 200, player: "Qiong@9266.com", time: "18/12" },
-				// 	{ server: 200, player: "Qiong@9266.com", time: "18/12" },
-				// 	{ server: 200, player: "Qiong@9266.com", time: "18/12" },
-				// 	{ server: 200, player: "Qiong@9266.com", time: "18/12" }
-				// ]);
-
 				if (isLogin()) {
 					const tip = window._RG.config.tip;
 					if (this.history.length === 0) {
 						this.$dialog.show("tip", tip.lotteryInfo_null);
 						return;
 					}
+					// this.$dialog.show("lucky", [
+					// 	{ server: 200, player: "Qiong@9266.com", time: "18/12" },
+					// 	{ server: 200, player: "Qiong@9266.com", time: "18/12" },
+					// 	{ server: 200, player: "Qiong@9266.com", time: "18/12" },
+					// 	{ server: 200, player: "Qiong@9266.com", time: "18/12" },
+					// 	{ server: 200, player: "Qiong@9266.com", time: "18/12" },
+					// 	{ server: 200, player: "Qiong@9266.com", time: "18/12" },
+					// 	{ server: 200, player: "Qiong@9266.com", time: "18/12" },
+					// 	{ server: 200, player: "Qiong@9266.com", time: "18/12" },
+					// 	{ server: 200, player: "Qiong@9266.com", time: "18/12" },
+					// 	{ server: 200, player: "Qiong@9266.com", time: "18/12" },
+					// 	{ server: 200, player: "Qiong@9266.com", time: "18/12" },
+					// 	{ server: 200, player: "Qiong@9266.com", time: "18/12" },
+					// 	{ server: 200, player: "Qiong@9266.com", time: "18/12" },
+					// 	{ server: 200, player: "Qiong@9266.com", time: "18/12" },
+					// 	{ server: 200, player: "Qiong@9266.com", time: "18/12" },
+					// 	{ server: 200, player: "Qiong@9266.com", time: "18/12" },
+					// 	{ server: 200, player: "Qiong@9266.com", time: "18/12" },
+					// 	{ server: 200, player: "Qiong@9266.com", time: "18/12" },
+					// 	{ server: 200, player: "Qiong@9266.com", time: "18/12" },
+					// 	{ server: 200, player: "Qiong@9266.com", time: "18/12" },
+					// 	{ server: 200, player: "Qiong@9266.com", time: "18/12" }
+					// ]);
 					// 获取历史记录,并展示
 					this.$dialog.show("lucky", this.history);
 				} else {
@@ -133,12 +132,13 @@
 				var times = Math.floor(
 					(date.getTime() - startDate.getTime()) / (24 * 3600 * 1000)
 				);
+				// console.log(times);
 				this.activeIndex = times;
 				const lotteryRewardIds = window._RG.config.data.rewardId.numLottery2;
 				await getHistory("numLottery2").then((state: any) => {
-					console.log(state);
+					// console.log(state);
 					this.history = state;
-					let activeIndex = -1;
+					// let activeIndex = -1;
 					let history: { server: string; player: string; time: string }[] = [];
 					state.forEach(item => {
 						// history.push({ server: '', player: "aaa", time: "" });
@@ -148,15 +148,15 @@
 							player: item.playerName,
 							time: `${date.getDate()}/${date.getMonth() + 1}`
 						});
-						const index = lotteryRewardIds.indexOf(item.rewardId);
-						if (index > activeIndex) {
-							activeIndex = index;
-						}
+						// const index = lotteryRewardIds.indexOf(item.rewardId);
+						// if (index > activeIndex) {
+						// 	activeIndex = index;
+						// }
 					});
 					// 可参与的是领取过的下一个
-					if (activeIndex + 1 > this.activeIndex) {
-						this.activeIndex = activeIndex + 1;
-					}
+					// if (activeIndex + 1 > this.activeIndex) {
+					// 	this.activeIndex = activeIndex + 1;
+					// }
 
 					this.history = history;
 				});

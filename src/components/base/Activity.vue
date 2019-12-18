@@ -1,5 +1,5 @@
 <template functional>
-	<section :class="[data.class]">
+	<section :class="[data.class]" :id="data.class">
 		<div :class="data.class + '__title'"></div>
 		<p v-if="props.desc" :class="data.class + '__desc'">{{props.desc}}</p>
 		<div :class="data.class +'__content'">

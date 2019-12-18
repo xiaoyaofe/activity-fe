@@ -6,16 +6,16 @@ module.exports = {
   code_200: 'Chúc mừng bạn nhận được xx, vui lòng kiểm tra trong game!',
   //300对不起，您尚未在游戏内登入！无法领取
   code_300: 'Chúng tôi không tìm thấy thông tin của bạn, vui lòng đăng nhập trước',
-  //400服务器错误
-  code_400: '網絡錯誤，請稍後重試',
+  //400服务器错误,網絡錯誤，請稍後重試
+  code_400: '',
   //401活动未开始
   code_401: 'Event chưa bắt đầu, xin hãy đón chờ',
   //402活动已结束     
   code_402: 'Event đã kết thúc, cám ơn bạn đã ủng hộ',
   //403激活码耗尽
-  code_403: '激活碼耗盡',
+  code_403: '',
   //405没有找到活动
-  code_405: '沒有找到活動',
+  code_405: '',
   //1000分享至FB可以再获一次抽奖机会：
   // code_1000: 'Không đủ điều kiện nhận',
   //1001登录次数不满足
@@ -60,9 +60,9 @@ module.exports = {
   // 角色
   player: "Nhân vật",
   // 当前没有任何礼包数据
-  giftArr_null: "当前没有任何礼包数据",
+  giftArr_null: "",
   // 当前没有任何许愿中奖信息
-  wishArr_null: "当前没有任何许愿中奖信息",
+  wishArr_null: "",
   // 许愿
   // 请输入愿望
   wish_null: 'Nhập lời ước, vui lòng không để trống',
@@ -91,15 +91,22 @@ module.exports = {
   // 老玩家回归
   oldPlayer: "",
   userName: "Tài khoản",
+  userNamePlaceholder: "Tài khoản",
   userPass: "Mật khẩu",
+  userPassPlaceholder: "Mật khẩu",
   selectZone: "Chọn server",
   loginOut: "Hủy bỏ",
   // 每日登录条件不足 领取失败，您今日还未登录游戏
   everyLogin1000Or1001: 'Nhận thất bại, hôm nay bạn chưa đăng nhập game',
+  // 每日登陆领奖提示
+  everyLogin200: 'Chúc mừng bạn đã nhận được quà đăng nhập mỗi ngày, vui lòng kiểm tra trong game!',
   // 很遗憾，您的VIP等级不足1级，无法领奖
   vipReturn1000Or1001: 'Rất tiếc, LV VIP của bạn không đủ LV1, không thể nhận quà',
+  // VIP每日登陆领奖提示
+  vipReturn200: 'Chúc mừng bạn đã nhận được quà VIP đăng nhập mỗi ngày, vui lòng kiểm tra trong game!',
   // 连续登陆天数不足
   sevenLogin1000Or1001: 'Số ngày đăng nhập liên tục không đủ',
+  sevenLogin200: 'Chúc mừng bạn nhận quà được Đăng nhập 7 ngày liên tiếp, vui lòng kiểm tra trong game!',
   // 奖池转盘
   // 精灵球,消耗品的成功的提示
   sprite200: "Chúc mừng bạn nhận được xx .",
@@ -111,10 +118,10 @@ module.exports = {
   rotate1000: "Không đủ số lần rút thưởng, vui lòng nạp tiền",
   // 抽奖活动
   // 今日还未获得抽奖券，请充值
-  numLottery1000: "今日还未获得抽奖券，请充值",
-  // 还未开始抽奖,请耐心等待
-  lotteryInfo_null: "还未开始抽奖,请耐心等待",
+  numLottery1000: "Hôm nay vẫn chưa nhận được phiếu rút thưởng, vui lòng nạp tiền",
+  // 暂时还无人中奖,请耐心等待
+  lotteryInfo_null: "Tạm chưa có người trúng thưởng, vui lòng chờ thêm",
   // 参与成功，礼包已发送到游戏内邮箱。恭喜您获得抽奖券，编号{0}
-  numLottery200: "Tham gia thành công, quà đã gửi qua thư trong game. Chúc mừng bạn nhận được phiếu rút thưởng, số { xxx }"
-
+  numLottery200: "Tham gia thành công, quà đã gửi qua thư trong game. Chúc mừng bạn nhận được phiếu rút thưởng, số { xxx }",
+  visitor_null: "Người chơi dùng tài khoản khách không thể đăng nhập, vui lòng liên hệ CSKH để nâng cấp thành tài khoản chính thức!"
 }

@@ -9,7 +9,8 @@
     "dev-build": "vue-cli-service build --mode development",
     "zip": "node ./command/zip.js",
     "unzip": "node ./command/unzip.js",
-    "unzipAll": "node ./command/unzipAll.js"
+    "unzipAll": "node ./command/unzipAll.js",
+    "init": "node ./command/init.js"
   },
   "dependencies": {
     "@types/axios": "^0.14.0",

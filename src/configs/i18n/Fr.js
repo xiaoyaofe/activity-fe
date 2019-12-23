@@ -3,7 +3,7 @@ module.exports = {
   //102账号不存在或者密码错误
   code_102: "Faux nom d'utilisateur / mot de passe ou utilisateur inexistant.",
   //200恭喜你獲得了禮包，請到遊戲內查收
-  code_200: "Félicitations pour avoir gagné le prix, la récompense a été envoyée à votre email en jeu!",
+  code_200: "Félicitations ! vous avez reçu un cadeau! La récompense a été envoyée sur votre boîte email. Veuillez vous connecter au jeu pour recevoir!",
   //300超过连接时间，请重新登录！
   code_300: 'Délai de connexion dépassé, veuillez vous reconnecter! (actualisation de la page après 5")',
   //400服务器错误
@@ -29,7 +29,7 @@ module.exports = {
   //1006累计登录天数不满足
   code_1006: "Non satisfait aux conditions",
   //1101邮件发送失败
-  code_1101: '',
+  code_1101: 'Impossible d\'envoyer la récompense à votre email en jeu, veuillez nous contacter!',
   // 登录
   // 請將登錄信息填寫完整
   login_info_null: "Entrer le compte/ mot de passe",
@@ -56,7 +56,7 @@ module.exports = {
   // 激活碼
   code: "",
   // 時間
-  time: "",
+  time: "Temps de réception",
   // 區服
   serve: "Serveur",
   // 角色
@@ -100,33 +100,33 @@ module.exports = {
   oldPlayer: "",
   userNamePlaceholder: "Compte",
   userPassPlaceholder: "Mot de passe",
-  selectZone: "Choisissez le serveur",
+  selectZone: "Entrez le nom du serveur",
   loginOut: "Déconnexion",
   // 每日登录条件不足 领取失败，您今日还未登录游戏
-  everyLogin1000Or1001: '每日登录条件不足 领取失败，您今日还未登录游戏',
-  everyLogin200: '每日登录领取成功',
+  everyLogin1000Or1001: "Échec reçu, aujourd'hui vous n'êtes pas connecté au jeu, une fois connecté, veuillez réessayer",
+  everyLogin200: 'Félicitations ! vous avez reçu un cadeau! La récompense a été envoyée sur votre boîte email. Veuillez vous connecter au jeu pour recevoir',
   // 很遗憾，您的VIP等级不足1级，无法领奖
-  vipReturn1000Or1001: '很遗憾，您的VIP等级不足1级，无法领奖',
-  vipReturn200: 'vip每日登录领奖成功',
+  vipReturn1000Or1001: " Désolé, vous n'êtes pas au Niv VIP 1, vous ne pouvez donc pas recevoir de récompense ",
+  vipReturn200: 'Félicitations ! vous avez reçu un cadeau! La récompense a été envoyée sur votre boîte email. Veuillez vous connecter au jeu pour recevoir',
   // 连续登陆天数不足
-  sevenLogin1000Or1001: '连续登陆天数不足',
-  sevenLogin200: '七日登录领奖成功',
+  sevenLogin1000Or1001: "Le  nombre de jours de connexion continue n'est pas suffisant ",
+  sevenLogin200: 'Félicitations ! vous avez reçu un cadeau! La récompense a été envoyée sur votre boîte email. Veuillez vous connecter au jeu pour recevoir',
   // 奖池转盘
   // 精灵球,消耗品的成功的提示
-  sprite200: "精灵球,消耗品的成功的提示",
+  // sprite200: "精灵球,消耗品的成功的提示",
   // 精灵球数量不足
-  sprite404: "精灵球数量不足",
+  // sprite404: "精灵球数量不足",
   // 奖池钻石获得的提示
-  diamond200: "奖池钻石获得的提示",
-  rotate200: "Félicitations pour votre récompenses xx Veuillez accéder à l'email en jeu pour recevoir",
+  // diamond200: "奖池钻石获得的提示",
+  rotate200: "Félicitations pour votre récompenses xx, Veuillez accéder à l'email en jeu pour recevoir",
   // 抽奖次数不足！ 请前往游戏内消耗钻石获得抽奖次数
   rotate1000: "Le nombre de tirages n'est pas suffisant! Dépensez plus des diamants dans le jeu et recevoir le nombre de tirages. ",
   // 抽奖活动
   // 今日还未获得抽奖券，请充值
-  numLottery1000: "今日还未获得抽奖券，请充值",
+  numLottery1000: "Non éligible à recevoir les coupons, veuillez recharger!",
   // 暂时还无人中奖,请耐心等待
-  lotteryInfo_null: "暂时还无人中奖,请耐心等待",
+  lotteryInfo_null: "Aucun gagnant pour le moment , veuillez patienter",
   // 参与成功，礼包已发送到游戏内邮箱。恭喜您获得抽奖券，编号{0}
   numLottery200: "Participation avec succès, la récompense a été envoyée sur votre email en jeu. Félicitations pour avoir reçu le coupon de tirage, numéro { xxx }",
-  visitor_null: "游客账号不能领奖,请升级后再来!"
+  visitor_null: "Si vous ne pouvez pas vous connecter et vous devez utiliser un compte Invité, n'hésitez pas à contacter notre Service clientele pour passer à un compte officiel!"
 }

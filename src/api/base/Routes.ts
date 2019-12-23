@@ -73,6 +73,8 @@ export const poollist = '/activity/poolList';
 
 // 越南的随机抽奖
 export const numLottery = '/activity/numLottery';
+// 随机抽奖的历史记录
+export const recentlyCdks = '/activity/recently/cdkeys';
 
 // turntable 泰国转盘补充发奖 研发消费接口爆炸后的结果
 export const turntable = "/activity/turntable"

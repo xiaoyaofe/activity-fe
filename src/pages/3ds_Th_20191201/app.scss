@@ -1,23 +1,23 @@
 /*------------------------------------*\
   #pc,其他的配置的参数
 \*------------------------------------*/
-@import "./variables.scss";
+@import './variables.scss';
 
 /*------------------------------------*\
   #pc,移动可以通用的样式
 \*------------------------------------*/
 .close {
-  width          : .25rem;
-  height         : .26rem;
-  border         : none;
-  background     : url("../../pages/3ds_Th_20191201/images/pc/close.png") no-repeat center;
+  width: 0.25rem;
+  height: 0.26rem;
+  border: none;
+  background: url('../../pages/3ds_Th_20191201/images/pc/close.png') no-repeat center;
   background-size: contain;
-  outline        : none;
-  position       : absolute;
-  top            : .24rem;
-  right          : .3rem;
-  z-index        : 1;
-  cursor         : pointer;
+  outline: none;
+  position: absolute;
+  top: 0.24rem;
+  right: 0.3rem;
+  z-index: 1;
+  cursor: pointer;
 }
 
 /*------------------------------------*\
@@ -25,30 +25,28 @@
 \*------------------------------------*/
 
 @include mq($pc) {
-
-
   .app {
-    $width : $mainPcWidth;
+    $width: $mainPcWidth;
     $height: $mainPcHeight;
-    $url   : url("./images/pc/bg.jpg");
+    $url: url('./images/pc/bg.jpg');
     @include minWidthAndHeight($width, $height, $minPcWidth);
     @include backgroundImage($url, top center, $width $height, no-repeat);
     overflow: hidden;
   }
 
   .container {
-    box-sizing    : border-box;
-    height        : $mainPcHeight;
+    box-sizing: border-box;
+    height: $mainPcHeight;
     padding-bottom: $footerPcHeight;
   }
 
   /* Header  */
 
   .header {
-    box-sizing : border-box;
-    position   : relative;
+    box-sizing: border-box;
+    position: relative;
     padding-top: 1px;
-    height     : 6.23rem;
+    height: 6.23rem;
 
     // @at-root #{&}__title-and-time {
     //   $width     : 12.71rem;
@@ -65,71 +63,71 @@
       margin-top: 3.8rem;
 
       @at-root #{&}__login-btn {
-        $width     : 3.52rem;
-        $height    : 1.06rem;
-        display    : block;
-        width      : $width;
-        height     : $height;
+        $width: 3.52rem;
+        $height: 1.06rem;
+        display: block;
+        width: $width;
+        height: $height;
         margin-left: 7.61rem;
-        $url       : url("./images/pc/login-control.png");
+        $url: url('./images/pc/login-control.png');
         @include backgroundImage($url, center, $width $height, no-repeat);
       }
 
-      $downloadwidth : 2.75rem;
+      $downloadwidth: 2.75rem;
       $downloadheight: 0.86rem;
 
       @at-root #{&}__ios-btn,
-      #{&}__google-btn {
-        width     : $downloadwidth;
-        height    : $downloadheight;
-        display   : inline-block;
-        margin-top: .21rem;
+        #{&}__google-btn {
+        width: $downloadwidth;
+        height: $downloadheight;
+        display: inline-block;
+        margin-top: 0.21rem;
       }
 
       @at-root #{&}__ios-btn {
-        $width     : $downloadwidth;
-        $height    : $downloadheight;
-        width      : $width;
-        height     : $height;
+        $width: $downloadwidth;
+        $height: $downloadheight;
+        width: $width;
+        height: $height;
         margin-left: 6.85rem;
-        $url       : url("./images/pc/ios.png");
+        $url: url('./images/pc/ios.png');
         @include backgroundImage($url, center, $width $height, no-repeat);
       }
 
       @at-root #{&}__google-btn {
-        $width     : $downloadwidth;
-        $height    : $downloadheight;
-        width      : $width;
-        height     : $height;
+        $width: $downloadwidth;
+        $height: $downloadheight;
+        width: $width;
+        height: $height;
         margin-left: -0.38rem;
-        $url       : url("./images/pc/google.png");
+        $url: url('./images/pc/google.png');
         @include backgroundImage($url, center, $width $height, no-repeat);
       }
     }
 
     @at-root #{&}__user-info {
-      position   : relative;
+      position: relative;
       margin-left: 6.6rem;
-      width      : auto;
-      height     : 1.06rem;
-      font-family: "FZPHFW--GB1-0";
-      font-size  : .24rem;
+      width: auto;
+      height: 1.06rem;
+      font-family: 'FZPHFW--GB1-0';
+      font-size: 0.24rem;
       line-height: 1.06rem;
-      color      : $userInfoColor;
-      text-align : left;
+      color: $userInfoColor;
+      text-align: left;
 
       @at-root #{&}__txt,
-      #{&}__drop-btn {
-        margin-left: .1rem;
-        color      : #fb5c6d;
+        #{&}__drop-btn {
+        margin-left: 0.1rem;
+        color: #fb5c6d;
       }
 
       @at-root #{&}__txt {
-        color      : #fb5c6d;
-        font-size  : .24rem;
-        line-height: .35rem;
-        min-width  : 2.8rem;
-        display    : inline-block;
+        color: #fb5c6d;
+        font-size: 0.24rem;
+        line-height: 0.35rem;
+        min-width: 2.8rem;
+        display: inline-block;
       }
 
       @at-root #{&}__txt:nth-child(1) {
@@ -145,19 +143,19 @@
 
   .download-box {
     @include fixedRightBox(1.9rem, 4.8rem, 3rem, 0.08rem);
-    $url: url("./images/pc/nav-bg.png");
+    $url: url('./images/pc/nav-bg.png');
     @include backgroundImage($url, center, 1.9rem 4.8rem, no-repeat);
 
     @at-root #{&}__control-btn {
-      position  : absolute;
-      top       : 2.8rem;
-      left      : -0.15rem;
-      $width    : .3rem;
-      $height   : .4rem;
-      width     : $width;
-      height    : $height;
-      margin-top: .15rem;
-      $url      : url("./images/pc/nav-toggle.png");
+      position: absolute;
+      top: 2.8rem;
+      left: -0.15rem;
+      $width: 0.3rem;
+      $height: 0.4rem;
+      width: $width;
+      height: $height;
+      margin-top: 0.15rem;
+      $url: url('./images/pc/nav-toggle.png');
       @include backgroundImage($url, center, $width $height, no-repeat);
       cursor: pointer;
 
@@ -171,70 +169,70 @@
     }
 
     @at-root #{&}__content {
-      $width     : 1.6rem;
-      $height    : 2.34rem;
-      width      : $width;
-      height     : $height;
-      margin-top : 1.86rem;
-      margin-left: .2rem;
-      text-align : center;
+      $width: 1.6rem;
+      $height: 2.34rem;
+      width: $width;
+      height: $height;
+      margin-top: 1.86rem;
+      margin-left: 0.2rem;
+      text-align: center;
 
       @at-root #{&}__btn {
-        display            : inline-block;
-        background-repeat  : no-repeat;
+        display: inline-block;
+        background-repeat: no-repeat;
         background-position: center;
-        margin-left        : auto;
-        margin-right       : auto;
+        margin-left: auto;
+        margin-right: auto;
 
         @at-root #{&}::after {
-          display      : block;
-          content      : "";
-          margin-top   : .06rem;
-          margin-bottom: .06rem;
-          width        : .75rem;
-          height       : .02rem;
-          $url         : url("./images/pc/act1-icon.png");
-          @include backgroundImage($url, center, .48rem .18rem, no-repeat);
+          display: block;
+          content: '';
+          margin-top: 0.06rem;
+          margin-bottom: 0.06rem;
+          width: 0.75rem;
+          height: 0.02rem;
+          $url: url('./images/pc/act1-icon.png');
+          @include backgroundImage($url, center, 0.48rem 0.18rem, no-repeat);
         }
 
         @at-root #{&}--act1 {
-          $width          : 1.19rem;
-          $height         : .38rem;
-          width           : $width;
-          height          : $height;
-          margin-top      : .21rem;
-          background-size : $width $height;
-          background-image: url("./images/pc/nav-act1.png");
+          $width: 1.19rem;
+          $height: 0.38rem;
+          width: $width;
+          height: $height;
+          margin-top: 0.21rem;
+          background-size: $width $height;
+          background-image: url('./images/pc/nav-act1.png');
         }
 
         @at-root #{&}--act2 {
-          $width          : 1.37rem;
-          $height         : .38rem;
-          width           : $width;
-          height          : $height;
-          margin-top      : .12rem;
-          background-size : $width $height;
-          background-image: url("./images/pc/nav-act2.png");
+          $width: 1.37rem;
+          $height: 0.38rem;
+          width: $width;
+          height: $height;
+          margin-top: 0.12rem;
+          background-size: $width $height;
+          background-image: url('./images/pc/nav-act2.png');
         }
 
         @at-root #{&}--act3 {
-          $width          : 1.19rem;
-          $height         : .42rem;
-          width           : $width;
-          height          : $height;
-          margin-top      : .17rem;
-          background-size : $width $height;
-          background-image: url("./images/pc/nav-act3.png");
+          $width: 1.19rem;
+          $height: 0.42rem;
+          width: $width;
+          height: $height;
+          margin-top: 0.17rem;
+          background-size: $width $height;
+          background-image: url('./images/pc/nav-act3.png');
         }
 
         @at-root #{&}--facebook {
-          $width          : .41rem;
-          $height         : .15rem;
-          width           : $width;
-          height          : $height;
-          margin-top      : .23rem;
-          background-size : $width $height;
-          background-image: url("./images/pc/nav-fans.png");
+          $width: 0.41rem;
+          $height: 0.15rem;
+          width: $width;
+          height: $height;
+          margin-top: 0.23rem;
+          background-size: $width $height;
+          background-image: url('./images/pc/nav-fans.png');
 
           @at-root #{&}::after {
             display: none;
@@ -244,16 +242,16 @@
     }
 
     @at-root #{&}__scroll-top-btn {
-      position        : absolute;
-      bottom          : .26rem;
-      left            : .88rem;
-      $width          : .33rem;
-      $height         : .24rem;
-      width           : $width;
-      height          : $height;
-      background-size : $width $height;
-      background-image: url("./images/pc/top.png");
-      cursor          : pointer;
+      position: absolute;
+      bottom: 0.26rem;
+      left: 0.88rem;
+      $width: 0.33rem;
+      $height: 0.24rem;
+      width: $width;
+      height: $height;
+      background-size: $width $height;
+      background-image: url('./images/pc/top.png');
+      cursor: pointer;
     }
   }
 
@@ -266,12 +264,12 @@
     height: 7.6rem;
 
     @at-root #{&}__title {
-      $width     : 7.21rem;
-      $height    : 1.68rem;
-      width      : $width;
-      height     : $height;
+      $width: 7.21rem;
+      $height: 1.68rem;
+      width: $width;
+      height: $height;
       margin-left: 5.95rem;
-      $url       : url("./images/pc/act1-title.png");
+      $url: url('./images/pc/act1-title.png');
       @include backgroundImage($url, center, $width $height, no-repeat);
     }
 
@@ -280,40 +278,40 @@
     }
 
     @at-root #{&}__content {
-      position   : relative;
-      width      : 7.2rem;
-      height     : 5.64rem;
+      position: relative;
+      width: 7.2rem;
+      height: 5.64rem;
       margin-left: 6.12rem;
-      margin-top : .27rem;
+      margin-top: 0.27rem;
     }
 
     @at-root #{&}__gifts {
-      margin    : 0;
-      width     : 100%;
+      margin: 0;
+      width: 100%;
       $giftWidth: 1.3rem;
 
       @at-root #{&}__gift {
-        width       : $giftWidth;
-        margin-right: .6rem;
-        float       : left;
+        width: $giftWidth;
+        margin-right: 0.6rem;
+        float: left;
 
         @at-root #{&}::after {
-          display    : block;
-          content    : "";
+          display: block;
+          content: '';
           margin-left: $giftWidth;
-          width      : .6rem;
-          height     : 100%;
-          $url       : url("./images/pc/act1-icon.png");
-          @include backgroundImage($url, center, .48rem .18rem, no-repeat);
+          width: 0.6rem;
+          height: 100%;
+          $url: url('./images/pc/act1-icon.png');
+          @include backgroundImage($url, center, 0.48rem 0.18rem, no-repeat);
         }
       }
 
       @at-root #{&}__gift--1 {
         $giftHeight: 2.04rem;
-        height     : $giftHeight;
-        $url       : url("./images/pc/act1-gift1.png");
+        height: $giftHeight;
+        $url: url('./images/pc/act1-gift1.png');
         @include backgroundImage($url, center, $giftWidth $giftHeight, no-repeat);
-        margin-left: .93rem;
+        margin-left: 0.93rem;
         // @at-root #{&}:hover {
         //   position: relative;
         //   top     : -.1rem;
@@ -322,8 +320,8 @@
 
       @at-root #{&}__gift--2 {
         $giftHeight: 2.07rem;
-        height     : $giftHeight;
-        $url       : url("./images/pc/act1-gift2.png");
+        height: $giftHeight;
+        $url: url('./images/pc/act1-gift2.png');
         @include backgroundImage($url, center, $giftWidth $giftHeight, no-repeat);
         // @at-root #{&}:hover {
         //   position: relative;
@@ -333,8 +331,8 @@
 
       @at-root #{&}__gift--3 {
         $giftHeight: 2.07rem;
-        height     : $giftHeight;
-        $url       : url("./images/pc/act1-gift3.png");
+        height: $giftHeight;
+        $url: url('./images/pc/act1-gift3.png');
         @include backgroundImage($url, center, $giftWidth $giftHeight, no-repeat);
 
         @at-root #{&}::after {
@@ -349,10 +347,10 @@
 
       @at-root #{&}__gift--4 {
         $giftHeight: 2.04rem;
-        height     : $giftHeight;
-        $url       : url("./images/pc/act1-gift4.png");
+        height: $giftHeight;
+        $url: url('./images/pc/act1-gift4.png');
         @include backgroundImage($url, center, $giftWidth $giftHeight, no-repeat);
-        margin-top: .72rem;
+        margin-top: 0.72rem;
         // @at-root #{&}:hover {
         //   position: relative;
         //   top     : .1rem;
@@ -361,14 +359,14 @@
 
       @at-root #{&}__gift--5 {
         $giftHeight: 2.07rem;
-        width      : 1.79rem;
-        height     : $giftHeight;
-        $url       : url("./images/pc/act1-gift5.png");
+        width: 1.79rem;
+        height: $giftHeight;
+        $url: url('./images/pc/act1-gift5.png');
         @include backgroundImage($url, center, 1.79rem $giftHeight, no-repeat);
-        margin-top : .72rem;
-        margin-left: -.24rem;
+        margin-top: 0.72rem;
+        margin-left: -0.24rem;
 
-        margin-right: .36rem;
+        margin-right: 0.36rem;
 
         @at-root #{&}::after {
           margin-left: 1.55rem;
@@ -382,10 +380,10 @@
 
       @at-root #{&}__gift--6 {
         $giftHeight: 1.97rem;
-        height     : $giftHeight;
-        $url       : url("./images/pc/act1-gift6.png");
+        height: $giftHeight;
+        $url: url('./images/pc/act1-gift6.png');
         @include backgroundImage($url, center, $giftWidth $giftHeight, no-repeat);
-        margin-top: .72rem;
+        margin-top: 0.72rem;
         // @at-root #{&}:hover {
         //   position: relative;
         //   top     : -.1rem;
@@ -394,10 +392,10 @@
 
       @at-root #{&}__gift--7 {
         $giftHeight: 2.04rem;
-        height     : $giftHeight;
-        $url       : url("./images/pc/act1-gift7.png");
+        height: $giftHeight;
+        $url: url('./images/pc/act1-gift7.png');
         @include backgroundImage($url, center, $giftWidth $giftHeight, no-repeat);
-        margin-top  : .72rem;
+        margin-top: 0.72rem;
         margin-right: 0;
 
         @at-root #{&}::after {
@@ -411,58 +409,58 @@
       }
     }
 
-    $act1BtnWidth :1.1rem;
-    $act1BtnHeight:.4rem;
+    $act1BtnWidth: 1.1rem;
+    $act1BtnHeight: 0.4rem;
 
     @at-root #{&}__join-btn {
-      display : block;
-      width   : $act1BtnWidth;
-      height  : $act1BtnHeight;
+      display: block;
+      width: $act1BtnWidth;
+      height: $act1BtnHeight;
       position: absolute;
 
       @at-root #{&}--end {
-        $url: url("./images/pc/act1-joined.png");
+        $url: url('./images/pc/act1-joined.png');
         @include backgroundImage($url, center, $act1BtnWidth $act1BtnHeight, no-repeat);
       }
 
       @at-root #{&}--start {
-        $url: url("./images/pc/act1-join.png");
+        $url: url('./images/pc/act1-join.png');
         @include backgroundImage($url, center, $act1BtnWidth $act1BtnHeight, no-repeat);
       }
     }
 
     @at-root #{&}__join-btn1 {
-      top : 2.16rem;
+      top: 2.16rem;
       left: 1.03rem;
     }
 
     @at-root #{&}__join-btn2 {
-      top : 2.16rem;
+      top: 2.16rem;
       left: 2.94rem;
     }
 
     @at-root #{&}__join-btn3 {
-      top : 2.16rem;
+      top: 2.16rem;
       left: 4.84rem;
     }
 
     @at-root #{&}__join-btn4 {
-      top : 5rem;
-      left: .1rem;
+      top: 5rem;
+      left: 0.1rem;
     }
 
     @at-root #{&}__join-btn5 {
-      top : 5rem;
+      top: 5rem;
       left: 2rem;
     }
 
     @at-root #{&}__join-btn6 {
-      top : 5rem;
+      top: 5rem;
       left: 3.88rem;
     }
 
     @at-root #{&}__join-btn7 {
-      top : 5rem;
+      top: 5rem;
       left: 5.76rem;
     }
   }
@@ -472,12 +470,12 @@
     height: 8.04rem;
 
     @at-root #{&}__title {
-      $width     : 5.71rem;
-      $height    : 2.04rem;
-      width      : $width;
-      height     : $height;
+      $width: 5.71rem;
+      $height: 2.04rem;
+      width: $width;
+      height: $height;
       margin-left: 6.75rem;
-      $url       : url("./images/pc/act2-title.png");
+      $url: url('./images/pc/act2-title.png');
       @include backgroundImage($url, center, $width $height, no-repeat);
     }
 
@@ -486,40 +484,40 @@
     }
 
     @at-root #{&}__content {
-      position   : relative;
-      width      : 7.2rem;
-      height     : 5.3rem;
+      position: relative;
+      width: 7.2rem;
+      height: 5.3rem;
       margin-left: 6.11rem;
-      margin-top : .44rem;
+      margin-top: 0.44rem;
     }
 
     @at-root #{&}__gifts {
-      margin    : 0;
-      width     : 100%;
+      margin: 0;
+      width: 100%;
       $giftWidth: 1.3rem;
 
       @at-root #{&}__gift {
-        width       : $giftWidth;
-        margin-right: .6rem;
-        float       : left;
+        width: $giftWidth;
+        margin-right: 0.6rem;
+        float: left;
 
         @at-root #{&}::after {
-          display    : block;
-          content    : "";
+          display: block;
+          content: '';
           margin-left: $giftWidth;
-          width      : .6rem;
-          height     : 100%;
-          $url       : url("./images/pc/act1-icon.png");
-          @include backgroundImage($url, center, .48rem .18rem, no-repeat);
+          width: 0.6rem;
+          height: 100%;
+          $url: url('./images/pc/act1-icon.png');
+          @include backgroundImage($url, center, 0.48rem 0.18rem, no-repeat);
         }
       }
 
       @at-root #{&}__gift--1 {
         $giftHeight: 2.04rem;
-        height     : $giftHeight;
-        $url       : url("./images/pc/act2-gift1.png");
+        height: $giftHeight;
+        $url: url('./images/pc/act2-gift1.png');
         @include backgroundImage($url, center, $giftWidth $giftHeight, no-repeat);
-        margin-left: .94rem;
+        margin-left: 0.94rem;
         // @at-root #{&}:hover {
         //   position: relative;
         //   top     : -.1rem;
@@ -528,8 +526,8 @@
 
       @at-root #{&}__gift--2 {
         $giftHeight: 2.07rem;
-        height     : $giftHeight;
-        $url       : url("./images/pc/act2-gift2.png");
+        height: $giftHeight;
+        $url: url('./images/pc/act2-gift2.png');
         @include backgroundImage($url, center, $giftWidth $giftHeight, no-repeat);
         // @at-root #{&}:hover {
         //   position: relative;
@@ -539,8 +537,8 @@
 
       @at-root #{&}__gift--3 {
         $giftHeight: 2.1rem;
-        height     : $giftHeight;
-        $url       : url("./images/pc/act2-gift3.png");
+        height: $giftHeight;
+        $url: url('./images/pc/act2-gift3.png');
         @include backgroundImage($url, center, $giftWidth $giftHeight, no-repeat);
 
         @at-root #{&}::after {
@@ -554,12 +552,12 @@
       }
 
       @at-root #{&}__gift--4 {
-        width      : 1.34rem;
+        width: 1.34rem;
         $giftHeight: 2.04rem;
-        height     : $giftHeight;
-        $url       : url("./images/pc/act2-gift4.png");
+        height: $giftHeight;
+        $url: url('./images/pc/act2-gift4.png');
         @include backgroundImage($url, center, 1.34rem $giftHeight, no-repeat);
-        margin-top: .66rem;
+        margin-top: 0.66rem;
         // @at-root #{&}:hover {
         //   position: relative;
         //   top     : .1rem;
@@ -568,14 +566,14 @@
 
       @at-root #{&}__gift--5 {
         $giftHeight: 2.07rem;
-        width      : 1.42rem;
-        height     : $giftHeight;
-        $url       : url("./images/pc/act2-gift5.png");
+        width: 1.42rem;
+        height: $giftHeight;
+        $url: url('./images/pc/act2-gift5.png');
         @include backgroundImage($url, center, 1.42rem $giftHeight, no-repeat);
-        margin-top : .66rem;
-        margin-left: -.09rem;
+        margin-top: 0.66rem;
+        margin-left: -0.09rem;
 
-        margin-right: .51rem;
+        margin-right: 0.51rem;
 
         @at-root #{&}::after {
           margin-left: 1.32rem;
@@ -589,11 +587,11 @@
 
       @at-root #{&}__gift--6 {
         $giftHeight: 1.97rem;
-        width      : 1.34rem;
-        height     : $giftHeight;
-        $url       : url("./images/pc/act2-gift6.png");
+        width: 1.34rem;
+        height: $giftHeight;
+        $url: url('./images/pc/act2-gift6.png');
         @include backgroundImage($url, center, 1.34rem $giftHeight, no-repeat);
-        margin-top: .66rem;
+        margin-top: 0.66rem;
 
         // @at-root #{&}:hover {
         //   position: relative;
@@ -606,13 +604,13 @@
 
       @at-root #{&}__gift--7 {
         $giftHeight: 2.04rem;
-        width      : 1.42rem;
-        height     : $giftHeight;
-        $url       : url("./images/pc/act2-gift7.png");
+        width: 1.42rem;
+        height: $giftHeight;
+        $url: url('./images/pc/act2-gift7.png');
         @include backgroundImage($url, center, 1.42rem $giftHeight, no-repeat);
-        margin-top  : .66rem;
+        margin-top: 0.66rem;
         margin-right: 0;
-        margin-left : -.09rem;
+        margin-left: -0.09rem;
 
         @at-root #{&}::after {
           display: none;
@@ -625,58 +623,58 @@
       }
     }
 
-    $act1BtnWidth :1.1rem;
-    $act1BtnHeight:.4rem;
+    $act1BtnWidth: 1.1rem;
+    $act1BtnHeight: 0.4rem;
 
     @at-root #{&}__join-btn {
-      display : block;
-      width   : $act1BtnWidth;
-      height  : $act1BtnHeight;
+      display: block;
+      width: $act1BtnWidth;
+      height: $act1BtnHeight;
       position: absolute;
 
       @at-root #{&}--end {
-        $url: url("./images/pc/act1-joined.png");
+        $url: url('./images/pc/act1-joined.png');
         @include backgroundImage($url, center, $act1BtnWidth $act1BtnHeight, no-repeat);
       }
 
       @at-root #{&}--start {
-        $url: url("./images/pc/act1-join.png");
+        $url: url('./images/pc/act1-join.png');
         @include backgroundImage($url, center, $act1BtnWidth $act1BtnHeight, no-repeat);
       }
     }
 
     @at-root #{&}__join-btn1 {
-      top : 2.12rem;
+      top: 2.12rem;
       left: 1.03rem;
     }
 
     @at-root #{&}__join-btn2 {
-      top : 2.12rem;
+      top: 2.12rem;
       left: 2.94rem;
     }
 
     @at-root #{&}__join-btn3 {
-      top : 2.12rem;
+      top: 2.12rem;
       left: 4.84rem;
     }
 
     @at-root #{&}__join-btn4 {
-      top : 4.9rem;
-      left: .1rem;
+      top: 4.9rem;
+      left: 0.1rem;
     }
 
     @at-root #{&}__join-btn5 {
-      top : 4.9rem;
+      top: 4.9rem;
       left: 2rem;
     }
 
     @at-root #{&}__join-btn6 {
-      top : 4.9rem;
+      top: 4.9rem;
       left: 3.88rem;
     }
 
     @at-root #{&}__join-btn7 {
-      top : 4.9rem;
+      top: 4.9rem;
       left: 5.76rem;
     }
   }
@@ -686,12 +684,12 @@
     height: 12.49rem;
 
     @at-root #{&}__title {
-      $width     : 7.85rem;
-      $height    : 1.97rem;
-      width      : $width;
-      height     : $height;
+      $width: 7.85rem;
+      $height: 1.97rem;
+      width: $width;
+      height: $height;
       margin-left: 5.83rem;
-      $url       : url("./images/pc/act3-title.png");
+      $url: url('./images/pc/act3-title.png');
       @include backgroundImage($url, center, $width $height, no-repeat);
     }
 
@@ -701,151 +699,151 @@
 
     @at-root #{&}__content {
       position: relative;
-      width   : 100%;
-      height  : 10rem;
+      width: 100%;
+      height: 10rem;
     }
 
     @at-root #{&}__btn-all-gift {
-      $width     : 3.44rem;
-      $height    : 1.04rem;
-      width      : $width;
-      height     : $height;
-      margin-top : .2rem;
+      $width: 3.44rem;
+      $height: 1.04rem;
+      width: $width;
+      height: $height;
+      margin-top: 0.2rem;
       margin-left: 8rem;
-      $url       : url("./images/pc/act3-gifts-btn.png");
+      $url: url('./images/pc/act3-gifts-btn.png');
       @include backgroundImage($url, center, $width $height, no-repeat);
     }
 
     @at-root #{&}__pannel {
-      position   : relative;
-      width      : 100%;
-      margin-left: .53rem;
-      font-size  : .36rem;
-      line-height: .48rem;
+      position: relative;
+      width: 100%;
+      margin-left: 0.53rem;
+      font-size: 0.36rem;
+      line-height: 0.48rem;
       font-family: DokChampa;
-      color      : #1560a5;
-      text-align : center;
+      color: #1560a5;
+      text-align: center;
 
       @at-root #{&}__sum-count {
-        box-sizing : border-box;
-        float      : left;
-        padding-top: .41rem;
-        $width     : 2.1rem;
-        $height    : 1.04rem;
+        box-sizing: border-box;
+        float: left;
+        padding-top: 0.41rem;
+        $width: 2.1rem;
+        $height: 1.04rem;
 
-        width      : $width;
-        height     : $height;
-        margin-top : 2.5rem;
+        width: $width;
+        height: $height;
+        margin-top: 2.5rem;
         margin-left: 3.8rem;
-        $url       : url("./images/pc/sum-count.png");
-        @include backgroundImage($url, center top, $width .41rem, no-repeat);
+        $url: url('./images/pc/sum-count.png');
+        @include backgroundImage($url, center top, $width 0.41rem, no-repeat);
       }
 
       @at-root #{&}__bg {
-        float      : left;
-        position   : relative;
-        $width     : 6.24rem;
-        $height    : 6.24rem;
-        width      : $width;
-        height     : $height;
-        margin-left: .44rem;
-        $url       : url("./images/pc/act3-gifts.png");
+        float: left;
+        position: relative;
+        $width: 6.24rem;
+        $height: 6.24rem;
+        width: $width;
+        height: $height;
+        margin-left: 0.44rem;
+        $url: url('./images/pc/act3-gifts.png');
         @include backgroundImage($url, center top, $width $height, no-repeat);
       }
 
       @at-root #{&}__start-btn {
         position: absolute;
-        top     : 2.1rem;
-        left    : 8.67rem;
-        $width  : 1.55rem;
-        $height : 1.78rem;
-        width   : $width;
-        height  : $height;
-        $url    : url("./images/pc/act3-start.png");
+        top: 2.1rem;
+        left: 8.67rem;
+        $width: 1.55rem;
+        $height: 1.78rem;
+        width: $width;
+        height: $height;
+        $url: url('./images/pc/act3-start.png');
         @include backgroundImage($url, center, $width $height, no-repeat);
       }
 
       @at-root #{&}__day-count {
-        box-sizing : border-box;
-        float      : left;
-        padding-top: .41rem;
-        $width     : 1.39rem;
-        $height    : 1.04rem;
-        width      : $width;
-        height     : $height;
-        margin-top : 2.5rem;
-        margin-left: .8rem;
-        $url       : url("./images/pc/day-count.png");
-        @include backgroundImage($url, center top, $width .41rem, no-repeat);
+        box-sizing: border-box;
+        float: left;
+        padding-top: 0.41rem;
+        $width: 1.39rem;
+        $height: 1.04rem;
+        width: $width;
+        height: $height;
+        margin-top: 2.5rem;
+        margin-left: 0.8rem;
+        $url: url('./images/pc/day-count.png');
+        @include backgroundImage($url, center top, $width 0.41rem, no-repeat);
       }
     }
 
     @at-root #{&}__gifts-wrap {
-      position        : absolute;
-      top             : 1.7rem;
-      left            : 6.9rem;
-      width           : 6.1rem;
-      height          : 4.4rem;
-      border-bottom   : .1rem solid #59a8bf;
+      position: absolute;
+      top: 1.7rem;
+      left: 6.9rem;
+      width: 6.1rem;
+      height: 4.4rem;
+      border-bottom: 0.1rem solid #59a8bf;
       background-color: #91e7f7;
-      border-radius   : 20px;
+      border-radius: 20px;
     }
 
     @at-root #{&}__gifts__title {
       font-family: DokChampa;
-      font-size  : .24rem;
-      color      : #0976d9;
-      margin     : .32rem 0 0 1.63rem;
+      font-size: 0.24rem;
+      color: #0976d9;
+      margin: 0.32rem 0 0 1.63rem;
     }
 
     @at-root #{&}__gifts {
-      margin-left: .84rem;
-      margin-top : .4rem;
+      margin-left: 0.84rem;
+      margin-top: 0.4rem;
     }
 
     @at-root #{&}__gift {
-      box-sizing  : border-box;
-      padding-top : 0.92rem;
-      float       : left;
-      $width      : 0.92rem;
-      $height     : 1.5rem;
-      width       : $width;
-      height      : $height;
-      margin-right: .26rem;
+      box-sizing: border-box;
+      padding-top: 0.92rem;
+      float: left;
+      $width: 0.92rem;
+      $height: 1.5rem;
+      width: $width;
+      height: $height;
+      margin-right: 0.26rem;
     }
 
     @for $i from 1 through 8 {
       @at-root #{&}__gift--#{$i} {
-        $url : url("./images/pc/act3-icon#{$i}.png");
+        $url: url('./images/pc/act3-icon#{$i}.png');
         @include backgroundImage($url, center top, 0.92rem 0.92rem, no-repeat);
       }
     }
 
     @at-root #{&}__gift__count {
-      height     : .5rem;
-      line-height: .5rem;
+      height: 0.5rem;
+      line-height: 0.5rem;
       font-family: DokChampa;
-      font-size  : .24rem;
-      color      : #0976d9;
-      text-align : center;
+      font-size: 0.24rem;
+      color: #0976d9;
+      text-align: center;
     }
   }
 
   .fans-info {
-    margin-left   : 3.6rem;
-    font-family   : DokChampa;
-    font-size     : .24rem;
-    font-weight   : normal;
-    font-stretch  : normal;
-    line-height   : .28rem;
+    margin-left: 3.6rem;
+    font-family: DokChampa;
+    font-size: 0.24rem;
+    font-weight: normal;
+    font-stretch: normal;
+    line-height: 0.28rem;
     letter-spacing: 0px;
-    color         : #020946;
+    color: #020946;
   }
 
   .fans__a {
-    font-size  : inherit;
+    font-size: inherit;
     line-height: inherit;
-    color      : #fffd00;
+    color: #fffd00;
   }
 
   /* 活动结束 */
@@ -855,11 +853,11 @@
     @include footer($footerPcHeight, $footerBackgroundValue);
 
     @at-root #{&}__logo {
-      $width : 2.31rem;
-      $height: .71rem;
-      width  : $width;
-      height : $height;
-      $url   : url("./images/pc/footer-logo.png");
+      $width: 2.31rem;
+      $height: 0.71rem;
+      width: $width;
+      height: $height;
+      $url: url('./images/pc/footer-logo.png');
       @include backgroundImage($url, center, $width $height, no-repeat);
     }
   }
@@ -874,89 +872,88 @@
 
   /* 提示框的样式 */
   .DialogTip {
-    width     : 100%;
-    height    : 100%;
-    position  : fixed;
-    top       : 0;
-    left      : 0;
-    z-index   : 99;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 99;
     background: rgba(17, 31, 50, 0.5);
 
     .tipBox,
     .cdkBox {
-      width             : 811px;
-      height            : 270px;
-      background-size   : 100%;
-      position          : fixed;
-      top               : 50%;
-      left              : 50%;
-      transform         : translate(-50%, -50%);
-      border-radius     : 20px;
-      background-color  : #8ed7e5;
+      width: 811px;
+      height: 270px;
+      background-size: 100%;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border-radius: 20px;
+      background-color: #8ed7e5;
       // background-size: contain;
       // box-shadow     : 0px 14px 0 0px #59a8bf;
-      border-bottom     : 10px solid #59a8bf;
+      border-bottom: 10px solid #59a8bf;
 
       .tipTxt {
-        width      : 80%;
-        position   : absolute;
-        top        : 50%;
-        left       : 50%;
-        transform  : translate(-50%, -50%);
-        text-align : center;
-        padding    : 0 30px;
+        width: 80%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        padding: 0 30px;
         font-family: DokChampa;
-        font-size  : 24px;
-        color      : #0976d9;
+        font-size: 24px;
+        color: #0976d9;
         line-height: 30px;
       }
     }
 
     .rewardBox {
-      width           : 460px;
-      height          : 320px;
+      width: 460px;
+      height: 320px;
       background-color: #91e7f7;
-      border-radius   : 20px;
-      border-bottom   : 10px solid #59a8bf;
+      border-radius: 20px;
+      border-bottom: 10px solid #59a8bf;
     }
 
     .reward-box__title {
       font-family: DokChampa;
-      font-size  : 24px;
-      color      : #0976d9;
-      margin     : 50px 0 0 90px;
+      font-size: 24px;
+      color: #0976d9;
+      margin: 50px 0 0 90px;
     }
 
     .reward-box__gift {
-      box-sizing : border-box;
+      box-sizing: border-box;
       padding-top: 92px;
-      float      : left;
-      $width     : 92px;
-      $height    : 150px;
-      width      : $width;
-      height     : $height;
+      float: left;
+      $width: 92px;
+      $height: 150px;
+      width: $width;
+      height: $height;
       margin-left: 180px;
-      margin-top : 42px;
+      margin-top: 42px;
     }
 
     .reward-box__gift__count {
-      height     : 50px;
+      height: 50px;
       line-height: 50px;
       font-family: DokChampa;
-      font-size  : 24px;
-      color      : #0976d9;
-      text-align : center;
+      font-size: 24px;
+      color: #0976d9;
+      text-align: center;
     }
 
     @for $i from 1 through 8 {
       .reward-box__gift--#{$i} {
-        $url : url("./images/pc/act3-icon#{$i}.png");
+        $url: url('./images/pc/act3-icon#{$i}.png');
         @include backgroundImage($url, center top, 92px 92px, no-repeat);
       }
     }
 
     /* 提示框的样式结束 */
-
   }
 }
 
@@ -965,28 +962,27 @@
 \*------------------------------------*/
 
 @include mq($mobile) {
-
   .app {
-    $width : $mainMbWidth;
+    $width: $mainMbWidth;
     $height: $mainMbHeight;
-    $url   : url("./images/mb/bg.jpg");
+    $url: url('./images/mb/bg.jpg');
     @include backgroundImage($url, top center, $width $height, no-repeat);
     overflow: hidden;
   }
 
   .container {
-    box-sizing    : border-box;
-    height        : $mainPcHeight;
+    box-sizing: border-box;
+    height: $mainPcHeight;
     padding-bottom: $footerMbHeight;
   }
 
   /* Header  */
 
   .header {
-    box-sizing : border-box;
-    position   : relative;
+    box-sizing: border-box;
+    position: relative;
     padding-top: 1px;
-    height     : 5.18rem;
+    height: 5.18rem;
 
     // @at-root #{&}__title-and-time {
     //   $width    : 7.5rem;
@@ -1002,78 +998,78 @@
       margin-top: 2.84rem;
 
       @at-root #{&}__login-btn {
-        $width     : 3.52rem;
-        $height    : 1.06rem;
-        display    : block;
-        width      : $width;
-        height     : $height;
+        $width: 3.52rem;
+        $height: 1.06rem;
+        display: block;
+        width: $width;
+        height: $height;
         margin-left: 1.66rem;
-        $url       : url("./images/pc/login-control.png");
+        $url: url('./images/pc/login-control.png');
         @include backgroundImage($url, center, $width $height, no-repeat);
       }
 
-      $downloadwidth : 2.75rem;
+      $downloadwidth: 2.75rem;
       $downloadheight: 0.86rem;
 
       @at-root #{&}__ios-btn,
-      #{&}__google-btn {
-        width     : $downloadwidth;
-        height    : $downloadheight;
-        display   : inline-block;
-        margin-top: .1rem;
+        #{&}__google-btn {
+        width: $downloadwidth;
+        height: $downloadheight;
+        display: inline-block;
+        margin-top: 0.1rem;
       }
 
       @at-root #{&}__ios-btn {
-        $width     : $downloadwidth;
-        $height    : $downloadheight;
-        width      : $width;
-        height     : $height;
-        margin-left: .94rem;
-        $url       : url("./images/pc/ios.png");
+        $width: $downloadwidth;
+        $height: $downloadheight;
+        width: $width;
+        height: $height;
+        margin-left: 0.94rem;
+        $url: url('./images/pc/ios.png');
         @include backgroundImage($url, center, $width $height, no-repeat);
       }
 
       @at-root #{&}__google-btn {
-        $width     : $downloadwidth;
-        $height    : $downloadheight;
-        width      : $width;
-        height     : $height;
+        $width: $downloadwidth;
+        $height: $downloadheight;
+        width: $width;
+        height: $height;
         margin-left: -0.4rem;
-        $url       : url("./images/pc/google.png");
+        $url: url('./images/pc/google.png');
         @include backgroundImage($url, center, $width $height, no-repeat);
       }
     }
 
     @at-root #{&}__user-info {
-      position   : relative;
+      position: relative;
       margin-left: 1.4rem;
-      top        : -0.1rem;
-      width      : auto;
-      height     : 1.06rem;
-      font-family: "FZPHFW--GB1-0";
-      font-size  : .24rem;
+      top: -0.1rem;
+      width: auto;
+      height: 1.06rem;
+      font-family: 'FZPHFW--GB1-0';
+      font-size: 0.24rem;
       line-height: 1.06rem;
-      color      : $userInfoColor;
-      text-align : left;
+      color: $userInfoColor;
+      text-align: left;
 
       @at-root #{&}__txt,
-      #{&}__drop-btn {
-        margin-left: .1rem;
-        color      : #fb5c6d;
+        #{&}__drop-btn {
+        margin-left: 0.1rem;
+        color: #fb5c6d;
       }
 
       @at-root #{&}__drop-btn {
         position: absolute;
-        top     : .8rem;
-        left    : 1.8rem;
+        top: 0.8rem;
+        left: 1.8rem;
       }
 
       @at-root #{&}__txt {
-        color      : #fb5c6d;
-        font-size  : .24rem;
-        line-height: .35rem;
-        min-width  : 2.8rem;
-        display    : inline-block;
+        color: #fb5c6d;
+        font-size: 0.24rem;
+        line-height: 0.35rem;
+        min-width: 2.8rem;
+        display: inline-block;
       }
 
       @at-root #{&}__txt:nth-child(1) {
@@ -1082,8 +1078,8 @@
     }
   }
 
-  //download-box 
-  //下载的右侧悬浮窗 
+  //download-box
+  //下载的右侧悬浮窗
 
   .download-box {
     display: none;
@@ -1096,12 +1092,12 @@
     height: 8.1rem;
 
     @at-root #{&}__title {
-      $width     : 6.78rem;
-      $height    : 2.28rem;
-      width      : $width;
-      height     : $height;
-      margin-left: .36rem;
-      $url       : url("./images/mb/act1-title.png");
+      $width: 6.78rem;
+      $height: 2.28rem;
+      width: $width;
+      height: $height;
+      margin-left: 0.36rem;
+      $url: url('./images/mb/act1-title.png');
       @include backgroundImage($url, center, $width $height, no-repeat);
     }
 
@@ -1110,38 +1106,38 @@
     }
 
     @at-root #{&}__content {
-      position   : relative;
-      width      : 7.5rem;
-      height     : 5.23rem;
-      margin-left: .23rem;
-      margin-top : .18rem;
+      position: relative;
+      width: 7.5rem;
+      height: 5.23rem;
+      margin-left: 0.23rem;
+      margin-top: 0.18rem;
     }
 
     @at-root #{&}__gifts {
-      margin    : 0;
-      width     : 100%;
+      margin: 0;
+      width: 100%;
       $giftWidth: 1.34rem;
 
       @at-root #{&}__gift {
-        width       : $giftWidth;
-        margin-right: .6rem;
-        float       : left;
+        width: $giftWidth;
+        margin-right: 0.6rem;
+        float: left;
 
         @at-root #{&}::after {
-          display    : block;
-          content    : "";
+          display: block;
+          content: '';
           margin-left: $giftWidth;
-          width      : .6rem;
-          height     : 100%;
-          $url       : url("./images/pc/act1-icon.png");
-          @include backgroundImage($url, center, .48rem .18rem, no-repeat);
+          width: 0.6rem;
+          height: 100%;
+          $url: url('./images/pc/act1-icon.png');
+          @include backgroundImage($url, center, 0.48rem 0.18rem, no-repeat);
         }
       }
 
       @at-root #{&}__gift--1 {
         $giftHeight: 2.1rem;
-        height     : $giftHeight;
-        $url       : url("./images/mb/act1-gift1.png");
+        height: $giftHeight;
+        $url: url('./images/mb/act1-gift1.png');
         @include backgroundImage($url, center, 1.3rem 2.08rem, no-repeat);
         margin-left: 1.16rem;
         // @at-root #{&}:hover {
@@ -1152,8 +1148,8 @@
 
       @at-root #{&}__gift--2 {
         $giftHeight: 2.1rem;
-        height     : $giftHeight;
-        $url       : url("./images/mb/act1-gift2.png");
+        height: $giftHeight;
+        $url: url('./images/mb/act1-gift2.png');
         @include backgroundImage($url, center, 1.34rem 2.11rem, no-repeat);
         // @at-root #{&}:hover {
         //   position: relative;
@@ -1163,8 +1159,8 @@
 
       @at-root #{&}__gift--3 {
         $giftHeight: 2.1rem;
-        height     : $giftHeight;
-        $url       : url("./images/mb/act1-gift3.png");
+        height: $giftHeight;
+        $url: url('./images/mb/act1-gift3.png');
         @include backgroundImage($url, center, 1.34rem 2.11rem, no-repeat);
 
         @at-root #{&}::after {
@@ -1179,10 +1175,10 @@
 
       @at-root #{&}__gift--4 {
         $giftHeight: 2.1rem;
-        height     : $giftHeight;
-        $url       : url("./images/mb/act1-gift4.png");
+        height: $giftHeight;
+        $url: url('./images/mb/act1-gift4.png');
         @include backgroundImage($url, center, 1.3rem 2.08rem, no-repeat);
-        margin-top: .5rem;
+        margin-top: 0.5rem;
         // @at-root #{&}:hover {
         //   position: relative;
         //   top     : .1rem;
@@ -1191,14 +1187,14 @@
 
       @at-root #{&}__gift--5 {
         $giftHeight: 2.1rem;
-        width      : 2.01rem;
-        height     : $giftHeight;
-        $url       : url("./images/mb/act1-gift5.png");
+        width: 2.01rem;
+        height: $giftHeight;
+        $url: url('./images/mb/act1-gift5.png');
         @include backgroundImage($url, center, 2.01rem 2.11rem, no-repeat);
-        margin-top : .5rem;
-        margin-left: -.36rem;
+        margin-top: 0.5rem;
+        margin-left: -0.36rem;
 
-        margin-right: .2rem;
+        margin-right: 0.2rem;
 
         @at-root #{&}::after {
           margin-left: 1.6rem;
@@ -1212,10 +1208,10 @@
 
       @at-root #{&}__gift--6 {
         $giftHeight: 2.1rem;
-        height     : $giftHeight;
-        $url       : url("./images/mb/act1-gift6.png");
+        height: $giftHeight;
+        $url: url('./images/mb/act1-gift6.png');
         @include backgroundImage($url, center, 1.31rem 2.01rem, no-repeat);
-        margin-top: .5rem;
+        margin-top: 0.5rem;
         // @at-root #{&}:hover {
         //   position: relative;
         //   top     : -.1rem;
@@ -1224,10 +1220,10 @@
 
       @at-root #{&}__gift--7 {
         $giftHeight: 2.1rem;
-        height     : $giftHeight;
-        $url       : url("./images/mb/act1-gift7.png");
+        height: $giftHeight;
+        $url: url('./images/mb/act1-gift7.png');
         @include backgroundImage($url, center, 1.39rem 2.08rem, no-repeat);
-        margin-top  : .5rem;
+        margin-top: 0.5rem;
         margin-right: 0;
 
         @at-root #{&}::after {
@@ -1241,58 +1237,58 @@
       }
     }
 
-    $act1BtnWidth :1.1rem;
-    $act1BtnHeight:.4rem;
+    $act1BtnWidth: 1.1rem;
+    $act1BtnHeight: 0.4rem;
 
     @at-root #{&}__join-btn {
-      display : block;
-      width   : $act1BtnWidth;
-      height  : $act1BtnHeight;
+      display: block;
+      width: $act1BtnWidth;
+      height: $act1BtnHeight;
       position: absolute;
 
       @at-root #{&}--end {
-        $url: url("./images/pc/act1-joined.png");
+        $url: url('./images/pc/act1-joined.png');
         @include backgroundImage($url, center, $act1BtnWidth $act1BtnHeight, no-repeat);
       }
 
       @at-root #{&}--start {
-        $url: url("./images/pc/act1-join.png");
+        $url: url('./images/pc/act1-join.png');
         @include backgroundImage($url, center, $act1BtnWidth $act1BtnHeight, no-repeat);
       }
     }
 
     @at-root #{&}__join-btn1 {
-      top : 2.16rem;
+      top: 2.16rem;
       left: 1.26rem;
     }
 
     @at-root #{&}__join-btn2 {
-      top : 2.16rem;
+      top: 2.16rem;
       left: 3.18rem;
     }
 
     @at-root #{&}__join-btn3 {
-      top : 2.16rem;
+      top: 2.16rem;
       left: 5.08rem;
     }
 
     @at-root #{&}__join-btn4 {
-      top : 4.8rem;
-      left: .1rem;
+      top: 4.8rem;
+      left: 0.1rem;
     }
 
     @at-root #{&}__join-btn5 {
-      top : 4.8rem;
+      top: 4.8rem;
       left: 2rem;
     }
 
     @at-root #{&}__join-btn6 {
-      top : 4.8rem;
+      top: 4.8rem;
       left: 3.88rem;
     }
 
     @at-root #{&}__join-btn7 {
-      top : 4.8rem;
+      top: 4.8rem;
       left: 5.8rem;
     }
   }
@@ -1302,12 +1298,12 @@
     height: 8.21rem;
 
     @at-root #{&}__title {
-      $width     : 6.17rem;
-      $height    : 2.33rem;
-      width      : $width;
-      height     : $height;
+      $width: 6.17rem;
+      $height: 2.33rem;
+      width: $width;
+      height: $height;
       margin-left: 0.67rem;
-      $url       : url("./images/mb/act2-title.png");
+      $url: url('./images/mb/act2-title.png');
       @include backgroundImage($url, center, $width $height, no-repeat);
     }
 
@@ -1316,40 +1312,40 @@
     }
 
     @at-root #{&}__content {
-      position   : relative;
-      width      : 7.22rem;
-      height     : 5.3rem;
-      margin-top : .12rem;
-      margin-left: .14rem;
+      position: relative;
+      width: 7.22rem;
+      height: 5.3rem;
+      margin-top: 0.12rem;
+      margin-left: 0.14rem;
     }
 
     @at-root #{&}__gifts {
-      margin    : 0;
-      width     : 100%;
+      margin: 0;
+      width: 100%;
       $giftWidth: 1.3rem;
 
       @at-root #{&}__gift {
-        width       : $giftWidth;
-        margin-right: .6rem;
-        float       : left;
+        width: $giftWidth;
+        margin-right: 0.6rem;
+        float: left;
 
         @at-root #{&}::after {
-          display    : block;
-          content    : "";
+          display: block;
+          content: '';
           margin-left: $giftWidth;
-          width      : .6rem;
-          height     : 100%;
-          $url       : url("./images/pc/act1-icon.png");
-          @include backgroundImage($url, center, .48rem .18rem, no-repeat);
+          width: 0.6rem;
+          height: 100%;
+          $url: url('./images/pc/act1-icon.png');
+          @include backgroundImage($url, center, 0.48rem 0.18rem, no-repeat);
         }
       }
 
       @at-root #{&}__gift--1 {
         $giftHeight: 2.1rem;
-        height     : $giftHeight;
-        $url       : url("./images/mb/act2-gift1.png");
+        height: $giftHeight;
+        $url: url('./images/mb/act2-gift1.png');
         @include backgroundImage($url, center, $giftWidth $giftHeight, no-repeat);
-        margin-left: .94rem;
+        margin-left: 0.94rem;
         // @at-root #{&}:hover {
         //   position: relative;
         //   top     : -.1rem;
@@ -1358,8 +1354,8 @@
 
       @at-root #{&}__gift--2 {
         $giftHeight: 2.1rem;
-        height     : $giftHeight;
-        $url       : url("./images/mb/act2-gift2.png");
+        height: $giftHeight;
+        $url: url('./images/mb/act2-gift2.png');
         @include backgroundImage($url, center, $giftWidth $giftHeight, no-repeat);
         // @at-root #{&}:hover {
         //   position: relative;
@@ -1369,8 +1365,8 @@
 
       @at-root #{&}__gift--3 {
         $giftHeight: 2.1rem;
-        height     : $giftHeight;
-        $url       : url("./images/mb/act2-gift3.png");
+        height: $giftHeight;
+        $url: url('./images/mb/act2-gift3.png');
         @include backgroundImage($url, center, $giftWidth $giftHeight, no-repeat);
 
         @at-root #{&}::after {
@@ -1384,13 +1380,13 @@
       }
 
       @at-root #{&}__gift--4 {
-        width      : 1.5rem;
+        width: 1.5rem;
         $giftHeight: 2.1rem;
-        height     : $giftHeight;
-        $url       : url("./images/mb/act2-gift4.png");
+        height: $giftHeight;
+        $url: url('./images/mb/act2-gift4.png');
         @include backgroundImage($url, center, 1.5rem $giftHeight, no-repeat);
-        margin-top  : .66rem;
-        margin-right: .5rem;
+        margin-top: 0.66rem;
+        margin-right: 0.5rem;
 
         @at-root #{&}::after {
           margin-left: 1.34rem;
@@ -1399,14 +1395,14 @@
 
       @at-root #{&}__gift--5 {
         $giftHeight: 2.1rem;
-        width      : 1.6rem;
-        height     : $giftHeight;
-        $url       : url("./images/mb/act2-gift5.png");
+        width: 1.6rem;
+        height: $giftHeight;
+        $url: url('./images/mb/act2-gift5.png');
         @include backgroundImage($url, center, 1.6rem $giftHeight, no-repeat);
-        margin-top : .66rem;
-        margin-left: -.2rem;
+        margin-top: 0.66rem;
+        margin-left: -0.2rem;
 
-        margin-right: .4rem;
+        margin-right: 0.4rem;
 
         @at-root #{&}::after {
           margin-left: 1.42rem;
@@ -1420,12 +1416,12 @@
 
       @at-root #{&}__gift--6 {
         $giftHeight: 2.1rem;
-        width      : 1.5rem;
-        height     : $giftHeight;
-        $url       : url("./images/mb/act2-gift6.png");
+        width: 1.5rem;
+        height: $giftHeight;
+        $url: url('./images/mb/act2-gift6.png');
         @include backgroundImage($url, center, 1.5rem $giftHeight, no-repeat);
-        margin-top : .66rem;
-        margin-left: -.12rem;
+        margin-top: 0.66rem;
+        margin-left: -0.12rem;
 
         // @at-root #{&}:hover {
         //   position: relative;
@@ -1438,13 +1434,13 @@
 
       @at-root #{&}__gift--7 {
         $giftHeight: 2.1rem;
-        width      : 1.6rem;
-        height     : $giftHeight;
-        $url       : url("./images/mb/act2-gift7.png");
+        width: 1.6rem;
+        height: $giftHeight;
+        $url: url('./images/mb/act2-gift7.png');
         @include backgroundImage($url, center, 1.6rem $giftHeight, no-repeat);
-        margin-top  : .66rem;
+        margin-top: 0.66rem;
         margin-right: 0;
-        margin-left : -.3rem;
+        margin-left: -0.3rem;
 
         @at-root #{&}::after {
           display: none;
@@ -1457,58 +1453,58 @@
       }
     }
 
-    $act1BtnWidth :1.1rem;
-    $act1BtnHeight:.4rem;
+    $act1BtnWidth: 1.1rem;
+    $act1BtnHeight: 0.4rem;
 
     @at-root #{&}__join-btn {
-      display : block;
-      width   : $act1BtnWidth;
-      height  : $act1BtnHeight;
+      display: block;
+      width: $act1BtnWidth;
+      height: $act1BtnHeight;
       position: absolute;
 
       @at-root #{&}--end {
-        $url: url("./images/pc/act1-joined.png");
+        $url: url('./images/pc/act1-joined.png');
         @include backgroundImage($url, center, $act1BtnWidth $act1BtnHeight, no-repeat);
       }
 
       @at-root #{&}--start {
-        $url: url("./images/pc/act1-join.png");
+        $url: url('./images/pc/act1-join.png');
         @include backgroundImage($url, center, $act1BtnWidth $act1BtnHeight, no-repeat);
       }
     }
 
     @at-root #{&}__join-btn1 {
-      top : 2.18rem;
+      top: 2.18rem;
       left: 1.03rem;
     }
 
     @at-root #{&}__join-btn2 {
-      top : 2.18rem;
+      top: 2.18rem;
       left: 2.94rem;
     }
 
     @at-root #{&}__join-btn3 {
-      top : 2.18rem;
+      top: 2.18rem;
       left: 4.84rem;
     }
 
     @at-root #{&}__join-btn4 {
-      top : 5rem;
-      left: .2rem;
+      top: 5rem;
+      left: 0.2rem;
     }
 
     @at-root #{&}__join-btn5 {
-      top : 5rem;
+      top: 5rem;
       left: 2.04rem;
     }
 
     @at-root #{&}__join-btn6 {
-      top : 5rem;
+      top: 5rem;
       left: 3.88rem;
     }
 
     @at-root #{&}__join-btn7 {
-      top : 5rem;
+      top: 5rem;
       left: 5.72rem;
     }
   }
@@ -1518,12 +1514,12 @@
     height: 13rem;
 
     @at-root #{&}__title {
-      $width     : 7.45rem;
-      $height    : 2.26rem;
-      width      : $width;
-      height     : $height;
+      $width: 7.45rem;
+      $height: 2.26rem;
+      width: $width;
+      height: $height;
       margin-left: 0.02rem;
-      $url       : url("./images/mb/act3-title.png");
+      $url: url('./images/mb/act3-title.png');
       @include backgroundImage($url, center, $width $height, no-repeat);
     }
 
@@ -1533,133 +1529,133 @@
 
     @at-root #{&}__content {
       position: relative;
-      width   : 100%;
-      height  : 10rem;
+      width: 100%;
+      height: 10rem;
     }
 
     @at-root #{&}__btn-all-gift {
-      $width     : 3.44rem;
-      $height    : 1.04rem;
-      width      : $width;
-      height     : $height;
-      margin-top : .12rem;
+      $width: 3.44rem;
+      $height: 1.04rem;
+      width: $width;
+      height: $height;
+      margin-top: 0.12rem;
       margin-left: 1.82rem;
-      $url       : url("./images/pc/act3-gifts-btn.png");
+      $url: url('./images/pc/act3-gifts-btn.png');
       @include backgroundImage($url, center, $width $height, no-repeat);
     }
 
     @at-root #{&}__pannel {
-      position   : relative;
-      width      : 100%;
-      height     : 8.8rem;
-      font-size  : .36rem;
-      line-height: .48rem;
+      position: relative;
+      width: 100%;
+      height: 8.8rem;
+      font-size: 0.36rem;
+      line-height: 0.48rem;
       font-family: DokChampa;
-      color      : #1560a5;
-      text-align : center;
+      color: #1560a5;
+      text-align: center;
 
       @at-root #{&}__sum-count {
-        box-sizing : border-box;
-        padding-top: .5rem;
-        position   : absolute;
-        top        : .48rem;
-        left       : 3.85rem;
-        $width     : 2.23rem;
-        $height    : 1.04rem;
+        box-sizing: border-box;
+        padding-top: 0.5rem;
+        position: absolute;
+        top: 0.48rem;
+        left: 3.85rem;
+        $width: 2.23rem;
+        $height: 1.04rem;
 
-        width : $width;
+        width: $width;
         height: $height;
-        $url  : url("./images/mb/sum-count.png");
-        @include backgroundImage($url, center top, $width .41rem, no-repeat);
+        $url: url('./images/mb/sum-count.png');
+        @include backgroundImage($url, center top, $width 0.41rem, no-repeat);
       }
 
       @at-root #{&}__bg {
         position: absolute;
-        left    : .6rem;
-        top     : 1.6rem;
-        $width  : 6.24rem;
-        $height : 6.24rem;
-        width   : $width;
-        height  : $height;
-        $url    : url("./images/pc/act3-gifts.png");
+        left: 0.6rem;
+        top: 1.6rem;
+        $width: 6.24rem;
+        $height: 6.24rem;
+        width: $width;
+        height: $height;
+        $url: url('./images/pc/act3-gifts.png');
         @include backgroundImage($url, center top, $width $height, no-repeat);
       }
 
       @at-root #{&}__start-btn {
         position: absolute;
-        top     : 3.7rem;
-        left    : 2.94rem;
-        $width  : 1.55rem;
-        $height : 1.78rem;
-        width   : $width;
-        height  : $height;
-        $url    : url("./images/pc/act3-start.png");
+        top: 3.7rem;
+        left: 2.94rem;
+        $width: 1.55rem;
+        $height: 1.78rem;
+        width: $width;
+        height: $height;
+        $url: url('./images/pc/act3-start.png');
         @include backgroundImage($url, center, $width $height, no-repeat);
       }
 
       @at-root #{&}__day-count {
-        box-sizing : border-box;
-        padding-top: .5rem;
-        position   : absolute;
-        top        : .48rem;
-        left       : 1.66rem;
-        $width     : 1.49rem;
-        $height    : 1.04rem;
-        width      : $width;
-        height     : $height;
-        $url       : url("./images/mb/day-count.png");
-        @include backgroundImage($url, center top, $width .41rem, no-repeat);
+        box-sizing: border-box;
+        padding-top: 0.5rem;
+        position: absolute;
+        top: 0.48rem;
+        left: 1.66rem;
+        $width: 1.49rem;
+        $height: 1.04rem;
+        width: $width;
+        height: $height;
+        $url: url('./images/mb/day-count.png');
+        @include backgroundImage($url, center top, $width 0.41rem, no-repeat);
       }
     }
 
     @at-root #{&}__gifts-wrap {
-      position        : absolute;
-      top             : 3.45rem;
-      left            : .69rem;
-      width           : 6.1rem;
-      height          : 4.4rem;
-      border-bottom   : .1rem solid #59a8bf;
+      position: absolute;
+      top: 3.45rem;
+      left: 0.69rem;
+      width: 6.1rem;
+      height: 4.4rem;
+      border-bottom: 0.1rem solid #59a8bf;
       background-color: #91e7f7;
-      border-radius   : .2rem;
+      border-radius: 0.2rem;
     }
 
     @at-root #{&}__gifts__title {
       font-family: DokChampa;
-      font-size  : .24rem;
-      color      : #0976d9;
-      margin     : .32rem 0 0 1.63rem;
+      font-size: 0.24rem;
+      color: #0976d9;
+      margin: 0.32rem 0 0 1.63rem;
     }
 
     @at-root #{&}__gifts {
-      margin-left: .84rem;
-      margin-top : .4rem;
+      margin-left: 0.84rem;
+      margin-top: 0.4rem;
     }
 
     @at-root #{&}__gift {
-      box-sizing  : border-box;
-      padding-top : 0.92rem;
-      float       : left;
-      $width      : 0.92rem;
-      $height     : 1.5rem;
-      width       : $width;
-      height      : $height;
-      margin-right: .26rem;
+      box-sizing: border-box;
+      padding-top: 0.92rem;
+      float: left;
+      $width: 0.92rem;
+      $height: 1.5rem;
+      width: $width;
+      height: $height;
+      margin-right: 0.26rem;
     }
 
     @for $i from 1 through 8 {
       @at-root #{&}__gift--#{$i} {
-        $url : url("./images/pc/act3-icon#{$i}.png");
+        $url: url('./images/pc/act3-icon#{$i}.png');
         @include backgroundImage($url, center top, 0.92rem 0.92rem, no-repeat);
       }
     }
 
     @at-root #{&}__gift__count {
-      height     : .5rem;
-      line-height: .5rem;
+      height: 0.5rem;
+      line-height: 0.5rem;
       font-family: DokChampa;
-      font-size  : .24rem;
-      color      : #0976d9;
-      text-align : center;
+      font-size: 0.24rem;
+      color: #0976d9;
+      text-align: center;
     }
   }
 
@@ -1668,118 +1664,117 @@
   /* footer的样式 */
 
   .fans-info {
-    margin-left: .43rem;
+    margin-left: 0.43rem;
     font-family: DokChampa;
-    font-size  : .24rem;
-    line-height: .28rem;
-    color      : #020946;
-    text-align : left;
+    font-size: 0.24rem;
+    line-height: 0.28rem;
+    color: #020946;
+    text-align: left;
   }
 
   .fans__a {
-    font-size  : inherit;
+    font-size: inherit;
     line-height: inherit;
-    color      : #fffd00;
+    color: #fffd00;
   }
 
   .#{$footerClassName} {
     @include footer($footerPcHeight, $footerBackgroundValue);
 
     @at-root #{&}__logo {
-      $width : 2.31rem;
-      $height: .71rem;
-      width  : $width;
-      height : $height;
-      $url   : url("./images/pc/footer-logo.png");
+      $width: 2.31rem;
+      $height: 0.71rem;
+      width: $width;
+      height: $height;
+      $url: url('./images/pc/footer-logo.png');
       @include backgroundImage($url, center, $width $height, no-repeat);
     }
   }
 
   // 提示框的样式
   .DialogTip {
-    width     : 100%;
-    height    : 100%;
-    position  : fixed;
-    top       : 0;
-    left      : 0;
-    z-index   : 99;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 99;
     background: rgba(17, 31, 50, 0.5);
 
     .tipBox,
     .cdkBox {
-      width             : 6.12rem;
-      height            : 2rem;
-      background-size   : 100%;
-      position          : fixed;
-      top               : 50%;
-      left              : 50%;
-      transform         : translate(-50%, -50%);
-      border-radius     : .2rem;
-      background-color  : #8ed7e5;
+      width: 6.12rem;
+      height: 2rem;
+      background-size: 100%;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border-radius: 0.2rem;
+      background-color: #8ed7e5;
       // background-size: contain;
       // box-shadow     : 0px 14px 0 0px #59a8bf;
-      border-bottom     : .1rem solid #59a8bf;
+      border-bottom: 0.1rem solid #59a8bf;
 
       .tipTxt {
-        width      : 80%;
-        position   : absolute;
-        top        : 50%;
-        left       : 50%;
-        transform  : translate(-50%, -50%);
-        text-align : center;
-        padding    : 0 .3rem;
+        width: 80%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        padding: 0 0.3rem;
         font-family: DokChampa;
-        font-size  : .24rem;
-        color      : #0976d9;
-        line-height: .28rem;
+        font-size: 0.24rem;
+        color: #0976d9;
+        line-height: 0.28rem;
       }
     }
 
     .rewardBox {
-      width           : 4.6rem;
-      height          : 3.2rem;
+      width: 4.6rem;
+      height: 3.2rem;
       background-color: #91e7f7;
-      border-radius   : .2rem;
-      border-bottom   : .1rem solid #59a8bf;
+      border-radius: 0.2rem;
+      border-bottom: 0.1rem solid #59a8bf;
     }
 
     .reward-box__title {
       font-family: DokChampa;
-      font-size  : .24rem;
-      color      : #0976d9;
-      margin     : .5rem 0 0 .9rem;
+      font-size: 0.24rem;
+      color: #0976d9;
+      margin: 0.5rem 0 0 0.9rem;
     }
 
     .reward-box__gift {
-      box-sizing : border-box;
-      padding-top: .92rem;
-      float      : left;
-      $width     : .92rem;
-      $height    : .92rem;
-      width      : $width;
-      height     : $height;
-      margin-left: 1.80rem;
-      margin-top : .42rem;
+      box-sizing: border-box;
+      padding-top: 0.92rem;
+      float: left;
+      $width: 0.92rem;
+      $height: 0.92rem;
+      width: $width;
+      height: $height;
+      margin-left: 1.8rem;
+      margin-top: 0.42rem;
     }
 
     .reward-box__gift__count {
-      height     : .5rem;
-      line-height: .5rem;
+      height: 0.5rem;
+      line-height: 0.5rem;
       font-family: DokChampa;
-      font-size  : .24rem;
-      color      : #0976d9;
-      text-align : center;
+      font-size: 0.24rem;
+      color: #0976d9;
+      text-align: center;
     }
 
     @for $i from 1 through 8 {
       .reward-box__gift--#{$i} {
-        $url : url("./images/pc/act3-icon#{$i}.png");
-        @include backgroundImage($url, center top, .92rem .92rem, no-repeat);
+        $url: url('./images/pc/act3-icon#{$i}.png');
+        @include backgroundImage($url, center top, 0.92rem 0.92rem, no-repeat);
       }
     }
 
     /* 提示框的样式结束 */
-
   }
 
   //提示框的样式 结束

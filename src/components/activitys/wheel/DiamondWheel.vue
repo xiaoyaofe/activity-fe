@@ -47,7 +47,9 @@
 			<p
 				:class="className+ '__descrition-txt'"
 			>2.Người chơi có thể nhận được đạo cụ đặc biệt qua rút thưởng, gom đủ đạo cụ đặc biệt có thể đổi được thần thú và vật phẩm đặc biệt, đồng thời trừ đạo cụ đặc biệt số lượng tương ứng. Sau khi event kết thúc, quà chưa đổi sẽ xem như người chơi tự động bỏ cuộc.</p>
-			<p :class="className+ '__descrition-txt'">3.Quà nhận được khi rút thưởng sẽ được gửi qua thư.</p>
+			<p
+				:class="className+ '__descrition-txt'"
+			>3.Quà nhận được khi rút thưởng sẽ được gửi qua thư. Quà lớn của bể quà sẽ được gửi trong 3 ngày làm việc sau khi event kết thúc.</p>
 			<p
 				:class="className+ '__descrition-txt'"
 			>4.Trong bể quà, số lượng hiển thị Xu sẽ làm mới 1 phút 1 lần, số lượng thực nhận xin vui lòng lấy số lượng hiển thị lúc rút thưởng làm chuẩn.</p>

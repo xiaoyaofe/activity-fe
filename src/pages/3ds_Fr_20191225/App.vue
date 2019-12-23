@@ -29,7 +29,7 @@
 			<Join id="act1" :className="'act1'" :actInfos="act1Infos" @showLogin="visibleLogin">
 				<ul class="act1__gifts clearfix">
 					<li
-						v-for="(item,index) in ['Đăng nhập mỗi ngày','VIP đăng nhập mỗi ngày','Đăng nhập 7 ngày liên tiếp']"
+						v-for="(item,index) in ['1','2','3']"
 						:class="['act1__gifts__gift']"
 						:key="'act1__gifts__gift--'+index"
 					>
@@ -43,7 +43,7 @@
 				@showLogin="visibleLogin"
 				:isGetHistory="isGetHistory"
 				:days="3"
-				:activeTime="'2019-12-18'"
+				:activeTime="'2019-12-20'"
 			></Lottery>
 			<Wheel id="act3" :className="'act3'" @showLogin="visibleLogin" :isGetHistory="isGetHistory"></Wheel>
 		</div>
@@ -93,8 +93,8 @@
 				direction: "right",
 				isShowTop: true,
 				hrefBtns: [
-					{ txt: "", id: "ios", href: "" },
-					{ txt: "", id: "android", href: "" }
+					{ txt: "", id: "ios", href: "http://bit.ly/2PGurMY" },
+					{ txt: "", id: "android", href: "http://bit.ly/2PGurMY" }
 				],
 				activeBtns: [
 					{ txt: "Événement 1", id: "act1" },

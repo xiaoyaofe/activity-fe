@@ -1727,24 +1727,21 @@
     }
 
     @at-root #{&}__description {
-      width      : 6.36rem;
-      margin-left: .55rem;
-      margin-top : .2rem;
-      font-family: Calibri-Light;
-      font-size  : .22rem;
-      color      : #222222;
+      $width : 6.35rem;
+      $height: 3.48rem;
+      width  : $width;
+      height : $height;
+      margin : .2rem 0 0 .55rem;
+      $url   : url("./images/mb/act2-txt.png");
+      @include backgroundImage($url, center, $width $height, no-repeat);
     }
 
     @at-root #{&}__descrition-txt {
-      line-height: 1.3em;
+      display: none;
     }
 
     @at-root #{&}__description-title {
-      font-family: Calibri-Bold;
-      font-weight: bold;
-      font-size  : .28rem;
-      line-height: .4rem;
-      color      : #0387db;
+      display: none;
     }
 
     @at-root #{&}__isExchangeBtns {

@@ -1,67 +1,65 @@
- /* #app 的配置  */
- /* 查看布局 ,使用完毕注释*/
- // @include outline();
- /* $pcWidth  :19.2rem */
- $mainPcWidth :$pcWidth;
- $minPcWidth  : $minWidth;
- $mainPcHeight:51.79rem;
- /* $mbWidth  : 7.5rem */
- $mainMbWidth :$mbWidth;
- $mainMbHeight:70.64rem;
+/* #app 的配置  */
+/* 查看布局 ,使用完毕注释*/
+// @include outline();
+/* $pcWidth  :19.2rem */
+$mainPcWidth: $pcWidth;
+$minPcWidth: $minWidth;
+$mainPcHeight: 51.79rem;
+/* $mbWidth  : 7.5rem */
+$mainMbWidth: $mbWidth;
+$mainMbHeight: 70.64rem;
 
- $isShowMessage: 0;
+$isShowMessage: 0;
 
+/* footer 的配置 */
+$footerClassName: 'app_footer';
+$footerHeight: 1.07rem;
+/* 不需要是none */
+$footerBackgroundValue: '#fff';
+// 滚动条
+//  @include scrollbar(8px, 8px, 8px, rgb(125, 125, 125), rgb(11, 205, 240));
 
- /* footer 的配置 */
- $footerClassName: "app_footer";
- $footerHeight   : 1.07rem;
- /* 不需要是none */
- $footerBackgroundValue: "#fff";
- // 滚动条
- //  @include scrollbar(8px, 8px, 8px, rgb(125, 125, 125), rgb(11, 205, 240));
+#app {
+  $width: $mainPcWidth;
+  $height: $mainPcHeight;
+  //  $url     : url("./images/pc/bg.jpg");
+  $position: top center;
+  //  @include minWidthAndHeight($width, $height, $minPcWidth);
+  //  @include backgroundImage($url, $position, $width $height, no-repeat);
+  overflow: auto;
+}
 
- #app {
-   $width       : $mainPcWidth;
-   $height      : $mainPcHeight;
-   //  $url     : url("./images/pc/bg.jpg");
-   $position    : top center;
-   //  @include minWidthAndHeight($width, $height, $minPcWidth);
-   //  @include backgroundImage($url, $position, $width $height, no-repeat);
-   overflow: auto;
- }
+.showMessageBtn {
+  background: #fff;
+  border: 1px solid red;
+}
 
- .showMessageBtn {
-   background: #fff;
-   border    : 1px solid red;
- }
+/* 内容的容器包裹除footer之外的一切元素 */
+.app-container {
+  // box-sizing: border-box;
+  width: 100%;
+  height: 1000px;
+  margin-left: 50px;
+}
 
- /* 内容的容器包裹除footer之外的一切元素 */
- .app-container {
-   // box-sizing: border-box;
-   width        : 100%;
-   height       : 1000px;
-   margin-left  : 50px;
- }
+/* 添加一个吸顶的footer */
+.#{ $footerClassName} {
+  @include footer($footerHeight, $footerBackgroundValue);
+}
 
- /* 添加一个吸顶的footer */
- .#{ $footerClassName} {
-   @include footer($footerHeight, $footerBackgroundValue);
-
- }
-
- /*------------------------------------*\
+/*------------------------------------*\
   #以下仅仅是做BEN 尝试在 sass 中的技巧
 \*------------------------------------*/
- .block {
-   font-size: 22px;
+.block {
+  font-size: 22px;
 
-   @at-root #{&}__element {
-     display: inline;
-   }
+  @at-root #{&}__element {
+    display: inline;
+  }
 
-   @at-root #{&}--modifier {
-     display: inline;
-   }
- }
+  @at-root #{&}--modifier {
+    display: inline;
+  }
+}
 
- /* footer 内部的其他的元素样式 */
+/* footer 内部的其他的元素样式 */

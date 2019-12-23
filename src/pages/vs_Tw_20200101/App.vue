@@ -71,9 +71,9 @@
 				direction: "right",
 				isShowTop: true,
 				hrefBtns: [
-					{ txt: "", id: "fans", href: "" },
-					{ txt: "", id: "android", href: "" },
-					{ txt: "", id: "ios", href: "" }
+					{ txt: "", id: "fans", href: "//www.facebook.com/PocketMonKO/" },
+					{ txt: "", id: "android", href: "http://bit.ly/34kNpxk " },
+					{ txt: "", id: "ios", href: "http://bit.ly/2qaZOoR " }
 				],
 				activeBtns: [
 					{ txt: "1.新年禮包", id: "act1" },

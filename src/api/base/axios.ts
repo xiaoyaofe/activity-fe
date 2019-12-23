@@ -23,6 +23,7 @@ function requestFailFunc(renderError) {
 function responseSuccessFunc(responseObj) {
   //自定义响应成功逻辑，全局拦截接口，根据不同业务做处理，响应成功监控等
   let resData = responseObj.data
+  // console.log(responseObj);
   const tip = window._RG.config.tip;
   let { code } = resData
   switch (code) {
@@ -48,9 +49,11 @@ function responseSuccessFunc(responseObj) {
     // }, 5000)
     // return
     case 401:
+      if (responseObj.config.params.lotteryId) return;
       Vue.prototype.$dialog.show("tip", tip.code_401);
       return
     case 402:
+      if (responseObj.config.params.lotteryId) return;
       Vue.prototype.$dialog.show("tip", tip.code_402);
       return
     // case 444:

@@ -322,7 +322,7 @@ export function poollist(typeId: string, rewardIndexArr: number[]) {
   };
   return get(BASE_URL + Routes.poollist, params, false);
 }
-
+// 抽奖
 export function numLottery(type: 0 | 1) {
   const { actId, rewardId } = window._RG.config.data;
   let params = {
@@ -334,6 +334,18 @@ export function numLottery(type: 0 | 1) {
     type
   };
   return get(BASE_URL + Routes.numLottery, params, !!type);
+}
+// 中奖历史
+
+export function recentlyCdks() {
+  const { actId, rewardId } = window._RG.config.data;
+  let params = {
+    groupId: groupId,
+    actId: actId.numLottery2,
+    token: localStorage.token,
+    limit: 20
+  };
+  return get(BASE_URL + Routes.recentlyCdks, params, false);
 }
 
 // 补充转盘的发奖

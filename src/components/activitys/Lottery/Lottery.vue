@@ -32,7 +32,7 @@
 <script lang="ts">
 	import Vue from "vue";
 	import { isLogin } from "@/common/utils";
-	import { numLottery, getHistory } from "@/api";
+	import { numLottery, recentlyCdks, getHistory } from "@/api";
 	import Activity from "@/components/base/Activity.vue";
 
 	export default Vue.extend({
@@ -135,7 +135,7 @@
 				// console.log(times);
 				this.activeIndex = times;
 				const lotteryRewardIds = window._RG.config.data.rewardId.numLottery2;
-				await getHistory("numLottery2").then((state: any) => {
+				await recentlyCdks().then((state: any) => {
 					// console.log(state);
 					this.history = state;
 					// let activeIndex = -1;
@@ -162,8 +162,8 @@
 				});
 				// 获取code
 				numLottery(0).then((state: any) => {
-					this.code = state.lotteryNum;
-					if (state.lotteryNum) {
+					if (state && state.lotteryNum) {
+						this.code = state.lotteryNum;
 						this.isJoined.splice(this.activeIndex, 1, true);
 					}
 				});

@@ -1,44 +1,44 @@
 <template>
-	<div id="app" class="app">
-		<!-- <RgTable v-bind="{className:'test-table'}"></RgTable> -->
-		<!-- aaaaaaaaa -->
-		<!-- <RgPopup
+  <div id="app" class="app">
+    <!-- <RgTable v-bind="{className:'test-table'}"></RgTable> -->
+    <!-- aaaaaaaaa -->
+    <!-- <RgPopup
 			:isShow="isShowMessager"
 			:isShowMark="true"
 			@close="toogleAttr({name:'isShowMessager',value:false})"
-		></RgPopup>-->
-		<div class="app-container">
-			<button class="animate-btn" v-tap="{methods:animate}">开始</button>
-			<div ref="animate1" class="animate"></div>
-			<!-- <div ref="animate2" class="animate2"></div> -->
-		</div>
-		<!-- <button class="showMessageBtn" v-tap="{methods:toogleAttr,name:'isShowMessager',value:true}">打开消息框</button> -->
-		<!-- <footer class="app_footer"></footer> -->
-	</div>
+    ></RgPopup>-->
+    <div class="app-container">
+      <button class="animate-btn" v-tap="{methods:animate}">开始</button>
+      <div ref="animate1" class="animate"></div>
+      <!-- <div ref="animate2" class="animate2"></div> -->
+    </div>
+    <!-- <button class="showMessageBtn" v-tap="{methods:toogleAttr,name:'isShowMessager',value:true}">打开消息框</button> -->
+    <!-- <footer class="app_footer"></footer> -->
+  </div>
 </template>
 <script lang="ts">
-	import { animate } from "../../common//utils/";
-	import Vue from "vue";
-	import RgPopup from "@/components/popup/RgPopup.vue";
-	import RgTable from "@/components/base/table.vue";
+	import {animate} from '../../common//utils/';
+	import Vue from 'vue';
+	import RgPopup from '@/components/popup/RgPopup.vue';
+	import RgTable from '@/components/base/table.vue';
 	export default Vue.extend({
 		components: {
 			RgPopup,
-			RgTable
+			RgTable,
 		},
 		data() {
 			return {
-				isShowMessager: false
+				isShowMessager: false,
 			};
 		},
 		computed: {
 			_RG() {
 				return window._RG;
-			}
+			},
 		},
 		async mounted() {},
 		methods: {
-			toogleAttr({ name, value }) {
+			toogleAttr({name, value}) {
 				this[name] = value;
 			},
 			animate() {
@@ -47,18 +47,15 @@
 				// animate([ele1, ele2])
 				// 	.delay(2000)
 				// 	.velocity({ width: 1000, opacity: 0.5 }, 1000);
-				console.log("aaaaaaaaaaaaaa");
-				animate(ele1).velocity(
-					{ rotateZ: 2000 },
-					{ easing: "easeInOutQuad", duration: 3000 }
-				);
-			}
-		}
+				console.log('aaaaaaaaaaaaaa');
+				animate(ele1).velocity({rotateZ: 2000}, {easing: 'easeInOutQuad', duration: 3000});
+			},
+		},
 	});
 </script>
 <style lang="scss">
-	@import "@/common/scss/base.scss";
-	@import "./app.scss";
+	@import '@/common/scss/base.scss';
+	@import './app.scss';
 	.animate-btn {
 		width: 100px;
 		height: 50px;

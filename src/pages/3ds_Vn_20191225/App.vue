@@ -49,7 +49,7 @@
 				:className="'act3'"
 				@showLogin="visibleLogin"
 				:isGetHistory="isGetHistory"
-				:activeTime="'2019-12-18'"
+				:activeTime="'2019-12-28'"
 			></Lottery>
 		</div>
 		<footer class="footer">

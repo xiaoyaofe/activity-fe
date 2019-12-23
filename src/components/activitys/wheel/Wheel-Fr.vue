@@ -63,7 +63,7 @@
 					const bg: HTMLElement = this.$refs.rotateBg as any;
 					animate(bg).velocity({ rotateZ: 0 }, { duration: 0 });
 					animate(bg).velocity(
-						{ rotateZ: 360 * 5 + (11 - rewardIndex) * 30 + 15 },
+						{ rotateZ: 360 * 5 + (7 - rewardIndex) * 45 + 22.5 },
 						{
 							duration: 3000,
 							easing: "easeInOutQuad",
@@ -86,9 +86,7 @@
 				infoActivity("rotate", 0, isloading).then((state: any) => {
 					// console.log(state);
 					if (state) {
-						if (state.poolInfo) {
-							this.diamondNum = state.data.consume;
-						}
+						this.diamondNum = state.data.consume;
 						this.nums = state.data.userSumCount - state.data.useCount;
 					}
 				});

@@ -10,7 +10,8 @@
     "zip": "node ./command/zip.js",
     "unzip": "node ./command/unzip.js",
     "unzipAll": "node ./command/unzipAll.js",
-    "init": "node ./command/init.js"
+    "init": "node ./command/init.js",
+    "getIds": "node ./command/activityInfo.js"
   },
   "dependencies": {
     "@types/axios": "^0.14.0",

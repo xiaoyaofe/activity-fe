@@ -123,7 +123,7 @@
 					console.log(err);
 				});
 				if (data) {
-					this.getInfo(false);
+					
 					// const data = { rewardId: "5de62b48b5cb671f40c7d44d" };
 					const rewardIndex = window._RG.config.data.rewardId.rotate.indexOf(
 						data.rewardId
@@ -136,16 +136,15 @@
 							duration: 3000,
 							easing: "easeInOutQuad",
 							complete: () => {
-								this.disabled = false;
-
+								this.getInfo(false);
 								if (rewardIndex === 1 || rewardIndex === 4 || rewardIndex === 7) {
-									if (rewardIndex === 1) {
-										this.sprites += 1;
-									} else if (rewardIndex === 4) {
-										this.sprites += 3;
-									} else if (rewardIndex === 7) {
-										this.sprites += 5;
-									}
+									// if (rewardIndex === 1) {
+									// 	this.sprites += 1;
+									// } else if (rewardIndex === 4) {
+									// 	this.sprites += 3;
+									// } else if (rewardIndex === 7) {
+									// 	this.sprites += 5;
+									// }
 									this.$dialog.show(
 										"tip",
 										window._RG.config.tip.sprite200.replace(/x+/, data.rewardName)
@@ -168,6 +167,7 @@
 										window._RG.config.tip.code_200.replace(/x+/, data.rewardName)
 									);
 								}
+									this.disabled = false;
 							}
 						}
 					);

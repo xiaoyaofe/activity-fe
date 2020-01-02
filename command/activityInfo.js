@@ -1,3 +1,10 @@
+/* 
+  从测试的活动管理后台爬取活动信息并保存在 src/configs/pages/xxx.json 
+  xxx对应js配置文件的文件名
+  
+  author: zongjiang.get
+  time: 2019-12-23
+*/
 const axios = require('axios');
 const fs = require('fs');
 const path = require("path");

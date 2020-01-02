@@ -1,3 +1,7 @@
+/* 
+  初始化所有的文件 当开始一个新的页面时复制所有的基础文件,并生成所有的需要的文件
+
+*/
 const fs = require('fs');
 const path = require("path");
 const fsPromises = fs.promises;
@@ -12,6 +16,10 @@ fsPromises.readFile(path.resolve(__dirname, '../.env'), { encoding: 'utf-8', fla
     console.log(res.split(/[\n|\r]/).filter(item => /^VUE_APP_PATH=.+$/.test(item)));
   })
   .catch((e) => { console.log(e) });
-  // 新建config/pages中的配置文件, 最好是从数据库中跑出来活动id这些,
+  // 新建config/pages中的配置文件, 活动id已经拿到,需要写入js文件
+
 
   // 创建pages文件夹,复制需要的app.vue 这些文件夹
+
+  // 第三步添加打包上传测试服加 map 这些
+  

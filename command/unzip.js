@@ -3,6 +3,8 @@ const path = require("path");
 const fsPromises = fs.promises;
 const compressing = require('compressing');
 
+// 单独解压一个页面的图片
+
 async function main() {
   /* 拿到当前的目录 */
   const folderName = await fsPromises.readFile(path.resolve(__dirname, '../.env'), { encoding: 'utf-8', flag: 'r' })

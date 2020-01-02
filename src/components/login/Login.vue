@@ -258,8 +258,8 @@
 
 <style lang="scss" scoped>
 	// @import "./vn20191225.scss";
-	@import "./fr20191225.scss";
+	// @import "./fr20191225.scss";
 	// @import "./th20191201.scss";
-	// @import "./tw20200101.scss";
+	@import "./tw20200101.scss";
 </style>
 

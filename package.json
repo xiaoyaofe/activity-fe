@@ -32,12 +32,15 @@
     "vue-scrollto": "^2.15.0"
   },
   "devDependencies": {
+    "@types/lodash": "^4.14.149",
     "@types/md5": "^2.1.33",
     "@types/node": "^12.7.4",
     "@vue/cli-plugin-babel": "^3.11.0",
     "@vue/cli-plugin-typescript": "^3.11.0",
     "@vue/cli-service": "^3.11.0",
+    "chalk": "^3.0.0",
     "compressing": "^1.4.0",
+    "lodash": "^4.17.15",
     "sass": "^1.18.0",
     "sass-loader": "^7.1.0",
     "sass-resources-loader": "^2.0.1",

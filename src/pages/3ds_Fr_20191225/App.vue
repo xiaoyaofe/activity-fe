@@ -1,81 +1,81 @@
 <template>
-	<div id="app" class="app">
-		<!-- 导航栏 -->
-		<DownloadBox v-bind="_downloadBoxOption1"></DownloadBox>
-		<!-- 登录 -->
-		<login v-show="loginIsVisible" @visibleLogin="visibleLogin(false)" @init="initUserInfo($event)"></login>
-		<!-- 容器 -->
-		<div class="container" id="container">
-			<!-- 头部 -->
-			<header class="header">
-				<div class="header__btns-wraper">
-					<RgButton
-						v-if="!userRolle"
-						class="header__btns-wraper__login-btn btn-relative"
-						@click="visibleLogin(true)"
-					></RgButton>
-					<div class="header__user-info" v-show="userRolle">
-						<span
-							class="header__user-info__txt"
-						>{{_RG.config.tip.serve}}:&nbsp;{{userZone.replace(/[^0-9]/ig,"")}}</span>
-						<span class="header__user-info__txt">{{_RG.config.tip.player}}:&nbsp;{{userRolle}}</span>
-						<RgButton
-							class="header__user-info__drop-btn"
-							@click="dropOut"
-						>[&nbsp;{{_RG.config.tip.loginOut}}&nbsp;]</RgButton>
-					</div>
-				</div>
-			</header>
-			<Join id="act1" :className="'act1'" :actInfos="act1Infos" @showLogin="visibleLogin">
-				<ul class="act1__gifts clearfix">
-					<li
-						v-for="(item,index) in ['1','2','3']"
-						:class="['act1__gifts__gift']"
-						:key="'act1__gifts__gift--'+index"
-					>
-						<div :class="['act1__gifts__gift--'+(index+1)]"></div>
-					</li>
-				</ul>
-			</Join>
-			<Lottery
-				id="act2"
-				:className="'act2'"
-				@showLogin="visibleLogin"
-				:isGetHistory="isGetHistory"
-				:days="3"
-				:activeTime="'2019-12-20'"
-			></Lottery>
-			<Wheel id="act3" :className="'act3'" @showLogin="visibleLogin" :isGetHistory="isGetHistory"></Wheel>
-		</div>
-		<footer class="footer">
-			<section class="fans-info">
-				<p class="red fans-info1">Rappel:</p>
-				<p
-					class="fans-info2"
-				>Si vous avez des questions, veuillez nous contacter via la fanpage pour obtenir de l'aide</p>
-				<p class="fans-info2">
-					Lien Fanpage:
-					<a
-						class="fans__a red"
-						href="//www.facebook.com/TrainerBattle/"
-						target="_blank"
-					>https://www.facebook.com/TrainerBattle/</a>
-				</p>
-			</section>
-			<div class="footer__logo"></div>
-		</footer>
-	</div>
+  <div id="app" class="app">
+    <!-- 导航栏 -->
+    <DownloadBox v-bind="_downloadBoxOption1"></DownloadBox>
+    <!-- 登录 -->
+    <login v-show="loginIsVisible" @visibleLogin="visibleLogin(false)" @init="initUserInfo($event)"></login>
+    <!-- 容器 -->
+    <div class="container" id="container">
+      <!-- 头部 -->
+      <header class="header">
+        <div class="header__btns-wraper">
+          <RgButton
+            v-if="!userRolle"
+            class="header__btns-wraper__login-btn btn-relative"
+            @click="visibleLogin(true)"
+          ></RgButton>
+          <div class="header__user-info" v-show="userRolle">
+            <span
+              class="header__user-info__txt"
+            >{{_RG.config.tip.serve}}:&nbsp;{{userZone.replace(/[^0-9]/ig,"")}}</span>
+            <span class="header__user-info__txt">{{_RG.config.tip.player}}:&nbsp;{{userRolle}}</span>
+            <RgButton
+              class="header__user-info__drop-btn"
+              @click="dropOut"
+            >[&nbsp;{{_RG.config.tip.loginOut}}&nbsp;]</RgButton>
+          </div>
+        </div>
+      </header>
+      <Join id="act1" :className="'act1'" :actInfos="act1Infos" @showLogin="visibleLogin">
+        <ul class="act1__gifts clearfix">
+          <li
+            v-for="(item,index) in ['1','2','3']"
+            :class="['act1__gifts__gift']"
+            :key="'act1__gifts__gift--'+index"
+          >
+            <div :class="['act1__gifts__gift--'+(index+1)]"></div>
+          </li>
+        </ul>
+      </Join>
+      <Lottery
+        id="act2"
+        :className="'act2'"
+        @showLogin="visibleLogin"
+        :isGetHistory="isGetHistory"
+        :days="3"
+        :activeTime="'2019-12-24'"
+      ></Lottery>
+      <Wheel id="act3" :className="'act3'" @showLogin="visibleLogin" :isGetHistory="isGetHistory"></Wheel>
+    </div>
+    <footer class="footer">
+      <section class="fans-info">
+        <p class="red fans-info1">Rappel:</p>
+        <p
+          class="fans-info2"
+        >Si vous avez des questions, veuillez nous contacter via la fanpage pour obtenir de l'aide</p>
+        <p class="fans-info2">
+          Lien Fanpage:
+          <a
+            class="fans__a red"
+            href="//www.facebook.com/TrainerBattle/"
+            target="_blank"
+          >https://www.facebook.com/TrainerBattle/</a>
+        </p>
+      </section>
+      <div class="footer__logo"></div>
+    </footer>
+  </div>
 </template>
 <script lang="ts">
-	import Vue from "vue";
-	import { isLogin } from "@/common/utils";
-	import { getAllHistory, infoActivity, weekPayInfo } from "@/api";
-	import Login from "@/components/login/Login.vue";
-	import RgButton from "@/components/base/RgButton.vue";
-	import Join from "@/components/activitys/Join/Join1.vue";
-	import Wheel from "@/components/activitys/wheel/Wheel-Fr.vue";
-	import Lottery from "@/components/activitys/Lottery/Lottery.vue";
-	import DownloadBox from "@/components/navBox/DownloadBox1.vue";
+	import Vue from 'vue';
+	import {isLogin} from '@/common/utils';
+	import {getHistory, infoActivity, weekPayInfo} from '@/api';
+	import Login from '@/components/login/Login.vue';
+	import RgButton from '@/components/base/RgButton.vue';
+	import Join from '@/components/activitys/Join/Join1.vue';
+	import Wheel from '@/components/activitys/wheel/Wheel-Fr.vue';
+	import Lottery from '@/components/activitys/Lottery/Lottery.vue';
+	import DownloadBox from '@/components/navBox/DownloadBox1.vue';
 
 	export default Vue.extend({
 		components: {
@@ -84,61 +84,61 @@
 			Join,
 			Login,
 			Wheel,
-			Lottery
+			Lottery,
 		},
 		data() {
 			this._downloadBoxOption1 = {
-				distance: "-3rem",
+				distance: '-3rem',
 				duration: 800,
-				direction: "right",
+				direction: 'right',
 				isShowTop: true,
 				hrefBtns: [
-					{ txt: "", id: "ios", href: "http://bit.ly/2PGurMY" },
-					{ txt: "", id: "android", href: "http://bit.ly/2PGurMY" }
+					{txt: '', id: 'ios', href: 'http://bit.ly/2PGurMY'},
+					{txt: '', id: 'android', href: 'http://bit.ly/2PGurMY'},
 				],
 				activeBtns: [
-					{ txt: "Événement 1", id: "act1" },
-					{ txt: "Événement 2", id: "act2" },
-					{ txt: "Événement 3", id: "act3" }
-				]
+					{txt: 'Événement 1', id: 'act1'},
+					{txt: 'Événement 2', id: 'act2'},
+					{txt: 'Événement 3', id: 'act3'},
+				],
 			};
 			return {
 				loginIsVisible: false,
-				userZone: "",
-				userRolle: "",
+				userZone: '',
+				userRolle: '',
 				act2GiftJoined: {
 					gift1: false,
 					gift2: false,
 					gift3: false,
-					gift4: false
+					gift4: false,
 				},
 				act1Infos: [
 					{
 						isShow: true,
-						actName: "everyLogin",
+						actName: 'everyLogin',
 						giftIndex: 0,
-						isDisabled: false
+						isDisabled: false,
 					},
 					{
 						isShow: true,
-						actName: "everyLogin",
+						actName: 'everyLogin',
 						giftIndex: 1,
-						isDisabled: false
+						isDisabled: false,
 					},
 					{
 						isShow: true,
-						actName: "everyLogin",
+						actName: 'everyLogin',
 						giftIndex: 2,
-						isDisabled: false
-					}
+						isDisabled: false,
+					},
 				],
-				isGetHistory: false
+				isGetHistory: false,
 			};
 		},
 		computed: {
 			_RG() {
 				return window._RG;
-			}
+			},
 		},
 		async mounted() {
 			// 初始化
@@ -148,22 +148,17 @@
 			//初始化用户信息
 			async initUserInfo() {
 				if (isLogin()) {
-					this.userRolle = localStorage.getItem("playerName") as string;
-					this.userZone = localStorage.getItem("zoneName") as string;
+					this.userRolle = localStorage.getItem('playerName') as string;
+					this.userZone = localStorage.getItem('zoneName') as string;
 					// 打登录点
 					// this.$pixel.pixel("login1");
 					const config = this._RG.config;
-					await getAllHistory().then((val: any) => {
+					await getHistory("everyLogin").then((val: any) => {
 						this.isGetHistory = true;
 						if (val) {
 							val.forEach((item: any) => {
-								const index1 = config.data.rewardId.everyLogin.indexOf(
-									item.rewardId
-								);
+								const index1 = config.data.rewardId.everyLogin.indexOf(item.rewardId);
 								// 判断是否已经领取
-								if (config.data.rewardId.numLottery1[0] === item.rewardId) {
-									// 跟据时间判断应该改变哪一个按钮的状态,根据第二个发放的奖励的Id来确定
-								}
 								if (
 									new Date().getDate() === new Date(item.getDate).getDate() ||
 									item.rewardId === config.data.rewardId.everyLogin[3]
@@ -182,11 +177,11 @@
 			dropOut() {
 				localStorage.clear();
 				location.reload();
-			}
-		}
+			},
+		},
 	});
 </script>
 <style lang="scss">
-	@import "@/common/scss/base.scss";
-	@import "./app.scss";
+	@import '@/common/scss/base.scss';
+	@import './app.scss';
 </style>

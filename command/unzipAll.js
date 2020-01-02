@@ -2,6 +2,7 @@ const fs = require('fs');
 const path = require("path");
 const fsPromises = fs.promises;
 const compressing = require('compressing');
+// 初始解压所有的图片
 
 async function main() {
   /* 拿到当前所有的压缩文件 */
@@ -17,7 +18,7 @@ async function main() {
   };
   const folderNameArr = getFolders(path.resolve(__dirname, `../src/common/images`));
   folderNameArr.forEach(unzip);
-  
+
   function unzip(folderName) {
     const compressFilePath = path.resolve(__dirname, `../src/common/images/${ folderName }.zip`);
     const outPath = path.resolve(__dirname, `../src/pages/${ folderName }`);

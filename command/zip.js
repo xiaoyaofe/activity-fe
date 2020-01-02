@@ -2,7 +2,9 @@ const fs = require('fs');
 const path = require("path");
 const fsPromises = fs.promises;
 const compressing = require('compressing');
-
+/*
+  对图片进行处理,缓解后期图片太多导致文件太大,最后清除一些页面
+*/
 async function main() {
   /* 拿到当前的目录 */
   const folderName = await fsPromises.readFile(path.resolve(__dirname, '../.env'), { encoding: 'utf-8', flag: 'r' })

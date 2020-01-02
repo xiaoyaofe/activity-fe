@@ -143,10 +143,12 @@
 					state.forEach(item => {
 						// history.push({ server: '', player: "aaa", time: "" });
 						const date = new Date(item.getDate);
+						var arr = item.rewardName.split(' ');
+						console.log(arr[arr.length-1].replace("//","/"))
 						history.push({
 							server: item.thirdGameZoneId,
 							player: item.playerName,
-							time: `${date.getDate()}/${date.getMonth() + 1}`
+							time: arr[arr.length-1].replace("//","/")
 						});
 						// const index = lotteryRewardIds.indexOf(item.rewardId);
 						// if (index > activeIndex) {

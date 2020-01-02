@@ -19,6 +19,7 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 const entry = "./src/pages/" + process.env.VUE_APP_PATH + "/main.ts";
+const outputDir = `dist/${ process.env.VUE_APP_PATH }`;
 /* 获取所有的 process.env 中以 VUE_APP_ 开头的参数*/
 function getEnvObj() {
   let result = {};
@@ -34,6 +35,7 @@ module.exports = {
   //打包后资源路径配置
   publicPath: "./",
   productionSourceMap: false,
+  outputDir: outputDir,
   /* 全局变量 */
   configureWebpack: config => {
 
@@ -82,17 +84,13 @@ module.exports = {
     }
   },
   devServer: {
-    // disableHostCheck: true,
-    /* proxy: {
-      '/api': {
-        target: '<url>',
-        ws: true,
+    disableHostCheck: true,
+    proxy: {
+      '^/': {
+        target: 'https://activity.pocketgamesol.com',
+        // ws: true,
         changeOrigin: true
       },
-      '/foo': {
-        target: '<other_url>'
-      }
     }
-  }, */
   }
 }

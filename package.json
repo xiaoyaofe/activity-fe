@@ -11,6 +11,7 @@
     "unzip": "node ./command/unzip.js",
     "unzipAll": "node ./command/unzipAll.js",
     "init": "node ./command/init.js",
+    "zhushi":"必须有活动组id作为参数",
     "getIds": "node ./command/activityInfo.js"
   },
   "dependencies": {

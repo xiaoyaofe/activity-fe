@@ -1,4 +1,3 @@
-
 <template>
 	<Activity :class="className" :desc="desc">
 		<slot />

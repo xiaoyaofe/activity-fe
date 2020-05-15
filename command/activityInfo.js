@@ -21,6 +21,7 @@ axios({
   },
   data: `actId=${ groupId }`
 }).then(res => {
+  console.log(res.data);
   const { title, appId, groupId } = res.data.state.activityGroupBase;
   const result = {
     title,
@@ -44,5 +45,4 @@ axios({
         activityInfo, { encoding: 'utf-8' });
     })
     .catch((e) => { console.log(e) });
-
 })
